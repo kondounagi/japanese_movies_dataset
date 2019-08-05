@@ -4,9 +4,6 @@
     "title": {
       "type": "string"
     },
-    "isan": {
-      "type": "string"
-    },
     "reviews": {
       "type": "object",
       "eigacom": {
