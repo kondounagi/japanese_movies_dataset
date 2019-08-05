@@ -1,8 +1,5 @@
-# japanese_movies_dataset
-
-## json schema
-```
 {
+  "version": "0.1"
   "type": "object",
   "properties": {
     "isan": {
@@ -90,4 +87,3 @@
     }
   }
 }
-```
