@@ -1,5 +1,5 @@
 {
-  "version": "0.1"
+  "version": "0.1",
   "type": "object",
   "properties": {
     "isan": {
@@ -51,7 +51,7 @@
       "type": "string"
     },
     "screen_time": {
-      "type": "integer"
+      "type": "integer",
       "description": "minute"
     },
     "release_data": {
@@ -81,7 +81,7 @@
           }
         }
       }
-    }
+    },
     "plot": {
       "type": "string"
     }
