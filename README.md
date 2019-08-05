@@ -55,6 +55,7 @@
     },
     "screen_time": {
       "type": "integer"
+      "description": "minute"
     },
     "release_data": {
       "type": "date"
@@ -63,10 +64,12 @@
       "type": "string"
     },
     "sales": {
-      "type": "integer"
+      "type": "integer",
+      "description": "yen"
     },
     "production_cost": {
       "type": "integer"
+      "description": "Japanese Yen"
     },
     "search_count": {
       "type": "integer"
