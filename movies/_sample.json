@@ -1,0 +1,26 @@
+{
+    "isan": "",
+    "title": "sample movie",
+    "sponsors": [{
+        cooporate_name: "",
+        cooporate_number: 0
+    }],
+    "distributors": [{
+        cooporate_name: "",
+        cooporate_number: 0
+    }],
+    "director": "",
+    "scriptwriter": "",
+    "performers": "",
+    "production_studio": "",
+    "screen_time": 0,
+    "release_data": "2018-01-01",
+    "category": "",
+    "sales": 0,
+    "production_cost": 0,
+    "search_count": 0,
+    "other_nominate": [{
+        "nominate_name": ""
+    }],
+    "plot": ""
+}
