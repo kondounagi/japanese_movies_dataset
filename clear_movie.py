@@ -22,7 +22,7 @@ for line in in_file.readlines():
         end = len(line)
         for i in range(len(line)):
 
-            if (line[len(line) - i - 1] == '('):
+            if (line[len(line) - i - 1] == '(' or line[len(line) - 1 - i] == '（'):
                 end = len(line) - i - 1
                 break
         
