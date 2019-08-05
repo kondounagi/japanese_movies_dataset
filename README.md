@@ -68,7 +68,7 @@
       "description": "yen"
     },
     "production_cost": {
-      "type": "integer"
+      "type": "integer",
       "description": "Japanese Yen"
     },
     "search_count": {
