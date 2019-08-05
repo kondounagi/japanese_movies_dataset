@@ -54,7 +54,7 @@
       "type": "integer",
       "description": "minute"
     },
-    "release_data": {
+    "release_date": {
       "type": "date"
     },
     "category": {
