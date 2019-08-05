@@ -9,7 +9,7 @@
     "title": {
       "type": "string",
       "description": "The title of the movie"
-    },  
+    },
     "sponsors": {
       "type": "array",
       "items": {
@@ -74,7 +74,7 @@
     "other_nominate": {
       "type": "array",
       "items": {
-        "type": "object", 
+        "type": "object",
         "properties": {
           "nominate_name": {
             "type": "string"
