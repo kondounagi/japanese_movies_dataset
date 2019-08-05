@@ -2,12 +2,12 @@
     "isan": "",
     "title": "sample movie",
     "sponsors": [{
-        corporate_name: "",
-        corporate_number: 0
+        "corporate_name": "",
+        "corporate_number": 0
     }],
     "distributors": [{
-        corporate_name: "",
-        corporate_number: 0
+        "corporate_name": "",
+        "corporate_number": 0
     }],
     "director": "",
     "scriptwriter": "",
