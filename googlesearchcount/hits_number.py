@@ -10,7 +10,7 @@ options = Options()
 options.add_argument('--headless')
 driver = webdriver.Chrome(options=options)
 
-path = "./japanese_movies_dataset/2018_movie_clean"
+path = "../2018_movie_clean"
 search_count_map = {}
 with open(path) as f:
     for line in f:
@@ -28,7 +28,7 @@ with open(path) as f:
             print("NoSuchElementException: " + word)
 
 
-output = open('./workspace/search_count.json', 'w')  # 書き込むファイルを開く
+output = open('./search_count.json', 'w')  # 書き込むファイルを開く
 json.dump(search_count_map, output, ensure_ascii=False)
 
 driver.quit()
