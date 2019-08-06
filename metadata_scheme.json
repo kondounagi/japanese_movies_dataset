@@ -1,5 +1,5 @@
 {
-  "version": "0.1"
+  "version": "0.1",
   "type": "object",
   "properties": {
     "isan": {
@@ -9,7 +9,7 @@
     "title": {
       "type": "string",
       "description": "The title of the movie"
-    },  
+    },
     "sponsors": {
       "type": "array",
       "items": {
@@ -51,10 +51,10 @@
       "type": "string"
     },
     "screen_time": {
-      "type": "integer"
+      "type": "integer",
       "description": "minute"
     },
-    "release_data": {
+    "release_date": {
       "type": "date"
     },
     "category": {
@@ -74,14 +74,14 @@
     "other_nominate": {
       "type": "array",
       "items": {
-        "type": "object", 
+        "type": "object",
         "properties": {
           "nominate_name": {
             "type": "string"
           }
         }
       }
-    }
+    },
     "plot": {
       "type": "string"
     }

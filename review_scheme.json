@@ -1,19 +1,28 @@
 {
-  "review_page_url": "string"
-  "reviews": {
-    "type": "object",
-    "properties": {
-      "isan": {
-        "type": "string",
-        "description": "International Standard Audiovisual Number"
-      },
-      "title": {
-        "type": "string",
-      },
-      "reviews": {
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "reviews": {
+      "type": "object",
+      "eigacom": {
         "type": "array",
         "items": {
-          "review": string
+          "type": "string"
+        }
+      },
+      "filmarks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "coco": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       }
     }
   }
