@@ -34,7 +34,7 @@ def main():
 
             line = line[0:end].strip()
             line = unicodedata.normalize('NFC', line)
-            print(line, year, month, day)
+            print(line, year, month, day, sep='\t')
 
 
 if __name__ == '__main__':
