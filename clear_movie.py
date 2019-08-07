@@ -1,6 +1,5 @@
 import re
 import unicodedata
-import sys
 
 def main():
     year = 2018
