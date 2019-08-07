@@ -25,6 +25,7 @@ def main():
                 day = match_day.group(1)
                 continue
 
+            # FIXME: To be NFKC, or not to be
             line = re.sub('\(.*', '', line)
             line = re.sub('（.*', '', line)
 
