@@ -25,14 +25,9 @@ def main():
                 day = match_day.group(1)
                 continue
 
-            end = len(line)
-            for i in range(len(line)):
+            line = re.sub('\(.*', '', line)
+            line = re.sub('（.*', '', line)
 
-                if (line[len(line) - i - 1] == '(' or line[len(line) - 1 - i] == '（'):
-                    end = len(line) - i - 1
-                    break
-
-            line = line[0:end].strip()
             line = unicodedata.normalize('NFC', line)
             print(line, year, month, day, sep='\t')
 
