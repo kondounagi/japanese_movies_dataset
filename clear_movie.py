@@ -1,6 +1,7 @@
 import re
 import unicodedata
 
+
 def main():
     year = 2018
     month = 0
