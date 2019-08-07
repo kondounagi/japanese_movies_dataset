@@ -11,7 +11,7 @@ def main():
     re_day = re.compile('^([0-9]+)日$')
 
     with open("2018_movie_raw", "r") as in_file:
-        for line in in_file.readlines():
+        for line in in_file:
             line = line.strip()
 
             match_month = re_month.match(line)
