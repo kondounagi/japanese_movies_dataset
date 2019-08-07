@@ -26,7 +26,7 @@ def main():
                 continue
 
             # FIXME: To be NFKC, or not to be
-            line = re.sub('\(.*', '', line)
+            line = re.sub(r'\(.*', '', line)
             line = re.sub('（.*', '', line)
 
             line = unicodedata.normalize('NFC', line)
