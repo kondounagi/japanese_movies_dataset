@@ -16,6 +16,7 @@ screen_time: -1
 production_studio: string
 '''
 
+
 def main():
     film_index = "https://eiga.com"
     film_search = "https://eiga.com/search/"
@@ -51,15 +52,15 @@ def main():
 
             # fetch search result
             content = requests.get(film_search + film).content
-            soup = BeautifulSoup(content, features = "lxml")
-            if (soup.find(id = "rslt-movie") == None):
+            soup = BeautifulSoup(content, features="lxml")
+            if (soup.find(id="rslt-movie") == None):
                 fail_list.append(film_num)
                 continue
-            film_id = soup.find(id = "rslt-movie").find_all("a")[1]['href']
+            film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
 
             # fetch top-1 movie result information
             content = requests.get(film_index + film_id).content
-            soup = BeautifulSoup(content, features = "lxml")
+            soup = BeautifulSoup(content, features="lxml")
 
             # filter out screen time and production studio
             html_text = soup.prettify()
@@ -74,7 +75,7 @@ def main():
             else:
                 print("no match time")
             # filter out informative data
-            staff_cast = soup.find(id = "staff-cast")
+            staff_cast = soup.find(id="staff-cast")
             for div in staff_cast.find_all():
                 # When calling div["class"], return type is list[string]
                 if div.name == "dl" and div.has_attr("class") and div["class"][0] == "movie-staff":
@@ -105,8 +106,5 @@ def main():
     print(fail_list)
 
 
-
-
 if __name__ == "__main__":
     main()
-
