@@ -8,10 +8,11 @@ import csv
 import sys
 import json
 
+
 def main(filepath):
     titles = []
     with open(filepath, 'r', encoding="utf-8_sig") as f:
-        reader = csv.reader(f,delimiter = '\t')
+        reader = csv.reader(f, delimiter='\t')
         for row in reader:
             title = row[0]
             titles.append(title)
@@ -20,15 +21,15 @@ def main(filepath):
         title = titles[i]
         select = getCocoId(title)
         comments = getCocoReview(select)
-        comment_dict = {'title':title, 'comments': comments}
-        output = open('./{}.json'.format(str(i+1)), 'w', encoding = 'utf-8')
-        json.dump(comment_dict, output, indent = 4, ensure_ascii = False)
+        comment_dict = {'title': title, 'comments': comments}
+        output = open('./{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
+        json.dump(comment_dict, output, indent=4, ensure_ascii=False)
         output.close()
 
     return
 
+
 def getCocoId(title):
-    
     def trans(title_string):
         table = str.maketrans({
             '１': '1',
@@ -55,13 +56,13 @@ def getCocoId(title):
         regulated_title = regulated_title.translate(table)
         regulated_title = regulated_title.rstrip(' ')
         return regulated_title
-    
+
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
-    
+
     url = 'https://coco.to/movies'
-    
+
     regulated_title = trans(title)
 
     r = http.request('GET', url, fields={'q': regulated_title})
@@ -94,6 +95,7 @@ def getCocoId(title):
 
     return select
 
+
 def getCocoReview(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
@@ -120,13 +122,14 @@ def getCocoReview(select):
         li = soup.findAll('li', {'class': 'tweet_li'})
         for counter, each in enumerate(li):
             comment_string = each.find('div', {'class': 'tweet_text'}).next_element
-            processed_comment = re.sub(r'\s',' ',comment_string)
+            processed_comment = re.sub(r'\s', ' ', comment_string)
             comments.append(processed_comment)
 
         if flag:
             break
 
     return(comments)
+
 
 if __name__ == '__main__':
     args = sys.argv
