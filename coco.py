@@ -5,8 +5,6 @@ from bs4 import BeautifulSoup
 import re
 
 def cocoScraping(title):
-    #baseUrl = 'https://coco.to'
-
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
@@ -62,9 +60,6 @@ def cocoScraping(title):
 
         li = soup.findAll('li',{'class':'tweet_li'})
         for counter,each in enumerate(li):
-            #if (flag == True) and (counter != 0):
-            #    if 'tweet_title2' in  each.previous_sibling.previous_sibling.previous_sibling.previous_sibling['class']:
-            #       break
             comment = each.find('div',{'class':'tweet_text'}).next_element.replace('\n','').replace('\u3000',' ').replace('\r','')
             comments.append(comment)
 
