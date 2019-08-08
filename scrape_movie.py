@@ -21,7 +21,7 @@ def main():
     film_index = "https://eiga.com"
     film_search = "https://eiga.com/search/"
     # regular experssion for finding time and studio
-    re_time = re.compile("／\d*分／")
+    re_time = re.compile("／\\d*分／")
     re_production_studio = re.compile("配給：[^<]*")
     start_num = 0         # in case of connection refused
 
