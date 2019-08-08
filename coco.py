@@ -7,14 +7,14 @@ import re
 def cocoScraping(title):
     #baseUrl = 'https://coco.to'
 
-    html = urllib3.PoolManager(
+    http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
 
     url = 'https://coco.to/movies?q={}'.format(title)
     encodedUrl = urllib.parse.quote(url,'/:?=&')
 
-    r = html.request('GET', encodedUrl)
+    r = http.request('GET', encodedUrl)
     data = r.data.decode('utf-8')
 
     soup = BeautifulSoup(data,'html.parser')
@@ -54,7 +54,7 @@ def cocoScraping(title):
     for i in range(20):
         url = 'https://coco.to/movie/{}/review/{}'.format(select['cocoId'],str(i+1))
         encodedUrl = urllib.parse.quote(url,'/:?=&')
-        r = html.request('GET', encodedUrl)
+        r = http.request('GET', encodedUrl)
         data = r.data.decode('utf-8')
         soup = BeautifulSoup(data,'html.parser')
         
