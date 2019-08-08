@@ -4,6 +4,7 @@ import urllib
 from bs4 import BeautifulSoup
 import re
 
+
 def cocoScraping(title):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
