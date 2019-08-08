@@ -17,7 +17,7 @@ def main(filepath):
             comments = cocoScraping(title)
             comment_dict = {'title': title, 'comments': comments}
     
-    output = open('./search_count.json', 'w')  # 書き込むファイルを開く
+    output = open('./coco_review.json', 'w')
     json.dump(comment_dict, output, ensure_ascii=False)
     return
 
