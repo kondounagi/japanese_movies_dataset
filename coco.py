@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import certifi
 import urllib3
 import urllib
