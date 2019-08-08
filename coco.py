@@ -17,31 +17,31 @@ def cocoScraping(title):
 
     soup = BeautifulSoup(data, 'html.parser')
 
-    idTitle = []
+    id_title = []
     for element in soup.findAll("div", {"class": "li_pp"}):
-        tempId = re.sub(r'\D', '', element.a['href'])
-        tempTitle = element.find('div', {'class': 'li_ttl'}).string
-        idTitle.append({'cocoId': tempId, 'title': tempTitle})
+        temp_id = re.sub(r'\D', '', element.a['href'])
+        temp_title = element.find('div', {'class': 'li_ttl'}).string
+        id_title.append({'cocoId': temp_id, 'title': temp_title})
 
-    for element in idTitle:
-        tempTitle = element['title']
-        tempTitle = re.sub(r'\s', ' ', tempTitle)
+    for element in id_title:
+        temp_title = element['title']
+        temp_title = re.sub(r'\s', ' ', temp_title)
 
-        tempTitle = re.sub(r'（[^（）]*）', "", tempTitle)
+        temp_title = re.sub(r'（[^（）]*）', "", temp_title)
 
-        tempTitle = re.sub(r'\([^()]*\)', "", tempTitle)
-        tempTitle = tempTitle.replace('...', '')
-        element['title'] = tempTitle
+        temp_title = re.sub(r'\([^()]*\)', "", temp_title)
+        temp_title = temp_title.replace('...', '')
+        element['title'] = temp_title
 
-    regulatedTitle = re.sub(r'\s', ' ', title)
-    regulatedTitle = re.sub(r'（[^（）]*）', "", regulatedTitle)
-    regulatedTitle = re.sub(r'\([^()]*\)', "", regulatedTitle)
-    regulatedTitle = regulatedTitle.replace('...', '')
+    regulated_title = re.sub(r'\s', ' ', title)
+    regulated_title = re.sub(r'（[^（）]*）', "", regulated_title)
+    regulated_title = re.sub(r'\([^()]*\)', "", regulated_title)
+    regulated_title = regulated_title.replace('...', '')
 
     select = None
 
-    for element in idTitle:
-        if regulatedTitle[:len(element['title'])] == element['title']:
+    for element in id_title:
+        if regulated_title[:len(element['title'])] == element['title']:
             select = element
             break
 
@@ -49,8 +49,8 @@ def cocoScraping(title):
 
     for i in range(20):
         url = 'https://coco.to/movie/{}/review/{}'.format(select['cocoId'], str(i + 1))
-        encodedUrl = urllib.parse.quote(url, '/:?=&')
-        r = http.request('GET', encodedUrl)
+        encoded_url = urllib.parse.quote(url, '/:?=&')
+        r = http.request('GET', encoded_url)
         data = r.data.decode('utf-8')
         soup = BeautifulSoup(data, 'html.parser')
 
