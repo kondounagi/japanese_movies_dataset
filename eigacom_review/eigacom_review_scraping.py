@@ -1,4 +1,3 @@
-import random
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -9,13 +8,13 @@ def search(q):
     q = q.replace('\n', '')
     print("START : " + q)
     q = re.sub("\（.+語版\）", "", " ".join(q.split()[:-3]))
-    query = re.sub('(!|\u3000|/|\s|>|<|\.)+', "%20", q)
+    query = re.sub("（.+語版）", "", " ".join(q.split()[:-3]), re.UNICODE)
     url_search = 'https://eiga.com/search/' + query
     res_search = requests.get(url_search )
     res_search.encoding = res_search.apparent_encoding
     soup_search = BeautifulSoup(res_search.content, "lxml")
     result =  soup_search.find('section', attrs={"id": "rslt-movie"})
-    if(result != None):
+    if(result is not None):
         path = result.find('li', attrs={"class": "col-s-3"}).find('a')["href"]
         url_review = 'https://eiga.com' + path + 'review/all/'
         return url_review
@@ -52,7 +51,7 @@ def scrape_review(query):
             title = r.find('h2',attrs={"class": "review-title"}).find('a')
             main_text =  r.find('div',attrs={"class": "txt-block"})
             tgl_btn = main_text.find('div',attrs={"class": "toggle-btn"})
-            if tgl_btn != None:
+            if tgl_btn is not None:
                 tgl_btn.decompose()
             d = title.text + "\n" +  main_text.text.replace("\n", "")
             data["reviews"]["eigacom"].append(d)
