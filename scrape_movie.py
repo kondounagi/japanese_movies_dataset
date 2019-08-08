@@ -33,10 +33,7 @@ def main():
                 continue
 
             # filter out movie title
-            film_splits = film.split()
-            film = ""
-            for i in range(len(film_splits) - 3):
-                film += film_splits[i]
+            film = film.split('\t')[0]
 
             # initilize single film dictionary
             film_data = {}
