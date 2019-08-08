@@ -9,16 +9,22 @@ import sys
 import json
 
 def main(filepath):
-    comment_dict = {}
+    titles = []
     with open(filepath, 'r', encoding="utf-8_sig") as f:
         reader = csv.reader(f,delimiter = '\t')
         for row in reader:
             title = row[0]
-            comments = cocoScraping(title)
-            comment_dict = {'title': title, 'comments': comments}
-    
-    output = open('./coco_review.json', 'w')
-    json.dump(comment_dict, output, ensure_ascii=False)
+            titles.append(title)
+
+    for i in range(len(titles)):
+        title = titles[i]
+        select = getCocoId(title)
+        comments = getCocoReview(select)
+        comment_dict = {'title':title, 'comments': comments}
+        output = open('./{}.json'.format(str(i+1)), 'w', encoding = 'utf-8')
+        json.dump(comment_dict, output, indent = 4, ensure_ascii = False)
+        output.close()
+
     return
 
 def getCocoId(title):
@@ -88,7 +94,7 @@ def getCocoId(title):
 
     return select
 
-def cocoScraping(select):
+def getCocoReview(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
