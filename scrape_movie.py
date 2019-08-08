@@ -28,10 +28,7 @@ def main():
     # films_data = []     # ditionary list
     fail_list = []
     with open("2018_movie_clean", 'r') as clean_file:
-        film_list = clean_file.readlines()
-        film_num = 0
-        for film in film_list:
-            film_num += 1
+        for film_num, film in enumerate(clean_file, start=1):
             if (film_num < start_num):
                 continue
 
