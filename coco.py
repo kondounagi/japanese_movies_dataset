@@ -2,6 +2,19 @@ import urllib3
 import urllib
 from bs4 import BeautifulSoup
 import re
+import csv
+import sys
+import json
+
+def main(filepath):
+    commentDict = {}
+    with open(filepath, 'r') as f:
+        reader = csv.reader(f,delimiter = '\t')
+        for row in reader:
+            title = row[0]
+            comments = cocoScraping(title)
+            ####################
+    return
 
 def cocoScraping(title):
     #baseUrl = 'https://coco.to'
@@ -54,6 +67,7 @@ def cocoScraping(title):
         
         flag = False
         
+        # If endpage , below tag appear
         if len(soup.findAll('h2', {'class':'tweet_title2'})) > 0:
             flag = True
         
@@ -70,3 +84,10 @@ def cocoScraping(title):
             break
     
     return(comments)
+
+if __name__ == '__main__':
+    args = sys.argv
+    if len(args) < 2
+        print('disignate filepath')
+        return
+    main(args[1])
