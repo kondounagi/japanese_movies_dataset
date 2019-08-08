@@ -58,7 +58,8 @@ def cocoScraping(title):
     select = None
 
     for element in id_title:
-        if regulated_title[:len(element['title'])] == element['title']:
+        min_length = min(len(element['title']), len(regulated_title))
+        if regulated_title[:min_length] == element['title'][:min_length]:
             select = element
             break
 
@@ -89,7 +90,7 @@ def cocoScraping(title):
 
 if __name__ == '__main__':
     args = sys.argv
-    if len(args) < 2
+    if len(args) < 2:
         print('disignate filepath')
-        return
+        sys.exit(0)
     main(args[1])
