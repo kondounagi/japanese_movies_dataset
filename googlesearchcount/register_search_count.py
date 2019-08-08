@@ -37,6 +37,8 @@ try:
             jf[key] = int(sc[key].replace(',', ''))
         with open(file, 'w') as wf:
             data = json.dump(jf, wf, ensure_ascii=False, indent=4, separators=(',', ':'))
+            wf.write("\n")
+
 
 except SizeDoesNotMatchException as e:
     print("size", len(files), "does not match size", len(search_count))
