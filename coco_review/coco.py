@@ -26,7 +26,13 @@ def main(filepath,start_row = 1,end_row = None):
         title = titles[i]
         select = getCocoId(title)
         comments = getCocoReview(select)
-        comment_dict = {'title': title, 'comments': comments}
+        data = getCocoData(select)
+        comment_dict = {
+            'title': title,
+            'id': i,
+            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments},
+            'data': {'eigacom': [], 'filmarks': [], 'coco': data}
+        }
         output = open('./{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
         json.dump(comment_dict, output, indent=4, ensure_ascii=False)
         output.close()
@@ -134,6 +140,62 @@ def getCocoReview(select):
 
     return(comments)
 
+def getCocoData(select):
+    http = urllib3.PoolManager(
+        cert_reqs='CERT_REQUIRED',
+        ca_certs=certifi.where())
+
+    url = 'https://coco.to/movies'
+
+    data_dict = {'satisfaction': None,
+                 'whole_tweet_amount': None,
+                 'each_tweet_amount': {
+                     'good': None,
+                     'even': None,
+                     'bad': None
+                 },
+                 'positive_index': None,
+                 'review_word': []
+                }
+    if select == None:
+        return data_dict
+    
+    url = 'https://coco.to/movie/{}'.format(select['cocoId'])
+    encoded_url = urllib.parse.quote(url, '/:?=&')
+    r = http.request('GET', encoded_url)
+    data = r.data.decode('utf-8')
+    soup = BeautifulSoup(data, 'html.parser')
+    
+    satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
+    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element != None else None
+    
+    review_good_element = soup.find('div' , {'class': 'review_good'}).nextSibling
+    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',','')) if review_good_element != None else None
+    
+    review_even_element = soup.find('div', {'class': 'review_even'}).nextSibling
+    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',','')) if review_even_element != None else None
+    
+    review_bad_element = soup.find('div', {'class': 'review_bad'}).nextSibling
+    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',','')) if review_bad_element != None else None
+    
+    tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
+    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',','')) if tweet_amount_element != None else None
+    
+    positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
+    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element != None else None
+    
+    review_keyword_elements = soup.find('div', {'class': 'tag_list clearflt clearboth'}).findAll('a')
+    for element in review_keyword_elements:
+        keyword_dict = {'keyword': None, 'grade': None}
+        keyword_dict['keyword'] = element.string
+        m = re.search(r'font\-size:\d+px',element['style'])
+        font_size_style = m.group()
+        size = re.sub(r'\D','',font_size_style)
+        mapping = {'10':'少し','19':'まあまあ','24':'とても'}
+        keyword_dict['grade'] = mapping.get(size,'不明')
+        data_dict['review_word'].append(keyword_dict)    
+    
+    return data_dict
 
 if __name__ == '__main__':
     args = sys.argv
