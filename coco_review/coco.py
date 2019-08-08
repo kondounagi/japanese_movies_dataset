@@ -97,8 +97,10 @@ def getCocoId(title):
             select = element
             break
 
-    return select
+    if select is None and len(id_title) is not 0:
+        select = id_title[0]
 
+    return select
 
 def getCocoReview(select):
     http = urllib3.PoolManager(
