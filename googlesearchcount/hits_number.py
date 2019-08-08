@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 # Search hit numbers of Google Search
 
 parser = argparse.ArgumentParser()
-parser.add_argument("t", "titles", default="../2018_movie_clean", help="path of the titles list", type=str)
+parser.add_argument("-t", "--titles", default="../2018_movie_clean", help="path of the titles list", type=str)
 args = parser.parse_args()
 
 options = Options()
@@ -38,6 +38,9 @@ with open(path) as f:
                 driver.refresh()
                 time.sleep(10)
         else:
+            search_count_element["title"] = word
+            search_count_element["search_count"] = ""
+            search_count_list.append(search_count_element)
             print("NoSuchElementException: " + word)
 
 output = open('./search_count_new.json', 'w')

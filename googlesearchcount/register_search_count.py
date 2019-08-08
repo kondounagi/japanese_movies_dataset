@@ -9,7 +9,7 @@ class SizeDoesNotMatchException(Exception):
 
 
 def compare_size(s1, s2):
-    if len(s1) is not len(s2):
+    if len(s1) != len(s2):
         raise SizeDoesNotMatchException("data size does not match")
 
 
@@ -25,19 +25,19 @@ files.sort()
 
 files = [args.directory + '/' + str(f) + extension for f in files]
 
-registered_search_count_dict = []
 with open(args.jsonfile, 'r') as jsonfile:
     search_count = json.loads(jsonfile.read())
 
 
 try:
     compare_size(files, search_count)
-except SizeDoesNotMatchException as e:
-    print("Exception: ", e)
-else:
     for file, sc in zip(files, search_count):
         with open(file) as f:
             jf = json.loads(f.read())
             jf[key] = int(sc[key].replace(',', ''))
-            registered_search_count_dict.append(jf)
-    print(len(registered_search_count_dict))
+        with open(file, 'w') as wf:
+            data = json.dump(jf, wf, ensure_ascii=False, indent=4, separators=(',', ':'))
+
+except SizeDoesNotMatchException as e:
+    print("size", len(files), "does not match size", len(search_count))
+    print("Exception: ", e)
