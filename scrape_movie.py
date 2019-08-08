@@ -53,7 +53,7 @@ def main():
             # fetch search result
             content = requests.get(film_search + film).content
             soup = BeautifulSoup(content, features="lxml")
-            if (soup.find(id="rslt-movie") == None):
+            if (soup.find(id="rslt-movie") is None):
                 fail_list.append(film_num)
                 continue
             film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
