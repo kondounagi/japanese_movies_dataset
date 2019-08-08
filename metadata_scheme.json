@@ -62,11 +62,11 @@
     },
     "sales": {
       "type": "integer",
-      "description": "yen"
+      "description": "JPY"
     },
     "production_cost": {
       "type": "integer",
-      "description": "Japanese Yen"
+      "description": "JPY"
     },
     "search_count": {
       "type": "integer"
