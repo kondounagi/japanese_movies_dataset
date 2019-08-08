@@ -1,3 +1,4 @@
+import certifi
 import urllib3
 import urllib
 from bs4 import BeautifulSoup
@@ -6,7 +7,10 @@ import re
 def cocoScraping(title):
     #baseUrl = 'https://coco.to'
 
-    html = urllib3.PoolManager()
+    html = urllib3.PoolManager(
+        cert_reqs='CERT_REQUIRED',
+        ca_certs=certifi.where())
+
     url = 'https://coco.to/movies?q={}'.format(title)
     encodedUrl = urllib.parse.quote(url,'/:?=&')
 
