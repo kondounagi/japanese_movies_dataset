@@ -95,7 +95,7 @@ def main():
                             film_data["performers"].append(p.get_text().strip())
             print(film_num, film_data)
             with open("meta_movie_data/" + str(film_num), "w") as output_file:
-                json.dump(film_data, output_file)
+                json.dump(film_data, output_file, ensure_ascii=False)
             # break
     print(fail_list)
 
