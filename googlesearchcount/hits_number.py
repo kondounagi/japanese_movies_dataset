@@ -28,7 +28,7 @@ with open(path) as f:
             print("NoSuchElementException: " + word)
 
 
-output = open('./search_count.json', 'w')  # 書き込むファイルを開く
+output = open('./search_count.json', 'w')
 json.dump(search_count_map, output, ensure_ascii=False)
 
 driver.quit()
