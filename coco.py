@@ -10,7 +10,7 @@ import json
 
 def main(filepath):
     comment_dict = {}
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding="utf-8_sig") as f:
         reader = csv.reader(f,delimiter = '\t')
         for row in reader:
             title = row[0]
@@ -21,15 +21,44 @@ def main(filepath):
     json.dump(comment_dict, output, ensure_ascii=False)
     return
 
-
-def cocoScraping(title):
+def getCocoId(title):
+    
+    def trans(title_string):
+        table = str.maketrans({
+            '１': '1',
+            '２': '2',
+            '３': '3',
+            '４': '4',
+            '５': '5',
+            '６': '6',
+            '７': '7',
+            '８': '8',
+            '９': '9',
+            '０': '0',
+            '＆': '&',
+            '％': '%',
+            '＝': '=',
+            '＄': '$',
+            '＃': '#',
+            '！': '!',
+            '？': '?'
+        })
+        regulated_title = re.sub(r'（[^（）]*）', '', title_string)
+        regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
+        regulated_title = re.sub(r'[\s\-～〜:：;、。<>＜＞「」\"\',\.・/／－]+', ' ', regulated_title)
+        regulated_title = regulated_title.translate(table)
+        regulated_title = regulated_title.rstrip(' ')
+        return regulated_title
+    
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
-
+    
     url = 'https://coco.to/movies'
+    
+    regulated_title = trans(title)
 
-    r = http.request('GET', url, fields={'q': title})
+    r = http.request('GET', url, fields={'q': regulated_title})
     data = r.data.decode('utf-8')
 
     soup = BeautifulSoup(data, 'html.parser')
@@ -42,17 +71,11 @@ def cocoScraping(title):
 
     for element in id_title:
         temp_title = element['title']
-        temp_title = re.sub(r'\s', ' ', temp_title)
-
-        temp_title = re.sub(r'（[^（）]*）', "", temp_title)
-
-        temp_title = re.sub(r'\([^\(\)]*\)', "", temp_title)
+        temp_title = trans(temp_title)
         temp_title = temp_title.replace('...', '')
         element['title'] = temp_title
 
-    regulated_title = re.sub(r'\s', ' ', title)
-    regulated_title = re.sub(r'（[^（）]*）', "", regulated_title)
-    regulated_title = re.sub(r'\([^\(\)]*\)', "", regulated_title)
+    regulated_title = trans(title)
     regulated_title = regulated_title.replace('...', '')
 
     select = None
@@ -63,7 +86,18 @@ def cocoScraping(title):
             select = element
             break
 
+    return select
+
+def cocoScraping(select):
+    http = urllib3.PoolManager(
+        cert_reqs='CERT_REQUIRED',
+        ca_certs=certifi.where())
+
+    url = 'https://coco.to/movies'
+
     comments = []
+    if select == None:
+        return comments
 
     for i in range(20):
         url = 'https://coco.to/movie/{}/review/{}'.format(select['cocoId'], str(i + 1))
