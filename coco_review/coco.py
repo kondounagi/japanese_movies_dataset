@@ -8,7 +8,7 @@ import csv
 import sys
 import json
 
-def main(filepath):
+def main(filepath,start_row = 1,end_row = None):
     titles = []
     with open(filepath, 'r', encoding="utf-8_sig") as f:
         reader = csv.reader(f,delimiter = '\t')
@@ -16,7 +16,13 @@ def main(filepath):
             title = row[0]
             titles.append(title)
 
-    for i in range(len(titles)):
+    if end_row != None:
+        if end_row > len(titles):
+            end_row = len(titles)
+    else:
+        end_row = len(titles)
+    
+    for i in range(start_row-1,end_row):
         title = titles[i]
         select = getCocoId(title)
         comments = getCocoReview(select)
@@ -99,8 +105,6 @@ def getCocoReview(select):
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
 
-    url = 'https://coco.to/movies'
-
     comments = []
     if select == None:
         return comments
@@ -133,4 +137,9 @@ if __name__ == '__main__':
     if len(args) < 2:
         print('disignate filepath')
         sys.exit(0)
-    main(args[1])
+    if len(args) == 2:
+        main(args[1])
+    if len(args) == 3:
+        main(args[1], start_row = int(args[2]) )
+    if len(args) == 4:
+        main(args[1], start_row = int(args[2]), end_row = int(args[3]))
