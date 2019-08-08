@@ -104,7 +104,7 @@ def getCocoReview(select):
     url = 'https://coco.to/movies'
 
     comments = []
-    if select == None:
+    if select is None:
         return comments
 
     for i in range(20):
