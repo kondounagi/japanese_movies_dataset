@@ -30,8 +30,8 @@ def main(filepath,start_row = 1,end_row = None):
         comment_dict = {
             'title': title,
             'id': i,
-            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments},
-            'data': {'eigacom': [], 'filmarks': [], 'coco': data}
+            'data': {'eigacom': [], 'filmarks': [], 'coco': data},
+            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments}
         }
         output = open('./{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
         json.dump(comment_dict, output, indent=4, ensure_ascii=False)
@@ -184,7 +184,9 @@ def getCocoData(select):
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
     data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element != None else None
     
-    review_keyword_elements = soup.find('div', {'class': 'tag_list clearflt clearboth'}).findAll('a')
+    review_keyword_wrapper = soup.find('div', {'class': 'tag_list clearflt clearboth'})
+    review_keyword_elements = review_keyword_wrapper.findAll('a') if review_keyword_wrapper is not None else []
+
     for element in review_keyword_elements:
         keyword_dict = {'keyword': None, 'grade': None}
         keyword_dict['keyword'] = element.string
