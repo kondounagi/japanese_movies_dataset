@@ -11,10 +11,9 @@ def cocoScraping(title):
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
 
-    url = 'https://coco.to/movies?q={}'.format(title)
-    encodedUrl = urllib.parse.quote(url,'/:?=&')
+    url = 'https://coco.to/movies'
 
-    r = http.request('GET', encodedUrl)
+    r = http.request('GET', url, fields={'q': title})
     data = r.data.decode('utf-8')
 
     soup = BeautifulSoup(data,'html.parser')
