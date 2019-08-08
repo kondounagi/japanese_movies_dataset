@@ -33,7 +33,6 @@ def main(filepath,start_row = 1,end_row = None):
 
     return
 
-
 def getCocoId(title):
     def trans(title_string):
         table = str.maketrans({
