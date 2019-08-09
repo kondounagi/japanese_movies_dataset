@@ -1,0 +1,26 @@
+{
+    "title": "モーターヘッド/クリーン・ユア・クロック",
+    "id": 898,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 身内でもない人が亡くなったっていうニュースをきいても軽いショック受けるくらいだけどこれまででかなりショックくらった訃報はフレディとレミーだった。今映画館で『ボヘミアン・ラプソディ』や『モーターヘッド クリーン・ユア・クロック』かかってていろいろ感情動くなぁ"
+        ]
+    }
+}

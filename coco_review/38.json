@@ -1,0 +1,24 @@
+{
+    "title": "シネマ歌舞伎 京鹿子娘五人道成寺／二人椀久",
+    "id": 37,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": null,
+            "whole_tweet_amount": null,
+            "each_tweet_amount": {
+                "good": null,
+                "even": null,
+                "bad": null
+            },
+            "positive_index": null,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": []
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "title": "エヴァ",
+    "id": 351,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 100,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 100,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『エヴァ』幸せそうに暮らす夫婦、夫が目にしたことをきっかけにドラマがミステリアスな方向へ。設定もなかなか重たいし、あの人はなぜあんな言動を？と考えながら見てたので、ラブストーリー枠になってたけど、個人的にはミステリー風に感じたよ。ラストの解釈も人それぞれ。観賞後ひきずる一本。"
+        ]
+    }
+}

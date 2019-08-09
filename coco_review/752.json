@@ -1,0 +1,26 @@
+{
+    "title": "ふたつの昨日と僕の未来",
+    "id": 751,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 100,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 100,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『ふたつの昨日と僕の未来』タイムスリップではなくパラレルワールドを行ったりきたりというめずらしいパターンだが、微妙に時間がずれているところがタイトルのいうふたつの昨日なのかな。歴史を変えたようにも思うが、それはいいのかな。"
+        ]
+    }
+}
