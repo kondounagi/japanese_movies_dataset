@@ -14,6 +14,7 @@ def main():
     re_trailing_num = re.compile(r'(?:\s*\[[0-9]+\])+$')
     re_garbage = re.compile(r'\s*[(（][^)）]*$')
 
+    num = 0
     with open("2018_movie_raw", "r") as in_file:
         for line in in_file:
             line = line.strip()
@@ -36,7 +37,9 @@ def main():
             line = re_garbage.sub('', line)
 
             line = unicodedata.normalize('NFC', line)
-            print(line, year, month, day, sep='\t')
+
+            num += 1
+            print(num, line, year, month, day, sep='\t')
 
 
 if __name__ == '__main__':
