@@ -5,9 +5,9 @@ import re
 import json
 
 def search(q):
-    q = q.replace('\n', '')
+    q = q.replace('\n', '').replace('（', '(').replace('）', ')')
     print("START : " + q)
-    q = re.sub("\（.+語版\）", "", " ".join(q.split()[:-3]))
+    q = re.sub("\(.+\)$", "", " ".join(q.split()[:-3]), re.UNICODE)
     query = re.sub("（.+語版）", "", " ".join(q.split()[:-3]), re.UNICODE)
     url_search = 'https://eiga.com/search/' + query
     res_search = requests.get(url_search )
