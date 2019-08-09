@@ -20,7 +20,7 @@ search_count_list = []
 with open(path) as f:
     for line in f:
         search_count_element = {}
-        word = line.split('\t')[0]
+        word = line.split('\t')[1]
         url = "https://www.google.com/search?q={}&safe=off".format(word + " 映画")
         driver.get(url)
         time.sleep(10)
