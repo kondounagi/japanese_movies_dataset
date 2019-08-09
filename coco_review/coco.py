@@ -13,7 +13,7 @@ def main(filepath,start_row = 1,end_row = None):
     with open(filepath, 'r', encoding="utf-8_sig") as f:
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
-            title = row[0]
+            title = row[1]
             titles.append(title)
 
     if end_row != None:
@@ -196,7 +196,23 @@ def getCocoData(select):
         m = re.search(r'font\-size:\d+px',element['style'])
         font_size_style = m.group()
         size = re.sub(r'\D','',font_size_style)
-        mapping = {'10':'少し','19':'まあまあ','24':'とても'}
+        mapping = {
+            '10': '少し',
+            '11': '少し',
+            '12': '少し',
+            '13': 'まあまあ多い',
+            '14': 'まあまあ多い',
+            '15': 'まあまあ多い',
+            '16': 'まあまあ多い',
+            '17': '結構多い',
+            '18': '結構多い', 
+            '19': '結構多い',
+            '20': '結構多い',
+            '21': 'とても多い',
+            '22': 'とても多い',
+            '23': 'とても多い',
+            '24': 'とても多い'
+        }
         keyword_dict['grade'] = mapping.get(size,'不明')
         data_dict['review_word'].append(keyword_dict)    
     
