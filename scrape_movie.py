@@ -16,29 +16,24 @@ screen_time: -1
 production_studio: string
 '''
 
+
 def main():
     film_index = "https://eiga.com"
     film_search = "https://eiga.com/search/"
     # regular experssion for finding time and studio
-    re_time = re.compile("／\d*分／")
+    re_time = re.compile("／\\d*分／")
     re_production_studio = re.compile("配給：[^<]*")
     start_num = 0         # in case of connection refused
 
     # films_data = []     # ditionary list
     fail_list = []
     with open("2018_movie_clean", 'r') as clean_file:
-        film_list = clean_file.readlines()
-        film_num = 0
-        for film in film_list:
-            film_num += 1
+        for film_num, film in enumerate(clean_file, start=1):
             if (film_num < start_num):
                 continue
 
             # filter out movie title
-            film_splits = film.split()
-            film = ""
-            for i in range(len(film_splits) - 3):
-                film += film_splits[i]
+            film = film.split('\t')[0]
 
             # initilize single film dictionary
             film_data = {}
@@ -51,15 +46,15 @@ def main():
 
             # fetch search result
             content = requests.get(film_search + film).content
-            soup = BeautifulSoup(content, features = "lxml")
-            if (soup.find(id = "rslt-movie") == None):
+            soup = BeautifulSoup(content, features="lxml")
+            if (soup.find(id="rslt-movie") is None):
                 fail_list.append(film_num)
                 continue
-            film_id = soup.find(id = "rslt-movie").find_all("a")[1]['href']
+            film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
 
             # fetch top-1 movie result information
             content = requests.get(film_index + film_id).content
-            soup = BeautifulSoup(content, features = "lxml")
+            soup = BeautifulSoup(content, features="lxml")
 
             # filter out screen time and production studio
             html_text = soup.prettify()
@@ -74,7 +69,7 @@ def main():
             else:
                 print("no match time")
             # filter out informative data
-            staff_cast = soup.find(id = "staff-cast")
+            staff_cast = soup.find(id="staff-cast")
             for div in staff_cast.find_all():
                 # When calling div["class"], return type is list[string]
                 if div.name == "dl" and div.has_attr("class") and div["class"][0] == "movie-staff":
@@ -99,14 +94,11 @@ def main():
                         if p.name == "span":
                             film_data["performers"].append(p.get_text().strip())
             print(film_num, film_data)
-            with open("meta_movie_data/" + str(film_num), "w") as output_file:
-                json.dump(film_data, output_file)
+            with open("meta_movie_data/" + str(film_num) + '.json', "w") as output_file:
+                json.dump(film_data, output_file, ensure_ascii=False)
             # break
     print(fail_list)
 
 
-
-
 if __name__ == "__main__":
     main()
-
