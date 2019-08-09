@@ -129,6 +129,9 @@ def getCocoReview(select):
         if len(soup.findAll('h2', {'class': 'tweet_title2'})) > 0:
             flag = True
 
+        if len(soup.findAll('h2', {'class': 'tweet_title1'})) > 0:
+            flag = True
+
         li = soup.findAll('li', {'class': 'tweet_li'})
         for counter, each in enumerate(li):
             comment_string = each.find('div', {'class': 'tweet_text'}).next_element
