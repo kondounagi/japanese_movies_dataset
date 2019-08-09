@@ -5,4 +5,4 @@ while IFS= read -r line; do
 	name=$(echo "$line" | cut -f2)
 	mv "movies/$num.json" /tmp/tmp.json
 	jq -r ".title |= \"$name\"" /tmp/tmp.json > "movies/$num.json"
-done < <(cat -n 2018_movie_clean | cut -f1-2)
+done < <(cat 2018_movie_clean | cut -f1-2)
