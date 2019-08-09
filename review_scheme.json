@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "title": {
-      "type": "string"
+    "id": {
+      "type": "integer"
     },
     "reviews": {
       "type": "object",

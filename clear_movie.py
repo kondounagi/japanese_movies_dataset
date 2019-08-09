@@ -1,39 +1,43 @@
+#!/usr/bin/env python3
+import re
 import unicodedata
-import sys 
-
-in_file = open("2018_movie_raw", "r")
-year = 2018
-month = 0
-day = 0
-for line in in_file.readlines():
-    line = line.strip()
-    if line[len(line) - 1] == '月':
-        month = 0
-        for i in range(len(line) - 1):
-            month = month * 10 + int(line[i:i+1])
-        
-    elif line[len(line) - 1] == '日':
-        day = 0
-        for i in range(len(line) - 1):
-            day = day * 10 + int(line[i:i+1])
-        
-    else:
-        
-        end = len(line)
-        for i in range(len(line)):
-
-            if (line[len(line) - i - 1] == '(' or line[len(line) - 1 - i] == '（'):
-                end = len(line) - i - 1
-                break
-        
-        line = line[0:end].strip()
-        line = unicodedata.normalize('NFC', line)
-        print(line, year, month, day)
-                    
-    
 
 
+def main():
+    year = 2018
+    month = 0
+    day = 0
+
+    re_month = re.compile('^([0-9]+)月$')
+    re_day = re.compile('^([0-9]+)日$')
+    re_image_desc = re.compile(r'\s*[(（][^)）]*の旗[^)）]*[)）]')
+    re_trailing_num = re.compile(r'(?:\s*\[[0-9]+\])+$')
+    re_garbage = re.compile(r'\s*[(（][^)）]*$')
+
+    with open("2018_movie_raw", "r") as in_file:
+        for line in in_file:
+            line = line.strip()
+
+            match_month = re_month.match(line)
+            match_day = re_day.match(line)
+
+            if match_month:
+                month = match_month.group(1)
+                continue
+
+            if match_day:
+                day = match_day.group(1)
+                continue
+
+            # FIXME: Regexp can't handle nested parens, need stack parser
+            line = re_image_desc.sub('', line)
+
+            line = re_trailing_num.sub('', line)
+            line = re_garbage.sub('', line)
+
+            line = unicodedata.normalize('NFC', line)
+            print(line, year, month, day, sep='\t')
 
 
-    
-
+if __name__ == '__main__':
+    main()
