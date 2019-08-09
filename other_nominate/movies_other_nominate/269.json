@@ -25,7 +25,13 @@
     "search_count":16500000,
     "other_nominate":[
         {
-            "nominate_name":""
+            "nominate_name":"日刊スポーツ映画大賞"
+        },
+        {
+            "nominate_name":"毎日映画コンクール"
+        },
+        {
+            "nominate_name":"キネマ旬報ベスト・テン"
         }
     ],
     "plot":""
