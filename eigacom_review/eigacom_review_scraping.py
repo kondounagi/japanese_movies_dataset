@@ -7,8 +7,8 @@ import json
 def search(q):
     q = q.replace('\n', '').replace('（', '(').replace('）', ')')
     print("START : " + q)
-    q = re.sub("\(.+\)$", "", " ".join(q.split()[:-3]), re.UNICODE)
-    query = re.sub("（.+語版）", "", " ".join(q.split()[:-3]), re.UNICODE)
+    q = re.sub("\(.+\)$", "", " ".join(q.split()[1:-3]), re.UNICODE)
+    query = re.sub('(!|\u3000|/|\s|>|<|\.)+', "%20", q)
     url_search = 'https://eiga.com/search/' + query
     res_search = requests.get(url_search )
     res_search.encoding = res_search.apparent_encoding
@@ -61,17 +61,14 @@ def scrape_review(query):
 
 
 input_file = '../2018_movie_clean'
-num = 1
 for q in open(input_file, 'r', encoding='utf-8').readlines():
-    print(num)
-    output_file = './{0}.json'.format(num)
+    movie_id = int(q.split()[0])
+    output_file = './{0}.json'.format(movie_id)
     with open(output_file, 'w') as f:
         data = scrape_review(q)
         if(data == "error"):
-            num += 1
             continue
-        data["id"] = num
+        data["id"] = movie_id
         jsn =  json.dumps(data,ensure_ascii=False, indent=2)
         f.write(jsn)
     f.close()
-    num += 1
