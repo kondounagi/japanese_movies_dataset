@@ -1,4 +1,24 @@
 {
     "title": "葡萄畑に帰ろう (ジョージア (国)の旗 ジョージア)",
-    "comments": []
+    "id": 894,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": null,
+            "whole_tweet_amount": null,
+            "each_tweet_amount": {
+                "good": null,
+                "even": null,
+                "bad": null
+            },
+            "positive_index": null,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": []
+    }
 }

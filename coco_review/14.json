@@ -1,9 +1,34 @@
 {
     "title": "Dear Girl〜Stories〜THE MOVIE3 the United Kingdom of KOCHI 蒼の継承編",
-    "comments": [
-        " 『DearGirl Stories THE MOVIE3 the United Kingdom of KOCHI 蒼の継承編』劇場で鑑賞。高知国の旅の後編はカヌーにドライブに、仁淀川周辺を満喫する出演者達の多幸感にまんまと絆された",
-        " 『DearGirl Stories THE MOVIE3 the United Kingdom of KOCHI 蒼の継承編』いきなり後編みたけど、声優の高知旅行のドキュメンタリーなのね。観客は、爆笑してたけどファンなのでしょうね。",
-        " ＜2018年ワースト＞⑧3D彼女 リアルガール ⑦パンク侍、斬られて候 ⑥焼肉ドラゴン ⑤スマホを落としただけなのに ④嘘を愛する女 ③SUNNY 強い気持ち・強い愛 ②音量を上げろタコ！なに歌ってんのか全然わかんねぇんだよ！！… ",
-        " ＜2018年上半期ワースト＞⑪エターナル ⑩ミスミソウ ⑨三十路女はロマンチックな夢を見るか？ ⑧今夜、ロマンス劇場で ⑦レオン(2017) ⑥CINEMA FIGHTERS ⑤クソ野郎と美しき世界 ④パンク侍、斬られて候 ③焼肉… "
-    ]
+    "id": 13,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 50,
+            "whole_tweet_amount": 4,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 1,
+                "bad": 0
+            },
+            "positive_index": 33,
+            "review_word": [
+                {
+                    "keyword": "爆笑",
+                    "grade": "とても多い"
+                }
+            ]
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『DearGirl Stories THE MOVIE3 the United Kingdom of KOCHI 蒼の継承編』劇場で鑑賞。高知国の旅の後編はカヌーにドライブに、仁淀川周辺を満喫する出演者達の多幸感にまんまと絆された",
+            " 『DearGirl Stories THE MOVIE3 the United Kingdom of KOCHI 蒼の継承編』いきなり後編みたけど、声優の高知旅行のドキュメンタリーなのね。観客は、爆笑してたけどファンなのでしょうね。",
+            " ＜2018年ワースト＞⑧3D彼女 リアルガール ⑦パンク侍、斬られて候 ⑥焼肉ドラゴン ⑤スマホを落としただけなのに ④嘘を愛する女 ③SUNNY 強い気持ち・強い愛 ②音量を上げろタコ！なに歌ってんのか全然わかんねぇんだよ！！… ",
+            " ＜2018年上半期ワースト＞⑪エターナル ⑩ミスミソウ ⑨三十路女はロマンチックな夢を見るか？ ⑧今夜、ロマンス劇場で ⑦レオン(2017) ⑥CINEMA FIGHTERS ⑤クソ野郎と美しき世界 ④パンク侍、斬られて候 ③焼肉… "
+        ]
+    }
 }
