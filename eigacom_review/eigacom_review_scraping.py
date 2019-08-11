@@ -71,4 +71,3 @@ for q in open(input_file, 'r', encoding='utf-8').readlines():
         data["id"] = movie_id
         jsn =  json.dumps(data,ensure_ascii=False, indent=2)
         f.write(jsn)
-    f.close()
