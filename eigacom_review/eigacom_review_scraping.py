@@ -1,3 +1,4 @@
+import csv
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -7,7 +8,7 @@ import json
 def search(q):
     q = q.replace('\n', '').replace('（', '(').replace('）', ')')
     print("START : " + q)
-    q = re.sub("\(.+\)$", "", " ".join(q.split()[1:-3]), re.UNICODE)
+    q = re.sub("\(.+\)$", "", " ".join(q), re.UNICODE)
     query = re.sub('(!|\u3000|/|\s|>|<|\.)+', "%20", q)
     url_search = 'https://eiga.com/search/' + query
     res_search = requests.get(url_search )
@@ -61,13 +62,13 @@ def scrape_review(query):
 
 
 with open('../2018_movie_clean', 'r') as movie_clean:
-    for q in movie_clean:
-        movie_id = int(q.split()[0])
+    for line in csv.reader(movie_clean, delimiter='\t'):
+        movie_id, q, *_ = line
         output_file = './{0}.json'.format(movie_id)
         with open(output_file, 'w') as f:
             data = scrape_review(q)
             if(data == "error"):
                 continue
-            data["id"] = movie_id
+            data["id"] = int(movie_id)
             jsn =  json.dumps(data,ensure_ascii=False, indent=2)
             f.write(jsn)
