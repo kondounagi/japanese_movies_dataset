@@ -60,14 +60,14 @@ def scrape_review(query):
     return data
 
 
-input_file = '../2018_movie_clean'
-for q in open(input_file, 'r', encoding='utf-8').readlines():
-    movie_id = int(q.split()[0])
-    output_file = './{0}.json'.format(movie_id)
-    with open(output_file, 'w') as f:
-        data = scrape_review(q)
-        if(data == "error"):
-            continue
-        data["id"] = movie_id
-        jsn =  json.dumps(data,ensure_ascii=False, indent=2)
-        f.write(jsn)
+with open('../2018_movie_clean', 'r') as movie_clean:
+    for q in movie_clean:
+        movie_id = int(q.split()[0])
+        output_file = './{0}.json'.format(movie_id)
+        with open(output_file, 'w') as f:
+            data = scrape_review(q)
+            if(data == "error"):
+                continue
+            data["id"] = movie_id
+            jsn =  json.dumps(data,ensure_ascii=False, indent=2)
+            f.write(jsn)
