@@ -1,3 +1,4 @@
+import re
 import time
 import json
 import argparse
@@ -34,16 +35,20 @@ with open(path) as f:
 
         driver.get(url)
         time.sleep(10)
-        for _ in range(2):  # Retry just once
-            try:
-                stats = driver.find_element_by_id("resultStats").text.split(' ', 3)[1]
 
-                # print(word + " : " + stats)
-                # print("=======================")
-                search_count_element["title"] = word
-                search_count_element["search_count"] = stats
-                search_count_list.append(search_count_element)
-                break
+        # Retry just once
+        for _ in range(2):
+            try:
+                result_stats = driver.find_element_by_id("resultStats").text
+
+                search = re.search('About ([0-9,]+) results', result_stats)
+                if search:
+                    count = search.group(1)
+
+                    search_count_element["title"] = word
+                    search_count_element["search_count"] = count
+                    search_count_list.append(search_count_element)
+                    break
             except NoSuchElementException as exception:
                 driver.refresh()
                 time.sleep(10)
