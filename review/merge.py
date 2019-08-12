@@ -5,7 +5,10 @@ import sys
 
 
 def main(list_file_path, review_root_path):
-    site_dict = {'eigacom': 'eigacom_review', 'coco': 'coco_review'}
+    site_dict = {
+        'eigacom': 'eigacom_review',
+        'coco': 'coco_review',
+    }
 
     titles = []
     with open(list_file_path, 'r') as f:
