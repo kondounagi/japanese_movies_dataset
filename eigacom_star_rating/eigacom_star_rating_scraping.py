@@ -1,41 +1,50 @@
+import csv
+import logging
 import requests
 from bs4 import BeautifulSoup
 import time
 import re
 import json
 
+logging.basicConfig(format='%(message)s')
+
+def normalize_query(q):
+    q = q.replace('\n', '')
+    q = q.replace('（', '(')
+    q = q.replace('）', ')')
+    q = re.sub(r"\(.+\)$", "", " ".join(q))
+    q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
+    return q
+
 def search(q):
-    q = q.replace('\n', '').replace('（', '(').replace('）', ')')
-    print("START : " + q)
-    q = re.sub("\(.+\)$", "", " ".join(q.split()[1:-3]), re.UNICODE)
-    query = re.sub('(!|\u3000|/|\s|>|<|\.)+', "%20", q)
-    url_search = 'https://eiga.com/search/' + query
+    url_search = 'https://eiga.com/search/{}' .format(requests.utils.quote(normalize_query(q), safe=''))
     res_search = requests.get(url_search )
     res_search.encoding = res_search.apparent_encoding
+
     soup_search = BeautifulSoup(res_search.content, "lxml")
     result =  soup_search.find('section', attrs={"id": "rslt-movie"})
-    if(result != None):
+    if result != None:
         path = result.find('li', attrs={"class": "col-s-3"}).find('a')["href"]
         url_review = 'https://eiga.com' + path
         return url_review
     else:
-        print("**************************************************")
-        print(q + " HAS NO RESULT")
-        print("**************************************************")
-        return "error"
+        return None
 
 def scrape(query):
-    page_num = 1
     data = {
         "id": -1,
         "rating": -1,
         "check-in":-1,
         "review-count":-1
     }
+    print("START : " + query)
     url_review=search(query)
 
-    if(url_review == "error"):
-        return "error"
+    if url_review is None:
+        logging.warning("**************************************************")
+        logging.warning(q + " HAS NO RESULT")
+        logging.warning("**************************************************")
+        return None
 
     res = requests.get(url_review)
     res.encoding = res.apparent_encoding
@@ -50,16 +59,19 @@ def scrape(query):
 
     return data
 
-input_file = '../2018_movie_clean'
-for q in open(input_file, 'r', encoding='utf-8').readlines():
-    movie_id = int(q.split()[0])
-    output_file = './{0}.json'.format(movie_id)
-    with open(output_file, 'w') as f:
-        data = scrape(q)
-        if(data == "error"):
-            continue
-        data["id"] = movie_id
-        jsn =  json.dumps(data,ensure_ascii=False, indent=2)
-        f.write(jsn)
-    f.close()
-    time.sleep(1)
+def main():
+    with open( '../2018_movie_clean', 'r') as movie_clean:
+        for line in csv.reader(movie_clean, delimiter='\t'):
+            movie_id, title, *_ = line
+            output_file = './{}.json'.format(movie_id)
+            with open(output_file, 'w') as f:
+                print(movie_id)
+                data = scrape(title)
+                if data == None:
+                    continue
+                data["id"] = int(movie_id)
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            time.sleep(1)
+
+if __name__ == '__main__':
+    main()
