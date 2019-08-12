@@ -8,14 +8,22 @@ import json
 
 logging.basicConfig(format='%(message)s')
 
-def search(q):
-    q = q.replace('\n', '').replace('（', '(').replace('）', ')')
-    print("START : " + q)
+def normalize_query(q):
+    q = q.replace('\n', '')
+    q = q.replace('（', '(')
+    q = q.replace('）', ')')
     q = re.sub(r"\(.+\)$", "", " ".join(q))
-    query = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
-    url_search = 'https://eiga.com/search/' + requests.utils.quote(query, safe='')
-    res_search = requests.get(url_search )
+    q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
+    return q
+
+def search(q):
+    print("START : " + q)
+    url_search = 'https://eiga.com/search/{}'.format(
+        requests.utils.quote(normalize_query(q), safe=''))
+
+    res_search = requests.get(url_search)
     res_search.encoding = res_search.apparent_encoding
+
     soup_search = BeautifulSoup(res_search.content, "lxml")
     result =  soup_search.find('section', attrs={"id": "rslt-movie"})
     if result is not None:
