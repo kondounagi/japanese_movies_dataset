@@ -58,7 +58,7 @@ def scrape_review(query):
     }
 
     print("START : " + query)
-    url_review=search(query)
+    url_review = search(query)
 
     if url_review is None:
         logging.warning("**************************************************")
