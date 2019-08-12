@@ -85,7 +85,7 @@ def scrape_review(query):
             if tgl_btn:
                 tgl_btn.decompose()
 
-            d = title.text + "\n" +  main_text.text.replace("\n", "")
+            d = title.text + "\n" + main_text.text.replace("\n", "")
             data["reviews"]["eigacom"].append(d)
 
         page_num += 1
