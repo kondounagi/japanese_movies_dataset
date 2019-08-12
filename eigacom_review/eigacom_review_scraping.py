@@ -74,7 +74,7 @@ def scrape_review(query):
 
         # ページ数の上限を超えたら
         if not reviews:
-            print('DONE : ' + query )
+            print('DONE : ' + query)
             break
 
         for r in reviews:
