@@ -1,9 +1,12 @@
 import csv
+import logging
 import requests
 from bs4 import BeautifulSoup
 import time
 import re
 import json
+
+logging.basicConfig(format='%(message)s')
 
 def search(q):
     q = q.replace('\n', '').replace('（', '(').replace('）', ')')
@@ -20,9 +23,9 @@ def search(q):
         url_review = 'https://eiga.com' + path + 'review/all/'
         return url_review
     else:
-        print("**************************************************")
-        print(q + " HAS NO RESULT")
-        print("**************************************************")
+        logging.warning("**************************************************")
+        logging.warning(q + " HAS NO RESULT")
+        logging.warning("**************************************************")
         return "error"
 
 def scrape_review(query):
