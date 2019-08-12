@@ -8,7 +8,7 @@ import json
 def search(q):
     q = q.replace('\n', '').replace('（', '(').replace('）', ')')
     print("START : " + q)
-    q = re.sub("\(.+\)$", "", " ".join(q), re.UNICODE)
+    q = re.sub("\(.+\)$", "", " ".join(q))
     query = re.sub('(!|\u3000|/|\s|>|<|\.)+', "%20", q)
     url_search = 'https://eiga.com/search/' + query
     res_search = requests.get(url_search )
