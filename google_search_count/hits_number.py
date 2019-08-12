@@ -43,7 +43,7 @@ with open(path) as f:
 
                 search = re.search('About ([0-9,]+) results', result_stats)
                 if search:
-                    count = search.group(1)
+                    count = int(search.group(1).replace(',', ''))
 
                     search_count_element["title"] = word
                     search_count_element["search_count"] = count
