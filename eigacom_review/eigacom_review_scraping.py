@@ -9,8 +9,8 @@ def search(q):
     q = q.replace('\n', '').replace('（', '(').replace('）', ')')
     print("START : " + q)
     q = re.sub(r"\(.+\)$", "", " ".join(q))
-    query = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', "%20", q)
-    url_search = 'https://eiga.com/search/' + query
+    query = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
+    url_search = 'https://eiga.com/search/' + requests.utils.quote(query, safe='')
     res_search = requests.get(url_search )
     res_search.encoding = res_search.apparent_encoding
     soup_search = BeautifulSoup(res_search.content, "lxml")
