@@ -1,0 +1,31 @@
+{
+    "title": "トライアングル",
+    "id": 347,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 1,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": [
+                {
+                    "keyword": "ゾクゾク",
+                    "grade": "とても多い"
+                }
+            ]
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 謎が謎を呼ぶスピリチュアルなミステリーにゾクゾクとそそられるものの、前振りとなる異変よりコミュニティ内の日常背景のほうが前面に出てしまっているため鑑賞中は“違う形”で不安にさせられる謎映画"
+        ]
+    }
+}
