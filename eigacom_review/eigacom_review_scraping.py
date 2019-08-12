@@ -73,5 +73,4 @@ with open('../2018_movie_clean', 'r') as movie_clean:
             if data is None:
                 continue
             data["id"] = int(movie_id)
-            jsn =  json.dumps(data,ensure_ascii=False, indent=2)
-            f.write(jsn)
+            json.dump(data, f, ensure_ascii=False, indent=2)
