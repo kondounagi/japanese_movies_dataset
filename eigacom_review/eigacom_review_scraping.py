@@ -50,10 +50,10 @@ def scrape_review(query):
     page_num = 1
     data = {
         "id": -1,
-        "reviews":{
-            "eigacom":[],
-            "filmarks":[],
-            "coco":[],
+        "reviews": {
+            "eigacom": [],
+            "filmarks": [],
+            "coco": [],
         }
     }
 
