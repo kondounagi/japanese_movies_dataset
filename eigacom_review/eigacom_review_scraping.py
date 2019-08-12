@@ -17,7 +17,6 @@ def normalize_query(q):
     return q
 
 def search(q):
-    print("START : " + q)
     url_search = 'https://eiga.com/search/{}'.format(
         requests.utils.quote(normalize_query(q), safe=''))
 
@@ -46,6 +45,8 @@ def scrape_review(query):
             "coco":[],
         }
     }
+
+    print("START : " + query)
     url_review=search(query)
 
     if url_review is None:
