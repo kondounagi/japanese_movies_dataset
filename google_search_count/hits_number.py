@@ -46,7 +46,10 @@ with open(path) as f:
             search_count_list.append(search_count_element)
             print("NoSuchElementException: " + word)
 
-output = open('./search_count_new.json', 'w')
-json.dump(search_count_list, output, ensure_ascii=False, indent=4, separators=(',', ':'))
+with open('./search_count_new.json', 'w') as output:
+    json.dump(search_count_list, output,
+              ensure_ascii=False,
+              indent=4,
+              separators=(',', ':'))
 
 driver.quit()
