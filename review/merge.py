@@ -16,18 +16,22 @@ def main(list_file_path, review_root_path):
     amount = len(titles)
 
     for i in range(1, amount + 1):
-        dict = {'id': i, 'reviews': {}}
+        d = {
+            'id': i,
+            'reviews': {},
+        }
+
         for site in site_dict.keys():
-            dict['reviews'][site] = []
+            d['reviews'][site] = []
             with open(review_root_path.rstrip('/') + '/{}/{}.json'.format(site_dict[site], str(i)), 'r', encoding='utf-8') as f:
                 load_data = None
                 try:
                     load_data = json.load(f)
-                    dict['reviews'][site] = load_data['reviews'][site]
+                    d['reviews'][site] = load_data['reviews'][site]
                 except json.decoder.JSONDecodeError:
-                    dict['reviews'][site] = []
+                    d['reviews'][site] = []
         with open('./{}.json'.format(str(i)), 'w', encoding='utf-8') as output:
-            json.dump(dict, output, indent=4, ensure_ascii=False)
+            json.dump(d, output, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
