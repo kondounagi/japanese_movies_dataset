@@ -26,7 +26,7 @@ def search(q):
         logging.warning("**************************************************")
         logging.warning(q + " HAS NO RESULT")
         logging.warning("**************************************************")
-        return "error"
+        return None
 
 def scrape_review(query):
     page_num = 1
@@ -40,8 +40,8 @@ def scrape_review(query):
     }
     url_review=search(query)
 
-    if url_review == "error":
-        return "error"
+    if url_review is None:
+        return None
 
     while(1):
         res = requests.get(url_review + str(page_num))
@@ -70,7 +70,7 @@ with open('../2018_movie_clean', 'r') as movie_clean:
         output_file = './{0}.json'.format(movie_id)
         with open(output_file, 'w') as f:
             data = scrape_review(q)
-            if data == "error":
+            if data is None:
                 continue
             data["id"] = int(movie_id)
             jsn =  json.dumps(data,ensure_ascii=False, indent=2)
