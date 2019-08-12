@@ -8,6 +8,7 @@ import json
 
 logging.basicConfig(format='%(message)s')
 
+
 def normalize_query(q):
     q = q.replace('\n', '')
     q = q.replace('（', '(')
@@ -15,6 +16,7 @@ def normalize_query(q):
     q = re.sub(r"\(.+\)$", "", " ".join(q))
     q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
     return q
+
 
 def concat_url_path(*args):
     str_args = [str(p) for p in args]
@@ -24,6 +26,7 @@ def concat_url_path(*args):
         return url + '/'
     else:
         return url
+
 
 def search(q):
     url_search = 'https://eiga.com/search/{}'.format(
@@ -41,6 +44,7 @@ def search(q):
         return url_review
     else:
         return None
+
 
 def scrape_review(query):
     page_num = 1
