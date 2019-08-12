@@ -16,6 +16,15 @@ def normalize_query(q):
     q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
     return q
 
+def concat_url_path(*args):
+    str_args = [str(p) for p in args]
+    url = '/'.join([p.strip('/') for p in str_args])
+
+    if str_args[-1].endswith('/'):
+        return url + '/'
+    else:
+        return url
+
 def search(q):
     url_search = 'https://eiga.com/search/{}'.format(
         requests.utils.quote(normalize_query(q), safe=''))
@@ -28,7 +37,7 @@ def search(q):
 
     if result:
         path = result.select_one('a[href^="/movie/"]')['href']
-        url_review = 'https://eiga.com' + path + 'review/all/'
+        url_review = concat_url_path('https://eiga.com/', path, '/review/all/')
         return url_review
     else:
         return None
@@ -54,7 +63,7 @@ def scrape_review(query):
         return None
 
     while(1):
-        res = requests.get(url_review + str(page_num))
+        res = requests.get(concat_url_path(url_review, page_num))
         res.encoding = res.apparent_encoding
         soup = BeautifulSoup(res.content, "lxml")
         reviews = soup.select('div.user-review')
