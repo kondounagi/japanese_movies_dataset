@@ -30,9 +30,6 @@ def search(q):
         url_review = 'https://eiga.com' + path + 'review/all/'
         return url_review
     else:
-        logging.warning("**************************************************")
-        logging.warning(q + " HAS NO RESULT")
-        logging.warning("**************************************************")
         return None
 
 def scrape_review(query):
@@ -50,6 +47,9 @@ def scrape_review(query):
     url_review=search(query)
 
     if url_review is None:
+        logging.warning("**************************************************")
+        logging.warning(query + " HAS NO RESULT")
+        logging.warning("**************************************************")
         return None
 
     while(1):
