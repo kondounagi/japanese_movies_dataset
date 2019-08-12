@@ -15,7 +15,7 @@ def search(q):
     res_search.encoding = res_search.apparent_encoding
     soup_search = BeautifulSoup(res_search.content, "lxml")
     result =  soup_search.find('section', attrs={"id": "rslt-movie"})
-    if(result is not None):
+    if result is not None:
         path = result.find('li', attrs={"class": "col-s-3"}).find('a')["href"]
         url_review = 'https://eiga.com' + path + 'review/all/'
         return url_review
@@ -37,7 +37,7 @@ def scrape_review(query):
     }
     url_review=search(query)
 
-    if(url_review == "error"):
+    if url_review == "error":
         return "error"
 
     while(1):
@@ -67,7 +67,7 @@ with open('../2018_movie_clean', 'r') as movie_clean:
         output_file = './{0}.json'.format(movie_id)
         with open(output_file, 'w') as f:
             data = scrape_review(q)
-            if(data == "error"):
+            if data == "error":
                 continue
             data["id"] = int(movie_id)
             jsn =  json.dumps(data,ensure_ascii=False, indent=2)
