@@ -68,7 +68,7 @@ def main():
     with open('../2018_movie_clean', 'r') as movie_clean:
         for line in csv.reader(movie_clean, delimiter='\t'):
             movie_id, q, *_ = line
-            output_file = './{0}.json'.format(movie_id)
+            output_file = './{}.json'.format(movie_id)
             with open(output_file, 'w') as f:
                 data = scrape_review(q)
                 if data is None:
