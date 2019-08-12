@@ -4,6 +4,7 @@ import argparse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
+from urllib.parse import urlencode
 
 # Search hit numbers of Google Search
 
@@ -24,7 +25,13 @@ with open(path) as f:
     for line in f:
         search_count_element = {}
         word = line.split('\t')[1]
-        url = "https://www.google.com/search?q={}&safe=off".format(word + " 映画")
+
+        url = "https://www.google.com/search"
+        url += "?" + urlencode({
+            'q': ' '.join([word, "映画"]),
+            'safe': "off",
+        })
+
         driver.get(url)
         time.sleep(10)
         for _ in range(2):  # Retry just once
