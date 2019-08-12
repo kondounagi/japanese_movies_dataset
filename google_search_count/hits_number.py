@@ -36,6 +36,11 @@ with open(path) as f:
         driver.get(url)
         time.sleep(10)
 
+        search_count_element["title"] = word
+        search_count_element["search_count"] = ""
+
+        exception = None
+
         # Retry just once
         for _ in range(2):
             try:
@@ -44,19 +49,21 @@ with open(path) as f:
                 search = re.search('About ([0-9,]+) results', result_stats)
                 if search:
                     count = int(search.group(1).replace(',', ''))
+                else:
+                    # fallback
+                    count = 0
 
-                    search_count_element["title"] = word
-                    search_count_element["search_count"] = count
-                    search_count_list.append(search_count_element)
-                    break
-            except NoSuchElementException as exception:
+                search_count_element["search_count"] = count
+                break
+            except NoSuchElementException as e:
+                exception = e
                 driver.refresh()
                 time.sleep(10)
         else:
-            search_count_element["title"] = word
-            search_count_element["search_count"] = ""
-            search_count_list.append(search_count_element)
-            print("NoSuchElementException: " + word)
+            if exception:
+                print("NoSuchElementException: " + word)
+
+        search_count_list.append(search_count_element)
 
 with open('./search_count_new.json', 'w') as output:
     json.dump(search_count_list, output,
