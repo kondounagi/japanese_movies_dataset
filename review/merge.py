@@ -26,7 +26,11 @@ def main(list_file_path, review_root_path):
 
         for site, path in site_dict.items():
             d['reviews'][site] = []
-            with open(review_root_path.rstrip('/') + '/{}/{}.json'.format(path, str(i)), 'r') as f:
+
+            json_path = review_root_path.rstrip('/')
+            json_path += '/{}/{}.json'.format(path, str(i))
+
+            with open(json_path, 'r') as f:
                 load_data = None
                 try:
                     load_data = json.load(f)
