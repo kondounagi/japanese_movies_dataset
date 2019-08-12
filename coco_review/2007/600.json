@@ -1,0 +1,26 @@
+{
+    "title": "ヒッチャー",
+    "id": 599,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 1,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " M・ベイ絡みとあって現代風にアレンジされたいかにもティーンウケしそうな内容に仕上がっているが、小綺麗になっているのと余計なものまで見せている事で“怖さ”はあってもオリジナル版のような“不気味さ”や“独特の力強さ”は感じられない。"
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "title": "BRIGHT AUDITION",
+    "id": 194,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 2,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 「BRIGHT AUDITION」佐々木喜英君演じる主人公の美しいフィニッシュを盛り上げるべく、佐藤永典君、阿久津愼太郎君、根岸拓哉君ら各キャラクターにも見せ場を作りました。本日初日、19：10封切りです。",
+            " 「BRIGHT AUDITION」舞台挨拶、初日ではなく2日目の13日に決定しました。佐々木喜英さん、佐藤永典さん、根岸拓哉さん、中島愛里さんが登壇の予定です。詳細はこちら↓  "
+        ]
+    }
+}

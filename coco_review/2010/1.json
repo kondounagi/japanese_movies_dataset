@@ -1,0 +1,26 @@
+{
+    "title": "怒る西行",
+    "id": 0,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 100,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 100,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 沖島勲特集上映〈過激で、キュートな、ユートピア。〉＠ラピュタ阿佐ヶ谷にて『怒る西行』鑑賞。久我山から井の頭公園まで、ブラタモリならぬ形而上学ブラ沖田。世界の見え方についての映画。語る語る。これでいーのかしら。目にしみる新緑が美しい。"
+        ]
+    }
+}

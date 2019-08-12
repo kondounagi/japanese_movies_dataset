@@ -1,0 +1,26 @@
+{
+    "title": "イン・ザ・シャドウズ",
+    "id": 403,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 100,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 100,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 【イン・ザ・シャドウズ】(ベルリン派特集) 一人の犯罪者に焦点を当てて追ったサスペンス。T.アルスラン初のジャンルもの。やはりここでも徹底して映像で見せる静寂さ。見事な腕前と経験値をもつトロヤンの、次第に崩れていく計画と心。 "
+        ]
+    }
+}
