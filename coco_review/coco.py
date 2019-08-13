@@ -11,7 +11,7 @@ import os
 
 def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
     titles = []
-    with open(filepath, 'r', encoding="utf-8_sig") as f:
+    with open(filepath, 'r') as f:
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
             title = row[1]
