@@ -36,6 +36,7 @@ def main(list_file_path, review_root_path):
 
             with open('./{}.json'.format(str(i)), 'w') as output:
                 json.dump(d, output, indent=4, ensure_ascii=False)
+                output.write('\n')
 
 
 if __name__ == '__main__':

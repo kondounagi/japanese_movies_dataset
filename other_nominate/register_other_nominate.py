@@ -42,6 +42,7 @@ class RegisterOtherNominate:
 
         with open(self.args.output, 'w') as output:
             json.dump(results, output, ensure_ascii=False, indent=4, separators=(',', ':'))
+            output.write('\n')
 
     def create_map(self, whole_data):
         data = []
