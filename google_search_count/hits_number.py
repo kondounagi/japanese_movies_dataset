@@ -35,33 +35,14 @@ with open(path) as f:
 
         driver.get(url)
         time.sleep(10)
-        search_count_element["title"] = word
-        for i in range(3):  # Retry twice
-            try:
-                stats = driver.find_element_by_id("resultStats").text.split(' ')[1]
-
-                # print(word + " : " + stats)
-                # print("=======================")
-                search_count_element["search_count"] = stats
-                search_count_list.append(search_count_element)
-                break
-            except NoSuchElementException as exception:
-                next_arrow = driver.find_element_by_css_selector("#navcnt table td.cur + td a")
-                next_arrow.click()
-                driver.refresh()
-                time.sleep(10)
-        else:
-            search_count_element["search_count"] = ""
-            search_count_list.append(search_count_element)
-            print("NoSuchElementException: " + word)
 
         search_count_element["title"] = word
-        search_count_element["search_count"] = ""
+        search_count_element["search_count"] = 0
 
         exception = None
 
-        # Retry just once
-        for _ in range(2):
+        # Retry twice
+        for _ in range(3):
             try:
                 result_stats = driver.find_element_by_id("resultStats").text
 
@@ -76,6 +57,11 @@ with open(path) as f:
                 break
             except NoSuchElementException as e:
                 exception = e
+
+                selector = "#navcnt table td.cur + td a"
+                next_arrow = driver.find_element_by_css_selector(selector)
+                next_arrow.click()
+
                 driver.refresh()
                 time.sleep(10)
         else:
