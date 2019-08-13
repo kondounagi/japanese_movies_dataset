@@ -33,6 +33,7 @@ def main(list_file_path, review_root_path):
                         d['reviews'][site] = load_data['reviews'][site]
                     except json.decoder.JSONDecodeError:
                         d['reviews'][site] = []
+
             with open('./{}.json'.format(str(i)), 'w') as output:
                 json.dump(d, output, indent=4, ensure_ascii=False)
 
