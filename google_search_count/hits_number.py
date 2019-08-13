@@ -37,7 +37,7 @@ with open(path) as f:
         time.sleep(10)
 
         search_count_element["title"] = word
-        search_count_element["search_count"] = ""
+        search_count_element["search_count"] = 0
 
         exception = None
 
