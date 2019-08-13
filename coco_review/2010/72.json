@@ -1,0 +1,26 @@
+{
+    "title": "コトバのない冬",
+    "id": 71,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 1,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『コトバのない冬』映画としては？バーとかで音声なしで上映されていたら、ずっと見入ってしまいそうではある。"
+        ]
+    }
+}
