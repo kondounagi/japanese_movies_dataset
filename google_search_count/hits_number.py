@@ -57,8 +57,11 @@ with open(path) as f:
                 break
             except NoSuchElementException as e:
                 exception = e
-                next_arrow = driver.find_element_by_css_selector("#navcnt table td.cur + td a")
+
+                selector = "#navcnt table td.cur + td a"
+                next_arrow = driver.find_element_by_css_selector(selector)
                 next_arrow.click()
+
                 driver.refresh()
                 time.sleep(10)
         else:
