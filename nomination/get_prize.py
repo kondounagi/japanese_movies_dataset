@@ -43,7 +43,7 @@ def getPrize(n_th):
         '優秀外国作品賞'
     ]
 
-    prize_dict = {}
+    prize_dict = {'n_th' : n_th}
 
     for prize in prize_list1+prize_list2:
         prize_dict[prize] = {'最優秀賞' : None , '優秀賞': None}
