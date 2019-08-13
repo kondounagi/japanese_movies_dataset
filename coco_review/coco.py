@@ -7,8 +7,9 @@ import re
 import csv
 import sys
 import json
+import os
 
-def main(filepath,start_row = 1,end_row = None):
+def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
     titles = []
     with open(filepath, 'r', encoding="utf-8_sig") as f:
         reader = csv.reader(f, delimiter='\t')
@@ -33,7 +34,9 @@ def main(filepath,start_row = 1,end_row = None):
             'data': {'eigacom': [], 'filmarks': [], 'coco': data},
             'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments}
         }
-        output = open('./{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
+
+        os.makedirs(output_dir, exist_ok=True)
+        output = open(output_dir.rstrip('/') + '/{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
         json.dump(comment_dict, output, indent=4, ensure_ascii=False)
         output.close()
 
@@ -220,12 +223,12 @@ def getCocoData(select):
 
 if __name__ == '__main__':
     args = sys.argv
-    if len(args) < 2:
+    if len(args) < 3:
         print('disignate filepath')
         sys.exit(0)
-    if len(args) == 2:
-        main(args[1])
     if len(args) == 3:
-        main(args[1], start_row = int(args[2]) )
+        main(args[1],args[2])
     if len(args) == 4:
-        main(args[1], start_row = int(args[2]), end_row = int(args[3]))
+        main(args[1], args[2], start_row = int(args[3]) )
+    if len(args) == 5:
+        main(args[1], args[2], start_row = int(args[3]), end_row = int(args[4]))

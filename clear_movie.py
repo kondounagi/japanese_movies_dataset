@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import re
+import sys
 import unicodedata
 
+year = int(sys.argv[1])
 
 def main():
-    year = 2018
     month = 0
     day = 0
 
@@ -15,7 +16,7 @@ def main():
     re_garbage = re.compile(r'\s*[(（][^)）]*$')
 
     num = 0
-    with open("2018_movie_raw", "r") as in_file:
+    with open(str(year) + "_movie_raw", "r") as in_file:
         for line in in_file:
             line = line.strip()
 
@@ -39,7 +40,7 @@ def main():
             line = unicodedata.normalize('NFC', line)
 
             num += 1
-            print(num, line, year, month, day, sep='\t')
+            print(num, line, str(year), month, day, sep='\t')
 
 
 if __name__ == '__main__':

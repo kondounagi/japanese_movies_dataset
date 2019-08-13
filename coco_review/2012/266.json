@@ -1,0 +1,24 @@
+{
+    "title": "映画館落語 かもめ亭",
+    "id": 265,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": null,
+            "whole_tweet_amount": null,
+            "each_tweet_amount": {
+                "good": null,
+                "even": null,
+                "bad": null
+            },
+            "positive_index": null,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": []
+    }
+}

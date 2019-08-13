@@ -1,0 +1,26 @@
+{
+    "title": "ハーダー・ゼイ・カム",
+    "id": 387,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 100,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 1,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 100,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『ハーダー・ゼイ・カム』スカーフェイスinジャマイカ？ 劇伴が主人公の歌以外ほぼないせいか、危険な商売・ヤバい事態の中でも世界の空気感はさして変わらない点に独特の怖さが。褒められた奴じゃないけど、スタジオでの笑顔を思い出すと切ない。"
+        ]
+    }
+}

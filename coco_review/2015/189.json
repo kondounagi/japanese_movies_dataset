@@ -1,0 +1,28 @@
+{
+    "title": "××× KISS KISS KISS",
+    "id": 188,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 4,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 1
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『××× KISS KISS KISS』「キス」をテーマにしたという割には、そのインパクトがなくチラシなどから受ける印象としてのダーク感もなく、ただ30分超のなんでもない短編が5本続いただけなのが残念。「太陽の坐る場所」と知って納得",
+            " 2回目の『××× KISS KISS KISS』を観ます。  いろいろオトクな日ですよ♪  ",
+            " 映画『××× KISS KISS KISS』が観たい。FilmarksにClip! "
+        ]
+    }
+}

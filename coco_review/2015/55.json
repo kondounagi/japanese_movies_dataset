@@ -1,0 +1,30 @@
+{
+    "title": "RED COW",
+    "id": 54,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 5,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 「松田優主演映画「REDCOW」」 ⇒ ",
+            " おいおいおいREDCOW主演の松田優って街で馬部と牛尾やってた人じゃん！！！うは！！！",
+            " ブログを更新しました。 『松田優主演映画「REDCOW」』 ⇒ ",
+            " 黒澤はるかちゃん出演「RED COW」公式サイト",
+            " あああああ『RED COW』の公式サイトができとるうううう "
+        ]
+    }
+}

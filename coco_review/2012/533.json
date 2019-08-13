@@ -1,0 +1,26 @@
+{
+    "title": "流 ながれ",
+    "id": 532,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 昨日（25日）六本木ヒルズで第65回映像技術賞の授賞式がありました。「流ながれ」が撮影部門で受賞、カメラマンの能勢広が表彰されました。伝統ある賞を賜り「流ながれ」も明日の公開に向けて勢いを頂きました。10年間に渡り地道にじっくりと自然環境の変化と人物像を捉えたことが評価されました"
+        ]
+    }
+}
