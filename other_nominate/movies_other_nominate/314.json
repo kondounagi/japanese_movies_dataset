@@ -26,6 +26,9 @@
     "other_nominate":[
         {
             "nominate_name":"ブルーリボン賞"
+        },
+        {
+            "nominate_name":"報知映画賞"
         }
     ],
     "plot":""

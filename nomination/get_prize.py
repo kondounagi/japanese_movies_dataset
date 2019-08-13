@@ -8,7 +8,7 @@ import re
 def main():
     for n_th in range(1, 42 + 1):
         data = getPrize(n_th)
-        with open('./{}.json'.format(str(n_th)), 'w', encoding='utf-8') as output:
+        with open('./{}.json'.format(str(n_th + 1976)), 'w', encoding='utf-8') as output:
             json.dump(data, output, indent=4, ensure_ascii=False)
             output.write('\n')
 
@@ -43,7 +43,7 @@ def getPrize(n_th):
         '優秀外国作品賞'
     ]
 
-    prize_dict = {}
+    prize_dict = {'n_th' : n_th}
 
     for prize in prize_list1+prize_list2:
         prize_dict[prize] = {'最優秀賞' : None , '優秀賞': None}
