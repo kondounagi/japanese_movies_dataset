@@ -10,35 +10,31 @@ def main(list_file_path, review_root_path):
         'coco': 'coco_review',
     }
 
-    titles = []
     with open(list_file_path, 'r') as f:
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
-            titles.append(row[1])
+            i = row[0]
 
-    amount = len(titles)
+            d = {
+                'id': i,
+                'reviews': {},
+            }
 
-    for i in range(1, amount + 1):
-        d = {
-            'id': i,
-            'reviews': {},
-        }
+            for site, path in site_dict.items():
+                d['reviews'][site] = []
 
-        for site, path in site_dict.items():
-            d['reviews'][site] = []
+                json_path = review_root_path.rstrip('/')
+                json_path += '/{}/{}.json'.format(path, str(i))
 
-            json_path = review_root_path.rstrip('/')
-            json_path += '/{}/{}.json'.format(path, str(i))
-
-            with open(json_path, 'r') as f:
-                load_data = None
-                try:
-                    load_data = json.load(f)
-                    d['reviews'][site] = load_data['reviews'][site]
-                except json.decoder.JSONDecodeError:
-                    d['reviews'][site] = []
-        with open('./{}.json'.format(str(i)), 'w') as output:
-            json.dump(d, output, indent=4, ensure_ascii=False)
+                with open(json_path, 'r') as f:
+                    load_data = None
+                    try:
+                        load_data = json.load(f)
+                        d['reviews'][site] = load_data['reviews'][site]
+                    except json.decoder.JSONDecodeError:
+                        d['reviews'][site] = []
+            with open('./{}.json'.format(str(i)), 'w') as output:
+                json.dump(d, output, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
