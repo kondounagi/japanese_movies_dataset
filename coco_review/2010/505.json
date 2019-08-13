@@ -1,0 +1,27 @@
+{
+    "title": "ベストセラー",
+    "id": 504,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 4,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『ベストセラー』うむぅう。。おしい！",
+            " 『ベストセラー』DVD。どう考えてもネタをばらすタイミングおかしい。それを新鮮と言ってしまえばそれまでだけど"
+        ]
+    }
+}
