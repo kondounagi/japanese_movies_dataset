@@ -131,11 +131,7 @@ def main():
             with open("meta_movie_data/" + year + "/" + str(film_num) + ".json", "w") as output_file:
                 output_file.write(json.dumps(film_data, ensure_ascii=False))
                 # json.dump(film_data, output_file).encode('utf-8')
-<<<<<<< HEAD
-=======
                 output_file.write('\n')
-            # break 
->>>>>>> 90d7709cbd244eb6916afddda29c4af74cf7c6f4
             print(fail_list)
             sys.stdout.flush()
             # break
