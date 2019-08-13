@@ -1,0 +1,28 @@
+{
+    "title": "大人になった夏",
+    "id": 236,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 3,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 映画『大人になった夏』初日舞台挨拶で監督、出演者ら登壇",
+            " ",
+            " エイベックスニュースターコレクション2の「大人になった夏」かなりいい！"
+        ]
+    }
+}

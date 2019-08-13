@@ -104,6 +104,7 @@ def main():
                     continue
                 data["id"] = int(movie_id)
                 json.dump(data, f, ensure_ascii=False, indent=2)
+                f.write('\n')
 
 
 if __name__ == '__main__':

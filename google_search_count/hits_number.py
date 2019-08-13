@@ -75,5 +75,6 @@ with open('./search_count_new.json', 'w') as output:
               ensure_ascii=False,
               indent=4,
               separators=(',', ':'))
+    output.write('\n')
 
 driver.quit()

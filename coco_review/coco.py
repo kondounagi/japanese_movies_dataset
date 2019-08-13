@@ -11,7 +11,7 @@ import os
 
 def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
     titles = []
-    with open(filepath, 'r', encoding="utf-8_sig") as f:
+    with open(filepath, 'r') as f:
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
             title = row[1]
@@ -38,6 +38,7 @@ def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
         os.makedirs(output_dir, exist_ok=True)
         output = open(output_dir.rstrip('/') + '/{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
         json.dump(comment_dict, output, indent=4, ensure_ascii=False)
+        output.write('\n')
         output.close()
 
     return
