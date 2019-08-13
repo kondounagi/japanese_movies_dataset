@@ -1,0 +1,27 @@
+{
+    "title": "僕たちのプレイボール",
+    "id": 184,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 2,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 0
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 僕たちのプレイボール 吉田栄作出演 野球はさほど興味ないけど広告代理店社長に特別鑑賞券を頂いたので観に行こう。午前中の一回しかないから",
+            " 僕たちのプレイボールの取材で世界の新庄がドタキャンしたらしい！！さすがです。"
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "title": "空を歩く少年",
+    "id": 88,
+    "data": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": {
+            "satisfaction": 0,
+            "whole_tweet_amount": 1,
+            "each_tweet_amount": {
+                "good": 0,
+                "even": 0,
+                "bad": 1
+            },
+            "positive_index": 0,
+            "review_word": []
+        }
+    },
+    "reviews": {
+        "eigacom": [],
+        "filmarks": [],
+        "coco": [
+            " 『空を歩く少年』うーん。お互いの成長にしろ、ロードムービー的要素にしろ、中途半端さは否めない。ラストもイマイチでよくわからない。"
+        ]
+    }
+}
