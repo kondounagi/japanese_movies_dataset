@@ -33,7 +33,7 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
             'title': title,
             'id': i,
             'data': {'eigacom': [], 'filmarks': [], 'coco': data},
-            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments}
+            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments},
         }
 
         os.makedirs(output_dir, exist_ok=True)
@@ -64,7 +64,7 @@ def getCocoId(title):
             '＄': '$',
             '＃': '#',
             '！': '!',
-            '？': '?'
+            '？': '?',
         })
         regulated_title = re.sub(r'（[^（）]*）', '', title_string)
         regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
@@ -163,10 +163,10 @@ def getCocoData(select):
                  'each_tweet_amount': {
                      'good': None,
                      'even': None,
-                     'bad': None
+                     'bad': None,
                  },
                  'positive_index': None,
-                 'review_word': []
+                 'review_word': [],
                 }
     if select is not None:
         return data_dict
@@ -219,7 +219,7 @@ def getCocoData(select):
             '21': 'とても多い',
             '22': 'とても多い',
             '23': 'とても多い',
-            '24': 'とても多い'
+            '24': 'とても多い',
         }
         keyword_dict['grade'] = mapping.get(size, '不明')
         data_dict['review_word'].append(keyword_dict)
