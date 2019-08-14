@@ -18,7 +18,7 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
             title = row[1]
             titles.append(title)
 
-    if end_row != None:
+    if end_row is not None:
         if end_row > len(titles):
             end_row = len(titles)
     else:
@@ -168,7 +168,7 @@ def getCocoData(select):
                  'positive_index': None,
                  'review_word': []
                 }
-    if select == None:
+    if select is not None:
         return data_dict
 
     url = 'https://coco.to/movie/{}'.format(select['cocoId'])
@@ -178,22 +178,22 @@ def getCocoData(select):
     soup = BeautifulSoup(data, 'html.parser')
 
     satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
-    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element != None else None
+    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element is not None else None
 
     review_good_element = soup.find('div', {'class': 'review_good'}).nextSibling
-    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', '')) if review_good_element != None else None
+    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', '')) if review_good_element is not None else None
 
     review_even_element = soup.find('div', {'class': 'review_even'}).nextSibling
-    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', '')) if review_even_element != None else None
+    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', '')) if review_even_element is not None else None
 
     review_bad_element = soup.find('div', {'class': 'review_bad'}).nextSibling
-    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', '')) if review_bad_element != None else None
+    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', '')) if review_bad_element is not None else None
 
     tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
-    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', '')) if tweet_amount_element != None else None
+    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', '')) if tweet_amount_element is not None else None
 
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
-    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element != None else None
+    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element is not None else None
 
     review_keyword_wrapper = soup.find('div', {'class': 'tag_list clearflt clearboth'})
     review_keyword_elements = review_keyword_wrapper.findAll('a') if review_keyword_wrapper is not None else []
