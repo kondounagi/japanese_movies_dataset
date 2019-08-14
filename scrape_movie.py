@@ -73,6 +73,7 @@ def main():
                     film += film_splits[1][i:i+1]
             film = re.sub('[’!\"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s]+', "", film)
             
+            
             # fetch search result
             film = "".join(film.split())
             print(film_search + film)
@@ -87,6 +88,9 @@ def main():
                 continue
             film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
             id_list.append(film_id[7:12])
+            
+            # this only used for small fix
+            # film_id = "/movie/88817/"
             
             # fetch top-1 movie result information
             content = requests.get(film_index + film_id).content 
@@ -134,8 +138,7 @@ def main():
                 output_file.write('\n')
             print(fail_list)
             sys.stdout.flush()
-            # break
-            return 
+            
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
             id_file.write("\t".join([year, str(i + 1), id_list[i]]) + "\n")
