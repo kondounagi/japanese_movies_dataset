@@ -1,0 +1,47 @@
+{
+    "title":"映画 おかあさんといっしょ はじめての大冒険",
+    "director":[],
+    "scriptwriter":[],
+    "performers":[
+        "花田ゆういちろう",
+        "小野あつこ",
+        "小林よしひさ",
+        "上原りさ",
+        "満島真之介",
+        "吉田仁美",
+        "冨田泰代",
+        "川島得愛",
+        "西川貴教",
+        "横山だいすけ",
+        "関根麻里"
+    ],
+    "screen_time":70,
+    "production_studio":"日活、ライブ・ビューイング・ジャパン",
+    "release_date":"2018-09-07",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

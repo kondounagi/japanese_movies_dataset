@@ -1,0 +1,44 @@
+{
+    "title":"モニタリング ( オーストリア)",
+    "director":[
+        "ルース・メイダー"
+    ],
+    "scriptwriter":[
+        "ルース・メイダー",
+        "マーティン・ライデンフロスト"
+    ],
+    "performers":[
+        "フリッツ・カール",
+        "カタリーナ・ローレンツ",
+        "フロリアン・タイヒトマイスター"
+    ],
+    "screen_time":101,
+    "production_studio":"ハーク",
+    "release_date":"2018-07-29",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

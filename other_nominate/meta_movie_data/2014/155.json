@@ -1,0 +1,47 @@
+{
+    "title":"ワン チャンス",
+    "director":[
+        "デビッド・フランケル"
+    ],
+    "scriptwriter":[
+        "ジャスティン・ザッカム"
+    ],
+    "performers":[
+        "ジェームズ・コーデン",
+        "アレクサンドラ・ローチ",
+        "ジュリー・ウォルターズ",
+        "コルム・ミーニー",
+        "ジェミマ・ルーパー",
+        "マッケンジー・クルック",
+        "バレリア・ビレロ"
+    ],
+    "screen_time":103,
+    "production_studio":"ギャガ",
+    "release_date":"2014-03-21",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

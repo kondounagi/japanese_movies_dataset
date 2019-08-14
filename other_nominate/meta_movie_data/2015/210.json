@@ -1,0 +1,45 @@
+{
+    "title":"アメリカン・ドリーマー 理想の代償",
+    "director":[
+        "J・C・チャンダー"
+    ],
+    "scriptwriter":[
+        "J・C・チャンダー"
+    ],
+    "performers":[
+        "オスカー・アイザック",
+        "ジェシカ・チャステイン",
+        "デビッド・オイェロウォ",
+        "アレッサンドロ・ニボラ",
+        "アルバート・ブルックス"
+    ],
+    "screen_time":125,
+    "production_studio":"ギャガ",
+    "release_date":"2015-10-01",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

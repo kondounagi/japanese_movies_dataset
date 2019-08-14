@@ -1,0 +1,47 @@
+{
+    "title":"孤独な惑星",
+    "director":[
+        "筒井武文"
+    ],
+    "scriptwriter":[
+        "宮崎大祐"
+    ],
+    "performers":[
+        "竹厚綾",
+        "綾野剛",
+        "三村恭代",
+        "水橋研二",
+        "ヒカルド",
+        "市山貴章",
+        "ミッキー・カーチス"
+    ],
+    "screen_time":94,
+    "production_studio":"ALVORADA FILMS",
+    "release_date":"2011-12-17",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

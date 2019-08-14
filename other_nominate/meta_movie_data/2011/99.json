@@ -1,0 +1,42 @@
+{
+    "title":"ショパン 愛と哀しみの旋律",
+    "director":[
+        "イエジー・アントチャク"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "ピョートル・アダムチク",
+        "ダヌタ・ステンカ",
+        "ボジェナ・スタフーラ",
+        "アダム・ボロノービチ"
+    ],
+    "screen_time":126,
+    "production_studio":"ショウゲート",
+    "release_date":"2011-03-05",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "title":"モリエール 恋こそ喜劇",
+    "director":[
+        "ローラン・ティラール"
+    ],
+    "scriptwriter":[
+        "ローラン・ティラール",
+        "グレゴワール・ビニュロン"
+    ],
+    "performers":[
+        "ロマン・デュリス",
+        "ファブリス・ルキーニ",
+        "リュディビーヌ・サニエ",
+        "ラウラ・モランテ",
+        "エドゥアール・ベア"
+    ],
+    "screen_time":120,
+    "production_studio":"セテラ・インターナショナル",
+    "release_date":"2010-03-06",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

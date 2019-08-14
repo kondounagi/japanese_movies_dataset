@@ -1,0 +1,42 @@
+{
+    "title":"アイリス -THE LAST-",
+    "director":[
+        "ヤン・ユノ",
+        "キム・ギュテ"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "イ・ビョンホン",
+        "キム・テヒ",
+        "T.O.P"
+    ],
+    "screen_time":-1,
+    "production_studio":"角川映画",
+    "release_date":"2011-01-08",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

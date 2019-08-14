@@ -1,0 +1,44 @@
+{
+    "title":"シネマ歌舞伎 天守物語",
+    "director":[],
+    "scriptwriter":[],
+    "performers":[
+        "坂東玉三郎",
+        "市川海老蔵",
+        "中村勘太郎",
+        "上村吉弥",
+        "市川猿弥",
+        "市川門之助",
+        "中村獅童",
+        "片岡我當"
+    ],
+    "screen_time":108,
+    "production_studio":"松竹",
+    "release_date":"2014-07-05",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

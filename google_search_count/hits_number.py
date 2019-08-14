@@ -45,10 +45,9 @@ with open(path) as f:
         for _ in range(2):
             try:
                 result_stats = driver.find_element_by_id("resultStats").text
-                search = result_stats.split(' ')[1]
-                # search = re.search('About ([0-9,]+) results', result_stats)
+                search = re.search('bout ([0-9,]+) results', result_stats)
                 if search:
-                    count = int(search.replace(',', ''))
+                    count = int(search.group(1).replace(',', ''))
                 else:
                     # fallback
                     count = 0

@@ -1,0 +1,52 @@
+{
+    "title":"古都",
+    "director":[
+        "Yuki Saito"
+    ],
+    "scriptwriter":[
+        "眞武泰徳",
+        "梶本惠美",
+        "Yuki Saito"
+    ],
+    "performers":[
+        "松雪泰子",
+        "橋本愛",
+        "成海璃子",
+        "蒼れいな",
+        "蒼あんな",
+        "葉山奨之",
+        "栗塚旭",
+        "迫田孝也",
+        "伊原剛志",
+        "奥田瑛二"
+    ],
+    "screen_time":117,
+    "production_studio":"DLE",
+    "release_date":"2016-12-03",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

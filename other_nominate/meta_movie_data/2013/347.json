@@ -1,0 +1,45 @@
+{
+    "title":"ベルリンファイル",
+    "director":[
+        "リュ・スンワン"
+    ],
+    "scriptwriter":[
+        "リュ・スンワン"
+    ],
+    "performers":[
+        "ハン・ソッキュ",
+        "ハ・ジョンウ",
+        "リュ・スンボム",
+        "チョン・ジヒョン",
+        "イ・ギョンヨン"
+    ],
+    "screen_time":120,
+    "production_studio":"CJ Entertainment Japan",
+    "release_date":"2013-07-13",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

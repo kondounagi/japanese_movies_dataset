@@ -1,0 +1,45 @@
+{
+    "title":"私はワタシ over the rainbow",
+    "director":[
+        "増田玄樹"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "長谷川博史",
+        "増原裕子",
+        "ピーター",
+        "はるな愛",
+        "レスリー・キー",
+        "杉山文野",
+        "松中権"
+    ],
+    "screen_time":90,
+    "production_studio":"",
+    "release_date":"2018-12-22",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

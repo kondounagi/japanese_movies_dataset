@@ -1,0 +1,42 @@
+{
+    "title":"ミリオネア・オン・ザ・ラン",
+    "director":[
+        "キム・イクロ"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "チェ・ヨンインパク・ジニョン",
+        "パク・ジニョン",
+        "チョ・ソンハ",
+        "ミン・ヒョリン"
+    ],
+    "screen_time":107,
+    "production_studio":"CJ Entertainment Japan",
+    "release_date":"2013-10-12",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

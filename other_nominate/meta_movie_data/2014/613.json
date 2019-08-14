@@ -1,0 +1,35 @@
+{
+    "title":"放送禁止 劇場版 洗脳 〜邪悪なる鉄のイメージ〜",
+    "director":[],
+    "scriptwriter":[],
+    "performers":[],
+    "screen_time":-1,
+    "production_studio":"",
+    "release_date":"2014-10-11",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

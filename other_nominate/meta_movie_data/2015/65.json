@@ -1,0 +1,45 @@
+{
+    "title":"グッド・ライ 〜いちばん優しい嘘〜",
+    "director":[
+        "フィリップ・ファラルドー"
+    ],
+    "scriptwriter":[
+        "マーガレット・ネイグル"
+    ],
+    "performers":[
+        "リース・ウィザースプーン",
+        "アーノルド・オーチェン",
+        "ゲール・ドゥエイニー",
+        "コリー・ストール",
+        "エマニュエル・ジャル"
+    ],
+    "screen_time":110,
+    "production_studio":"キノフィルムズ",
+    "release_date":"2015-04-17",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

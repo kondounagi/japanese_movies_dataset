@@ -1,0 +1,43 @@
+{
+    "title":"ワンドゥギ",
+    "director":[
+        "イ・ハン"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "キム・ユンソク",
+        "ユ・アイン",
+        "パク・スヨン",
+        "イ・ジャスミン",
+        "キム・サンホ"
+    ],
+    "screen_time":108,
+    "production_studio":"CJ Entertainment Japan",
+    "release_date":"2012-04-28",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

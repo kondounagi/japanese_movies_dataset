@@ -1,0 +1,56 @@
+{
+    "title":"劇場版 艦これ",
+    "director":[
+        "草川啓造"
+    ],
+    "scriptwriter":[
+        "花田十輝",
+        "田中謙介"
+    ],
+    "performers":[
+        "上坂すみれ",
+        "藤田咲",
+        "井口裕香",
+        "佐倉綾音",
+        "竹達彩奈",
+        "東山奈央",
+        "野水伊織",
+        "日高里菜",
+        "タニベユミ",
+        "大坪由佳",
+        "中島愛",
+        "洲崎綾",
+        "ブリドカット セーラ 恵美",
+        "堀江由衣",
+        "川澄綾子"
+    ],
+    "screen_time":91,
+    "production_studio":"KADOKAWA",
+    "release_date":"2016-11-26",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

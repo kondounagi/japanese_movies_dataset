@@ -1,0 +1,44 @@
+{
+    "title":"シャッフル2 エクスチェンジ",
+    "director":[
+        "ジョエル・バークバル",
+        "サイモン・サンドクイスト"
+    ],
+    "scriptwriter":[
+        "マイケル・ペトローニ"
+    ],
+    "performers":[
+        "サラ・ミシェル・ゲラー",
+        "リー・ペイス",
+        "マイケル・ランデス"
+    ],
+    "screen_time":85,
+    "production_studio":"クロックワークス",
+    "release_date":"2011-01-08",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

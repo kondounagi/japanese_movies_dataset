@@ -1,7 +1,6 @@
 import argparse
 import json
 import re
-from string import ascii_letters, digits
 
 import requests
 from lxml import html

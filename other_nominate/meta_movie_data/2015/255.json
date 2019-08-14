@@ -1,0 +1,54 @@
+{
+    "title":"ペンギンズ FROM マダガスカル ザ・ムービー",
+    "director":[
+        "エリック・ダーネル",
+        "サイモン・J・スミス"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "トム・マクグラス",
+        "クリス・ミラー",
+        "コンラッド・バーノン",
+        "クリストファー・ナイツ",
+        "ベネディクト・カンバーバッチ",
+        "ジョン・マルコビッチ",
+        "ケン・チョン",
+        "アネット・マヘンドル",
+        "ピーター・ストーメア",
+        "飛田展男",
+        "手塚英彰",
+        "関貴昭",
+        "石田泰弘",
+        "成田剣",
+        "楠見尚己"
+    ],
+    "screen_time":92,
+    "production_studio":"20世紀フォックス ホームエンターテイメントジャパン",
+    "release_date":"2015-11-14",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

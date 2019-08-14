@@ -1,0 +1,44 @@
+{
+    "title":"劇場版 TRIGUN -Badlands Rumble-",
+    "director":[
+        "西村聡"
+    ],
+    "scriptwriter":[
+        "小林靖子"
+    ],
+    "performers":[
+        "小野坂昌也",
+        "速水奨",
+        "鶴ひろみ",
+        "雪野五月"
+    ],
+    "screen_time":-1,
+    "production_studio":"クロックワークス",
+    "release_date":"2010-04-24",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

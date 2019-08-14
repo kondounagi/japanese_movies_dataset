@@ -1,0 +1,46 @@
+{
+    "title":"リベンジャー 処刑人",
+    "director":[
+        "ステファヌ・ロケ"
+    ],
+    "scriptwriter":[
+        "ステファヌ・ロケ",
+        "ジャン＝イブ・ブルジョワ"
+    ],
+    "performers":[
+        "ジャン＝イブ・ブルジョワ",
+        "マリー・デルマ",
+        "エマニュエル・ボナミ",
+        "パトリック・メディオニ",
+        "グザビエ・ペレス"
+    ],
+    "screen_time":80,
+    "production_studio":"ブロードウェイ",
+    "release_date":"2018-01-09",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

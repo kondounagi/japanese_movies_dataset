@@ -1,0 +1,44 @@
+{
+    "title":"軍中楽園 ( 台湾)",
+    "director":[
+        "ニウ・チェンザー"
+    ],
+    "scriptwriter":[
+        "ニウ・チェンザー"
+    ],
+    "performers":[
+        "イーサン・ルアン",
+        "レジーナ・ワン",
+        "チェン・ジェンビン",
+        "アイビー・チェン"
+    ],
+    "screen_time":133,
+    "production_studio":"太秦",
+    "release_date":"2018-05-26",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

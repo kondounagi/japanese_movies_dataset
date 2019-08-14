@@ -1,0 +1,47 @@
+{
+    "title":"推理作家ポー 最期の5日間",
+    "director":[
+        "ジェームズ・マクティーグ"
+    ],
+    "scriptwriter":[
+        "ベン・リビングストン",
+        "ハンナ・シェイクスピア"
+    ],
+    "performers":[
+        "ジョン・キューザック",
+        "ルーク・エバンス",
+        "アリス・イブ",
+        "ブレンダン・グリーソン",
+        "ケビン・マクナリー",
+        "オリバー・ジャクソン＝コーエン"
+    ],
+    "screen_time":110,
+    "production_studio":"ディズニー",
+    "release_date":"2012-10-12",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "title":"マダム・フローレンス! 夢見るふたり",
+    "director":[
+        "スティーブン・フリアーズ"
+    ],
+    "scriptwriter":[
+        "ニコラス・マーティン"
+    ],
+    "performers":[
+        "メリル・ストリープ",
+        "ヒュー・グラント",
+        "サイモン・ヘルバーク",
+        "レベッカ・ファーガソン",
+        "ニナ・アリアンダ"
+    ],
+    "screen_time":111,
+    "production_studio":"ギャガ",
+    "release_date":"2016-12-01",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

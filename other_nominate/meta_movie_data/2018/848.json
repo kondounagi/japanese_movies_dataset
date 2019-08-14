@@ -1,0 +1,46 @@
+{
+    "title":"キックス",
+    "director":[
+        "ジャスティン・ティッピング"
+    ],
+    "scriptwriter":[
+        "ジャスティン・ティッピング",
+        "ジョシュア・ベアーン＝ゴールデン"
+    ],
+    "performers":[
+        "ジャキング・ギロリー",
+        "クリストファー・メイヤー",
+        "クリストファー・ジョーダン・ウォーレス",
+        "マハーシャラ・アリ",
+        "コフィ・シリボー"
+    ],
+    "screen_time":87,
+    "production_studio":"SPACE SHOWER FILMS",
+    "release_date":"2018-12-01",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "title":"それいけ!アンパンマン かがやけ!クルンといのちの星",
+    "director":[
+        "矢野博之"
+    ],
+    "scriptwriter":[
+        "金春智子"
+    ],
+    "performers":[
+        "戸田恵子",
+        "中尾隆聖",
+        "杏",
+        "渡部建",
+        "児嶋一哉"
+    ],
+    "screen_time":61,
+    "production_studio":"東京テアトル",
+    "release_date":"2018-06-30",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

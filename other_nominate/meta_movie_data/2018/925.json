@@ -1,0 +1,44 @@
+{
+    "title":"ヴィヴィアン・ウエストウッド 最強のエレガンス",
+    "director":[
+        "ローナ・タッカー"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "ビビアン・ウエストウッド",
+        "アンドレアス・クロンターラー",
+        "ケイト・モス",
+        "ナオミ・キャンベル",
+        "カリーヌ・ロワトフェルド",
+        "アンドレ・レオン・タリー"
+    ],
+    "screen_time":84,
+    "production_studio":"KADOKAWA",
+    "release_date":"2018-12-28",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

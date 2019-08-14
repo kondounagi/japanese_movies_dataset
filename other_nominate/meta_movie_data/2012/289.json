@@ -1,0 +1,44 @@
+{
+    "title":"劇場版 ライバル伝説〜光と影",
+    "director":[
+        "菊野浩樹"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "江川卓",
+        "西本聖",
+        "西本聖",
+        "有森裕子",
+        "松野明美",
+        "松野明美"
+    ],
+    "screen_time":93,
+    "production_studio":"東京テアトル",
+    "release_date":"2012-06-16",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "title":"セインツ -約束の果て-",
+    "director":[
+        "デビッド・ロウリー"
+    ],
+    "scriptwriter":[
+        "デビッド・ロウリー"
+    ],
+    "performers":[
+        "ケイシー・アフレック",
+        "ルーニー・マーラ",
+        "ベン・フォスター",
+        "ネイト・パーカー",
+        "ラミ・マレック",
+        "キース・キャラダイン"
+    ],
+    "screen_time":98,
+    "production_studio":"プレシディオ、クロックワークス",
+    "release_date":"2014-03-29",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

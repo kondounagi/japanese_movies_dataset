@@ -1,0 +1,45 @@
+{
+    "title":"パズル",
+    "director":[],
+    "scriptwriter":[
+        "エリザベス宮地"
+    ],
+    "performers":[
+        "一ノ瀬みか",
+        "羽島めい",
+        "羽島みき",
+        "関口なほ",
+        "小山ひな",
+        "奥村徹也",
+        "住谷哲栄"
+    ],
+    "screen_time":47,
+    "production_studio":"SPOTTED PRODUCTIONS",
+    "release_date":"2014-03-08",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

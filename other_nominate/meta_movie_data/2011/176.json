@@ -1,0 +1,47 @@
+{
+    "title":"魔法少女を忘れない",
+    "director":[
+        "堀禎一"
+    ],
+    "scriptwriter":[
+        "中野太",
+        "ますもとたくや"
+    ],
+    "performers":[
+        "高橋龍輝",
+        "谷内里早",
+        "森田涼花",
+        "碓井将大",
+        "前田亜季",
+        "伴大介"
+    ],
+    "screen_time":95,
+    "production_studio":"テレビ西日本、SPOTTED PRODUCTIONS",
+    "release_date":"2011-04-23",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

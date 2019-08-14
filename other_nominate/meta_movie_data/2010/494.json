@@ -1,0 +1,44 @@
+{
+    "title":"アメリア 永遠の翼",
+    "director":[
+        "ミーラー・ナーイル"
+    ],
+    "scriptwriter":[
+        "アンナ・ハミルトン＝フェラン"
+    ],
+    "performers":[
+        "ヒラリー・スワンク",
+        "リチャード・ギア",
+        "ユアン・マクレガー",
+        "ミア・ワシコウスカ"
+    ],
+    "screen_time":111,
+    "production_studio":"ショウゲート",
+    "release_date":"2010-11-27",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

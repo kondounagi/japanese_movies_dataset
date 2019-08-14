@@ -1,0 +1,44 @@
+{
+    "title":"メアリー & マックス",
+    "director":[
+        "アダム・エリオット"
+    ],
+    "scriptwriter":[
+        "アダム・エリオット"
+    ],
+    "performers":[
+        "トニ・コレット",
+        "フィリップ・シーモア・ホフマン",
+        "バリー・ハンフリーズ",
+        "エリック・バナ"
+    ],
+    "screen_time":94,
+    "production_studio":"エスパース・サロウ",
+    "release_date":"2011-04-23",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}
