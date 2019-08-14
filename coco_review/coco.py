@@ -68,7 +68,11 @@ def getCocoId(title):
         })
         regulated_title = re.sub(r'（[^（）]*）', '', title_string)
         regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
-        regulated_title = re.sub(r'[\s\-～〜:：;、。<>＜＞「」\"\',\.・/／－]+', ' ', regulated_title)
+
+        regulated_title = re.sub(r'''
+            [\s\-～〜:：;、。<>＜＞「」\"\',\.・/／－]+  # unwanted signs
+        ''', ' ', regulated_title, flags=re.VERBOSE)
+
         regulated_title = regulated_title.translate(table)
         regulated_title = regulated_title.rstrip(' ')
         return regulated_title
