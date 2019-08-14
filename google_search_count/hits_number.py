@@ -69,7 +69,7 @@ with open(path) as f:
 
         search_count_list.append(search_count_element)
 
-with open('./search_count_new.json', 'w') as output:
+with open('./search_count_2018.json', 'w') as output:
     json.dump(search_count_list, output,
               ensure_ascii=False,
               indent=4,
