@@ -24,7 +24,7 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
     else:
         end_row = len(titles)
 
-    for i in range(start_row - 1,end_row):
+    for i in range(start_row - 1, end_row):
         title = titles[i]
         select = getCocoId(title)
         comments = getCocoReview(select)
