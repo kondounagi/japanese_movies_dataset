@@ -1,0 +1,37 @@
+{
+    "title":"チェコ・スワン",
+    "director":[
+        "アレクサドラ・テルピンスカ"
+    ],
+    "scriptwriter":[],
+    "performers":[],
+    "screen_time":52,
+    "production_studio":"コピアポア・フィルム",
+    "release_date":"2018-11-24",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

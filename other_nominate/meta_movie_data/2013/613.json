@@ -1,0 +1,47 @@
+{
+    "title":"ビューティフル・クリーチャーズ 光と闇に選ばれし者",
+    "director":[
+        "リチャード・ラグラベネーズ"
+    ],
+    "scriptwriter":[
+        "リチャード・ラグラベネーズ"
+    ],
+    "performers":[
+        "オールデン・エアエンライク",
+        "アリス・イングラート",
+        "ジェレミー・アイアンズ",
+        "ビオラ・デイビス",
+        "エミー・ロッサム",
+        "トーマス・マン",
+        "エマ・トンプソン"
+    ],
+    "screen_time":124,
+    "production_studio":"アース・スターエンターテイメント",
+    "release_date":"2013-11-30",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

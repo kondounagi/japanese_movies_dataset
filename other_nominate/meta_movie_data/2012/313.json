@@ -1,0 +1,46 @@
+{
+    "title":"プレイ -獲物-",
+    "director":[
+        "エリック・バレット"
+    ],
+    "scriptwriter":[
+        "リュック・ボッシ",
+        "ローラン・チュルネル"
+    ],
+    "performers":[
+        "アルベール・デュポンテル",
+        "アリス・タグリオーニ",
+        "ステファン・デバク",
+        "ナターシャ・レニエ",
+        "セルジ・ロペス"
+    ],
+    "screen_time":104,
+    "production_studio":"エプコット",
+    "release_date":"2012-06-30",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

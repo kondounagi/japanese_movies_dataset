@@ -1,0 +1,45 @@
+{
+    "title":"パウロ 愛と赦しの物語",
+    "director":[
+        "アンドリュー・ハイアット"
+    ],
+    "scriptwriter":[
+        "アンドリュー・ハイアット"
+    ],
+    "performers":[
+        "ジム・カビーゼル",
+        "オリビエ・マルティネス",
+        "ジョアンヌ・ウォーリー",
+        "ジョン・リンチ",
+        "ジェームズ・フォークナー"
+    ],
+    "screen_time":108,
+    "production_studio":"ソニー・ピクチャーズエンタテインメント",
+    "release_date":"2018-11-03",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

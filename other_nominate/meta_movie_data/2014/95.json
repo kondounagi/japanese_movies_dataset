@@ -1,0 +1,45 @@
+{
+    "title":"パラダイス:希望（ オーストリア）",
+    "director":[
+        "ウルリッヒ・ザイドル"
+    ],
+    "scriptwriter":[
+        "ウルリッヒ・ザイドル",
+        "ベロニカ・フランツ"
+    ],
+    "performers":[
+        "メラニー・レンツ",
+        "ジョセフ・ロレンツ",
+        "ミヒャエル・トーマス",
+        "ビビアン・バルトシュ"
+    ],
+    "screen_time":91,
+    "production_studio":"ユーロスペース",
+    "release_date":"2014-02-22",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

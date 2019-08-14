@@ -1,0 +1,47 @@
+{
+    "title":"スカイライン -征服-",
+    "director":[
+        "グレッグ・ストラウス",
+        "コリン・ストラウス"
+    ],
+    "scriptwriter":[
+        "ジョシュア・コーズ",
+        "リアム・オドネル"
+    ],
+    "performers":[
+        "エリック・バルフォー",
+        "スコッティ・トンプソン",
+        "ブリタニー・ダニエル",
+        "デビッド・ザヤス",
+        "ドナルド・フェイソン"
+    ],
+    "screen_time":94,
+    "production_studio":"松竹",
+    "release_date":"2011-06-18",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

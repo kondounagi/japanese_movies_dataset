@@ -1,0 +1,44 @@
+{
+    "title":"ザ・スクエア 思いやりの聖域",
+    "director":[
+        "リューベン・オストルンド"
+    ],
+    "scriptwriter":[
+        "リューベン・オストルンド"
+    ],
+    "performers":[
+        "クレス・バング",
+        "エリザベス・モス",
+        "ドミニク・ウェスト",
+        "テリー・ノタリー"
+    ],
+    "screen_time":151,
+    "production_studio":"トランスフォーマー",
+    "release_date":"2018-04-28",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

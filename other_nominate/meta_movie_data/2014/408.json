@@ -1,0 +1,46 @@
+{
+    "title":"パガニーニ 愛と狂気のヴァイオリニスト",
+    "director":[
+        "バーナード・ローズ"
+    ],
+    "scriptwriter":[
+        "バーナード・ローズ"
+    ],
+    "performers":[
+        "デビッド・ギャレット",
+        "ジャレッド・ハリス",
+        "アンドレア・デック",
+        "クリスチャン・マッケイ",
+        "ジョエリー・リチャードソン",
+        "ヘルムート・バーガー"
+    ],
+    "screen_time":122,
+    "production_studio":"アルバトロス・フィルム",
+    "release_date":"2014-07-11",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

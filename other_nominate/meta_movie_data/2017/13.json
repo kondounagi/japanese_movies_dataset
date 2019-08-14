@@ -1,0 +1,50 @@
+{
+    "title":"ショコラ 〜君がいて、僕がいる〜",
+    "director":[
+        "ロシュディ・ゼム"
+    ],
+    "scriptwriter":[
+        "シリル・ジェリー",
+        "オリビエ・ゴルス",
+        "ロシュディ・ゼム"
+    ],
+    "performers":[
+        "オマール・シー",
+        "ジェームス・ティエレ",
+        "クロチルド・エム",
+        "オリビエ・グルメ",
+        "フレデリック・ピエロ",
+        "ノエミ・ルボフスキー",
+        "アリス・ド・ランクザン",
+        "オリビエ・ラブルダン"
+    ],
+    "screen_time":119,
+    "production_studio":"東北新社、STAR CHANNEL MOVIES",
+    "release_date":"2017-01-21",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

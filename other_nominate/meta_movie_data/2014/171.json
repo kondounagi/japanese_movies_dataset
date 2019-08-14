@@ -1,0 +1,44 @@
+{
+    "title":"悪魔の起源 -ジン-",
+    "director":[
+        "トビー・フーパー"
+    ],
+    "scriptwriter":[
+        "デビッド・タリー"
+    ],
+    "performers":[
+        "ラザン・ジャマル",
+        "ハリド・レイス",
+        "アイーシャ・ハート",
+        "ポール・ルーブク"
+    ],
+    "screen_time":86,
+    "production_studio":"ファインフィルムズ",
+    "release_date":"2014-03-29",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

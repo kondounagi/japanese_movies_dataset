@@ -1,0 +1,47 @@
+{
+    "title":"ROAD TO NINJA -NARUTO THE MOVIE-",
+    "director":[
+        "伊達勇登"
+    ],
+    "scriptwriter":[
+        "宮田由佳"
+    ],
+    "performers":[
+        "竹内順子",
+        "中村千絵",
+        "森川智之",
+        "井上和彦",
+        "篠原恵美",
+        "杉山紀彰",
+        "内田直哉"
+    ],
+    "screen_time":110,
+    "production_studio":"東宝",
+    "release_date":"2012-07-28",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

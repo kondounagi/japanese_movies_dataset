@@ -1,0 +1,37 @@
+{
+    "title":"美しいひと",
+    "director":[
+        "東志津"
+    ],
+    "scriptwriter":[],
+    "performers":[],
+    "screen_time":116,
+    "production_studio":"一隅社、S.Aプロダクション",
+    "release_date":"2014-05-31",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

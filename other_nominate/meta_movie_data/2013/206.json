@@ -1,0 +1,42 @@
+{
+    "title":"タイガー 伝説のスパイ",
+    "director":[
+        "カビール・カーン"
+    ],
+    "scriptwriter":[
+        "カビール・カーン"
+    ],
+    "performers":[
+        "サルマーン・カーン",
+        "カトリーナ・カイフ"
+    ],
+    "screen_time":132,
+    "production_studio":"日活",
+    "release_date":"2013-04-20",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

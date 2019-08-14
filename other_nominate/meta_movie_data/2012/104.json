@@ -1,0 +1,41 @@
+{
+    "title":"ピナ・バウシュ 夢の教室",
+    "director":[
+        "アン・リンセル"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "ピナ・バウシュ",
+        "ベネディクト・ビリエ",
+        "ジョセフィーヌ・アン・エンディコット"
+    ],
+    "screen_time":89,
+    "production_studio":"トランスフォーマー",
+    "release_date":"2012-03-03",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

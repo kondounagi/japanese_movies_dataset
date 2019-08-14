@@ -1,0 +1,44 @@
+{
+    "title":"吸血怪獣 チュパカブラ",
+    "director":[
+        "ロドリゴ・アラガオン"
+    ],
+    "scriptwriter":[
+        "ロドリゴ・アラガオン"
+    ],
+    "performers":[
+        "メイラ・アラルコン",
+        "キカ・オリベイラ",
+        "マークス・コンカ",
+        "マーゴット・バナッティ"
+    ],
+    "screen_time":106,
+    "production_studio":"キュリオスコープ",
+    "release_date":"2014-06-07",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

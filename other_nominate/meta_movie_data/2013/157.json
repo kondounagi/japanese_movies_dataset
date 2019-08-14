@@ -1,0 +1,44 @@
+{
+    "title":"劇場版ミッフィー どうぶつえんで宝さがし",
+    "director":[
+        "ハンス・パーク"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "小松未可子",
+        "中上育実",
+        "細野雅世",
+        "清水秀光",
+        "日高のり子",
+        "宝亀克寿"
+    ],
+    "screen_time":70,
+    "production_studio":"プレシディオ",
+    "release_date":"2013-03-23",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

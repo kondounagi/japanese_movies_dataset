@@ -1,0 +1,49 @@
+{
+    "title":"老獄/OLD PRISON",
+    "director":[
+        "辻岡正人"
+    ],
+    "scriptwriter":[
+        "上田慎一郎",
+        "水野聖子",
+        "辻岡正人"
+    ],
+    "performers":[
+        "アジャ・コング",
+        "藤岡英樹",
+        "忍成修吾",
+        "佐藤蛾次郎",
+        "増田俊樹",
+        "栗生二稲",
+        "横川康次"
+    ],
+    "screen_time":60,
+    "production_studio":"REIZ INTERNATIONAL",
+    "release_date":"2012-02-04",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

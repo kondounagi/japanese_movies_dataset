@@ -1,0 +1,44 @@
+{
+    "title":"リターン・オブ・ジーパーズ・クリーパーズ JEEPERS CREEPERS 3",
+    "director":[
+        "ビクター・サルバ"
+    ],
+    "scriptwriter":[
+        "ビクター・サルバ"
+    ],
+    "performers":[
+        "スタン・ショウ",
+        "ガブリエル・ホウ",
+        "ブランドン・スミス",
+        "ジーナ・フィリップス"
+    ],
+    "screen_time":100,
+    "production_studio":"ブラウニー",
+    "release_date":"2018-10-12",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

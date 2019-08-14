@@ -1,0 +1,46 @@
+{
+    "title":"ザ・テノール 真実の物語",
+    "director":[
+        "キム・サンマン"
+    ],
+    "scriptwriter":[
+        "キム・サンマン"
+    ],
+    "performers":[
+        "ユ・ジテ",
+        "伊勢谷友介",
+        "チャ・イェリョン",
+        "北乃きい",
+        "ナターシャ・タプスコビッチ",
+        "ティツィアーナ・ドゥカーティ"
+    ],
+    "screen_time":121,
+    "production_studio":"「ザ・テノール　真実の物語」プロジェクト",
+    "release_date":"2014-10-11",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

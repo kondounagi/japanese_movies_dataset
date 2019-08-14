@@ -1,0 +1,43 @@
+{
+    "title":"ブエノスアイレス恋愛事情",
+    "director":[
+        "グスタボ・タレット"
+    ],
+    "scriptwriter":[
+        "グスタボ・タレット"
+    ],
+    "performers":[
+        "ピラール・ロペス・デ・アジャラ",
+        "ハビエル・ドロラス",
+        "イネス・エフロン"
+    ],
+    "screen_time":95,
+    "production_studio":"Action Inc.",
+    "release_date":"2013-11-16",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

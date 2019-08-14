@@ -1,0 +1,46 @@
+{
+    "title":"鉄男 THE BULLET MAN",
+    "director":[
+        "塚本晋也"
+    ],
+    "scriptwriter":[
+        "塚本晋也",
+        "黒木久勝"
+    ],
+    "performers":[
+        "エリック・ボシック",
+        "桃生亜希子",
+        "中村優子",
+        "ステファン・サラザン",
+        "塚本晋也"
+    ],
+    "screen_time":71,
+    "production_studio":"アスミック・エース",
+    "release_date":"2010-05-22",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

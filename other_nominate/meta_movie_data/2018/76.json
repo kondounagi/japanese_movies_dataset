@@ -1,0 +1,45 @@
+{
+    "title":"ジャングル ギンズバーグ19日間の軌跡",
+    "director":[
+        "グレッグ・マクリーン"
+    ],
+    "scriptwriter":[
+        "ジャスティン・モンジョ"
+    ],
+    "performers":[
+        "ダニエル・ラドクリフ",
+        "トーマス・クレッチマン",
+        "アレックス・ラッセル",
+        "ジョエル・ジャクソン",
+        "ヤスミン・カシム"
+    ],
+    "screen_time":115,
+    "production_studio":"カルチュア・パブリッシャーズ",
+    "release_date":"2018-01-23",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

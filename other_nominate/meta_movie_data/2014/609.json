@@ -1,0 +1,45 @@
+{
+    "title":"ミンヨン 倍音の法則",
+    "director":[
+        "佐々木昭一郎"
+    ],
+    "scriptwriter":[
+        "佐々木昭一郎"
+    ],
+    "performers":[
+        "ミンヨン",
+        "ユンヨン",
+        "武藤英明",
+        "旦部辰徳",
+        "高原勇大"
+    ],
+    "screen_time":140,
+    "production_studio":"シグロ",
+    "release_date":"2014-10-11",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

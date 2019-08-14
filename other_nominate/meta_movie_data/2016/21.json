@@ -1,0 +1,42 @@
+{
+    "title":"メモリーズ 追憶の剣",
+    "director":[
+        "パク・フンシク"
+    ],
+    "scriptwriter":[],
+    "performers":[
+        "イ・ビョンホン",
+        "チョン・ドヨン",
+        "キム・ゴウン",
+        "ジュノ"
+    ],
+    "screen_time":120,
+    "production_studio":"クロックワークス",
+    "release_date":"2016-01-23",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

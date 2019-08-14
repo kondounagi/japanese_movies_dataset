@@ -1,0 +1,47 @@
+{
+    "title":"映画かいけつゾロリ うちゅうの勇者たち",
+    "director":[
+        "岩崎知子"
+    ],
+    "scriptwriter":[
+        "岡田麿里",
+        "小柳啓伍",
+        "和場明子"
+    ],
+    "performers":[
+        "山寺宏一",
+        "愛河里花子",
+        "くまいもとこ",
+        "関智一",
+        "茅野愛衣"
+    ],
+    "screen_time":49,
+    "production_studio":"東京テアトル",
+    "release_date":"2015-09-12",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "title":"Buy Me バイ・ミー",
+    "director":[
+        "バディム・パールマン"
+    ],
+    "scriptwriter":[
+        "ダリヤ・グラツェビチ"
+    ],
+    "performers":[
+        "ユリヤ・フリーニナ",
+        "スベトラーナ・ウスティノバ",
+        "アンナ・アダモビチ",
+        "イワン・ドブロヌラボフ"
+    ],
+    "screen_time":108,
+    "production_studio":"アットエンタテインメント",
+    "release_date":"2018-10-06",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

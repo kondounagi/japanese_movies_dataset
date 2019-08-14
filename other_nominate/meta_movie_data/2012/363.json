@@ -1,0 +1,39 @@
+{
+    "title":"劇場版東京スカイツリー 世界一のひみつ",
+    "director":[
+        "野上純一"
+    ],
+    "scriptwriter":[
+        "小林弘利"
+    ],
+    "performers":[],
+    "screen_time":60,
+    "production_studio":"角川映画フィルムインク",
+    "release_date":"2012-07-28",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

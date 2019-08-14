@@ -1,0 +1,47 @@
+{
+    "title":"Miss ZOMBIE",
+    "director":[
+        "SABU"
+    ],
+    "scriptwriter":[
+        "SABU"
+    ],
+    "performers":[
+        "小松彩夏",
+        "冨樫真",
+        "手塚とおる",
+        "大西利空",
+        "駿河太郎",
+        "芹澤興人",
+        "山内圭哉"
+    ],
+    "screen_time":85,
+    "production_studio":"ライブ・ビューイング・ジャパン",
+    "release_date":"2013-09-14",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}

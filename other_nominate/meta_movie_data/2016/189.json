@@ -1,0 +1,40 @@
+{
+    "title":"レッドタートル ある島の物語",
+    "director":[
+        "マイケル・デュドク・ドゥ・ビット"
+    ],
+    "scriptwriter":[
+        "マイケル・デュドク・ドゥ・ビット",
+        "パスカル・フェラン"
+    ],
+    "performers":[],
+    "screen_time":81,
+    "production_studio":"東宝",
+    "release_date":"2016-09-17",
+    "other_nominate":[
+        {
+            "award":"nikkan_sports",
+            "prized":0
+        },
+        {
+            "award":"golden_gross",
+            "prized":0
+        },
+        {
+            "award":"hochi_eigashou",
+            "prized":0
+        },
+        {
+            "award":"mainichi_film_award",
+            "prized":0
+        },
+        {
+            "award":"blue_ribbon_award",
+            "prized":0
+        },
+        {
+            "award":"kinejun_best_ten",
+            "prized":0
+        }
+    ]
+}
