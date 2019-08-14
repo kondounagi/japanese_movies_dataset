@@ -9,7 +9,8 @@ import sys
 import json
 import os
 
-def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
+
+def main(filepath: str, output_dir: str, start_row=1, end_row=None):
     titles = []
     with open(filepath, 'r') as f:
         reader = csv.reader(f, delimiter='\t')
@@ -17,13 +18,13 @@ def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
             title = row[1]
             titles.append(title)
 
-    if end_row != None:
+    if end_row is not None:
         if end_row > len(titles):
             end_row = len(titles)
     else:
         end_row = len(titles)
-    
-    for i in range(start_row-1,end_row):
+
+    for i in range(start_row - 1, end_row):
         title = titles[i]
         select = getCocoId(title)
         comments = getCocoReview(select)
@@ -32,7 +33,7 @@ def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
             'title': title,
             'id': i,
             'data': {'eigacom': [], 'filmarks': [], 'coco': data},
-            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments}
+            'reviews': {'eigacom': [], 'filmarks': [], 'coco': comments},
         }
 
         os.makedirs(output_dir, exist_ok=True)
@@ -42,6 +43,7 @@ def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
         output.close()
 
     return
+
 
 def getCocoId(title):
     def trans(title_string):
@@ -62,7 +64,7 @@ def getCocoId(title):
             '＄': '$',
             '＃': '#',
             '！': '!',
-            '？': '?'
+            '？': '?',
         })
         regulated_title = re.sub(r'（[^（）]*）', '', title_string)
         regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
@@ -107,10 +109,11 @@ def getCocoId(title):
             select = element
             break
 
-    if select is None and len(id_title) is not 0:
+    if select is None and len(id_title) != 0:
         select = id_title[0]
 
     return select
+
 
 def getCocoReview(select):
     http = urllib3.PoolManager(
@@ -147,6 +150,7 @@ def getCocoReview(select):
 
     return(comments)
 
+
 def getCocoData(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
@@ -154,52 +158,54 @@ def getCocoData(select):
 
     url = 'https://coco.to/movies'
 
-    data_dict = {'satisfaction': None,
-                 'whole_tweet_amount': None,
-                 'each_tweet_amount': {
-                     'good': None,
-                     'even': None,
-                     'bad': None
-                 },
-                 'positive_index': None,
-                 'review_word': []
-                }
-    if select == None:
+    data_dict = {
+        'satisfaction': None,
+        'whole_tweet_amount': None,
+        'each_tweet_amount': {
+            'good': None,
+            'even': None,
+            'bad': None,
+        },
+        'positive_index': None,
+        'review_word': [],
+    }
+
+    if select is not None:
         return data_dict
-    
+
     url = 'https://coco.to/movie/{}'.format(select['cocoId'])
     encoded_url = urllib.parse.quote(url, '/:?=&')
     r = http.request('GET', encoded_url)
     data = r.data.decode('utf-8')
     soup = BeautifulSoup(data, 'html.parser')
-    
+
     satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
-    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element != None else None
-    
-    review_good_element = soup.find('div' , {'class': 'review_good'}).nextSibling
-    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',','')) if review_good_element != None else None
-    
+    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element is not None else None
+
+    review_good_element = soup.find('div', {'class': 'review_good'}).nextSibling
+    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', '')) if review_good_element is not None else None
+
     review_even_element = soup.find('div', {'class': 'review_even'}).nextSibling
-    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',','')) if review_even_element != None else None
-    
+    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', '')) if review_even_element is not None else None
+
     review_bad_element = soup.find('div', {'class': 'review_bad'}).nextSibling
-    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',','')) if review_bad_element != None else None
-    
+    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', '')) if review_bad_element is not None else None
+
     tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
-    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',','')) if tweet_amount_element != None else None
-    
+    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', '')) if tweet_amount_element is not None else None
+
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
-    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element != None else None
-    
+    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element is not None else None
+
     review_keyword_wrapper = soup.find('div', {'class': 'tag_list clearflt clearboth'})
     review_keyword_elements = review_keyword_wrapper.findAll('a') if review_keyword_wrapper is not None else []
 
     for element in review_keyword_elements:
         keyword_dict = {'keyword': None, 'grade': None}
         keyword_dict['keyword'] = element.string
-        m = re.search(r'font\-size:\d+px',element['style'])
+        m = re.search(r'font\-size:\d+px', element['style'])
         font_size_style = m.group()
-        size = re.sub(r'\D','',font_size_style)
+        size = re.sub(r'\D', '', font_size_style)
         mapping = {
             '10': '少し',
             '11': '少し',
@@ -209,18 +215,19 @@ def getCocoData(select):
             '15': 'まあまあ多い',
             '16': 'まあまあ多い',
             '17': '結構多い',
-            '18': '結構多い', 
+            '18': '結構多い',
             '19': '結構多い',
             '20': '結構多い',
             '21': 'とても多い',
             '22': 'とても多い',
             '23': 'とても多い',
-            '24': 'とても多い'
+            '24': 'とても多い',
         }
-        keyword_dict['grade'] = mapping.get(size,'不明')
-        data_dict['review_word'].append(keyword_dict)    
-    
+        keyword_dict['grade'] = mapping.get(size, '不明')
+        data_dict['review_word'].append(keyword_dict)
+
     return data_dict
+
 
 if __name__ == '__main__':
     args = sys.argv
@@ -228,8 +235,8 @@ if __name__ == '__main__':
         print('disignate filepath')
         sys.exit(0)
     if len(args) == 3:
-        main(args[1],args[2])
+        main(args[1], args[2])
     if len(args) == 4:
-        main(args[1], args[2], start_row = int(args[3]) )
+        main(args[1], args[2], start_row=int(args[3]))
     if len(args) == 5:
-        main(args[1], args[2], start_row = int(args[3]), end_row = int(args[4]))
+        main(args[1], args[2], start_row=int(args[3]), end_row=int(args[4]))
