@@ -37,10 +37,10 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
         }
 
         os.makedirs(output_dir, exist_ok=True)
-        output = open(output_dir.rstrip('/') + '/{}.json'.format(str(i + 1)), 'w', encoding='utf-8')
-        json.dump(comment_dict, output, indent=4, ensure_ascii=False)
-        output.write('\n')
-        output.close()
+        output_file = output_dir.rstrip('/') + '/{}.json'.format(str(i + 1))
+        with open(output_file, 'w') as output:
+            json.dump(comment_dict, output, indent=4, ensure_ascii=False)
+            output.write('\n')
 
     return
 
@@ -68,7 +68,11 @@ def getCocoId(title):
         })
         regulated_title = re.sub(r'（[^（）]*）', '', title_string)
         regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
-        regulated_title = re.sub(r'[\s\-～〜:：;、。<>＜＞「」\"\',\.・/／－]+', ' ', regulated_title)
+
+        regulated_title = re.sub(r'''
+            [\s\-～〜:：;、。<>＜＞「」\"\',\.・/／－]+  # unwanted signs
+        ''', ' ', regulated_title, flags=re.VERBOSE)
+
         regulated_title = regulated_title.translate(table)
         regulated_title = regulated_title.rstrip(' ')
         return regulated_title
@@ -125,7 +129,9 @@ def getCocoReview(select):
         return comments
 
     for i in range(200):
-        url = 'https://coco.to/movie/{}/review/{}'.format(select['cocoId'], str(i + 1))
+        url = ('https://coco.to/movie/{}/review/{}'
+               .format(select['cocoId'], str(i + 1)))
+
         encoded_url = urllib.parse.quote(url, '/:?=&')
         r = http.request('GET', encoded_url)
         data = r.data.decode('utf-8')
