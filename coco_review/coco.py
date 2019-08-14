@@ -9,6 +9,7 @@ import sys
 import json
 import os
 
+
 def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
     titles = []
     with open(filepath, 'r') as f:
@@ -42,6 +43,7 @@ def main(filepath: str, output_dir: str, start_row = 1, end_row = None):
         output.close()
 
     return
+
 
 def getCocoId(title):
     def trans(title_string):
@@ -112,6 +114,7 @@ def getCocoId(title):
 
     return select
 
+
 def getCocoReview(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
@@ -146,6 +149,7 @@ def getCocoReview(select):
             break
 
     return(comments)
+
 
 def getCocoData(select):
     http = urllib3.PoolManager(
