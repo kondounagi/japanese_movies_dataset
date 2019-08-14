@@ -34,21 +34,21 @@ with open(path) as f:
         })
 
         driver.get(url)
-        time.sleep(10)
+        time.sleep(5)
 
         search_count_element["title"] = word
         search_count_element["search_count"] = 0
 
         exception = None
 
-        # Retry twice
-        for _ in range(3):
+        # Retry only once
+        for _ in range(2):
             try:
                 result_stats = driver.find_element_by_id("resultStats").text
-
-                search = re.search('About ([0-9,]+) results', result_stats)
+                search = result_stats.split(' ')[1]
+                # search = re.search('About ([0-9,]+) results', result_stats)
                 if search:
-                    count = int(search.group(1).replace(',', ''))
+                    count = int(search.replace(',', ''))
                 else:
                     # fallback
                     count = 0
@@ -75,5 +75,6 @@ with open('./search_count_new.json', 'w') as output:
               ensure_ascii=False,
               indent=4,
               separators=(',', ':'))
+    output.write('\n')
 
 driver.quit()

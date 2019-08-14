@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "type": "object",
+  "properties": {
+    "movie_id": {
+      "type": "int"
+    },
+    "title": {
+      "type": "string"
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+              "type": "datetime"
+          },
+          "review": {
+              "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
