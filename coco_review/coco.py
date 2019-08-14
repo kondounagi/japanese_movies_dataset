@@ -158,16 +158,18 @@ def getCocoData(select):
 
     url = 'https://coco.to/movies'
 
-    data_dict = {'satisfaction': None,
-                 'whole_tweet_amount': None,
-                 'each_tweet_amount': {
-                     'good': None,
-                     'even': None,
-                     'bad': None,
-                 },
-                 'positive_index': None,
-                 'review_word': [],
-                }
+    data_dict = {
+        'satisfaction': None,
+        'whole_tweet_amount': None,
+        'each_tweet_amount': {
+            'good': None,
+            'even': None,
+            'bad': None,
+        },
+        'positive_index': None,
+        'review_word': [],
+    }
+
     if select is not None:
         return data_dict
 
