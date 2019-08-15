@@ -146,6 +146,10 @@ def getCocoReview(select):
             flag = True
 
         li = soup.findAll('li', {'class': 'tweet_li'})
+
+        if len(li) == 0:
+            flag = True
+
         for counter, each in enumerate(li):
             comment_string = each.find('div', {'class': 'tweet_text'}).next_element
             processed_comment = re.sub(r'\s', ' ', comment_string)
