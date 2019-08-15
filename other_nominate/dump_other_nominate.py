@@ -91,12 +91,18 @@ class DumpOtherNominate:
         url = 'https://ja.wikipedia.org/wiki/ゴールデングロス賞'
         root = get_root(url)
         whole_data = {}
+
         for row in root.xpath('//table[contains(@class, "wikitable")]/tbody/tr'):
-            if len(row.xpath('td[1]/a')) == 0 or len(row.xpath('td[3]/a')) == 0:
+            if not row.xpath('td[1]/a'):
                 continue
+
+            if not row.xpath('td[3]/a'):
+                continue
+
             caption = row.xpath('td[1]/a')[0].text
             data = row.xpath('td[3]/a')[0].text
             whole_data[caption] = data
+
         return 'golden_gross', self.create_map(whole_data)
 
     def register_hochi_eigashou(self):
