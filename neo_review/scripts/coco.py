@@ -4,7 +4,6 @@ import urllib3
 import urllib
 from bs4 import BeautifulSoup
 import re
-import csv
 import sys
 import json
 import os
