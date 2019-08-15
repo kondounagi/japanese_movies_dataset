@@ -15,10 +15,10 @@ def main():
 
 
 def getPrize(n_th):
-
     http = urllib3.PoolManager(
             cert_reqs='CERT_REQUIRED',
             ca_certs=certifi.where())
+
     url = 'https://www.japan-academy-prize.jp/prizes/'
     r = http.request('GET', url, fields={'t': n_th})
     data = r.data.decode('utf-8')
