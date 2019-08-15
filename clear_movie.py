@@ -5,6 +5,7 @@ import unicodedata
 
 year = int(sys.argv[1])
 
+
 def main():
     month = 0
     day = 0
