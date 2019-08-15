@@ -18,8 +18,10 @@ class DumpOtherNominate:
         self.driver = webdriver.Chrome(options=options)
 
         parser = argparse.ArgumentParser()
-        parser.add_argument("-o", "--output", default="annual_other_nominate_data.json",
-                            help="path of the output json file", type=str)
+        parser.add_argument("-o", "--output",
+                            default="annual_other_nominate_data.json",
+                            help="path of the output json file",
+                            type=str)
         self.args = parser.parse_args()
 
         self.years = range(2003, 2019)
