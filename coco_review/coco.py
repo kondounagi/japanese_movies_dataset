@@ -91,9 +91,9 @@ def getCocoId(title):
     soup = BeautifulSoup(data, 'html.parser')
 
     id_title = []
-    for element in soup.findAll("div", {"class": "li_pp"}):
+    for element in soup.select("div.li_pp"):
         temp_id = re.sub(r'\D', '', element.a['href'])
-        temp_title = element.find('div', {'class': 'li_ttl'}).string
+        temp_title = element.select_one('div.li_ttl').string
         id_title.append({'cocoId': temp_id, 'title': temp_title})
 
     for element in id_title:
@@ -139,15 +139,15 @@ def getCocoReview(select):
 
         flag = False
 
-        if len(soup.findAll('h2', {'class': 'tweet_title2'})) > 0:
+        if len(soup.select('h2.tweet_title2')) > 0:
             flag = True
 
-        if len(soup.findAll('h2', {'class': 'tweet_title1'})) > 0:
+        if len(soup.select('h2.tweet_title1')) > 0:
             flag = True
 
-        li = soup.findAll('li', {'class': 'tweet_li'})
+        li = soup.select('li.tweet_li')
         for counter, each in enumerate(li):
-            comment_string = each.find('div', {'class': 'tweet_text'}).next_element
+            comment_string = each.select_one('div.tweet_text').next_element
             processed_comment = re.sub(r'\s', ' ', comment_string)
             comments.append(processed_comment)
 
@@ -188,13 +188,13 @@ def getCocoData(select):
     satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
     data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element is not None else None
 
-    review_good_element = soup.find('div', {'class': 'review_good'}).nextSibling
+    review_good_element = soup.select_one('div.review_good').nextSibling
     data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', '')) if review_good_element is not None else None
 
-    review_even_element = soup.find('div', {'class': 'review_even'}).nextSibling
+    review_even_element = soup.select_one('div.review_even').nextSibling
     data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', '')) if review_even_element is not None else None
 
-    review_bad_element = soup.find('div', {'class': 'review_bad'}).nextSibling
+    review_bad_element = soup.select_one('div.review_bad').nextSibling
     data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', '')) if review_bad_element is not None else None
 
     tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
@@ -203,7 +203,7 @@ def getCocoData(select):
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
     data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element is not None else None
 
-    review_keyword_wrapper = soup.find('div', {'class': 'tag_list clearflt clearboth'})
+    review_keyword_wrapper = soup.select_one('div.tag_list.clearflt.clearboth')
     review_keyword_elements = review_keyword_wrapper.findAll('a') if review_keyword_wrapper is not None else []
 
     for element in review_keyword_elements:
