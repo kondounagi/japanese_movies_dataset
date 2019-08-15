@@ -62,10 +62,18 @@ class JoinMetaData:
                     for nominate in other_nominates:
                         for element in nominate_map[movie_data['title']]:
                             if nominate['award'] == element['award']:
-                                movie_data['other_nominates'].append({'award': nominate['award'], 'prized': 1})
+                                movie_data['other_nominates'].append({
+                                    'award': nominate['award'],
+                                    'prized': 1,
+                                })
+
                                 break
                         else:
-                            movie_data['other_nominates'].append({'award': nominate['award'], 'prized': 0})
+                            movie_data['other_nominates'].append({
+                                'award': nominate['award'],
+                                'prized': 0,
+                            })
+
                 result[str(year)].append(movie_data)
 
         with open(self.args.data, 'w') as f:
