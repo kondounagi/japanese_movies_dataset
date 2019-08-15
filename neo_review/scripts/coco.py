@@ -8,11 +8,12 @@ import sys
 import json
 import os
 
+
 def main(filepath: str, output_dir: str, year):
     meta_data = None
-    with open(filepath, 'r', encoding= 'utf-8') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
         meta_data = json.load(f)
-    
+
     for element in meta_data[year]:
         output_dict = {}
         nomination_id = element['id']
@@ -23,11 +24,12 @@ def main(filepath: str, output_dir: str, year):
         output_dict[str(nomination_id)] = temp_dict
         os.makedirs(output_dir, exist_ok=True)
         output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w', encoding='utf-8')
-        json.dump(output_dict , output, indent=4, ensure_ascii=False)
+        json.dump(output_dict, output, indent=4, ensure_ascii=False)
         output.write('\n')
         output.close()
 
     return
+
 
 def getCocoId(title):
     def trans(title_string):
@@ -98,6 +100,7 @@ def getCocoId(title):
 
     return select
 
+
 def getCocoReview(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
@@ -132,7 +135,7 @@ def getCocoReview(select):
             processed_comment = re.sub(r'\s', ' ', comment_string)
             date_element = each.find('div', {'class': 'updated'})
             date_string = date_element.a['title']
-            date_string = re.search(r'\d\d\d\d:\d\d:\d\d',date_string).group().replace(':','-')
+            date_string = re.search(r'\d\d\d\d:\d\d:\d\d', date_string).group().replace(':', '-')
             comments.append({'date': date_string, 'review': processed_comment})
 
         if flag:
@@ -140,10 +143,11 @@ def getCocoReview(select):
 
     return(comments)
 
+
 if __name__ == '__main__':
     args = sys.argv
     if len(args) < 4:
         print('disignate filepath')
         sys.exit(0)
     if len(args) == 4:
-        main(args[1],args[2],args[3])
+        main(args[1], args[2], args[3])
