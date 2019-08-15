@@ -5,6 +5,7 @@ import sys
 import re
 import json
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 '''
     meta data to be stored from eiga.com
@@ -41,10 +42,7 @@ def main():
 
             print(film_num, film)
 
-            if len(month) == 1:
-                month = "0" + month
-            if len(day) == 1:
-                day = "0" + day
+            dt = datetime(int(year), int(month), int(day))
 
             # initilize single film dictionary
             film_data = {}
@@ -54,7 +52,7 @@ def main():
             film_data["performers"] = []
             film_data["screen_time"] = -1
             film_data["production_studio"] = ""
-            film_data["release_date"] = year + "-" + month + "-" + day
+            film_data["release_date"] = dt.strftime("%Y-%m-%d")
 
             # clean parenthese in movie title
             left_parenthese = 0
@@ -88,7 +86,7 @@ def main():
                 print(film_data)
 
                 output_filepath = os.path.join("meta_movie_data",
-                                               year,
+                                               str(dt.year),
                                                str(film_num) + ".json")
 
                 with open(output_filepath, "w") as output_file:
@@ -144,7 +142,7 @@ def main():
                                 film_data["performers"].append(p.get_text().strip())
 
             print(film_num, film_data)
-            with open("meta_movie_data/" + year + "/" + str(film_num) + ".json", "w") as output_file:
+            with open("meta_movie_data/" + str(dt.year) + "/" + str(film_num) + ".json", "w") as output_file:
                 output_file.write(json.dumps(film_data, ensure_ascii=False))
                 # json.dump(film_data, output_file).encode('utf-8')
                 output_file.write('\n')
@@ -153,7 +151,7 @@ def main():
 
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
-            id_file.write("\t".join([year, str(i + 1), id_list[i]]) + "\n")
+            id_file.write("\t".join([str(dt.year), str(i + 1), id_list[i]]) + "\n")
 
 
 if __name__ == "__main__":
