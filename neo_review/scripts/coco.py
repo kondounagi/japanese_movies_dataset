@@ -15,15 +15,21 @@ def main(filepath: str, output_dir: str, year):
         meta_data = json.load(f)
 
     for element in meta_data[year]:
-        output_dict = {}
         nomination_id = element['id']
         title = element['title']
         select = getCocoId(title)
         reviews = getCocoReview(select)
-        temp_dict = {'title': title, 'reviews': reviews}
-        output_dict[str(nomination_id)] = temp_dict
+
         os.makedirs(output_dir, exist_ok=True)
         output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w')
+
+        output_dict = {
+            str(nomination_id): {
+                'title': title,
+                'reviews': reviews,
+            },
+        }
+
         json.dump(output_dict, output, indent=4, ensure_ascii=False)
         output.write('\n')
         output.close()
