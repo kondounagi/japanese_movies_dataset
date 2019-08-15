@@ -64,7 +64,7 @@ def scrape(query):
 
 
 def main():
-    with open( '../2018_movie_clean', 'r') as movie_clean:
+    with open('../2018_movie_clean', 'r') as movie_clean:
         for line in csv.reader(movie_clean, delimiter='\t'):
             movie_id, title, *_ = line
             output_file = './{}.json'.format(movie_id)
