@@ -14,6 +14,12 @@ def load_json(filepath):
         return json.load(f)
 
 
+def store_json(filepath, d):
+    with open(filepath, 'w') as f:
+        json.dump(d, f, indent=4, ensure_ascii=False)
+        f.write('\n')
+
+
 def main(filepath: str, output_dir: str, year):
     meta_data = load_json(filepath)
 
@@ -24,7 +30,8 @@ def main(filepath: str, output_dir: str, year):
         reviews = get_coco_review(select)
 
         os.makedirs(output_dir, exist_ok=True)
-        output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w')
+
+        output_path = output_dir.rstrip('/') + '/{}.json'.format(nomination_id)
 
         output_dict = {
             str(nomination_id): {
@@ -33,9 +40,7 @@ def main(filepath: str, output_dir: str, year):
             },
         }
 
-        json.dump(output_dict, output, indent=4, ensure_ascii=False)
-        output.write('\n')
-        output.close()
+        store_json(output_path, output_dict)
 
     return
 
