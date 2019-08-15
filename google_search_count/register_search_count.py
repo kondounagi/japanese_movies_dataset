@@ -38,11 +38,11 @@ with open(args.jsonfile, 'r') as jsonfile:
 
 try:
     compare_size(files, search_count)
-    for file, sc in zip(files, search_count):
-        with open(file) as f:
+    for path, sc in zip(files, search_count):
+        with open(path) as f:
             jf = json.loads(f.read())
             jf[key] = int(sc[key].replace(',', ''))
-        with open(file, 'w') as wf:
+        with open(path, 'w') as wf:
             data = json.dump(jf, wf,
                              ensure_ascii=False,
                              indent=4,
