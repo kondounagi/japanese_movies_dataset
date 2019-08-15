@@ -34,15 +34,17 @@ def clean_paren(text):
     """
     left_parenthese = 0
     right_parenthese = 0
-    ret = ""
+
+    saved = []
     for char in text:
         if char == "(" or char == "（":
             left_parenthese += 1
         elif char == ")" or char == "）":
             right_parenthese += 1
         elif right_parenthese >= left_parenthese:
-            ret += char
-    return ret
+            saved.append(char)
+
+    return ''.join(saved)
 
 
 def main():
