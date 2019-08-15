@@ -46,7 +46,7 @@ class DumpOtherNominate:
                 if not year_data:
                     continue
 
-                title = convert_to_half_width(year_data[0]['title'])
+                title = self._convert_to_half_width(year_data[0]['title'])
                 info['work'] = {'index': -1, 'title': title}
                 result['prize_winners'].append(info)
             results.append(result)
@@ -77,7 +77,7 @@ class DumpOtherNominate:
 
     def register_nikkan_sports(self):
         url = 'https://www.nikkansports.com/entertainment/award/ns-cinema/history/'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
         for table in root.xpath('//table[contains(@class, "nsTable")]'):
             caption = table.xpath('caption')[0].text
@@ -89,7 +89,7 @@ class DumpOtherNominate:
 
     def register_golden_gross(self):
         url = 'https://ja.wikipedia.org/wiki/ゴールデングロス賞'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
 
         for row in root.xpath('//table[contains(@class, "wikitable")]/tbody/tr'):
@@ -107,7 +107,7 @@ class DumpOtherNominate:
 
     def register_hochi_eigashou(self):
         url = 'https://www.hochi.co.jp/award/hochi_eigashou/history.html'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
 
         for row in root.xpath('//table[contains(@class, "btable")]/tr'):
@@ -126,7 +126,7 @@ class DumpOtherNominate:
 
     def register_mainichi_film_award(self):
         url = 'https://mainichi.jp/mfa/history/'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
         for row in root.xpath('//ul[contains(@class, "list-history")]/li'):
             text = row.xpath('a')[0].text
@@ -137,18 +137,18 @@ class DumpOtherNominate:
 
     def register_blue_ribbon_award(self):
         url = 'http://www.allcinema.net/prog/award_top.php?num_a=41'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
         for row in root.xpath('//tr[contains(@class, "c2")]'):
             fullwidth = row.xpath('td[1]/a')[0].text
-            caption = convert_to_half_width(fullwidth)
+            caption = self._convert_to_half_width(fullwidth)
             data = row.xpath('td[3]/a')[0].text.replace('\u3000', ' ')
             whole_data[caption] = data
         return 'blue_ribbon_award', self.create_map(whole_data)
 
     def kinejun_best_ten(self):
         url = 'http://www.kinenote.com/main/award/kinejun/'
-        root = get_root(url)
+        root = self._get_root(url)
         whole_data = {}
 
         for row in root.xpath('//table[contains(@class, "tbl_year")]/tr'):
@@ -165,22 +165,16 @@ class DumpOtherNominate:
         whole_data['2018年'] = '万引き家族'  # has not yet been uploaded
         return 'kinejun_best_ten', self.create_map(whole_data)
 
+    def _get_root(self, url):
+        page = requests.get(url)
+        root = html.fromstring(page.content)
+        return root
 
-def get_root(url):
-    page = requests.get(url)
-    root = html.fromstring(page.content)
-    return root
-
-
-def convert_to_half_width(fullwidth):
-    text = fullwidth.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
-    return text
-
-
-def main():
-    dump_other_nominate = DumpOtherNominate()
-    dump_other_nominate()
+    def _convert_to_half_width(self, fullwidth):
+        text = fullwidth.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
+        return text
 
 
 if __name__ == '__main__':
-    main()
+    dump_other_nominate = DumpOtherNominate()
+    dump_other_nominate()
