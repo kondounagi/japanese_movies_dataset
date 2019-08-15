@@ -41,32 +41,15 @@ class JoinMetaData:
         with open(self.args.original, 'r') as f:
             original = json.loads(f.read())
 
-        other_nominates = [
-            {
-                'award': 'nikkan_sports',
-                'prized': 0
-            },
-            {
-                'award': 'golden_gross',
-                'prized': 0
-            },
-            {
-                'award': 'hochi_eigashou',
-                'prized': 0
-            },
-            {
-                'award': 'mainichi_film_award',
-                'prized': 0
-            },
-            {
-                'award': 'blue_ribbon_award',
-                'prized': 0
-            },
-            {
-                'award': 'kinejun_best_ten',
-                'prized': 0
-            }
-        ]
+        # Initialize dataset
+        other_nominates = [{'award': n, 'prized': 0} for n in [
+            'nikkan_sports',
+            'golden_gross',
+            'hochi_eigashou',
+            'mainichi_film_award',
+            'blue_ribbon_award',
+            'kinejun_best_ten',
+        ]]
 
         result = {}
         for year in self.years:
