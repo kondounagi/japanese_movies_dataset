@@ -91,9 +91,9 @@ def get_coco_id(title):
     soup = BeautifulSoup(data, 'html.parser')
 
     id_title = []
-    for element in soup.findAll("div", {"class": "li_pp"}):
+    for element in soup.select("div.li_pp"):
         temp_id = re.sub(r'\D', '', element.a['href'])
-        temp_title = element.find('div', {'class': 'li_ttl'}).string
+        temp_title = element.select_one('div.li_ttl').string
         id_title.append({'cocoId': temp_id, 'title': temp_title})
 
     for element in id_title:
@@ -139,21 +139,21 @@ def get_coco_review(select):
 
         flag = False
 
-        if len(soup.findAll('h2', {'class': 'tweet_title2'})) > 0:
+        if len(soup.select('h2.tweet_title2')) > 0:
             flag = True
 
-        if len(soup.findAll('h2', {'class': 'tweet_title1'})) > 0:
+        if len(soup.select('h2.tweet_title1')) > 0:
             flag = True
 
-        li = soup.findAll('li', {'class': 'tweet_li'})
+        li = soup.select('li.tweet_li')
 
         if len(li) == 0:
             flag = True
 
         for counter, each in enumerate(li):
-            comment_string = each.find('div', {'class': 'tweet_text'}).next_element
+            comment_string = each.select_one('div.tweet_text').next_element
             processed_comment = re.sub(r'\s', ' ', comment_string)
-            date_element = each.find('div', {'class': 'updated'})
+            date_element = each.select_one('div.updated')
             date_string = date_element.a['title']
             date_string = re.search(r'\d\d\d\d:\d\d:\d\d', date_string).group().replace(':', '-')
             comments.append({'date': date_string, 'review': processed_comment})
