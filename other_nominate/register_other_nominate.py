@@ -81,7 +81,9 @@ class RegisterOtherNominate:
                     index, title = movie.split('\t')[0:2]
                     index = int(index)
 
-                    file_name = 'movies_other_nominate/{year}/{index}.json'.format(year=year, index=index)
+                    file_name = ('movies_other_nominate/{year}/{index}.json'
+                                 .format(year=year, index=index))
+
                     for award in self.output:
                         if year == award['year']:
                             for winner in award['prize_winners']:
