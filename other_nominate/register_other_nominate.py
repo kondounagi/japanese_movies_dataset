@@ -90,7 +90,9 @@ class RegisterOtherNominate:
                                 result = {}
                                 i = winner['work']['index']
                                 if index == i:
-                                    nominates.append({'nominate_name': winner['award']})
+                                    nominates.append({
+                                        'nominate_name': winner['award'],
+                                    })
                                 result['title'] = title
                                 result['other_nominate'] = nominates
 
