@@ -101,7 +101,7 @@ def getCocoId(title):
             select = element
             break
 
-    if select is None and len(id_title) is not 0:
+    if select is None and len(id_title) != 0:
         select = id_title[0]
 
     return select
