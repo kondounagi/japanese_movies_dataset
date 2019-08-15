@@ -43,27 +43,30 @@ class RegisterOtherNominate:
 
         # OPTIMIZE:	this nests too deep ...
         for year in self.years:
-            data = [d for d in other_nominate if d['year'] == year][0]
+            add_data = [d for d in other_nominate if d['year'] == year][0]
+
+            if year != add_data['year']:
+                continue
+
             movielist = '../{}_movie_clean'.format(year)
-            add_data = data
             year_data = []
-            if year == data['year']:
-                for prize in data['prize_winners']:
-                    with open(movielist) as f:
-                        for movie in f:
-                            index, title = movie.split('\t')[0:2]
-                            index = int(index)
 
-                            if title == prize['work']['title']:
-                                add_prize = prize
-                                add_prize['work']['index'] = index
-                                year_data.append(add_prize)
-                                break
-                        else:
-                            year_data.append(prize)
+            for prize in add_data['prize_winners']:
+                with open(movielist) as f:
+                    for movie in f:
+                        index, title = movie.split('\t')[0:2]
+                        index = int(index)
 
-                add_data['prize_winners'] = year_data
-                self.output.append(add_data)
+                        if title == prize['work']['title']:
+                            add_prize = prize
+                            add_prize['work']['index'] = index
+                            year_data.append(add_prize)
+                            break
+                    else:
+                        year_data.append(prize)
+
+            add_data['prize_winners'] = year_data
+            self.output.append(add_data)
 
         with open(self.args.jsonfile, 'w') as jsonfile:
             json.dump(self.output, jsonfile,
