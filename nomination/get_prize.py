@@ -50,7 +50,9 @@ def get_prize(n_th):
 
     for prize in prize_list1:
         ref = soup.find('img', {'alt': prize})
-        anker = ref.findParent('div', {'class': 'subtitle'}) if ref is not None else None
+        if ref:
+            anker = ref.findParent('div', {'class': 'subtitle'})
+
         if anker is None:
             continue
         elements = anker.findNext('ul').findAll('li')
@@ -60,7 +62,9 @@ def get_prize(n_th):
 
     for prize in prize_list2:
         ref = soup.find('img', {'alt': prize})
-        anker = ref.findParent('div', {'class': 'subtitle'}) if ref is not None else None
+        if ref:
+            anker = ref.findParent('div', {'class': 'subtitle'})
+
         if anker is None:
             continue
         prize_dict[prize]['最優秀賞'] = anker.findNext('img', {'alt': '最優秀賞'}).nextSibling.string
