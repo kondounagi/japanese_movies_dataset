@@ -109,12 +109,18 @@ class DumpOtherNominate:
         url = 'https://www.hochi.co.jp/award/hochi_eigashou/history.html'
         root = get_root(url)
         whole_data = {}
+
         for row in root.xpath('//table[contains(@class, "btable")]/tr'):
-            if len(row.xpath('td[2]')) == 0 or len(row.xpath('td[3]')) == 0:
+            if not row.xpath('td[2]'):
                 continue
+
+            if not row.xpath('td[3]'):
+                continue
+
             caption = row.xpath('td[2]')[0].text
             data = row.xpath('td[3]')[0].text
             whole_data[caption] = data
+
         whole_data['2018年'] = '孤狼の血'    # has not yet been uploaded
         return 'hochi_eigashou', self.create_map(whole_data)
 
