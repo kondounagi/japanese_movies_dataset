@@ -37,34 +37,48 @@ class RegisterOtherNominate:
         files.sort()
         return [self.args.directory + '/' + str(f) + extension for f in files]
 
+    def _filter_by_year(self, lst, year):
+        for elm in lst:
+            if elm['year'] == year:
+                yield elm
+
     def modify_index(self):
         with open(self.args.jsonfile, 'r') as jsonfile:
-            other_nominate = json.loads(jsonfile.read())
+            other_nominate = json.load(jsonfile)
 
         # OPTIMIZE:	this nests too deep ...
         for year in self.years:
-            data = [d for d in other_nominate if d['year'] == year][0]
-            movielist = '../{}_movie_clean'.format(year)
-            add_data = data
-            year_data = []
-            if year == data['year']:
-                for prize in data['prize_winners']:
-                    with open(movielist) as f:
-                        for movie in f:
-                            index, title = movie.split('\t')[0], movie.split('\t')[1]
-                            if title == prize['work']['title']:
-                                add_prize = prize
-                                add_prize['work']['index'] = int(index)
-                                year_data.append(add_prize)
-                                break
-                        else:
-                            year_data.append(prize)
+            current = list(self._filter_by_year(other_nominate, year))
+            if not current:
+                continue
 
-                add_data['prize_winners'] = year_data
-                self.output.append(add_data)
+            add_data = current[0]
+
+            movielist = '../{}_movie_clean'.format(year)
+            year_data = []
+
+            for prize in add_data['prize_winners']:
+                with open(movielist) as f:
+                    for movie in f:
+                        index, title = movie.split('\t')[0:2]
+                        index = int(index)
+
+                        if title == prize['work']['title']:
+                            add_prize = prize
+                            add_prize['work']['index'] = index
+                            year_data.append(add_prize)
+                            break
+                    else:
+                        year_data.append(prize)
+
+            add_data['prize_winners'] = year_data
+            self.output.append(add_data)
 
         with open(self.args.jsonfile, 'w') as jsonfile:
-            json.dump(self.output, jsonfile, ensure_ascii=False, indent=4, separators=(',', ':'))
+            json.dump(self.output, jsonfile,
+                      ensure_ascii=False,
+                      indent=4,
+                      separators=(',', ':'))
             jsonfile.write('\n')
 
     def dump_data(self):
@@ -73,20 +87,28 @@ class RegisterOtherNominate:
             with open(movielist) as f:
                 for movie in f:
                     nominates = []
-                    index, title = int(movie.split('\t')[0]), movie.split('\t')[1]
-                    file_name = 'movies_other_nominate/{year}/{index}.json'.format(year=year, index=index)
-                    for award in self.output:
-                        if year == award['year']:
-                            for winner in award['prize_winners']:
-                                result = {}
-                                i = winner['work']['index']
-                                if index == i:
-                                    nominates.append({'nominate_name': winner['award']})
-                                result['title'] = title
-                                result['other_nominate'] = nominates
+                    index, title = movie.split('\t')[0:2]
+                    index = int(index)
+
+                    file_name = ('movies_other_nominate/{year}/{index}.json'
+                                 .format(year=year, index=index))
+
+                    for award in self._filter_by_year(self.output, year):
+                        for winner in award['prize_winners']:
+                            result = {}
+                            i = winner['work']['index']
+                            if index == i:
+                                nominates.append({
+                                    'nominate_name': winner['award'],
+                                })
+                            result['title'] = title
+                            result['other_nominate'] = nominates
 
                     with open(file_name, 'w') as wf:
-                        json.dump(result, wf, ensure_ascii=False, indent=4, separators=(',', ':'))
+                        json.dump(result, wf,
+                                  ensure_ascii=False,
+                                  indent=4,
+                                  separators=(',', ':'))
                         wf.write('\n')
 
 

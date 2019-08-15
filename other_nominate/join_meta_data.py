@@ -29,7 +29,7 @@ class JoinMetaData:
     def create_map(self):
         results = {}
         with open(self.args.summary, 'r') as f:
-            summary = json.loads(f.read())
+            summary = json.load(f)
         for annual_data in summary:
             for data in annual_data['prize_winners']:
                 if data['work']['title'] not in results.keys():
@@ -39,55 +39,48 @@ class JoinMetaData:
 
     def read_original(self, nominate_map):
         with open(self.args.original, 'r') as f:
-            original = json.loads(f.read())
+            original = json.load(f)
 
-        other_nominates = [
-            {
-                'award': 'nikkan_sports',
-                'prized': 0
-            },
-            {
-                'award': 'golden_gross',
-                'prized': 0
-            },
-            {
-                'award': 'hochi_eigashou',
-                'prized': 0
-            },
-            {
-                'award': 'mainichi_film_award',
-                'prized': 0
-            },
-            {
-                'award': 'blue_ribbon_award',
-                'prized': 0
-            },
-            {
-                'award': 'kinejun_best_ten',
-                'prized': 0
-            }
-        ]
+        # Initialize dataset
+        other_nominates = [{'award': n, 'prized': 0} for n in [
+            'nikkan_sports',
+            'golden_gross',
+            'hochi_eigashou',
+            'mainichi_film_award',
+            'blue_ribbon_award',
+            'kinejun_best_ten',
+        ]]
 
         result = {}
         for year in self.years:
             result[str(year)] = []
             for movie_data in original[str(year)]:
                 print("#", movie_data)
-                data = movie_data
-                data['other_nominates'] = other_nominates
+                movie_data['other_nominates'] = other_nominates
                 if movie_data['title'] in nominate_map:
-                    data['other_nominates'] = []
+                    movie_data['other_nominates'] = []
                     for nominate in other_nominates:
                         for element in nominate_map[movie_data['title']]:
                             if nominate['award'] == element['award']:
-                                data['other_nominates'].append({'award': nominate['award'], 'prized': 1})
+                                movie_data['other_nominates'].append({
+                                    'award': nominate['award'],
+                                    'prized': 1,
+                                })
+
                                 break
                         else:
-                            data['other_nominates'].append({'award': nominate['award'], 'prized': 0})
-                result[str(year)].append(data)
+                            movie_data['other_nominates'].append({
+                                'award': nominate['award'],
+                                'prized': 0,
+                            })
+
+                result[str(year)].append(movie_data)
 
         with open(self.args.data, 'w') as f:
-            json.dump(result, f, ensure_ascii=False, indent=4, separators=(',', ':'))
+            json.dump(result, f,
+                      ensure_ascii=False,
+                      indent=4,
+                      separators=(',', ':'))
             f.write('\n')
 
 

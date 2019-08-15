@@ -165,13 +165,17 @@ class DumpOtherNominate:
         whole_data['2018年'] = '万引き家族'  # has not yet been uploaded
         return 'kinejun_best_ten', self.create_map(whole_data)
 
-    def _get_root(self, url):
+    @staticmethod
+    def _get_root(url):
         page = requests.get(url)
         root = html.fromstring(page.content)
         return root
 
-    def _convert_to_half_width(self, fullwidth):
-        text = fullwidth.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
+    @staticmethod
+    def _convert_to_half_width(fullwidth):
+        table = {chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}
+        trans = str.maketrans(table)
+        text = fullwidth.translate(trans)
         return text
 
 
