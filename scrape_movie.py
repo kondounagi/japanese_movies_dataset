@@ -57,14 +57,14 @@ def main():
             # clean parenthese in movie title
             left_parenthese = 0
             right_parenthese = 0
-            film = ""
-            for i in range(len(film_splits[1])):
-                if film_splits[1][i] == "(" or film_splits[1][i] == "（":
+            film_ = ""
+            for i in range(len(film)):
+                if film[i] == "(" or film[i] == "（":
                     left_parenthese += 1
-                elif film_splits[1][i] == ")" or film_splits[1][i] == "）":
+                elif film[i] == ")" or film[i] == "）":
                     right_parenthese += 1
                 elif right_parenthese >= left_parenthese:
-                    film += film_splits[1][i]
+                    film_ += film[i]
 
             film = re.sub(r'''
                 (?:
@@ -73,7 +73,7 @@ def main():
                     |[“”‘’[]{}【】《》]             # brace
                     |\s                             # space
                 )+
-            ''', "", film, flags=re.VERBOSE)
+            ''', "", film_, flags=re.VERBOSE)
 
             # fetch search result
             film = "".join(film.split())
