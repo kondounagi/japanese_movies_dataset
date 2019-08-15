@@ -96,7 +96,9 @@ def main():
                                                str(film_num) + ".json")
 
                 with open(output_filepath, "w") as output_file:
-                    output_file.write(json.dumps(film_data, ensure_ascii=False))
+                    json.dump(film_data, output_file, ensure_ascii=False)
+                    output_file.write('\n')
+
                 continue
             film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
             id_list.append(film_id[7:12])
