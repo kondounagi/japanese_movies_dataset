@@ -1,6 +1,5 @@
 import certifi
 import urllib3
-import urllib
 from bs4 import BeautifulSoup
 import json
 import re
