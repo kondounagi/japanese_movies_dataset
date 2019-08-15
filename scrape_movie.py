@@ -155,9 +155,12 @@ def main():
                     film_data['performers'].extend(performers)
 
             print(film_num, film_data)
-            with open("meta_movie_data/" + str(dt.year) + "/" + str(film_num) + ".json", "w") as output_file:
-                output_file.write(json.dumps(film_data, ensure_ascii=False))
-                # json.dump(film_data, output_file).encode('utf-8')
+
+            output_filepath = os.path.join("meta_movie_data",
+                                           str(dt.year),
+                                           str(film_num) + ".json")
+            with open(output_filepath, "w") as output_file:
+                json.dump(film_data, output_file, ensure_ascii=False)
                 output_file.write('\n')
             print(fail_list)
             sys.stdout.flush()
