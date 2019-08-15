@@ -10,6 +10,10 @@ import json
 import os
 
 
+def uncommify(s):
+    return int(s.replace(',', ''))
+
+
 def main(filepath: str, output_dir: str, start_row=1, end_row=None):
     titles = []
     with open(filepath, 'r') as f:
@@ -187,27 +191,27 @@ def getCocoData(select):
 
     satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
     if satisfaction_element:
-        data_dict['satisfaction'] = int(satisfaction_element.string)
+        data_dict['satisfaction'] = uncommify(satisfaction_element.string)
 
     review_good_element = soup.select_one('div.review_good').nextSibling
     if review_good_element:
-        data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', ''))
+        data_dict['each_tweet_amount']['good'] = uncommify(review_good_element.string)
 
     review_even_element = soup.select_one('div.review_even').nextSibling
     if review_even_element:
-        data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', ''))
+        data_dict['each_tweet_amount']['even'] = uncommify(review_even_element.string)
 
     review_bad_element = soup.select_one('div.review_bad').nextSibling
     if review_bad_element:
-        data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', ''))
+        data_dict['each_tweet_amount']['bad'] = uncommify(review_bad_element.string)
 
     tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
     if tweet_amount_element:
-        data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', ''))
+        data_dict['whole_tweet_amount'] = uncommify(tweet_amount_element.string)
 
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
     if positive_index_element:
-        data_dict['positive_index'] = int(positive_index_element.string)
+        data_dict['positive_index'] = uncommify(positive_index_element.string)
 
     review_keyword_wrapper = soup.select_one('div.tag_list.clearflt.clearboth')
     if review_keyword_wrapper:
