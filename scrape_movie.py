@@ -65,12 +65,12 @@ def main():
             right_parenthese = 0
             film = ""
             for i in range(len(film_splits[1])):
-                if film_splits[1][i:i+1] == "(" or film_splits[1][i:i+1] == "（":
+                if film_splits[1][i] == "(" or film_splits[1][i] == "（":
                     left_parenthese += 1
-                elif film_splits[1][i:i+1] == ")" or film_splits[1][i:i+1] == "）":
+                elif film_splits[1][i] == ")" or film_splits[1][i] == "）":
                     right_parenthese += 1
                 elif right_parenthese >= left_parenthese:
-                    film += film_splits[1][i:i+1]
+                    film += film_splits[1][i]
             film = re.sub('[’!\"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s]+', "", film)
 
             # fetch search result
