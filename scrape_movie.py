@@ -19,6 +19,29 @@ from datetime import datetime
     date: yyyy-mm-dd
 '''
 
+def clean_paren(text):
+    """Remove nested parentheses from text.
+
+    >>> clean_paren( 'アンダー・ザ・ウォーター（ スウェーデン・ デンマーク・ フィンランド）')
+    'アンダー・ザ・ウォーター'
+
+    >>> clean_paren( '葡萄畑に帰ろう (ジョージア (国)の旗 ジョージア)')
+    '葡萄畑に帰ろう '
+
+    >>> clean_paren('(r)adius ラディウス（英語版）')  # OMG
+    'adius ラディウス'
+    """
+    left_parenthese = 0
+    right_parenthese = 0
+    ret = ""
+    for i in range(len(text)):
+        if text[i] == "(" or text[i] == "（":
+            left_parenthese += 1
+        elif text[i] == ")" or text[i] == "）":
+            right_parenthese += 1
+        elif right_parenthese >= left_parenthese:
+            ret += text[i]
+    return ret
 
 def main():
     year = sys.argv[1]
@@ -54,17 +77,7 @@ def main():
             film_data["production_studio"] = ""
             film_data["release_date"] = dt.strftime("%Y-%m-%d")
 
-            # clean parenthese in movie title
-            left_parenthese = 0
-            right_parenthese = 0
-            film_ = ""
-            for i in range(len(film)):
-                if film[i] == "(" or film[i] == "（":
-                    left_parenthese += 1
-                elif film[i] == ")" or film[i] == "）":
-                    right_parenthese += 1
-                elif right_parenthese >= left_parenthese:
-                    film_ += film[i]
+            film = clean_paren(film)
 
             film = re.sub(r'''
                 (?:
