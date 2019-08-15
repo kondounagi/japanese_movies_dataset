@@ -129,7 +129,9 @@ def get_coco_review(select):
         return comments
 
     for i in range(200):
-        url = 'https://coco.to/movie/{}/review/{}'.format(select['cocoId'], str(i + 1))
+        url = ('https://coco.to/movie/{}/review/{}'
+               .format(select['cocoId'], str(i + 1)))
+
         encoded_url = urllib.parse.quote(url, '/:?=&')
         r = http.request('GET', encoded_url)
         data = r.data.decode('utf-8')
