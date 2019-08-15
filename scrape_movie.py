@@ -101,7 +101,7 @@ def main():
 
                 continue
             film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
-            id_list.append(film_id[7:12])
+            id_list.append(film_id[7:12])  # XXX: 7~12??
 
             # this only used for small fix
             # film_id = "/movie/88817/"
