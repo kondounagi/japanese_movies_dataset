@@ -31,7 +31,7 @@ def main(filepath: str, output_dir: str, year):
 
         os.makedirs(output_dir, exist_ok=True)
 
-        output_path = output_dir.rstrip('/') + '/{}.json'.format(nomination_id)
+        output_path = os.path.join(output_dir, '{}.json'.format(nomination_id))
 
         output_dict = {
             str(nomination_id): {
