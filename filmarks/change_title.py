@@ -1,14 +1,10 @@
 import sys
 import csv
-import glob
 import os
 
 
 year = int(sys.argv[1])
-try:
-    os.mkdir('./jsons/{}'.format(year))
-except:
-    pass
+os.makedirs('./jsons/{}'.format(year), exist_ok=True)
 
 with open('../{}_movie_clean'.format(year), 'r') as f:
     dataReader = csv.reader(f, delimiter='\t')

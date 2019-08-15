@@ -1,6 +1,5 @@
 import argparse
 import json
-from os import listdir
 
 
 class JoinMetaData:
@@ -8,12 +7,12 @@ class JoinMetaData:
     def __init__(self):
         parser = argparse.ArgumentParser()
         parser.add_argument("-o", "--original",
-                            default="../meta_movie_data",
-                            help="path of the directory with original json files",
+                            default="../neo_review/data/nominate_movie_meta_data.json",
+                            help="path of the original json file",
                             type=str)
         parser.add_argument("-d", "--data",
-                            default="meta_movie_data",
-                            help="path of the target directory",
+                            default="meta_movie_data/nominate_movie_meta_data.json",
+                            help="path of the target json file",
                             type=str)
         parser.add_argument("-s", "--summary",
                             default="annual_other_nominate_data.json",
@@ -21,7 +20,7 @@ class JoinMetaData:
                             type=str)
         self.args = parser.parse_args()
 
-        self.years = range(2010, 2019)
+        self.years = range(1978, 2020)
 
     def __call__(self, *args, **kwargs):
         nominate_map = self.create_map()
@@ -39,58 +38,57 @@ class JoinMetaData:
         return results
 
     def read_original(self, nominate_map):
-        for year in self.years:
-            for file in listdir('{directory}/{year}'.format(directory=self.args.original,
-                                                            year=year)):
-                file_name = '{directory}/{year}/{name}'.format(directory=self.args.original,
-                                                               year=year,
-                                                               name=file)
-                with open(file_name, 'r') as f:
-                    original = json.loads(f.read())
-                    other_nominates = [
-                        {
-                            'award': 'nikkan_sports',
-                            'prized': 0
-                        },
-                        {
-                            'award': 'golden_gross',
-                            'prized': 0
-                        },
-                        {
-                            'award': 'hochi_eigashou',
-                            'prized': 0
-                        },
-                        {
-                            'award': 'mainichi_film_award',
-                            'prized': 0
-                        },
-                        {
-                            'award': 'blue_ribbon_award',
-                            'prized': 0
-                        },
-                        {
-                            'award': 'kinejun_best_ten',
-                            'prized': 0
-                        }
-                    ]
-                    data = []
-                    if original['title'] in nominate_map:
-                        for nominate in other_nominates:
-                            for element in nominate_map[original['title']]:
-                                if nominate['award'] == element['award']:
-                                    data.append({'award': nominate['award'], 'prized': 1})
-                                    break
-                            else:
-                                data.append({'award': nominate['award'], 'prized': 0})
-                        other_nominates = data
+        with open(self.args.original, 'r') as f:
+            original = json.loads(f.read())
 
-                    original['other_nominate'] = other_nominates
-                output_file = '{directory}/{year}/{name}'.format(directory=self.args.data,
-                                                                 year=year,
-                                                                 name=file)
-                with open(output_file, 'w') as f:
-                    json.dump(original, f, ensure_ascii=False, indent=4, separators=(',', ':'))
-                    f.write('\n')
+        other_nominates = [
+            {
+                'award': 'nikkan_sports',
+                'prized': 0
+            },
+            {
+                'award': 'golden_gross',
+                'prized': 0
+            },
+            {
+                'award': 'hochi_eigashou',
+                'prized': 0
+            },
+            {
+                'award': 'mainichi_film_award',
+                'prized': 0
+            },
+            {
+                'award': 'blue_ribbon_award',
+                'prized': 0
+            },
+            {
+                'award': 'kinejun_best_ten',
+                'prized': 0
+            }
+        ]
+
+        result = {}
+        for year in self.years:
+            result[str(year)] = []
+            for movie_data in original[str(year)]:
+                print("#", movie_data)
+                data = movie_data
+                data['other_nominates'] = other_nominates
+                if movie_data['title'] in nominate_map:
+                    data['other_nominates'] = []
+                    for nominate in other_nominates:
+                        for element in nominate_map[movie_data['title']]:
+                            if nominate['award'] == element['award']:
+                                data['other_nominates'].append({'award': nominate['award'], 'prized': 1})
+                                break
+                        else:
+                            data['other_nominates'].append({'award': nominate['award'], 'prized': 0})
+                result[str(year)].append(data)
+
+        with open(self.args.data, 'w') as f:
+            json.dump(result, f, ensure_ascii=False, indent=4, separators=(',', ':'))
+            f.write('\n')
 
 
 def main():
