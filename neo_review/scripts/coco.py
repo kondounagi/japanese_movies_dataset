@@ -156,7 +156,7 @@ def get_coco_review(select):
             date_element = each.select_one('div.updated')
             date_string = date_element.a['title']
 
-            match = re.search(r'\d\d\d\d:\d\d:\d\d', date_string)
+            match = re.search(r'\d{4}:\d{2}:\d{2}', date_string)
             if match:
                 date_string = match.group().replace(':', '-')
             else:
