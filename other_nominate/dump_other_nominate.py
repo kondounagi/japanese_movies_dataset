@@ -171,7 +171,9 @@ class DumpOtherNominate:
         return root
 
     def _convert_to_half_width(self, fullwidth):
-        text = fullwidth.translate(str.maketrans({chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}))
+        table = {chr(0xFF01 + i): chr(0x21 + i) for i in range(94)}
+        trans = str.maketrans(table)
+        text = fullwidth.translate(trans)
         return text
 
 
