@@ -52,7 +52,10 @@ class DumpOtherNominate:
             results.append(result)
 
         with open(self.args.output, 'w') as output:
-            json.dump(results, output, ensure_ascii=False, indent=4, separators=(',', ':'))
+            json.dump(results, output,
+                      ensure_ascii=False,
+                      indent=4,
+                      separators=(',', ':'))
             output.write('\n')
 
     def _filter_by_year(self, lst, year):
