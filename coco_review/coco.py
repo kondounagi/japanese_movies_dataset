@@ -186,25 +186,32 @@ def getCocoData(select):
     soup = BeautifulSoup(data, 'html.parser')
 
     satisfaction_element = soup.find('span', {'style': 'font-size:45px;margin-right:5px'})
-    data_dict['satisfaction'] = int(satisfaction_element.string) if satisfaction_element is not None else None
+    if satisfaction_element:
+        data_dict['satisfaction'] = int(satisfaction_element.string)
 
     review_good_element = soup.select_one('div.review_good').nextSibling
-    data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', '')) if review_good_element is not None else None
+    if review_good_element:
+        data_dict['each_tweet_amount']['good'] = int(review_good_element.string.replace(',', ''))
 
     review_even_element = soup.select_one('div.review_even').nextSibling
-    data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', '')) if review_even_element is not None else None
+    if review_even_element:
+        data_dict['each_tweet_amount']['even'] = int(review_even_element.string.replace(',', ''))
 
     review_bad_element = soup.select_one('div.review_bad').nextSibling
-    data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', '')) if review_bad_element is not None else None
+    if review_bad_element:
+        data_dict['each_tweet_amount']['bad'] = int(review_bad_element.string.replace(',', ''))
 
     tweet_amount_element = soup.find('span', {'style': 'font-size:17px;margin-right:2px'})
-    data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', '')) if tweet_amount_element is not None else None
+    if tweet_amount_element:
+        data_dict['whole_tweet_amount'] = int(tweet_amount_element.string.replace(',', ''))
 
     positive_index_element = soup.find('span', {'style': 'font-size:15px;margin:0 2px 0 3px'})
-    data_dict['positive_index'] = int(positive_index_element.string) if positive_index_element is not None else None
+    if positive_index_element:
+        data_dict['positive_index'] = int(positive_index_element.string)
 
     review_keyword_wrapper = soup.select_one('div.tag_list.clearflt.clearboth')
-    review_keyword_elements = review_keyword_wrapper.findAll('a') if review_keyword_wrapper is not None else []
+    if review_keyword_wrapper:
+        review_keyword_elements = review_keyword_wrapper.findAll('a')
 
     for element in review_keyword_elements:
         keyword_dict = {'keyword': None, 'grade': None}
