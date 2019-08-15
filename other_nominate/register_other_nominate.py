@@ -44,7 +44,7 @@ class RegisterOtherNominate:
 
     def modify_index(self):
         with open(self.args.jsonfile, 'r') as jsonfile:
-            other_nominate = json.loads(jsonfile.read())
+            other_nominate = json.load(jsonfile)
 
         # OPTIMIZE:	this nests too deep ...
         for year in self.years:

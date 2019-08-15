@@ -29,7 +29,7 @@ class JoinMetaData:
     def create_map(self):
         results = {}
         with open(self.args.summary, 'r') as f:
-            summary = json.loads(f.read())
+            summary = json.load(f)
         for annual_data in summary:
             for data in annual_data['prize_winners']:
                 if data['work']['title'] not in results.keys():
@@ -39,7 +39,7 @@ class JoinMetaData:
 
     def read_original(self, nominate_map):
         with open(self.args.original, 'r') as f:
-            original = json.loads(f.read())
+            original = json.load(f)
 
         # Initialize dataset
         other_nominates = [{'award': n, 'prized': 0} for n in [
