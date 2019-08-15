@@ -41,9 +41,12 @@ class DumpOtherNominate:
             result = {'year': year, 'prize_winners': []}
             for data in award_data:
                 info = {'award': data[0]}
-                if len([x for x in data[1] if x['year'] == year]) == 0:
+
+                year_data = list(self._filter_by_year(data[1], year))
+                if not year_data:
                     continue
-                title = convert_to_half_width([x for x in data[1] if x['year'] == year][0]['title'])
+
+                title = convert_to_half_width(year_data[0]['title'])
                 info['work'] = {'index': -1, 'title': title}
                 result['prize_winners'].append(info)
             results.append(result)
@@ -51,6 +54,11 @@ class DumpOtherNominate:
         with open(self.args.output, 'w') as output:
             json.dump(results, output, ensure_ascii=False, indent=4, separators=(',', ':'))
             output.write('\n')
+
+    def _filter_by_year(self, lst, year):
+        for d in lst:
+            if d['year'] == year:
+                yield d
 
     def create_map(self, whole_data):
         data = []
