@@ -14,8 +14,17 @@ def compare_size(s1, s2):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--directory", default="movies_search_count", help="path of the json directory", type=str)
-parser.add_argument("-j", "--jsonfile", default="search_count.json", help="path of the search_count.json", type=str)
+
+parser.add_argument("-d", "--directory",
+                    default="movies_search_count",
+                    help="path of the json directory",
+                    type=str)
+
+parser.add_argument("-j", "--jsonfile",
+                    default="search_count.json",
+                    help="path of the search_count.json",
+                    type=str)
+
 args = parser.parse_args()
 
 extension = '.json'
