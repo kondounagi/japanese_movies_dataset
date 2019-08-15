@@ -90,7 +90,12 @@ def main():
                 id_list.append("")
                 fail_list.append(film_num)
                 print(film_data)
-                with open("meta_movie_data/" + year + "/" + str(film_num) + ".json", "w") as output_file:
+
+                output_filepath = os.path.join("meta_movie_data",
+                                               year,
+                                               str(film_num) + ".json")
+
+                with open(output_filepath, "w") as output_file:
                     output_file.write(json.dumps(film_data, ensure_ascii=False))
                 continue
             film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
