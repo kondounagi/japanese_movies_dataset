@@ -45,7 +45,7 @@ def scrape(query):
 
     if url_review is None:
         logging.warning("**************************************************")
-        logging.warning(q + " HAS NO RESULT")
+        logging.warning(query + " HAS NO RESULT")
         logging.warning("**************************************************")
         return None
 
