@@ -54,7 +54,7 @@ def scrape_review(query):
             "eigacom": [],
             "filmarks": [],
             "coco": [],
-        }
+        },
     }
 
     print("START : " + query)
