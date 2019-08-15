@@ -22,9 +22,9 @@ def main(meta_filepath, input_dir, output_filepath):
     for year in meta_data.keys():
         for element in meta_data[year]:
             nomination_id = element['id']
-            with open(input_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'r') as f:
-                data = json.load(f)
-                output_dict.update(data)
+            json_path = os.path.join(input_dir, '{}.json'.format(nomination_id))
+            data = load_json(json_path)
+            output_dict.update(data)
 
     store_json(output_filepath, output_dict)
 
