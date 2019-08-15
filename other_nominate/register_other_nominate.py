@@ -97,7 +97,10 @@ class RegisterOtherNominate:
                                 result['other_nominate'] = nominates
 
                     with open(file_name, 'w') as wf:
-                        json.dump(result, wf, ensure_ascii=False, indent=4, separators=(',', ':'))
+                        json.dump(result, wf,
+                                  ensure_ascii=False,
+                                  indent=4,
+                                  separators=(',', ':'))
                         wf.write('\n')
 
 
