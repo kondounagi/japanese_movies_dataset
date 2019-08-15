@@ -1,3 +1,4 @@
+import csv
 import requests
 import os
 import sys
@@ -33,18 +34,13 @@ def main():
     id_list = []
 
     with open(year + "_movie_clean", 'r') as clean_file:
-        for film_num, film in enumerate(clean_file, start=1):
-
+        reader = csv.reader(clean_file, delimiter='\t')
+        for film_num, film, year, month, day in reader:
             if (film_num < start_num):
                 continue
-            print(film_num, film)
-            # filter out movie title
-            film_splits = film.split('\t')
 
-            film = film_splits[1].strip()
-            year = film_splits[2].strip()
-            month = film_splits[3].strip()
-            day = film_splits[4].strip()
+            print(film_num, film)
+
             if len(month) == 1:
                 month = "0" + month
             if len(day) == 1:
