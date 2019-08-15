@@ -9,10 +9,13 @@ import json
 import os
 
 
-def main(filepath: str, output_dir: str, year):
-    meta_data = None
+def load_json(filepath):
     with open(filepath, 'r') as f:
-        meta_data = json.load(f)
+        return json.load(f)
+
+
+def main(filepath: str, output_dir: str, year):
+    meta_data = load_json(filepath)
 
     for element in meta_data[year]:
         nomination_id = element['id']
