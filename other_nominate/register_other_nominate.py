@@ -51,7 +51,7 @@ class RegisterOtherNominate:
                 for prize in data['prize_winners']:
                     with open(movielist) as f:
                         for movie in f:
-                            index, title = movie.split('\t')[0], movie.split('\t')[1]
+                            index, title = movie.split('\t')[0:2]
                             if title == prize['work']['title']:
                                 add_prize = prize
                                 add_prize['work']['index'] = int(index)
