@@ -37,16 +37,22 @@ class RegisterOtherNominate:
         files.sort()
         return [self.args.directory + '/' + str(f) + extension for f in files]
 
+    def _filter_by_year(self, lst, year):
+        for elm in lst:
+            if elm['year'] == year:
+                yield elm
+
     def modify_index(self):
         with open(self.args.jsonfile, 'r') as jsonfile:
             other_nominate = json.loads(jsonfile.read())
 
         # OPTIMIZE:	this nests too deep ...
         for year in self.years:
-            add_data = [d for d in other_nominate if d['year'] == year][0]
-
-            if year != add_data['year']:
+            current = list(self._filter_by_year(other_nominate, year))
+            if not current:
                 continue
+
+            add_data = current[0]
 
             movielist = '../{}_movie_clean'.format(year)
             year_data = []
