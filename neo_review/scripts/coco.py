@@ -11,7 +11,7 @@ import os
 
 def main(filepath: str, output_dir: str, year):
     meta_data = None
-    with open(filepath, 'r', encoding='utf-8') as f:
+    with open(filepath, 'r') as f:
         meta_data = json.load(f)
 
     for element in meta_data[year]:
@@ -23,7 +23,7 @@ def main(filepath: str, output_dir: str, year):
         temp_dict = {'title': title, 'reviews': reviews}
         output_dict[str(nomination_id)] = temp_dict
         os.makedirs(output_dir, exist_ok=True)
-        output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w', encoding='utf-8')
+        output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w')
         json.dump(output_dict, output, indent=4, ensure_ascii=False)
         output.write('\n')
         output.close()
