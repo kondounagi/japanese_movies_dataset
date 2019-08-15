@@ -19,7 +19,9 @@ def normalize_query(q):
 
 
 def search(q):
-    url_search = 'https://eiga.com/search/{}' .format(requests.utils.quote(normalize_query(q), safe=''))
+    url_search = ('https://eiga.com/search/{}'
+                  .format(requests.utils.quote(normalize_query(q), safe='')))
+
     res_search = requests.get(url_search)
     res_search.encoding = res_search.apparent_encoding
 
@@ -55,10 +57,22 @@ def scrape(query):
 
     rating = soup.find('span', attrs={"class": "rating-star"})
     review_count = soup.find('span', attrs={"itemprop": "reviewCount"})
-    check_in = soup.find('a', attrs={"class": "icon-movie-checkin"}).find('strong')
-    data["rating"] = 0 if rating.text == '－' else float(rating.text)
-    data["review-count"] = 0 if review_count is None else int(review_count.text)
-    data["check-in"] = 0 if check_in is None else int(check_in.text)
+    check_in = soup.select_one("a.icon-movie-checkin").find('strong')
+
+    if rating.text == '－':
+        data["rating"] = 0
+    else:
+        data["rating"] = float(rating.text)
+
+    if review_count is None:
+        data["review-count"] = 0
+    else:
+        data["review-count"] = int(review_count.text)
+
+    if check_in is None:
+        data["check-in"] = 0
+    else:
+        data["check-in"] = int(check_in.text)
 
     return data
 
