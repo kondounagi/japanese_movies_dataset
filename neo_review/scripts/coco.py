@@ -155,7 +155,13 @@ def get_coco_review(select):
             processed_comment = re.sub(r'\s', ' ', comment_string)
             date_element = each.select_one('div.updated')
             date_string = date_element.a['title']
-            date_string = re.search(r'\d\d\d\d:\d\d:\d\d', date_string).group().replace(':', '-')
+
+            match = re.search(r'\d\d\d\d:\d\d:\d\d', date_string)
+            if match:
+                date_string = match.group().replace(':', '-')
+            else:
+                date_string = '1970-01-01'  # epoch as fallback
+
             comments.append({'date': date_string, 'review': processed_comment})
 
         if flag:
