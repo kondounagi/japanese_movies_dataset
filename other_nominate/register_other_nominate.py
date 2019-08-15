@@ -93,17 +93,16 @@ class RegisterOtherNominate:
                     file_name = ('movies_other_nominate/{year}/{index}.json'
                                  .format(year=year, index=index))
 
-                    for award in self.output:
-                        if year == award['year']:
-                            for winner in award['prize_winners']:
-                                result = {}
-                                i = winner['work']['index']
-                                if index == i:
-                                    nominates.append({
-                                        'nominate_name': winner['award'],
-                                    })
-                                result['title'] = title
-                                result['other_nominate'] = nominates
+                    for award in self._filter_by_year(self.output, year):
+                        for winner in award['prize_winners']:
+                            result = {}
+                            i = winner['work']['index']
+                            if index == i:
+                                nominates.append({
+                                    'nominate_name': winner['award'],
+                                })
+                            result['title'] = title
+                            result['other_nominate'] = nominates
 
                     with open(file_name, 'w') as wf:
                         json.dump(result, wf,
