@@ -8,13 +8,13 @@ import re
 
 def main():
     for n_th in range(1, 42 + 1):
-        data = getPrize(n_th)
+        data = get_prize(n_th)
         with open('./{}.json'.format(str(n_th + 1976)), 'w') as output:
             json.dump(data, output, indent=4, ensure_ascii=False)
             output.write('\n')
 
 
-def getPrize(n_th):
+def get_prize(n_th):
     http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',
                                ca_certs=certifi.where())
 
