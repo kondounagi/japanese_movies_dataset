@@ -3601,7 +3601,7 @@
             ],
             "screen_time":127,
             "production_studio":"東宝",
-            "title":"の女",
+            "title":"マルサの女",
             "year":1988,
             "prize":1,
             "id":51,
@@ -5610,7 +5610,7 @@
             ],
             "screen_time":109,
             "production_studio":"シネカノン",
-            "title":"どっちに出ている",
+            "title":"月はどっちに出ている",
             "year":1994,
             "prize":0,
             "id":82,
@@ -5633,11 +5633,11 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
