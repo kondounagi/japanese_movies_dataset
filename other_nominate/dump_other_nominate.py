@@ -88,8 +88,7 @@ class DumpOtherNominate:
         return 'nikkan_sports', self.create_map(whole_data)
 
     def register_golden_gross(self):
-        url = 'https://ja.wikipedia.org/wiki/%E3%82%B4%E3%83%BC%E3%83%AB%E3%83%87%E3%83%B3%E3%82%B0%E3%83%AD%E3%82%B9' \
-              '%E8%B3%9E'
+        url = 'https://ja.wikipedia.org/wiki/ゴールデングロス賞'
         root = get_root(url)
         whole_data = {}
         for row in root.xpath('//table[contains(@class, "wikitable")]/tbody/tr'):
