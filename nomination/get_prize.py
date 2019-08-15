@@ -56,7 +56,13 @@ def get_prize(n_th):
         if anker is None:
             continue
         elements = anker.findNext('ul').findAll('li')
-        titles = [title for title in map(lambda element: element.find('div', {'class': re.compile(r'text01')}).string, elements)]
+
+        titles = []
+        for element in elements:
+            div = element.select_one('div.text01')
+            if div:
+                titles.append(div.string)
+
         prize_dict[prize]['最優秀賞'] = titles[0]
         prize_dict[prize]['優秀賞'] = titles[1:]
 
