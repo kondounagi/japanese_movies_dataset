@@ -17,8 +17,8 @@ def main(filepath: str, output_dir: str, year):
     for element in meta_data[year]:
         nomination_id = element['id']
         title = element['title']
-        select = getCocoId(title)
-        reviews = getCocoReview(select)
+        select = get_coco_id(title)
+        reviews = get_coco_review(select)
 
         os.makedirs(output_dir, exist_ok=True)
         output = open(output_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'w')
@@ -37,7 +37,7 @@ def main(filepath: str, output_dir: str, year):
     return
 
 
-def getCocoId(title):
+def get_coco_id(title):
     def trans(title_string):
         table = str.maketrans({
             '１': '1',
@@ -107,7 +107,7 @@ def getCocoId(title):
     return select
 
 
-def getCocoReview(select):
+def get_coco_review(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
