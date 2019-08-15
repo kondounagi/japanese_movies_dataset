@@ -154,9 +154,8 @@ def get_coco_review(select):
             comment_string = each.select_one('div.tweet_text').next_element
             processed_comment = re.sub(r'\s', ' ', comment_string)
             date_element = each.select_one('div.updated')
-            date_string = date_element.a['title']
 
-            match = re.search(r'\d{4}:\d{2}:\d{2}', date_string)
+            match = re.search(r'\d{4}:\d{2}:\d{2}', date_element.a['title'])
             if match:
                 date_string = match.group().replace(':', '-')
             else:
