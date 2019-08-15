@@ -19,6 +19,7 @@ from datetime import datetime
     date: yyyy-mm-dd
 '''
 
+
 def clean_paren(text):
     """Remove nested parentheses from text.
 
@@ -42,6 +43,7 @@ def clean_paren(text):
         elif right_parenthese >= left_parenthese:
             ret += text[i]
     return ret
+
 
 def main():
     year = sys.argv[1]
