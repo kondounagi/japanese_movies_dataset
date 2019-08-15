@@ -35,13 +35,13 @@ def clean_paren(text):
     left_parenthese = 0
     right_parenthese = 0
     ret = ""
-    for i in range(len(text)):
-        if text[i] == "(" or text[i] == "（":
+    for char in text:
+        if char == "(" or char == "（":
             left_parenthese += 1
-        elif text[i] == ")" or text[i] == "）":
+        elif char == ")" or char == "）":
             right_parenthese += 1
         elif right_parenthese >= left_parenthese:
-            ret += text[i]
+            ret += char
     return ret
 
 
