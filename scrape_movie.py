@@ -71,7 +71,15 @@ def main():
                     right_parenthese += 1
                 elif right_parenthese >= left_parenthese:
                     film += film_splits[1][i]
-            film = re.sub('[’!\"#$%&\'()*+,-./:;<=>?@，。?★、…【】《》？“”‘’！[\\]^_`{|}~\s]+', "", film)
+
+            film = re.sub(r'''
+                (?:
+                    [!?"#$%&'()*+,-./\:;<=>@|~^_`]  # ascii signs
+                    |[，。★、…！？]                 # fullwidth
+                    |[“”‘’[]{}【】《》]             # brace
+                    |\s                             # space
+                )+
+            ''', "", film, flags=re.VERBOSE)
 
             # fetch search result
             film = "".join(film.split())
