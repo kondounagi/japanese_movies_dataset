@@ -50,7 +50,7 @@ def getCocoId(title):
             '＄': '$',
             '＃': '#',
             '！': '!',
-            '？': '?'
+            '？': '?',
         })
         regulated_title = re.sub(r'（[^（）]*）', '', title_string)
         regulated_title = re.sub(r'\([^\(\)]*\)', '', regulated_title)
