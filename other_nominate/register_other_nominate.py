@@ -64,7 +64,10 @@ class RegisterOtherNominate:
                 self.output.append(add_data)
 
         with open(self.args.jsonfile, 'w') as jsonfile:
-            json.dump(self.output, jsonfile, ensure_ascii=False, indent=4, separators=(',', ':'))
+            json.dump(self.output, jsonfile,
+                      ensure_ascii=False,
+                      indent=4,
+                      separators=(',', ':'))
             jsonfile.write('\n')
 
     def dump_data(self):
