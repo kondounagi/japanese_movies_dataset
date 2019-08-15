@@ -150,12 +150,18 @@ class DumpOtherNominate:
         url = 'http://www.kinenote.com/main/award/kinejun/'
         root = get_root(url)
         whole_data = {}
+
         for row in root.xpath('//table[contains(@class, "tbl_year")]/tr'):
-            if len(row.xpath('td[1]/a')) == 0 or len(row.xpath('td[3]/a')) == 0:
+            if not row.xpath('td[1]/a'):
                 continue
+
+            if not row.xpath('td[3]/a'):
+                continue
+
             caption = row.xpath('td[1]/a')[0].text
             data = row.xpath('td[3]/a')[0].text
             whole_data[caption] = data
+
         whole_data['2018年'] = '万引き家族'  # has not yet been uploaded
         return 'kinejun_best_ten', self.create_map(whole_data)
 
