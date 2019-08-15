@@ -135,33 +135,32 @@ def main():
             # filter out informative data
             staff_cast = soup.find(id="staff-cast")
             if staff_cast is not None:
-                for div in staff_cast.find_all():
-                    # When calling div["class"], return type is list[string]
-                    if div.name == "dl" and div.has_attr("class") and div["class"][0] == "movie-staff":
-                        # movie staff column
-                        data_type = ""
-                        for p in div.find_all():
-                            if p.name == "dt":
-                                if p.get_text() == "監督":
-                                    data_type = "director"
-                                elif p.get_text() == "脚本":
-                                    data_type = "scriptwriter"
-                                else:
-                                    data_type = ""
-                                # new meta data type can be added here
+                ms = staff_cast.select_one('dl.movie-staff')
+                if ms:
+                    staff = {role.get_text().strip(): name.get_text().strip()
+                             for role, name in zip(ms.select('dt'),
+                                                   ms.select('dd'))}
 
-                            elif p.name == "dd" and len(data_type) > 0:
-                                film_data[data_type].append(p.get_text().strip())
-                    elif div.name == "ul" and div.has_attr("class") and div["class"][0] == "movie-cast":
-                        # movie cast column
-                        for p in div.find_all():
-                            if p.name == "span":
-                                film_data["performers"].append(p.get_text().strip())
+                    if '監督' in staff:
+                        film_data['director'].append(staff['監督'])
+
+                    if '脚本' in staff:
+                        film_data['scriptwriter'].append(staff['脚本'])
+
+                mc = staff_cast.select_one('ul.movie-cast')
+                if mc:
+                    performers = [name.get_text().strip()
+                                  for name in mc.select('span')]
+
+                    film_data['performers'].extend(performers)
 
             print(film_num, film_data)
-            with open("meta_movie_data/" + str(dt.year) + "/" + str(film_num) + ".json", "w") as output_file:
-                output_file.write(json.dumps(film_data, ensure_ascii=False))
-                # json.dump(film_data, output_file).encode('utf-8')
+
+            output_filepath = os.path.join("meta_movie_data",
+                                           str(dt.year),
+                                           str(film_num) + ".json")
+            with open(output_filepath, "w") as output_file:
+                json.dump(film_data, output_file, ensure_ascii=False)
                 output_file.write('\n')
             print(fail_list)
             sys.stdout.flush()
