@@ -56,18 +56,17 @@ class JoinMetaData:
             result[str(year)] = []
             for movie_data in original[str(year)]:
                 print("#", movie_data)
-                data = movie_data
-                data['other_nominates'] = other_nominates
+                movie_data['other_nominates'] = other_nominates
                 if movie_data['title'] in nominate_map:
-                    data['other_nominates'] = []
+                    movie_data['other_nominates'] = []
                     for nominate in other_nominates:
                         for element in nominate_map[movie_data['title']]:
                             if nominate['award'] == element['award']:
-                                data['other_nominates'].append({'award': nominate['award'], 'prized': 1})
+                                movie_data['other_nominates'].append({'award': nominate['award'], 'prized': 1})
                                 break
                         else:
-                            data['other_nominates'].append({'award': nominate['award'], 'prized': 0})
-                result[str(year)].append(data)
+                            movie_data['other_nominates'].append({'award': nominate['award'], 'prized': 0})
+                result[str(year)].append(movie_data)
 
         with open(self.args.data, 'w') as f:
             json.dump(result, f, ensure_ascii=False, indent=4, separators=(',', ':'))
