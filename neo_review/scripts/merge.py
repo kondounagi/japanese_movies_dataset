@@ -3,10 +3,19 @@ import os
 import sys
 
 
+def load_json(filepath):
+    with open(filepath, 'r') as f:
+        return json.load(f)
+
+
+def store_json(filepath, d):
+    with open(filepath, 'w') as f:
+        json.dump(d, f, indent=4, ensure_ascii=False)
+        f.write('\n')
+
+
 def main(meta_filepath, input_dir, output_filepath):
-    meta_data = None
-    with open(meta_filepath, 'r') as f:
-        meta_data = json.load(f)
+    meta_data = load_json(meta_filepath)
 
     output_dict = {}
 
@@ -17,8 +26,7 @@ def main(meta_filepath, input_dir, output_filepath):
                 data = json.load(f)
                 output_dict.update(data)
 
-    with open(output_filepath, 'w') as output:
-        json.dump(output_dict, output, indent=4, ensure_ascii=False)
+    store_json(output_filepath, output_dict)
 
 
 if __name__ == '__main__':
