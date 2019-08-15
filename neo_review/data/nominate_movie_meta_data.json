@@ -32,7 +32,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -40,7 +40,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -408,7 +408,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -600,7 +600,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -608,11 +608,11 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -772,11 +772,11 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -859,7 +859,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -986,7 +986,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -1101,7 +1101,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -1675,7 +1675,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -1735,15 +1735,15 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -1866,19 +1866,19 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -2285,7 +2285,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -2297,7 +2297,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -2405,7 +2405,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -2473,7 +2473,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
@@ -2555,7 +2555,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -2567,7 +2567,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -2697,7 +2697,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -3031,7 +3031,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -3043,7 +3043,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -3099,7 +3099,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -3152,7 +3152,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
@@ -3601,7 +3601,7 @@
             ],
             "screen_time":127,
             "production_studio":"東宝",
-            "title":"マルサの女",
+            "title":"の女",
             "year":1988,
             "prize":1,
             "id":51,
@@ -3616,19 +3616,19 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -3743,7 +3743,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
@@ -3954,7 +3954,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
@@ -3966,7 +3966,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -4151,7 +4151,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -4286,7 +4286,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -4298,7 +4298,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -4306,7 +4306,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -4636,7 +4636,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -4648,11 +4648,11 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -4720,7 +4720,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -4732,7 +4732,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -4949,7 +4949,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -4957,11 +4957,11 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -4969,7 +4969,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -5027,7 +5027,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -5250,7 +5250,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -5258,19 +5258,19 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -5553,7 +5553,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -5610,7 +5610,7 @@
             ],
             "screen_time":109,
             "production_studio":"シネカノン",
-            "title":"月はどっちに出ている",
+            "title":"どっちに出ている",
             "year":1994,
             "prize":0,
             "id":82,
@@ -5625,11 +5625,11 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -5862,7 +5862,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -6195,19 +6195,19 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -6389,7 +6389,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -6509,7 +6509,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -6517,11 +6517,11 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -6919,7 +6919,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -7115,7 +7115,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -7175,7 +7175,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -7187,7 +7187,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -7296,7 +7296,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
@@ -7497,7 +7497,7 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
@@ -7505,11 +7505,11 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         }
@@ -7569,7 +7569,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -7581,7 +7581,7 @@
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -7816,7 +7816,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -8002,11 +8002,11 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
@@ -8014,7 +8014,7 @@
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -8063,7 +8063,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -8173,7 +8173,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
@@ -8301,7 +8301,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -8722,7 +8722,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -8730,19 +8730,19 @@
                 },
                 {
                     "award":"hochi_eigashou",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"mainichi_film_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
-                    "prized":0
+                    "prized":1
                 }
             ]
         },
@@ -9298,7 +9298,7 @@
                 },
                 {
                     "award":"golden_gross",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"hochi_eigashou",
