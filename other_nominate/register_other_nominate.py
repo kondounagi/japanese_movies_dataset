@@ -52,9 +52,11 @@ class RegisterOtherNominate:
                     with open(movielist) as f:
                         for movie in f:
                             index, title = movie.split('\t')[0:2]
+                            index = int(index)
+
                             if title == prize['work']['title']:
                                 add_prize = prize
-                                add_prize['work']['index'] = int(index)
+                                add_prize['work']['index'] = index
                                 year_data.append(add_prize)
                                 break
                         else:
@@ -76,7 +78,9 @@ class RegisterOtherNominate:
             with open(movielist) as f:
                 for movie in f:
                     nominates = []
-                    index, title = int(movie.split('\t')[0]), movie.split('\t')[1]
+                    index, title = movie.split('\t')[0:2]
+                    index = int(index)
+
                     file_name = 'movies_other_nominate/{year}/{index}.json'.format(year=year, index=index)
                     for award in self.output:
                         if year == award['year']:
