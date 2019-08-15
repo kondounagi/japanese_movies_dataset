@@ -5,7 +5,7 @@ import sys
 
 def main(meta_filepath, input_dir, output_filepath):
     meta_data = None
-    with open(meta_filepath, 'r', encoding='utf-8') as f:
+    with open(meta_filepath, 'r') as f:
         meta_data = json.load(f)
 
     output_dict = {}
@@ -13,11 +13,11 @@ def main(meta_filepath, input_dir, output_filepath):
     for year in meta_data.keys():
         for element in meta_data[year]:
             nomination_id = element['id']
-            with open(input_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'r', encoding='utf-8') as f:
+            with open(input_dir.rstrip('/') + '/{}.json'.format(nomination_id), 'r') as f:
                 data = json.load(f)
                 output_dict.update(data)
 
-    with open(output_filepath, 'w', encoding='utf-8') as output:
+    with open(output_filepath, 'w') as output:
         json.dump(output_dict, output, indent=4, ensure_ascii=False)
 
 
