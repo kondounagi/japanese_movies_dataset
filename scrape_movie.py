@@ -114,8 +114,10 @@ def main():
             html_text = soup.prettify()
             production_studio = re_production_studio.search(html_text)
             screen_time = re_time.search(html_text)
+
             if production_studio:
                 film_data["production_studio"] = production_studio.group(0)[3:].strip()
+
             if screen_time:
                 film_data["screen_time"] = int(screen_time.group(0)[1:-2])
 
