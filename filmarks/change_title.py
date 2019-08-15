@@ -1,6 +1,5 @@
 import sys
 import csv
-import glob
 import os
 
 
