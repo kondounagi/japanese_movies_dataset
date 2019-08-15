@@ -77,7 +77,10 @@ class JoinMetaData:
                 result[str(year)].append(movie_data)
 
         with open(self.args.data, 'w') as f:
-            json.dump(result, f, ensure_ascii=False, indent=4, separators=(',', ':'))
+            json.dump(result, f,
+                      ensure_ascii=False,
+                      indent=4,
+                      separators=(',', ':'))
             f.write('\n')
 
 
