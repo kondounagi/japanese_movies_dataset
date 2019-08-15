@@ -73,7 +73,7 @@ class DumpOtherNominate:
         root = get_root(url)
         whole_data = {}
         for row in root.xpath('//table[contains(@class, "wikitable")]/tbody/tr'):
-            if len(row.xpath('td[1]/a')) is 0 or len(row.xpath('td[3]/a')) is 0:
+            if len(row.xpath('td[1]/a')) == 0 or len(row.xpath('td[3]/a')) == 0:
                 continue
             caption = row.xpath('td[1]/a')[0].text
             data = row.xpath('td[3]/a')[0].text
@@ -85,7 +85,7 @@ class DumpOtherNominate:
         root = get_root(url)
         whole_data = {}
         for row in root.xpath('//table[contains(@class, "btable")]/tr'):
-            if len(row.xpath('td[2]')) is 0 or len(row.xpath('td[3]')) is 0:
+            if len(row.xpath('td[2]')) == 0 or len(row.xpath('td[3]')) == 0:
                 continue
             caption = row.xpath('td[2]')[0].text
             data = row.xpath('td[3]')[0].text
@@ -120,7 +120,7 @@ class DumpOtherNominate:
         root = get_root(url)
         whole_data = {}
         for row in root.xpath('//table[contains(@class, "tbl_year")]/tr'):
-            if len(row.xpath('td[1]/a')) is 0 or len(row.xpath('td[3]/a')) is 0:
+            if len(row.xpath('td[1]/a')) == 0 or len(row.xpath('td[3]/a')) == 0:
                 continue
             caption = row.xpath('td[1]/a')[0].text
             data = row.xpath('td[3]/a')[0].text
