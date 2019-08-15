@@ -59,9 +59,9 @@ class DumpOtherNominate:
             output.write('\n')
 
     def _filter_by_year(self, lst, year):
-        for d in lst:
-            if d['year'] == year:
-                yield d
+        for elm in lst:
+            if elm['year'] == year:
+                yield elm
 
     def create_map(self, whole_data):
         data = []
