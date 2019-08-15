@@ -90,7 +90,7 @@ def main():
                     |[“”‘’[]{}【】《》]             # brace
                     |\s                             # space
                 )+
-            ''', "", film_, flags=re.VERBOSE)
+            ''', "", film, flags=re.VERBOSE)
 
             # fetch search result
             film = "".join(film.split())
