@@ -43,7 +43,10 @@ try:
             jf = json.loads(f.read())
             jf[key] = int(sc[key].replace(',', ''))
         with open(file, 'w') as wf:
-            data = json.dump(jf, wf, ensure_ascii=False, indent=4, separators=(',', ':'))
+            data = json.dump(jf, wf,
+                             ensure_ascii=False,
+                             indent=4,
+                             separators=(',', ':'))
             wf.write("\n")
 
 
