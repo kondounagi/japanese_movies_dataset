@@ -1,7 +1,8 @@
 import argparse
+import glob
 import json
-from os import listdir
-from os.path import isfile, join
+import os
+import re
 
 
 class SizeDoesNotMatchException(Exception):
@@ -27,12 +28,9 @@ parser.add_argument("-j", "--jsonfile",
 
 args = parser.parse_args()
 
-extension = '.json'
 key = 'search_count'
-files = [int(f.rstrip(extension)) for f in listdir(args.directory) if isfile(join(args.directory, f))]
-files.sort()
-
-files = [args.directory + '/' + str(f) + extension for f in files]
+files = glob.glob(os.path.join(glob.escape(args.directory), '*.json'))
+files.sort(key=lambda p: int(re.findall(r'\d+', p)[-1]))
 
 with open(args.jsonfile, 'r') as jsonfile:
     search_count = json.loads(jsonfile.read())
