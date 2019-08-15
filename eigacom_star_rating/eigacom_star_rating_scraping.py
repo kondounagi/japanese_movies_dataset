@@ -25,7 +25,7 @@ def search(q):
 
     soup_search = BeautifulSoup(res_search.content, "lxml")
     result = soup_search.find('section', attrs={"id": "rslt-movie"})
-    if result != None:
+    if result:
         path = result.find('li', attrs={"class": "col-s-3"}).find('a')["href"]
         url_review = 'https://eiga.com' + path
         return url_review
@@ -71,7 +71,7 @@ def main():
             with open(output_file, 'w') as f:
                 print(movie_id)
                 data = scrape(title)
-                if data == None:
+                if data is None:
                     continue
                 data["id"] = int(movie_id)
                 json.dump(data, f, ensure_ascii=False, indent=2)
