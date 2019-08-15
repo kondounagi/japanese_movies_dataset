@@ -27,8 +27,15 @@ class DumpOtherNominate:
         self.years = range(2003, 2019)
 
     def __call__(self, *args, **kwargs):
-        award_data = [self.register_nikkan_sports(), self.register_golden_gross(), self.register_hochi_eigashou(),
-                      self.register_mainichi_film_award(), self.register_blue_ribbon_award(), self.kinejun_best_ten()]
+        award_data = [
+            self.register_nikkan_sports(),
+            self.register_golden_gross(),
+            self.register_hochi_eigashou(),
+            self.register_mainichi_film_award(),
+            self.register_blue_ribbon_award(),
+            self.kinejun_best_ten(),
+        ]
+
         results = []
         for year in self.years:
             result = {'year': year, 'prize_winners': []}
