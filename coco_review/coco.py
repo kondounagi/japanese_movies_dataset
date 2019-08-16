@@ -10,8 +10,8 @@ import json
 import os
 
 
-def uncommify(s):
-    return int(s.replace(',', ''))
+def uncommify(text):
+    return int(text.replace(',', ''))
 
 
 def main(filepath: str, output_dir: str, start_row=1, end_row=None):
