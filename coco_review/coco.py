@@ -89,8 +89,8 @@ def getCocoId(title):
 
     regulated_title = trans(title)
 
-    r = http.request('GET', url, fields={'q': regulated_title})
-    data = r.data.decode('utf-8')
+    req = http.request('GET', url, fields={'q': regulated_title})
+    data = req.data.decode('utf-8')
 
     soup = BeautifulSoup(data, 'html.parser')
 
@@ -137,8 +137,8 @@ def getCocoReview(select):
                .format(select['cocoId'], str(i + 1)))
 
         encoded_url = urllib.parse.quote(url, '/:?=&')
-        r = http.request('GET', encoded_url)
-        data = r.data.decode('utf-8')
+        req = http.request('GET', encoded_url)
+        data = req.data.decode('utf-8')
         soup = BeautifulSoup(data, 'html.parser')
 
         flag = False
@@ -189,8 +189,8 @@ def getCocoData(select):
 
     url = 'https://coco.to/movie/{}'.format(select['cocoId'])
     encoded_url = urllib.parse.quote(url, '/:?=&')
-    r = http.request('GET', encoded_url)
-    data = r.data.decode('utf-8')
+    req = http.request('GET', encoded_url)
+    data = req.data.decode('utf-8')
     soup = BeautifulSoup(data, 'html.parser')
 
     satisfaction_element = (
@@ -233,8 +233,8 @@ def getCocoData(select):
     for element in review_keyword_elements:
         keyword_dict = {'keyword': None, 'grade': None}
         keyword_dict['keyword'] = element.string
-        m = re.search(r'font\-size:\d+px', element['style'])
-        font_size_style = m.group()
+        match = re.search(r'font\-size:\d+px', element['style'])
+        font_size_style = match.group()
         size = re.sub(r'\D', '', font_size_style)
         mapping = {
             '10': '少し',
