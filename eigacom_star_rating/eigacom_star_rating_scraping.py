@@ -9,18 +9,20 @@ import json
 logging.basicConfig(format='%(message)s')
 
 
-def normalize_query(q):
-    q = q.replace('\n', '')
-    q = q.replace('（', '(')
-    q = q.replace('）', ')')
-    q = re.sub(r"\(.+\)$", "", " ".join(q))
-    q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
-    return q
+def normalize_query(query):
+    query = query.replace('\n', '')
+    query = query.replace('（', '(')
+    query = query.replace('）', ')')
+    query = re.sub(r"\(.+\)$", "", " ".join(query))
+    query = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", query)
+    return query
 
 
-def search(q):
+def search(query):
+    normalized_query = normalize_query(query)
+
     url_search = ('https://eiga.com/search/{}'
-                  .format(requests.utils.quote(normalize_query(q), safe='')))
+                  .format(requests.utils.quote(normalized_query, safe='')))
 
     res_search = requests.get(url_search)
     res_search.encoding = res_search.apparent_encoding
