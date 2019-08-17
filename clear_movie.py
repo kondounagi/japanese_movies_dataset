@@ -1,17 +1,33 @@
 #!/usr/bin/env python3
 import argparse
+import os
 import re
 import unicodedata
 
 
 def parse_arg():
     parser = argparse.ArgumentParser(description="raw2clean")
-    parser.add_argument('year', type=str)
+    parser.add_argument('arg',
+                        help='[year|filepath]',
+                        type=str)
     args = parser.parse_args()
-    return args.year
+
+    try:
+        year = int(args.arg)
+        filename = "{}_movie_raw".format(args.arg)
+    except ValueError:
+        filename = args.arg
+        basename = os.path.basename(filename)
+        match = re.search(r'^\d+', basename)
+        if match:
+            year = match.group()
+        else:
+            raise
+
+    return year, filename
 
 
-def main(year):
+def main(year, filename):
     month = 0
     day = 0
 
@@ -22,7 +38,7 @@ def main(year):
     re_garbage = re.compile(r'\s*[(（][^)）]*$')
 
     num = 0
-    with open(str(year) + "_movie_raw", "r") as in_file:
+    with open(filename, "r") as in_file:
         for line in in_file:
             line = line.strip()
 
@@ -50,5 +66,5 @@ def main(year):
 
 
 if __name__ == '__main__':
-    year = parse_arg()
-    main(year)
+    year, filename = parse_arg()
+    main(year, filename)
