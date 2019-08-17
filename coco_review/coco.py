@@ -30,9 +30,9 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
 
     for i in range(start_row - 1, end_row):
         title = titles[i]
-        select = getCocoId(title)
-        comments = getCocoReview(select)
-        data = getCocoData(select)
+        select = get_coco_id(title)
+        comments = get_coco_review(select)
+        data = get_coco_data(select)
         comment_dict = {
             'title': title,
             'id': i,
@@ -49,7 +49,7 @@ def main(filepath: str, output_dir: str, start_row=1, end_row=None):
     return
 
 
-def getCocoId(title):
+def get_coco_id(title):
     def trans(title_string):
         table = str.maketrans({
             '１': '1',
@@ -123,7 +123,7 @@ def getCocoId(title):
     return select
 
 
-def getCocoReview(select):
+def get_coco_review(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
@@ -165,7 +165,7 @@ def getCocoReview(select):
     return(comments)
 
 
-def getCocoData(select):
+def get_coco_data(select):
     http = urllib3.PoolManager(
         cert_reqs='CERT_REQUIRED',
         ca_certs=certifi.where())
