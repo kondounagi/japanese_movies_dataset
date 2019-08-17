@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
+import argparse
 import re
-import sys
 import unicodedata
+
+
+def parse_arg():
+    parser = argparse.ArgumentParser(description="raw2clean")
+    parser.add_argument('year', type=str)
+    args = parser.parse_args()
+    return args.year
 
 
 def main(year):
@@ -43,5 +50,5 @@ def main(year):
 
 
 if __name__ == '__main__':
-    year = int(sys.argv[1])
+    year = parse_arg()
     main(year)
