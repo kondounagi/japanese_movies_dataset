@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import argparse
+import contextlib
 import os
 import re
+import sys
 import unicodedata
 
 
@@ -11,6 +13,11 @@ def parse_arg():
                         help='[year|filepath]',
                         type=str)
     args = parser.parse_args()
+
+    if not sys.stdin.isatty():
+        year = int(args.arg)
+        filename = None
+        return year, filename
 
     try:
         year = int(args.arg)
@@ -27,6 +34,20 @@ def parse_arg():
     return year, filename
 
 
+@contextlib.contextmanager
+def open_resource(filename):
+    if filename:
+        fh = open(filename, 'r')
+    else:
+        fh = sys.stdin
+
+    try:
+        yield fh
+    finally:
+        if filename:
+            fh.close()
+
+
 def main(year, filename):
     month = 0
     day = 0
@@ -38,7 +59,7 @@ def main(year, filename):
     re_garbage = re.compile(r'\s*[(（][^)）]*$')
 
     num = 0
-    with open(filename, "r") as in_file:
+    with open_resource(filename) as in_file:
         for line in in_file:
             line = line.strip()
 
