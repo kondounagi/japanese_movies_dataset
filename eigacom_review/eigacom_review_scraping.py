@@ -9,13 +9,13 @@ import json
 logging.basicConfig(format='%(message)s')
 
 
-def normalize_query(q):
-    q = q.replace('\n', '')
-    q = q.replace('（', '(')
-    q = q.replace('）', ')')
-    q = re.sub(r"\(.+\)$", "", " ".join(q))
-    q = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", q)
-    return q
+def normalize_query(query):
+    query = query.replace('\n', '')
+    query = query.replace('（', '(')
+    query = query.replace('）', ')')
+    query = re.sub(r"\(.+\)$", "", " ".join(query))
+    query = re.sub('(!|\u3000|/|\\s|>|<|\\.)+', " ", query)
+    return query
 
 
 def concat_url_path(*args):
@@ -28,9 +28,9 @@ def concat_url_path(*args):
         return url
 
 
-def search(q):
+def search(query):
     url_search = 'https://eiga.com/search/{}'.format(
-        requests.utils.quote(normalize_query(q), safe=''))
+        requests.utils.quote(normalize_query(query), safe=''))
 
     res_search = requests.get(url_search)
     res_search.encoding = res_search.apparent_encoding
@@ -77,16 +77,16 @@ def scrape_review(query):
             print('DONE : ' + query)
             break
 
-        for r in reviews:
-            title = r.select_one('h2.review-title a')
-            main_text = r.select_one('div.txt-block')
+        for review in reviews:
+            title = review.select_one('h2.review-title a')
+            main_text = review.select_one('div.txt-block')
             tgl_btn = main_text.select_one('div.toggle-btn')
 
             if tgl_btn:
                 tgl_btn.decompose()
 
-            d = title.text + "\n" + main_text.text.replace("\n", "")
-            data["reviews"]["eigacom"].append(d)
+            desc = title.text + "\n" + main_text.text.replace("\n", "")
+            data["reviews"]["eigacom"].append(desc)
 
         page_num += 1
         time.sleep(1)
