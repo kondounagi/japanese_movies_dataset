@@ -162,7 +162,7 @@ def get_coco_review(select):
         if flag:
             break
 
-    return(comments)
+    return comments
 
 
 def get_coco_data(select):
