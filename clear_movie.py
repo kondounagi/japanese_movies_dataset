@@ -64,12 +64,11 @@ def main(year, filename):
             line = line.strip()
 
             match_month = re_month.match(line)
-            match_day = re_day.match(line)
-
             if match_month:
                 month = match_month.group(1)
                 continue
 
+            match_day = re_day.match(line)
             if match_day:
                 day = match_day.group(1)
                 continue
