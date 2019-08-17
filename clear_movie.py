@@ -3,10 +3,8 @@ import re
 import sys
 import unicodedata
 
-year = int(sys.argv[1])
 
-
-def main():
+def main(year):
     month = 0
     day = 0
 
@@ -45,4 +43,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    year = int(sys.argv[1])
+    main(year)
