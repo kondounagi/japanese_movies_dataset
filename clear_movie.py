@@ -20,7 +20,7 @@ def parse_arg():
         basename = os.path.basename(filename)
         match = re.search(r'^\d+', basename)
         if match:
-            year = match.group()
+            year = int(match.group())
         else:
             raise
 
