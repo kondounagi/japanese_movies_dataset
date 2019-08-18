@@ -14,9 +14,9 @@ def load_json(filepath):
         return json.load(f)
 
 
-def store_json(filepath, d):
+def store_json(filepath, obj):
     with open(filepath, 'w') as f:
-        json.dump(d, f, indent=4, ensure_ascii=False)
+        json.dump(obj, f, indent=4, ensure_ascii=False)
         f.write('\n')
 
 
@@ -86,8 +86,8 @@ def get_coco_id(title):
 
     regulated_title = trans(title)
 
-    r = http.request('GET', url, fields={'q': regulated_title})
-    data = r.data.decode('utf-8')
+    req = http.request('GET', url, fields={'q': regulated_title})
+    data = req.data.decode('utf-8')
 
     soup = BeautifulSoup(data, 'html.parser')
 
@@ -134,8 +134,8 @@ def get_coco_review(select):
                .format(select['cocoId'], str(i + 1)))
 
         encoded_url = urllib.parse.quote(url, '/:?=&')
-        r = http.request('GET', encoded_url)
-        data = r.data.decode('utf-8')
+        req = http.request('GET', encoded_url)
+        data = req.data.decode('utf-8')
         soup = BeautifulSoup(data, 'html.parser')
 
         flag = False
