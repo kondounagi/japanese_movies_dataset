@@ -22,7 +22,10 @@ def main(meta_filepath, input_dir, output_filepath):
     for year in meta_data.keys():
         for element in meta_data[year]:
             nomination_id = element['id']
-            json_path = os.path.join(input_dir, '{}.json'.format(nomination_id))
+
+            json_path = os.path.join(input_dir,
+                                     '{}.json'.format(nomination_id))
+
             data = load_json(json_path)
             output_dict.update(data)
 
