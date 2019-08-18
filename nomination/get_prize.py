@@ -2,7 +2,6 @@ import certifi
 import urllib3
 from bs4 import BeautifulSoup
 import json
-import re
 
 
 def main():
