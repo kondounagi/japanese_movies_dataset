@@ -8,9 +8,7 @@ os.makedirs(f'./jsons/{year}', exist_ok=True)
 
 with open(f'../{year}_movie_clean', 'r') as f:
     data_reader = csv.reader(f, delimiter='\t')
-    for row in data_reader:
-        movie_id = row[0]
-        title = row[1]
+    for movie_id, title, *_ in data_reader:
         # print(movie_id, title)
         src = f'./jsons/metadata/{year}/{title}.json'
         dst = f'./jsons/{year}/{movie_id}.json'
