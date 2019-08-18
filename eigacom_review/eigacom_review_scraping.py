@@ -1,4 +1,5 @@
 import csv
+import itertools
 import logging
 import requests
 from bs4 import BeautifulSoup
@@ -46,8 +47,32 @@ def search(query):
         return None
 
 
+def get_reviews(url):
+    for page_num in itertools.count(1):
+        res = requests.get(concat_url_path(url, page_num))
+        res.encoding = res.apparent_encoding
+
+        soup = BeautifulSoup(res.content, "lxml")
+        reviews = soup.select('div.user-review')
+
+        # ページ数の上限を超えたら
+        if not reviews:
+            break
+
+        for review in reviews:
+            title = review.select_one('h2.review-title a')
+            main_text = review.select_one('div.txt-block')
+            tgl_btn = main_text.select_one('div.toggle-btn')
+
+            if tgl_btn:
+                tgl_btn.decompose()
+
+            yield title.text + "\n" + main_text.text.replace("\n", "")
+
+        time.sleep(1)
+
+
 def scrape_review(query):
-    page_num = 1
     data = {
         "id": -1,
         "reviews": {
@@ -66,30 +91,9 @@ def scrape_review(query):
         logging.warning("**************************************************")
         return None
 
-    while(1):
-        res = requests.get(concat_url_path(url_review, page_num))
-        res.encoding = res.apparent_encoding
-        soup = BeautifulSoup(res.content, "lxml")
-        reviews = soup.select('div.user-review')
+    data["reviews"]["eigacom"].extend(get_reviews(url_review))
+    print('DONE : ' + query)
 
-        # ページ数の上限を超えたら
-        if not reviews:
-            print('DONE : ' + query)
-            break
-
-        for review in reviews:
-            title = review.select_one('h2.review-title a')
-            main_text = review.select_one('div.txt-block')
-            tgl_btn = main_text.select_one('div.toggle-btn')
-
-            if tgl_btn:
-                tgl_btn.decompose()
-
-            desc = title.text + "\n" + main_text.text.replace("\n", "")
-            data["reviews"]["eigacom"].append(desc)
-
-        page_num += 1
-        time.sleep(1)
     return data
 
 
