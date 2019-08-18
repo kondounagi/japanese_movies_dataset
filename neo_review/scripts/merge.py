@@ -8,9 +8,9 @@ def load_json(filepath):
         return json.load(f)
 
 
-def store_json(filepath, d):
+def store_json(filepath, obj):
     with open(filepath, 'w') as f:
-        json.dump(d, f, indent=4, ensure_ascii=False)
+        json.dump(obj, f, indent=4, ensure_ascii=False)
         f.write('\n')
 
 
