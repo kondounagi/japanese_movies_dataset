@@ -16,7 +16,7 @@ with open('../{}_movie_clean'.format(year), 'r') as f:
         try:
             os.rename(
                 './jsons/metadata/{}/{}.json'.format(year, title),
-                './jsons/{}/{}.json'.format(year, movie_id)
+                './jsons/{}/{}.json'.format(year, movie_id),
             )
         except Exception as e:
             print(e)
