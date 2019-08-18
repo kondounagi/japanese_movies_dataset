@@ -17,8 +17,8 @@ def get_prize(n_th):
                                ca_certs=certifi.where())
 
     url = 'https://www.japan-academy-prize.jp/prizes/'
-    r = http.request('GET', url, fields={'t': n_th})
-    data = r.data.decode('utf-8')
+    req = http.request('GET', url, fields={'t': n_th})
+    data = req.data.decode('utf-8')
     soup = BeautifulSoup(data, 'html.parser')
 
     prize_list1 = [
