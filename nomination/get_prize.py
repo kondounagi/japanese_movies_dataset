@@ -72,14 +72,26 @@ def get_prize(n_th):
 
         if anker is None:
             continue
-        prize_dict[prize]['最優秀賞'] = anker.findNext('img', {'alt': '最優秀賞'}).nextSibling.string
+
+        prize_dict[prize]['最優秀賞'] = (anker
+                                     .findNext('img', {'alt': '最優秀賞'})
+                                     .nextSibling.string)
+
         elements = anker.findAllNext('img', {'alt': '優秀賞'})
         filtered = []
+
         for element in elements:
-            if element.findPrevious('div', {'class': 'subtitle'}).find('img')['alt'] != prize:
+            subtitle_alt = (element
+                            .findPrevious('div', {'class': 'subtitle'})
+                            .find('img')['alt'])
+
+            if subtitle_alt != prize:
                 break
+
             filtered.append(element)
-        prize_dict[prize]['優秀賞'] = [element.nextSibling.string for element in filtered]
+
+        prize_dict[prize]['優秀賞'] = (
+            [element.nextSibling.string for element in filtered])
 
     return prize_dict
 
