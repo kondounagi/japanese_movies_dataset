@@ -1,18 +1,22 @@
 import certifi
+import re
+import urllib
 import urllib3
 from bs4 import BeautifulSoup
 import json
 
+BASE_YEAR = 1976
+
 
 def main():
-    for n_th in range(1, 42 + 1):
-        data = get_prize(n_th)
-        with open('./{}.json'.format(str(n_th + 1976)), 'w') as output:
+    for year, url in prize_list():
+        data = get_prize(url)
+        with open('./{}.json'.format(str(year)), 'w') as output:
             json.dump(data, output, indent=4, ensure_ascii=False)
             output.write('\n')
 
 
-def http_get(url, fields):
+def http_get(url, fields=None):
     http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',
                                ca_certs=certifi.where())
 
@@ -23,9 +27,26 @@ def http_get(url, fields):
     return soup
 
 
-def get_prize(n_th):
-    url = 'https://www.japan-academy-prize.jp/prizes/'
-    soup = http_get(url, {'t': n_th})
+def prize_list():
+    url = 'https://www.japan-academy-prize.jp/prizes/view.php'
+    soup = http_get(url)
+
+    for elm in soup.select('.main .one'):
+        nth = elm.select_one('.kai').get_text()
+        rel = elm.select_one('.btn a')["href"]
+
+        match = re.match(r'第(\d+)回', nth)
+        if not match:
+            continue
+
+        yield (
+            BASE_YEAR + int(match.group(1)),
+            urllib.parse.urljoin(url, rel),
+        )
+
+
+def get_prize(url):
+    soup = http_get(url)
 
     prize_list1 = [
         '優秀作品賞',
@@ -48,7 +69,7 @@ def get_prize(n_th):
         '優秀外国作品賞',
     ]
 
-    prize_dict = {'n_th': n_th}
+    prize_dict = {}
 
     for prize in prize_list1 + prize_list2:
         prize_dict[prize] = {'最優秀賞': None, '優秀賞': None}
