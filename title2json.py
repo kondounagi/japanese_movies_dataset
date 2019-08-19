@@ -6,7 +6,7 @@ import json
 def main():
     with open("2018_movie_clean", 'r') as src:
         for num, name, *_ in csv.reader(src, delimiter='\t'):
-            with open("movies/{}.json".format(num), 'r+') as f:
+            with open(f"movies/{num}.json", 'r+') as f:
                 data = json.load(f)
                 data['title'] = name
                 f.seek(0)
