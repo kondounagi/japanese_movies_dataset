@@ -19,6 +19,20 @@ from datetime import datetime
     date: yyyy-mm-dd
 '''
 
+def fetch_film_id(film, year, month, day):
+
+    google_search = "https://www.bing.com/search?q=site:https://eiga.com/movie/"
+    movie_re = re.compile("/movie/\d\d\d\d\d/")
+
+    content = requests.get(google_search + "%20" + film + "%20" + year + " " + month + " " + day).content
+    soup = BeautifulSoup(content, features="lxml")
+
+    film_id = movie_re.search(soup.prettify())
+    # print(soup.prettify())
+    if film_id is None:
+        return ""
+    else:
+        return film_id.group(0)        
 
 def clean_paren(text):
     """Remove nested parentheses from text.
@@ -64,7 +78,7 @@ def main():
     with open(year + "_movie_clean", 'r') as clean_file:
         reader = csv.reader(clean_file, delimiter='\t')
         for film_num, film, year, month, day in reader:
-            if (film_num < start_num):
+            if (int(film_num) < start_num):
                 continue
 
             print(film_num, film)
@@ -93,27 +107,13 @@ def main():
             ''', "", film, flags=re.VERBOSE)
 
             # fetch search result
-            film = "".join(film.split())
-            print(film_search + film)
-            content = requests.get(film_search + film).content
-            soup = BeautifulSoup(content, features="lxml")
-            if (soup.find(id="rslt-movie") is None):
-                id_list.append("")
+            film_id = fetch_film_id(film, year, month, day)
+            if len(film_id) == 0:
                 fail_list.append(film_num)
-                print(film_data)
-
-                output_filepath = os.path.join("meta_movie_data",
-                                               str(dt.year),
-                                               str(film_num) + ".json")
-
-                with open(output_filepath, "w") as output_file:
-                    json.dump(film_data, output_file, ensure_ascii=False)
-                    output_file.write('\n')
-
+                id_list.append(-1)
                 continue
-            film_id = soup.find(id="rslt-movie").find_all("a")[1]['href']
-            id_list.append(film_id[7:12])  # XXX: 7~12??
-
+            id_list.append(int(film_id[7:12]))
+            
             # this only used for small fix
             # film_id = "/movie/88817/"
 
@@ -168,9 +168,8 @@ def main():
 
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
-            id_file.write("\t".join([str(dt.year), str(i + 1), id_list[i]]))
-            id_file.write('\n')
-
+            id_file.write("\t".join([year, str(i + 1), str(id_list[i])]) + "\n")
+            
 
 if __name__ == "__main__":
     main()
