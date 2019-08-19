@@ -12,14 +12,20 @@ def main():
             output.write('\n')
 
 
-def get_prize(n_th):
+def http_get(url, fields):
     http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',
                                ca_certs=certifi.where())
 
-    url = 'https://www.japan-academy-prize.jp/prizes/'
-    req = http.request('GET', url, fields={'t': n_th})
+    req = http.request('GET', url, fields=fields)
     data = req.data.decode('utf-8')
     soup = BeautifulSoup(data, 'html.parser')
+
+    return soup
+
+
+def get_prize(n_th):
+    url = 'https://www.japan-academy-prize.jp/prizes/'
+    soup = http_get(url, {'t': n_th})
 
     prize_list1 = [
         '優秀作品賞',
