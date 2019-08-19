@@ -1,3 +1,4 @@
+import asyncio
 import certifi
 import re
 import urllib
@@ -9,8 +10,20 @@ BASE_YEAR = 1976
 
 
 def main():
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(_concurrent())
+
+
+async def _concurrent():
+    loop = asyncio.get_event_loop()
+
+    tasks = []
     for year, url in prize_list():
-        data = get_prize(url)
+        req = loop.run_in_executor(None, get_prize, url)
+        tasks.append((year, req))
+
+    for year, req in tasks:
+        data = await req
         with open('./{}.json'.format(str(year)), 'w') as output:
             json.dump(data, output, indent=4, ensure_ascii=False)
             output.write('\n')
