@@ -6,18 +6,31 @@ class JoinMetaData:
 
     def __init__(self):
         parser = argparse.ArgumentParser()
-        parser.add_argument("-o", "--original",
-                            default="../neo_review/data/nominate_movie_meta_data.json",
-                            help="path of the original json file",
-                            type=str)
-        parser.add_argument("-d", "--data",
-                            default="meta_movie_data/nominate_movie_meta_data.json",
-                            help="path of the target json file",
-                            type=str)
-        parser.add_argument("-s", "--summary",
-                            default="annual_other_nominate_data.json",
-                            help="path of the other nominate list json",
-                            type=str)
+
+        parser.add_argument(
+            "-o",
+            "--original",
+            default="../neo_review/data/nominate_movie_meta_data.json",
+            help="path of the original json file",
+            type=str,
+        )
+
+        parser.add_argument(
+            "-d",
+            "--data",
+            default="meta_movie_data/nominate_movie_meta_data.json",
+            help="path of the target json file",
+            type=str,
+        )
+
+        parser.add_argument(
+            "-s",
+            "--summary",
+            default="annual_other_nominate_data.json",
+            help="path of the other nominate list json",
+            type=str,
+        )
+
         self.args = parser.parse_args()
 
         self.years = range(1978, 2020)
