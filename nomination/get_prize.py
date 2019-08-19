@@ -102,8 +102,9 @@ def get_prize(url):
             if div:
                 titles.append(div.string)
 
-        prize_dict[prize]['最優秀賞'] = titles[0]
-        prize_dict[prize]['優秀賞'] = titles[1:]
+        if titles:
+            prize_dict[prize]['最優秀賞'] = titles[0]
+            prize_dict[prize]['優秀賞'] = titles[1:]
 
     for prize in prize_list2:
         ref = soup.find('img', {'alt': prize})
