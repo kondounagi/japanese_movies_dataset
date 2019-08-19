@@ -127,7 +127,8 @@ def main():
             screen_time = re_time.search(html_text)
 
             if production_studio:
-                film_data["production_studio"] = production_studio.group(0)[3:].strip()
+                film_data["production_studio"] = (production_studio
+                                                  .group(0)[3:].strip())
 
             if screen_time:
                 film_data["screen_time"] = int(screen_time.group(0)[1:-2])
@@ -167,7 +168,8 @@ def main():
 
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
-            id_file.write("\t".join([str(dt.year), str(i + 1), id_list[i]]) + "\n")
+            id_file.write("\t".join([str(dt.year), str(i + 1), id_list[i]]))
+            id_file.write('\n')
 
 
 if __name__ == "__main__":
