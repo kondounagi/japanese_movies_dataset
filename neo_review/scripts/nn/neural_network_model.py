@@ -3,8 +3,6 @@ import chainer.functions as F
 import chainer.links as L
 from chainer import training, Chain
 from chainer.training import extensions
-from sklearn import metrics
-import numpy as np
 
 from set_condition import SetCondition
 from load_data import LoadData
@@ -28,10 +26,6 @@ class NeuralNetworkModel(Chain):
 
     def __call__(self, x, y):
         y = y.reshape(-1, self.n_out)
-        # fpr, tpr, thresholds = metrics.roc_curve(y, self.forward(x).data)
-        # auc = chainer.Variable(np.array([metrics.auc(fpr, tpr)]))
-        # chainer.reporter.report({'auc': auc[0]}, self)
-        # return auc
         loss = F.mean_squared_error(self.forward(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
@@ -46,7 +40,7 @@ class NeuralNetworkModel(Chain):
         h2 = F.leaky_relu(self.l2(h1))
         h2 = self.b2(h2)
 
-        hl = F.relu(self.ll(h2))
+        hl = self.ll(h2)
         return hl
 
 
@@ -66,32 +60,32 @@ def main():
 
     # Load the dataset
     load_data = LoadData()
-    train, test = next(load_data.gen)
-    train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
-    test_iter = chainer.iterators.SerialIterator(test, args.batchsize, repeat=False, shuffle=False)
 
-    # Set up a trainer
-    updater = training.updaters.StandardUpdater(train_iter, optimizer)
-    trainer = training.Trainer(updater, (args.epoch, 'epoch'))
+    for year in range(1978, 2020):
+        train, test, _ = load_data.map[year]
+        train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
+        test_iter = chainer.iterators.SerialIterator(test, args.batchsize, repeat=False, shuffle=False)
 
-    # Evaluate the model with the test dataset for each epoch
-    trainer.extend(extensions.Evaluator(test_iter, model))
-    trainer.extend(extensions.DumpGraph('main/loss'))
-    # trainer.extend(extensions.DumpGraph('main/auc'))
+        # Set up a trainer
+        updater = training.updaters.StandardUpdater(train_iter, optimizer)
+        trainer = training.Trainer(updater, (args.epoch, 'epoch'))
 
-    # Write a log of evaluation statistics for each epoch
-    trainer.extend(extensions.LogReport(trigger=(args.logtrigger, "epoch")))
-    # trainer.extend(extensions.PrintReport(['epoch', 'main/auc', 'validation/main/auc', 'elapsed_time']))
-    trainer.extend(extensions.PrintReport(['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']))
+        # Evaluate the model with the test dataset for each epoch
+        trainer.extend(extensions.Evaluator(test_iter, model))
 
-    # Print a progress bar to stdout
-    trainer.extend(extensions.ProgressBar())
+        # Write a log of evaluation statistics for each epoch
+        trainer.extend(extensions.LogReport(trigger=(args.logtrigger, "epoch")))
+        trainer.extend(extensions.PrintReport(['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']))
 
-    # Run the training
-    trainer.run()
+        # Print a progress bar to stdout
+        trainer.extend(extensions.ProgressBar())
 
-    # Save the model
-    chainer.serializers.save_npz('model', model)
+        # Run the training
+        trainer.run()
+
+        # Save the model
+        model_name = 'models/model_' + str(year)
+        chainer.serializers.save_npz(model_name, model)
 
 
 if __name__ == '__main__':

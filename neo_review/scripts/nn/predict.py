@@ -1,13 +1,12 @@
 import numpy as np
 import chainer
-import chainer.functions as F
 from neural_network_model import NeuralNetworkModel
 from load_data import LoadData
 
 
 class Predict:
     def __init__(self):
-        self.model_pass = 'model'
+        pass
 
     def __call__(self, *args, **kwargs):
         pass
@@ -16,21 +15,24 @@ class Predict:
         x = np.array([t['x'] for t in test], dtype=np.float32)
         t = np.array([t['y'] for t in test], dtype=np.float32)
         with chainer.using_config('train', False):
-            y = model.forward(x).data
-        print('[loss] mean squared error : ', F.mean_squared_error(y, t.reshape(-1, 1)))
+            y = model.forward(x)
         for i, result in enumerate(y):
-            print(titles[i], result[0])
+            label = ""
+            if t[i] == 1:
+                label = "*"
+            print(label, titles[i], result.data[0])
 
 
 def main():
     model = NeuralNetworkModel()
     predict = Predict()
-    chainer.serializers.load_npz(predict.model_pass, model)
 
     print("### Test Result ###")
     load_data = LoadData()
     for year in range(1978, 2020):
-        train, test, title = next(load_data.gen)
+        _, test, title = load_data.map[year]
+        model_name = 'models/model_' + str(year)
+        chainer.serializers.load_npz(model_name, model)
         predict.show_results(model, test, title)
 
 
