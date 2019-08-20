@@ -8,12 +8,19 @@ class LoadData:
         data_path = '../../data/dataframes/'
 
         self.other_data = pd.read_pickle(data_path + 'data.pkl')
-        nomination_onehot = pd.read_pickle(data_path + 'nomination_onehot.pkl')
-        selected_performers_onehot = pd.read_pickle(data_path + 'selected_performers_onehot.pkl')
-        selected_directors_onehot = pd.read_pickle(data_path + 'selected_directors_onehot.pkl')
-        selected_studio_onehot = pd.read_pickle(data_path + 'selected_studio_onehot.pkl')
-        selected_scriptwriter_onehot = pd.read_pickle(data_path + 'selected_scriptwriter_onehot.pkl')
-        review_dataframe = pd.read_pickle(data_path + 'review_dataframe.pkl')
+
+        nomination_onehot = (
+            pd.read_pickle(data_path + 'nomination_onehot.pkl'))
+        selected_performers_onehot = (
+            pd.read_pickle(data_path + 'selected_performers_onehot.pkl'))
+        selected_directors_onehot = (
+            pd.read_pickle(data_path + 'selected_directors_onehot.pkl'))
+        selected_studio_onehot = (
+            pd.read_pickle(data_path + 'selected_studio_onehot.pkl'))
+        selected_scriptwriter_onehot = (
+            pd.read_pickle(data_path + 'selected_scriptwriter_onehot.pkl'))
+        review_dataframe = (
+            pd.read_pickle(data_path + 'review_dataframe.pkl'))
 
         self.x = pd.concat(
             [
