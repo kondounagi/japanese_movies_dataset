@@ -64,7 +64,9 @@ def main():
     for year in range(1978, 2020):
         train, test, _ = load_data.map[year]
         train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
-        test_iter = chainer.iterators.SerialIterator(test, args.batchsize, repeat=False, shuffle=False)
+        test_iter = chainer.iterators.SerialIterator(
+            test, args.batchsize, repeat=False, shuffle=False
+        )
 
         # Set up a trainer
         updater = training.updaters.StandardUpdater(train_iter, optimizer)
@@ -75,7 +77,9 @@ def main():
 
         # Write a log of evaluation statistics for each epoch
         trainer.extend(extensions.LogReport(trigger=(args.logtrigger, "epoch")))
-        trainer.extend(extensions.PrintReport(['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']))
+        trainer.extend(extensions.PrintReport(
+            ['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']
+        ))
 
         # Print a progress bar to stdout
         trainer.extend(extensions.ProgressBar())
