@@ -6,14 +6,16 @@ from sklearn import preprocessing
 
 class LoadData:
     def __init__(self):  # HACK: refactor init
-        self.data_pass = '../../data/dataframes/'
-        self.other_data = pd.read_pickle(self.data_pass + 'data.pkl')
-        nomination_onehot = pd.read_pickle(self.data_pass + 'nomination_onehot.pkl')
-        selected_performers_onehot = pd.read_pickle(self.data_pass + 'selected_performers_onehot.pkl')
-        selected_directors_onehot = pd.read_pickle(self.data_pass + 'selected_directors_onehot.pkl')
-        selected_studio_onehot = pd.read_pickle(self.data_pass + 'selected_studio_onehot.pkl')
-        selected_scriptwriter_onehot = pd.read_pickle(self.data_pass + 'selected_scriptwriter_onehot.pkl')
-        review_dataframe = pd.read_pickle(self.data_pass + 'review_dataframe.pkl')
+        data_pass = '../../data/dataframes/'
+
+        self.other_data = pd.read_pickle(data_pass + 'data.pkl')
+        nomination_onehot = pd.read_pickle(data_pass + 'nomination_onehot.pkl')
+        selected_performers_onehot = pd.read_pickle(data_pass + 'selected_performers_onehot.pkl')
+        selected_directors_onehot = pd.read_pickle(data_pass + 'selected_directors_onehot.pkl')
+        selected_studio_onehot = pd.read_pickle(data_pass + 'selected_studio_onehot.pkl')
+        selected_scriptwriter_onehot = pd.read_pickle(data_pass + 'selected_scriptwriter_onehot.pkl')
+        review_dataframe = pd.read_pickle(data_pass + 'review_dataframe.pkl')
+
         self.x = pd.concat(
             [
                 nomination_onehot,
