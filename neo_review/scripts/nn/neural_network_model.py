@@ -3,6 +3,8 @@ import chainer.functions as F
 import chainer.links as L
 from chainer import training, Chain
 from chainer.training import extensions
+from sklearn import metrics
+import numpy as np
 
 from set_condition import SetCondition
 from load_data import LoadData
@@ -26,6 +28,10 @@ class NeuralNetworkModel(Chain):
 
     def __call__(self, x, y):
         y = y.reshape(-1, self.n_out)
+        # fpr, tpr, thresholds = metrics.roc_curve(y, self.forward(x).data)
+        # auc = chainer.Variable(np.array([metrics.auc(fpr, tpr)]))
+        # chainer.reporter.report({'auc': auc[0]}, self)
+        # return auc
         loss = F.mean_squared_error(self.forward(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
@@ -60,7 +66,7 @@ def main():
 
     # Load the dataset
     load_data = LoadData()
-    train, test = load_data.split_data()
+    train, test = next(load_data.gen)
     train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
     test_iter = chainer.iterators.SerialIterator(test, args.batchsize, repeat=False, shuffle=False)
 
@@ -71,11 +77,12 @@ def main():
     # Evaluate the model with the test dataset for each epoch
     trainer.extend(extensions.Evaluator(test_iter, model))
     trainer.extend(extensions.DumpGraph('main/loss'))
+    # trainer.extend(extensions.DumpGraph('main/auc'))
 
     # Write a log of evaluation statistics for each epoch
     trainer.extend(extensions.LogReport(trigger=(args.logtrigger, "epoch")))
-    trainer.extend(extensions.PrintReport(
-        ['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']))
+    # trainer.extend(extensions.PrintReport(['epoch', 'main/auc', 'validation/main/auc', 'elapsed_time']))
+    trainer.extend(extensions.PrintReport(['epoch', 'main/loss', 'validation/main/loss', 'elapsed_time']))
 
     # Print a progress bar to stdout
     trainer.extend(extensions.ProgressBar())
