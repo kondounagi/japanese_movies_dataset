@@ -25,12 +25,13 @@ class LoadData:
                 self.other_data['year'],
             ],
             axis=1).astype(np.float32)
-        self.gen = self.cv_generator(self.other_data, self.x)
+        self.map = self.create_map(self.other_data, self.x)
 
     def __call__(self, *args, **kwargs):
         pass
 
-    def cv_generator(self, data, df):
+    def create_map(self, data, df):
+        data_map = {}
         for year in range(1978, 2020):
             train = chainer.datasets.DictDataset(x=df[df["year"] != year].drop(["year"], axis=1)
                                                  .values.astype(np.float32),
@@ -43,7 +44,8 @@ class LoadData:
             std_x_train, std_x_test = self.standarize(train_x, test_x)
             yield (std_x_train, train_y, std_x_test, test_y)
             '''
-            yield train, test, title
+            data_map[year] = train, test, title
+        return data_map
 
     def standarize(self, x_train, x_test):
         scaler = preprocessing.StandardScaler()
