@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import chainer
 from sklearn import metrics
+from sklearn.metrics import confusion_matrix
 
 from neural_network_model import NeuralNetworkModel
 from load_data import LoadData

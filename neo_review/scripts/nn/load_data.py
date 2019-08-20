@@ -1,7 +1,6 @@
 import chainer
 import numpy as np
 import pandas as pd
-from sklearn import preprocessing
 
 
 class LoadData:
@@ -40,15 +39,5 @@ class LoadData:
                                                 .values.astype(np.float32),
                                                 y=data[data["year"] == year]["prize"].values.astype(np.float32))
             title = self.other_data[self.other_data["year"] == year]["title"].values
-            '''
-            std_x_train, std_x_test = self.standarize(train_x, test_x)
-            yield (std_x_train, train_y, std_x_test, test_y)
-            '''
             data_map[year] = train, test, title
         return data_map
-
-    def standarize(self, x_train, x_test):
-        scaler = preprocessing.StandardScaler()
-        std_x_train = scaler.fit_transform(x_train)
-        std_x_test = scaler.transform(x_test)
-        return std_x_train, std_x_test
