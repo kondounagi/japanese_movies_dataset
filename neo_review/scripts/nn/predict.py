@@ -1,5 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import chainer
+from sklearn import metrics
+
 from neural_network_model import NeuralNetworkModel
 from load_data import LoadData
 
@@ -21,6 +24,7 @@ class Predict:
             if t[i] == 1:
                 label = "*"
             print(label, titles[i], result.data[0])
+        return t, y.data
 
 
 def main():
@@ -29,11 +33,25 @@ def main():
 
     print("### Test Result ###")
     load_data = LoadData()
+    y_true, y_score = [], []
     for year in range(1978, 2020):
         _, test, title = load_data.map[year]
         model_name = 'models/model_' + str(year)
         chainer.serializers.load_npz(model_name, model)
-        predict.show_results(model, test, title)
+        ans, score = predict.show_results(model, test, title)
+        y_true.extend(ans)
+        y_score.extend(score)
+
+    fpr, tpr, thresholds = metrics.roc_curve(y_true, y_score)
+    auc = metrics.auc(fpr, tpr)
+    plt.plot(fpr, tpr, label='ROC curve (area = %.2f)' % auc)
+    print("auc: {}".format(auc))
+    plt.legend()
+    plt.title('ROC curve')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.grid(True)
+    plt.savefig("figures/neural_network_default_params.png")
 
 
 if __name__ == '__main__':
