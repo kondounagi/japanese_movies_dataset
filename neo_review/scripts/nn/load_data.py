@@ -33,12 +33,14 @@ class LoadData:
     def create_map(self, data, df):
         data_map = {}
         for year in range(1978, 2020):
-            train = chainer.datasets.DictDataset(x=df[df["year"] != year].drop(["year"], axis=1)
-                                                 .values.astype(np.float32),
-                                                 y=data[data["year"] != year]["prize"].values.astype(np.float32))
-            test = chainer.datasets.DictDataset(x=df[df["year"] == year].drop(["year"], axis=1)
-                                                .values.astype(np.float32),
-                                                y=data[data["year"] == year]["prize"].values.astype(np.float32))
+            train = chainer.datasets.DictDataset(
+                x=df[df["year"] != year].drop(["year"], axis=1).values.astype(np.float32),
+                y=data[data["year"] != year]["prize"].values.astype(np.float32)
+            )
+            test = chainer.datasets.DictDataset(
+                x=df[df["year"] == year].drop(["year"], axis=1).values.astype(np.float32),
+                y=data[data["year"] == year]["prize"].values.astype(np.float32)
+            )
             title = self.other_data[self.other_data["year"] == year]["title"].values
             '''
             std_x_train, std_x_test = self.standarize(train_x, test_x)
