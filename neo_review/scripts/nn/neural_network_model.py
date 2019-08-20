@@ -10,7 +10,7 @@ from utility import Utility
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=10, n_l1=10, n_l2=10, n_out=1):
+    def __init__(self, n_l0=100, n_l1=100, n_l2=100, n_out=1):
         self.n_out = n_out
 
         super(NeuralNetworkModel, self).__init__()
@@ -31,13 +31,13 @@ class NeuralNetworkModel(Chain):
         return loss
 
     def forward(self, x):
-        h0 = F.leaky_relu(self.l0(x))
+        h0 = F.relu(self.l0(x))
         h0 = self.b0(h0)
 
-        h1 = F.leaky_relu(self.l1(h0))
+        h1 = F.relu(self.l1(h0))
         h1 = self.b1(h1)
 
-        h2 = F.leaky_relu(self.l2(h1))
+        h2 = F.relu(self.l2(h1))
         h2 = self.b2(h2)
 
         hl = self.ll(h2)
