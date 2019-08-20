@@ -3,3 +3,4 @@
 .DS_Store
 mecab-ipadic-neologd/
 local/
+*.py[co]
