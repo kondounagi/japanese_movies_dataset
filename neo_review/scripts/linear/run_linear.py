@@ -58,8 +58,10 @@ def calculate_auc(test, pred):
 def objective(trail):
     """ Optuna objective parameter tuning function
     """
-    linear_fit_intercept = trail.suggest_categorical("linear_fit_intercept", [True, False])
-    linear_normalize = trail.suggest_categorical("linear_normalize", [True, False])
+    linear_fit_intercept = (
+        trail.suggest_categorical("linear_fit_intercept", [True, False]))
+    linear_normalize = (
+        trail.suggest_categorical("linear_normalize", [True, False]))
 
     params = {
         "linear_fit_intercept": linear_fit_intercept,
