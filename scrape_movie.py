@@ -22,13 +22,13 @@ from datetime import datetime
 
 def fetch_film_id(film, year, month, day):
 
-    google_search = "https://www.bing.com/search?q=site:https://eiga.com/movie/"
-    movie_re = re.compile("/movie/\d\d\d\d\d/")
+    url = "https://www.bing.com/search"
+    movie_re = re.compile(r"/movie/\d{5}/")
 
-    content = requests.get(google_search + "%20" + film + "%20" + year + " " + month + " " + day).content
-    soup = BeautifulSoup(content, features="lxml")
+    query = ' '.join(['site:https://eiga.com/movie/', film, year, month, day])
+    page = requests.get(url, params={'q': query})
 
-    film_id = movie_re.search(soup.prettify())
+    film_id = movie_re.search(page.text)
     # print(soup.prettify())
     if film_id is None:
         return ""
