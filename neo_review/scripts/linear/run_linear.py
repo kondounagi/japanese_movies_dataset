@@ -35,12 +35,15 @@ def read_in_data():
     selected_scriptwriter_onehot = (
         pd.read_pickle("selected_scriptwriter_onehot.pkl"))
 
-    meta_data_X = pd.concat([nomination_onehot,
-                             selected_performers_onehot,
-                             selected_directors_onehot,
-                             selected_studio_onehot,
-                             selected_scriptwriter_onehot],
-                            axis=1)
+    bundle = [
+        nomination_onehot,
+        selected_performers_onehot,
+        selected_directors_onehot,
+        selected_studio_onehot,
+        selected_scriptwriter_onehot,
+    ]
+
+    meta_data_X = pd.concat(bundle, axis=1)
     meta_data_y = data["prize"]
     meta_data_X = np.array(meta_data_X)
     meta_data_y = np.array(meta_data_y)
