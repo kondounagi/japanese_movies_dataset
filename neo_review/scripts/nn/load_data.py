@@ -33,10 +33,14 @@ class LoadData:
                 self.other_data['year'],
             ],
             axis=1).astype(np.float32)
-        self.map = self.create_map(self.other_data, df)
+        self._map = self.create_map(self.other_data, df)
 
     def __call__(self, *args, **kwargs):
         pass
+
+    @property
+    def map(self):
+        return self._map
 
     def create_map(self, data, df):
         data_map = {}
