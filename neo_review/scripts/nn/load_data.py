@@ -22,7 +22,7 @@ class LoadData:
         review_dataframe = (
             pd.read_pickle(data_path + 'review_dataframe.pkl'))
 
-        self.x = pd.concat(
+        df = pd.concat(
             [
                 nomination_onehot,
                 selected_performers_onehot,
@@ -33,7 +33,7 @@ class LoadData:
                 self.other_data['year'],
             ],
             axis=1).astype(np.float32)
-        self.map = self.create_map(self.other_data, self.x)
+        self.map = self.create_map(self.other_data, df)
 
     def __call__(self, *args, **kwargs):
         pass
