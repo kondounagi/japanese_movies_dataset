@@ -8,7 +8,7 @@ class LoadData:
         data_path = '../../data/dataframes/'
 
         _other_data = pd.read_pickle(data_path + 'data.pkl')
-        df = pd.read_pickle('../../data/dataframes/unificated_data_set.pkl')
+        df = pd.read_pickle('../../data/dataframes/pos_val_df.pkl')
 
         self._map = self._create_map(_other_data, df)
 
