@@ -47,8 +47,7 @@ class NeuralNetworkModel(Chain):
 def main():
     args = SetCondition().args
 
-    utility = Utility()
-    utility()  # set random seed
+    Utility.set_random_seed()  # 乱数シード固定
 
     print('# Minibatch-size: {}'.format(args.batchsize))
     print('# epoch: {}'.format(args.epoch))
