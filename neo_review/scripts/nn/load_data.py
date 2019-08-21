@@ -22,17 +22,17 @@ class LoadData:
         review_dataframe = (
             pd.read_pickle(data_path + 'review_dataframe.pkl'))
 
-        df = pd.concat(
-            [
-                nomination_onehot,
-                selected_performers_onehot,
-                selected_directors_onehot,
-                selected_studio_onehot,
-                selected_scriptwriter_onehot,
-                self._other_data['screen_time'],
-                self._other_data['year'],
-            ],
-            axis=1).astype(np.float32)
+        bundle = [
+            nomination_onehot,
+            selected_performers_onehot,
+            selected_directors_onehot,
+            selected_studio_onehot,
+            selected_scriptwriter_onehot,
+            self._other_data['screen_time'],
+            self._other_data['year'],
+        ]
+
+        df = pd.concat(bundle, axis=1).astype(np.float32)
         self._map = self._create_map(self._other_data, df)
 
     def __call__(self, *args, **kwargs):
