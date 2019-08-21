@@ -60,7 +60,10 @@ class NeuralNetworkModel(Chain):
 
         for year in range(1978, 2020):
             train, test, _ = load_data.map[year]
-            train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
+
+            train_iter = chainer.iterators.SerialIterator(train,
+                                                          args.batchsize)
+
             test_iter = chainer.iterators.SerialIterator(test,
                                                          args.batchsize,
                                                          repeat=False,
