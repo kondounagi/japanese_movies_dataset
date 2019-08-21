@@ -59,6 +59,7 @@ class NeuralNetworkModel(Chain):
         # Load the dataset
         load_data = LoadData()
 
+        # noinspection PyShadowingNames
         def setup_trainer(train, test):
             train_iter = chainer.iterators.SerialIterator(train,
                                                           args.batchsize)

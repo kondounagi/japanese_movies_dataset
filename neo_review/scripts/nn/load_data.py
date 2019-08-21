@@ -33,6 +33,8 @@ class LoadData:
         ]
 
         df = pd.concat(bundle, axis=1).astype(np.float32)
+        df = pd.read_pickle('../../data/dataframes/unificated_data_set.pkl')
+
         self._map = self._create_map(self._other_data, df)
 
     def __call__(self, *args, **kwargs):
