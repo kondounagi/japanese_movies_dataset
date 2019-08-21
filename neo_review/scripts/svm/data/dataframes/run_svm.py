@@ -76,7 +76,7 @@ def objective(trail):
         "svm_coef0": svm_coef0,
         "svm_tol": svm_tol,
         "svm_c": svm_c,
-        "svm_epsilon": svm_epsilon
+        "svm_epsilon": svm_epsilon,
     }
 
     all_test_y, all_pred_y = run_svm_with_param(params)
@@ -158,7 +158,7 @@ def main():
         "svm_coef0": 0.34010389238140537,
         "svm_tol": 1e-05,
         "svm_c": 0.001,
-        "svm_epsilon": 0.14620884632948022
+        "svm_epsilon": 0.14620884632948022,
     }
     param = study.best_params
     test_y, pred_y = run_svm_with_param(param)
