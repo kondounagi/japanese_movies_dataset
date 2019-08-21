@@ -33,8 +33,10 @@ class Predict:
         model = NeuralNetworkModel()
 
         print("### Test Result ###")
+
         load_data = LoadData()
         y_true, y_score = [], []
+
         for year in range(1978, 2020):
             _, test, title = load_data.map[year]
             model_name = 'models/model_' + str(year)
@@ -46,7 +48,9 @@ class Predict:
         fpr, tpr, thresholds = metrics.roc_curve(y_true, y_score)
         auc = metrics.auc(fpr, tpr)
         plt.plot(fpr, tpr, label='ROC curve (area = %.2f)' % auc)
+
         print("auc: {}".format(auc))
+
         plt.legend()
         plt.title('ROC curve')
         plt.xlabel('False Positive Rate')
