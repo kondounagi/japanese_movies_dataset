@@ -16,16 +16,19 @@ class Predict:
         pass
 
     def show_results(self, model, test, titles):
-        x = np.array([t['x'] for t in test], dtype=np.float32)
-        t = np.array([t['y'] for t in test], dtype=np.float32)
+        npax = np.array([t['x'] for t in test], dtype=np.float32)
+        npay = np.array([t['y'] for t in test], dtype=np.float32)
+
         with chainer.using_config('train', False):
-            y = model.forward(x)
-        for i, result in enumerate(y):
+            next_layer = model.forward(npax)
+
+        for i, result in enumerate(next_layer):
             label = ""
-            if t[i] == 1:
+            if npay[i] == 1:
                 label = "*"
             print(label, titles[i], result.data[0])
-        return t, y.data
+
+        return npay, next_layer.data
 
     def run_as_script(self):
         model = NeuralNetworkModel()
