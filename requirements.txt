@@ -4,6 +4,7 @@ beautifulsoup4==4.8.0
 bleach==3.1.0
 bs4==0.0.1
 certifi==2019.6.16
+chainer==6.2.0
 chardet==3.0.4
 cycler==0.10.0
 decorator==4.4.0
@@ -23,6 +24,7 @@ jupyter-core==4.5.0
 jupyterlab==1.0.5
 jupyterlab-server==1.0.0
 kiwisolver==1.1.0
+lxml==4.4.1
 MarkupSafe==1.1.1
 matplotlib==3.1.1
 mecab-python3==0.996.2
