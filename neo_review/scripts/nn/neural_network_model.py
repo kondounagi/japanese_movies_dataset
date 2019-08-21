@@ -60,9 +60,7 @@ class NeuralNetworkModel(Chain):
         # Load the dataset
         load_data = LoadData()
 
-        for year in range(1978, 2020):
-            train, test, _ = load_data.map[year]
-
+        def setup_trainer(train, test):
             train_iter = chainer.iterators.SerialIterator(train,
                                                           args.batchsize)
 
@@ -71,7 +69,6 @@ class NeuralNetworkModel(Chain):
                                                          repeat=False,
                                                          shuffle=False)
 
-            # Set up a trainer
             updater = training.updaters.StandardUpdater(train_iter, optimizer)
             trainer = training.Trainer(updater, (args.epoch, 'epoch'))
 
@@ -89,7 +86,12 @@ class NeuralNetworkModel(Chain):
             # Print a progress bar to stdout
             trainer.extend(extensions.ProgressBar())
 
-            # Run the training
+            return trainer
+
+        for year in range(1978, 2020):
+            train, test, _ = load_data.map[year]
+
+            trainer = setup_trainer(train, test)
             trainer.run()
 
             # Save the model
