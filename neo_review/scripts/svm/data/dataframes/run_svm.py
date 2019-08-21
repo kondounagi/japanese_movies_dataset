@@ -20,7 +20,8 @@ def read_in_data():
         data_X:
         data_y:
     """
-    data = pd.read_pickle("unificated_data_set.pkl")
+    data = pd.read_pickle("pos_val_df.pkl")
+    # data = pd.read_pickle("unificated_data_set.pkl")
     years = data["year"]
     data_y = data["prize"]
     data_X = data.drop(["year", "prize"], axis=1)
@@ -42,7 +43,8 @@ def train(params):
         coef0=params["svm_coef0"],
         tol=params["svm_tol"],
         C=params["svm_c"],
-        epsilon=params["svm_epsilon"]
+        epsilon=params["svm_epsilon"],
+        max_iter=10000
     )
 
     for year in range(1978, 2020):
@@ -64,7 +66,7 @@ def objective(trail):
     svm_degree = trail.suggest_int("svm_degree", 3, 10)
     svm_gamma = trail.suggest_uniform("svm_gamma", 0.01, 1)
     svm_coef0 = trail.suggest_uniform("svm_coef0", -1, 1)
-    svm_tol = trail.suggest_categorical("svm_tol", [math.pow(10, i) for i in range(-5, 0)])
+    svm_tol = trail.suggest_categorical("svm_tol", [math.pow(10, i) for i in range(-3, 0)])
     svm_c = trail.suggest_categorical("svm_c", [math.pow(10, i) for i in range(-5, 5)])
     svm_epsilon = trail.suggest_uniform("svm_epsilon", 0.1, 1)
 
@@ -94,15 +96,15 @@ def main():
     study = optuna.create_study()
     study.optimize(objective, n_trials=1000)
     # best param after 1000 trainings
-    # auc 0.7383065652296421
+    # auc 0.7683150183150182
     param = {
-        'svm_kernel': 'linear', 
-        'svm_degree': 7, 
-        'svm_gamma': 0.28641575609635067, 
-        'svm_coef0': 0.8368697169554569, 
-        'svm_tol': 0.001, 
-        'svm_c': 10.0, 
-        'svm_epsilon': 0.19432896303912672
+        'svm_kernel': 'sigmoid', 
+        'svm_degree': 5, 
+        'svm_gamma': 0.30268493071866936, 
+        'svm_coef0': 0.38707331192266087, 
+        'svm_tol': 0.1, 
+        'svm_c': 0.01, 
+        'svm_epsilon': 0.3681951403297184
     }
     param = study.best_params
     test_y, pred_y = train(param)
