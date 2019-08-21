@@ -25,7 +25,6 @@ class NeuralNetworkModel(Chain):
             self._b1 = L.BatchNormalization(n_l1)
             self._b2 = L.BatchNormalization(n_l2)
 
-    # FIXME: Dead code?
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
         loss = F.mean_squared_error(self.forward(x), y)
@@ -88,7 +87,8 @@ class NeuralNetworkModel(Chain):
 
             return trainer
 
-        for year in range(1978, 2020):
+        for year in range(1978, 1979):
+            print('year: ', year)
             train, test, _ = load_data.map[year]
 
             trainer = setup_trainer(train, test)
