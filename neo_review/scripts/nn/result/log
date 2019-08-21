@@ -4,6 +4,13 @@
         "validation/main/loss": 0.2685483928769827,
         "epoch": 100,
         "iteration": 206,
-        "elapsed_time": 1.4435208899999998
+        "elapsed_time": 1.8535864190000002
+    },
+    {
+        "main/loss": 0.016832765609984403,
+        "validation/main/loss": 0.08663105085492134,
+        "epoch": 200,
+        "iteration": 412,
+        "elapsed_time": 3.6098637059999996
     }
 ]

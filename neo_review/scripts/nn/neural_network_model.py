@@ -87,7 +87,7 @@ class NeuralNetworkModel(Chain):
 
             return trainer
 
-        for year in range(1978, 1979):
+        for year in range(1978, 2020):
             print('year: ', year)
             train, test, _ = load_data.map[year]
 
