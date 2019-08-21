@@ -7,7 +7,7 @@ class LoadData:
     def __init__(self):  # HACK: refactor init
         data_path = '../../data/dataframes/'
 
-        self.other_data = pd.read_pickle(data_path + 'data.pkl')
+        self._other_data = pd.read_pickle(data_path + 'data.pkl')
 
         nomination_onehot = (
             pd.read_pickle(data_path + 'nomination_onehot.pkl'))
@@ -29,11 +29,11 @@ class LoadData:
                 selected_directors_onehot,
                 selected_studio_onehot,
                 selected_scriptwriter_onehot,
-                self.other_data['screen_time'],
-                self.other_data['year'],
+                self._other_data['screen_time'],
+                self._other_data['year'],
             ],
             axis=1).astype(np.float32)
-        self._map = self.create_map(self.other_data, df)
+        self._map = self.create_map(self._other_data, df)
 
     def __call__(self, *args, **kwargs):
         pass
@@ -53,6 +53,6 @@ class LoadData:
                 x=df[df["year"] == year].drop(["year"], axis=1).values.astype(np.float32),
                 y=data[data["year"] == year]["prize"].values.astype(np.float32)
             )
-            title = self.other_data[self.other_data["year"] == year]["title"].values
+            title = self._other_data[self._other_data["year"] == year]["title"].values
             data_map[year] = train, test, title
         return data_map
