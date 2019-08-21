@@ -42,7 +42,8 @@ def set_arg():
 
 class NeuralNetworkModel(Chain):
     def __init__(self, _trial):
-        super(NeuralNetworkModel, self).__init__()
+        super().__init__()
+
         n_layers = _trial.suggest_int('n_layers', 2, 20)
 
         self.layers = []

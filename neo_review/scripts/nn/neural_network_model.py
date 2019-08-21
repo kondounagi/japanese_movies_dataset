@@ -13,7 +13,8 @@ class NeuralNetworkModel(Chain):
     def __init__(self, n_l0=100, n_l1=100, n_l2=100, n_out=1):
         self.n_out = n_out
 
-        super(NeuralNetworkModel, self).__init__()
+        super().__init__()
+
         with self.init_scope():
             self.l0 = L.Linear(None, n_l0)
             self.l1 = L.Linear(None, n_l1)
