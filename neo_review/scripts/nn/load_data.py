@@ -76,15 +76,8 @@ class LoadData:
                 curr_data["prize"].values.astype(np.float32),
             )
 
-            train = chainer.datasets.DictDataset(
-                x=train_x,
-                y=train_y,
-            )
-
-            test = chainer.datasets.DictDataset(
-                x=test_x,
-                y=test_y,
-            )
+            train = chainer.datasets.DictDataset(x=train_x, y=train_y)
+            test = chainer.datasets.DictDataset(x=test_x, y=test_y)
 
             title = curr_sod["title"].values
             data_map[year] = train, test, title
