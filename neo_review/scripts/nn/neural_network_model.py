@@ -25,6 +25,7 @@ class NeuralNetworkModel(Chain):
             self._b1 = L.BatchNormalization(n_l1)
             self._b2 = L.BatchNormalization(n_l2)
 
+    # FIXME: Dead code?
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
         loss = F.mean_squared_error(self.forward(x), y)
