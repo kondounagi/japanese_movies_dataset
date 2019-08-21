@@ -11,7 +11,7 @@ from utility import Utility
 
 class NeuralNetworkModel(Chain):
     def __init__(self, n_l0=100, n_l1=100, n_l2=100, n_out=1, *args, **kwargs):
-        self.n_out = n_out
+        self._n_out = n_out
 
         super().__init__(*args, **kwargs)
 
@@ -26,7 +26,7 @@ class NeuralNetworkModel(Chain):
             self.b2 = L.BatchNormalization(n_l2)
 
     def __call__(self, x, y):
-        y = y.reshape(-1, self.n_out)
+        y = y.reshape(-1, self._n_out)
         loss = F.mean_squared_error(self.forward(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
