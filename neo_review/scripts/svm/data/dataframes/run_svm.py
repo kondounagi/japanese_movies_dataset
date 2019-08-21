@@ -22,11 +22,16 @@ def read_in_data():
         meta_data_y:
     """
     data = pd.read_pickle("data.pkl")
-    nomination_onehot = pd.read_pickle("nomination_onehot.pkl")
-    selected_performers_onehot = pd.read_pickle("selected_performers_onehot.pkl")
-    selected_directors_onehot = pd.read_pickle("selected_directors_onehot.pkl")
-    selected_studio_onehot = pd.read_pickle("selected_studio_onehot.pkl")
-    selected_scriptwriter_onehot = pd.read_pickle("selected_scriptwriter_onehot.pkl")
+    nomination_onehot = (
+        pd.read_pickle("nomination_onehot.pkl"))
+    selected_performers_onehot = (
+        pd.read_pickle("selected_performers_onehot.pkl"))
+    selected_directors_onehot = (
+        pd.read_pickle("selected_directors_onehot.pkl"))
+    selected_studio_onehot = (
+        pd.read_pickle("selected_studio_onehot.pkl"))
+    selected_scriptwriter_onehot = (
+        pd.read_pickle("selected_scriptwriter_onehot.pkl"))
 
     meta_data_X = pd.concat([nomination_onehot,
                              selected_performers_onehot,
