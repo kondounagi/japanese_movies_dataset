@@ -33,7 +33,7 @@ class LoadData:
                 self._other_data['year'],
             ],
             axis=1).astype(np.float32)
-        self._map = self.create_map(self._other_data, df)
+        self._map = self._create_map(self._other_data, df)
 
     def __call__(self, *args, **kwargs):
         pass
@@ -42,7 +42,7 @@ class LoadData:
     def map(self):
         return self._map
 
-    def create_map(self, data, df):
+    def _create_map(self, data, df):
         data_map = {}
 
         def pick(df, func):
