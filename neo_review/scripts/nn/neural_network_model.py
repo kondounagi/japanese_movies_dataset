@@ -43,56 +43,55 @@ class NeuralNetworkModel(Chain):
         hl = self.ll(h2)
         return hl
 
+    def run_as_script(self):
+        args = SetCondition().args
 
-def main():
-    args = SetCondition().args
+        Utility.set_random_seed()  # 乱数シード固定
 
-    Utility.set_random_seed()  # 乱数シード固定
+        print('# Minibatch-size: {}'.format(args.batchsize))
+        print('# epoch: {}'.format(args.epoch))
+        print('')
 
-    print('# Minibatch-size: {}'.format(args.batchsize))
-    print('# epoch: {}'.format(args.epoch))
-    print('')
+        optimizer = chainer.optimizers.Adam()
+        optimizer.setup(self)
 
-    model = NeuralNetworkModel()
-    optimizer = chainer.optimizers.Adam()
-    optimizer.setup(model)
+        # Load the dataset
+        load_data = LoadData()
 
-    # Load the dataset
-    load_data = LoadData()
+        for year in range(1978, 2020):
+            train, test, _ = load_data.map[year]
+            train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
+            test_iter = chainer.iterators.SerialIterator(test,
+                                                         args.batchsize,
+                                                         repeat=False,
+                                                         shuffle=False)
 
-    for year in range(1978, 2020):
-        train, test, _ = load_data.map[year]
-        train_iter = chainer.iterators.SerialIterator(train, args.batchsize)
-        test_iter = chainer.iterators.SerialIterator(test,
-                                                     args.batchsize,
-                                                     repeat=False,
-                                                     shuffle=False)
+            # Set up a trainer
+            updater = training.updaters.StandardUpdater(train_iter, optimizer)
+            trainer = training.Trainer(updater, (args.epoch, 'epoch'))
 
-        # Set up a trainer
-        updater = training.updaters.StandardUpdater(train_iter, optimizer)
-        trainer = training.Trainer(updater, (args.epoch, 'epoch'))
+            # Evaluate the model with the test dataset for each epoch
+            trainer.extend(extensions.Evaluator(test_iter, self))
 
-        # Evaluate the model with the test dataset for each epoch
-        trainer.extend(extensions.Evaluator(test_iter, model))
+            # Write a log of evaluation statistics for each epoch
+            trainer.extend(extensions.LogReport(trigger=(args.logtrigger,
+                                                         "epoch")))
+            trainer.extend(extensions.PrintReport(['epoch',
+                                                   'main/loss',
+                                                   'validation/main/loss',
+                                                   'elapsed_time']))
 
-        # Write a log of evaluation statistics for each epoch
-        trainer.extend(extensions.LogReport(trigger=(args.logtrigger,
-                                                     "epoch")))
-        trainer.extend(extensions.PrintReport(['epoch',
-                                               'main/loss',
-                                               'validation/main/loss',
-                                               'elapsed_time']))
+            # Print a progress bar to stdout
+            trainer.extend(extensions.ProgressBar())
 
-        # Print a progress bar to stdout
-        trainer.extend(extensions.ProgressBar())
+            # Run the training
+            trainer.run()
 
-        # Run the training
-        trainer.run()
-
-        # Save the model
-        model_name = 'models/model_' + str(year)
-        chainer.serializers.save_npz(model_name, model)
+            # Save the model
+            model_name = 'models/model_' + str(year)
+            chainer.serializers.save_npz(model_name, self)
 
 
 if __name__ == '__main__':
-    main()
+    model = NeuralNetworkModel()
+    model.run_as_script()
