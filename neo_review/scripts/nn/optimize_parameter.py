@@ -15,10 +15,25 @@ from load_data import LoadData
 
 def set_arg():
     parser = argparse.ArgumentParser(
-        description='Optuna example that optimizes multi-layer perceptrons using Chainer.')
-    parser.add_argument('--epoch', '-e', type=int, default=1000, help='Number of sweeps over the dataset to train')
-    parser.add_argument('--trial', '-t', type=int, default=100,
-                        help='Number of trials of hyper parameter optimization.')
+        description=('Optuna example that optimizes '
+                     'multi-layer perceptrons using Chainer.'),
+    )
+
+    parser.add_argument(
+        '--epoch',
+        '-e',
+        type=int,
+        default=1000,
+        help='Number of sweeps over the dataset to train',
+    )
+
+    parser.add_argument(
+        '--trial',
+        '-t',
+        type=int,
+        default=100,
+        help='Number of trials of hyper parameter optimization.',
+    )
 
     return parser.parse_args()
 
@@ -26,8 +41,9 @@ def set_arg():
 # Network definition
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, _trial):
-        super(NeuralNetworkModel, self).__init__()
+    def __init__(self, _trial=_trial, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
         n_layers = _trial.suggest_int('n_layers', 2, 20)
 
         self.layers = []
@@ -53,7 +69,7 @@ class NeuralNetworkModel(Chain):
 
 def objective(_trial):
     # Model and optimizer
-    model = NeuralNetworkModel(_trial)
+    model = NeuralNetworkModel(_trial=_trial)
     optimizer = chainer.optimizers.Adam()
     optimizer.setup(model)
 
@@ -62,23 +78,33 @@ def objective(_trial):
     for year in range(1978, 2020):
         train, test, _ = load_data.map[year]
         train_iter = chainer.iterators.SerialIterator(train, model.batchsize)
-        test_iter = chainer.iterators.SerialIterator(test, model.batchsize, repeat=False, shuffle=False)
+        test_iter = chainer.iterators.SerialIterator(test,
+                                                     model.batchsize,
+                                                     repeat=False,
+                                                     shuffle=False)
 
         # Trainer
         updater = training.updaters.StandardUpdater(train_iter, optimizer)
         trainer = training.Trainer(updater, (args.epoch, 'epoch'))
         trainer.extend(extensions.Evaluator(test_iter, model))
 
-        log_report_extension = chainer.training.extensions.LogReport(log_name=None)
+        log_report_extension = (
+            chainer.training.extensions.LogReport(log_name=None))
+
         trainer.extend(log_report_extension)
 
-        integrator = optuna.integration.ChainerPruningExtension(_trial, "validation/main/loss", (1, 'epoch'))
+        integrator = (
+            optuna.integration.ChainerPruningExtension(_trial,
+                                                       "validation/main/loss",
+                                                       (1, 'epoch')))
+
         trainer.extend(integrator)
 
         # Run!
         trainer.run()
 
-        # Set the user attributes such as loss and accuracy for train and validation sets
+        # Set the user attributes such as loss and accuracy for train and
+        # validation sets
         log_last = log_report_extension.log[-1]
         for _key, _value in log_last.items():
             _trial.set_user_attr(_key, _value)
@@ -96,7 +122,7 @@ if __name__ == '__main__':
     pruner = SuccessiveHalvingPruner(
         min_resource=100,
         reduction_factor=4,
-        min_early_stopping_rate=0
+        min_early_stopping_rate=0,
     )
 
     study = optuna.create_study(pruner=pruner)
