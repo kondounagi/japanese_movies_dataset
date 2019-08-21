@@ -44,15 +44,29 @@ class LoadData:
 
     def create_map(self, data, df):
         data_map = {}
+
+        def pick(df, func):
+            cond = func(df)
+            return df[cond], df[~cond]
+
+        def pick_by_year(df, year):
+            return pick(df, lambda x: x["year"] == year)
+
         for year in range(1978, 2020):
+            curr_df, other_df = pick_by_year(df, year)
+            curr_data, other_data = pick_by_year(data, year)
+            curr_sod, _ = pick_by_year(self._other_data, year)
+
             train = chainer.datasets.DictDataset(
-                x=df[df["year"] != year].drop(["year"], axis=1).values.astype(np.float32),
-                y=data[data["year"] != year]["prize"].values.astype(np.float32)
+                x=other_df.drop(["year"], axis=1).values.astype(np.float32),
+                y=other_data["prize"].values.astype(np.float32),
             )
+
             test = chainer.datasets.DictDataset(
-                x=df[df["year"] == year].drop(["year"], axis=1).values.astype(np.float32),
-                y=data[data["year"] == year]["prize"].values.astype(np.float32)
+                x=curr_df.drop(["year"], axis=1).values.astype(np.float32),
+                y=curr_data["prize"].values.astype(np.float32),
             )
-            title = self._other_data[self._other_data["year"] == year]["title"].values
+
+            title = curr_sod["title"].values
             data_map[year] = train, test, title
         return data_map
