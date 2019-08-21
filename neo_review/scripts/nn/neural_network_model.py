@@ -16,14 +16,14 @@ class NeuralNetworkModel(Chain):
         super().__init__(*args, **kwargs)
 
         with self.init_scope():
-            self.l0 = L.Linear(None, n_l0)
-            self.l1 = L.Linear(None, n_l1)
-            self.l2 = L.Linear(None, n_l2)
-            self.ll = L.Linear(None, n_out)
+            self._l0 = L.Linear(None, n_l0)
+            self._l1 = L.Linear(None, n_l1)
+            self._l2 = L.Linear(None, n_l2)
+            self._ll = L.Linear(None, n_out)
 
-            self.b0 = L.BatchNormalization(n_l0)
-            self.b1 = L.BatchNormalization(n_l1)
-            self.b2 = L.BatchNormalization(n_l2)
+            self._b0 = L.BatchNormalization(n_l0)
+            self._b1 = L.BatchNormalization(n_l1)
+            self._b2 = L.BatchNormalization(n_l2)
 
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
@@ -32,16 +32,16 @@ class NeuralNetworkModel(Chain):
         return loss
 
     def forward(self, x):
-        h0 = F.relu(self.l0(x))
-        h0 = self.b0(h0)
+        h0 = F.relu(self._l0(x))
+        h0 = self._b0(h0)
 
-        h1 = F.relu(self.l1(h0))
-        h1 = self.b1(h1)
+        h1 = F.relu(self._l1(h0))
+        h1 = self._b1(h1)
 
-        h2 = F.relu(self.l2(h1))
-        h2 = self.b2(h2)
+        h2 = F.relu(self._l2(h1))
+        h2 = self._b2(h2)
 
-        hl = self.ll(h2)
+        hl = self._ll(h2)
         return hl
 
     def run_as_script(self):
