@@ -19,20 +19,22 @@ from datetime import datetime
     date: yyyy-mm-dd
 '''
 
+
 def fetch_film_id(film, year, month, day):
 
-    google_search = "https://www.bing.com/search?q=site:https://eiga.com/movie/"
-    movie_re = re.compile("/movie/\d\d\d\d\d/")
+    url = "https://www.bing.com/search"
+    movie_re = re.compile(r"/movie/\d{5}/")
 
-    content = requests.get(google_search + "%20" + film + "%20" + year + " " + month + " " + day).content
-    soup = BeautifulSoup(content, features="lxml")
+    query = ' '.join(['site:https://eiga.com/movie/', film, year, month, day])
+    page = requests.get(url, params={'q': query})
 
-    film_id = movie_re.search(soup.prettify())
+    film_id = movie_re.search(page.text)
     # print(soup.prettify())
     if film_id is None:
         return ""
     else:
-        return film_id.group(0)        
+        return film_id.group(0)
+
 
 def clean_paren(text):
     """Remove nested parentheses from text.
@@ -113,7 +115,7 @@ def main():
                 id_list.append(-1)
                 continue
             id_list.append(int(film_id[7:12]))
-            
+
             # this only used for small fix
             # film_id = "/movie/88817/"
 
@@ -169,7 +171,7 @@ def main():
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
             id_file.write("\t".join([year, str(i + 1), str(id_list[i])]) + "\n")
-            
+
 
 if __name__ == "__main__":
     main()
