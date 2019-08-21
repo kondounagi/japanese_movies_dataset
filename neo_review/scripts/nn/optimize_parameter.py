@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import argparse
 
 import chainer
@@ -41,9 +39,8 @@ def set_arg():
 # Network definition
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, _trial=_trial, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
+    def __init__(self, _trial):
+        super(NeuralNetworkModel, self).__init__()
         n_layers = _trial.suggest_int('n_layers', 2, 20)
 
         self.layers = []
