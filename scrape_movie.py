@@ -19,6 +19,7 @@ from datetime import datetime
     date: yyyy-mm-dd
 '''
 
+
 def fetch_film_id(film, year, month, day):
 
     google_search = "https://www.bing.com/search?q=site:https://eiga.com/movie/"
@@ -33,6 +34,7 @@ def fetch_film_id(film, year, month, day):
         return ""
     else:
         return film_id.group(0)        
+
 
 def clean_paren(text):
     """Remove nested parentheses from text.
