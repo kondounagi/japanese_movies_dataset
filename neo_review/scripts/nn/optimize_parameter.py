@@ -41,8 +41,8 @@ def set_arg():
 # Network definition
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, _trial):
-        super().__init__()
+    def __init__(self, _trial=_trial, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         n_layers = _trial.suggest_int('n_layers', 2, 20)
 
@@ -69,7 +69,7 @@ class NeuralNetworkModel(Chain):
 
 def objective(_trial):
     # Model and optimizer
-    model = NeuralNetworkModel(_trial)
+    model = NeuralNetworkModel(_trial=_trial)
     optimizer = chainer.optimizers.Adam()
     optimizer.setup(model)
 
