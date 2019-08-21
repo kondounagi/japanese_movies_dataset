@@ -68,8 +68,13 @@ class LoadData:
 
             train_x, train_y = shuffle_samples(
                 other_df.drop(["year"], axis=1).values.astype(np.float32),
-                other_data["prize"].values.astype(np.float32))
-            test_x, test_y = curr_df.drop(["year"], axis=1).values.astype(np.float32), curr_data["prize"].values.astype(np.float32)
+                other_data["prize"].values.astype(np.float32),
+            )
+
+            test_x, test_y = (
+                curr_df.drop(["year"], axis=1).values.astype(np.float32),
+                curr_data["prize"].values.astype(np.float32),
+            )
 
             train = chainer.datasets.DictDataset(
                 x=train_x,
