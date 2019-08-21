@@ -10,10 +10,10 @@ from utility import Utility
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=100, n_l1=100, n_l2=100, n_out=1, *args, **kwargs):
+    def __init__(self, n_l0=100, n_l1=100, n_l2=100, n_out=1):
         self._n_out = n_out
 
-        super().__init__(*args, **kwargs)
+        super().__init__()
 
         with self.init_scope():
             self._l0 = L.Linear(None, n_l0)
