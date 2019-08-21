@@ -10,6 +10,7 @@ import optuna
 from sklearn.neural_network import MLPRegressor
 from sklearn.linear_model import LinearRegression
 
+
 def read_in_data():
     """ Read in training data and return in np format
 
@@ -39,9 +40,11 @@ def read_in_data():
     meta_data_y = np.array(meta_data_y)
     return data, meta_data_X, meta_data_y
 
+
 def calculate_auc(test, pred):
     fpr, tpr, _ = metrics.roc_curve(test, pred)
     return metrics.auc(fpr, tpr)
+
 
 def objective(trail):
     """ Optuna objective parameter tuning function
@@ -56,6 +59,7 @@ def objective(trail):
 
     all_test_y, all_pred_y = run_linear_with_param(params)
     return -calculate_auc(all_test_y, all_pred_y)
+
 
 def run_linear_with_param(param):
     all_test_y = []
@@ -109,6 +113,7 @@ def run_linear_with_param(param):
         all_test_y += test_y
     return all_test_y, all_pred_y
 
+
 def main():
     """ Main function to tune the variable
 
@@ -129,6 +134,7 @@ def main():
     param = study.best_params
     test_y, pred_y = run_linear_with_param(param)
     print(calculate_auc(test_y, pred_y))
-    
+
+
 if __name__ == "__main__":
     main()
