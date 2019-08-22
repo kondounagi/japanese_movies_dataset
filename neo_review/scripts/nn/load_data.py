@@ -1,6 +1,7 @@
 import chainer
 import numpy as np
 import pandas as pd
+from chainer.datasets import split_dataset_random
 
 
 class LoadData:
@@ -45,14 +46,18 @@ class LoadData:
                 pkl_train_y.values.astype(np.float32),
             )
 
+            train = chainer.datasets.DictDataset(x=train_x, y=train_y)
+            train, valid = split_dataset_random(train, 1, seed=0)
+
+            train = chainer.datasets.DictDataset(x=[t['x'] for t in train], y=[t['y'] for t in train])
+            valid = chainer.datasets.DictDataset(x=[v['x'] for v in valid], y=[v['y'] for v in valid])
+
             test_x, test_y = (
                 pkl_test_x.values.astype(np.float32),
                 pkl_test_y.values.astype(np.float32),
             )
-
-            train = chainer.datasets.DictDataset(x=train_x, y=train_y)
             test = chainer.datasets.DictDataset(x=test_x, y=test_y)
 
             title = curr_sod["title"].values
-            data_map[year] = train, test, title
+            data_map[year] = train, valid, test, title
         return data_map

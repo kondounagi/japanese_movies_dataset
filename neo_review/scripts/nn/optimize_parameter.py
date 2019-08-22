@@ -73,8 +73,13 @@ def objective(_trial):
     # Dataset
     load_data = LoadData()
     for year in range(1978, 2020):
-        train, test, _ = load_data.map[year]
-        train_iter = chainer.iterators.SerialIterator(train, model.batchsize)
+        train, valid, test, _ = load_data.map[year]
+        train_iter = chainer.iterators.SerialIterator(train,
+                                                      model.batchsize)
+        valid_iter = chainer.iterators.SerialIterator(valid,
+                                                      model.batchsize,
+                                                     repeat=False,
+                                                     shuffle=False)
         test_iter = chainer.iterators.SerialIterator(test,
                                                      model.batchsize,
                                                      repeat=False,
@@ -83,7 +88,7 @@ def objective(_trial):
         # Trainer
         updater = training.updaters.StandardUpdater(train_iter, optimizer)
         trainer = training.Trainer(updater, (args.epoch, 'epoch'))
-        trainer.extend(extensions.Evaluator(test_iter, model))
+        trainer.extend(extensions.Evaluator(valid_iter, model))
 
         log_report_extension = (
             chainer.training.extensions.LogReport(log_name=None))
