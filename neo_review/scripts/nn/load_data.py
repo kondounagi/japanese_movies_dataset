@@ -34,14 +34,20 @@ class LoadData:
         for year in range(1978, 2020):
             curr_sod, _ = pick_by_year(data, year)
 
+            base = '../../data/std_data'
+            pkl_train_x = pd.read_pickle(base + '/train/{}_x.pkl'.format(year))
+            pkl_train_y = pd.read_pickle(base + '/train/{}_y.pkl'.format(year))
+            pkl_test_x = pd.read_pickle(base + '/test/{}_x.pkl'.format(year))
+            pkl_test_y = pd.read_pickle(base + '/test/{}_y.pkl'.format(year))
+
             train_x, train_y = shuffle_samples(
-                pd.read_pickle('../../data/std_data/train/{}_x.pkl'.format(year)).values.astype(np.float32),
-                pd.read_pickle('../../data/std_data/train/{}_y.pkl'.format(year)).values.astype(np.float32)
+                pkl_train_x.values.astype(np.float32),
+                pkl_train_y.values.astype(np.float32),
             )
 
             test_x, test_y = (
-                pd.read_pickle('../../data/std_data/test/{}_x.pkl'.format(year)).values.astype(np.float32),
-                pd.read_pickle('../../data/std_data/test/{}_y.pkl'.format(year)).values.astype(np.float32)
+                pkl_test_x.values.astype(np.float32),
+                pkl_test_y.values.astype(np.float32),
             )
 
             train = chainer.datasets.DictDataset(x=train_x, y=train_y)

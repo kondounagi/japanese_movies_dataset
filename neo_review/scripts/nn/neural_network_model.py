@@ -10,7 +10,7 @@ from utility import Utility
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=4, n_l1=121, n_l2=7, n_l3=68, n_out=1):
+    def __init__(self, n_l0=7, n_l1=115, n_l2=29, n_out=1):
         self._n_out = n_out
 
         super().__init__()
@@ -19,13 +19,11 @@ class NeuralNetworkModel(Chain):
             self._l0 = L.Linear(None, n_l0)
             self._l1 = L.Linear(None, n_l1)
             self._l2 = L.Linear(None, n_l2)
-            self._l3 = L.Linear(None, n_l3)
             self._ll = L.Linear(None, n_out)
 
             self._b0 = L.BatchNormalization(n_l0)
             self._b1 = L.BatchNormalization(n_l1)
             self._b2 = L.BatchNormalization(n_l2)
-            self._b3 = L.BatchNormalization(n_l3)
 
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
@@ -43,10 +41,7 @@ class NeuralNetworkModel(Chain):
         h2 = F.relu(self._l2(h1))
         h2 = self._b2(h2)
 
-        h3 = F.relu(self._l3(h2))
-        h3 = self._b3(h3)
-
-        hl = self._ll(h3)
+        hl = self._ll(h2)
         return hl
 
     def run_as_script(self):

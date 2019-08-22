@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 import optuna
 
 
-def read_in_data():
+def read_in_data(year):
     """ Read in training data and return
 
     Args:
@@ -22,11 +22,11 @@ def read_in_data():
         data_y:
     """
     # data = pd.read_pickle("pos_val_df.pkl")
-    data = pd.read_pickle("unificated_data_set.pkl")
-    years = data["year"]
-    data_y = data["prize"]
-    data_X = data.drop(["year", "prize"], axis=1)
-    return years, data_X, data_y
+    train_X = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_x.pkl")
+    train_y = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_y.pkl")
+    test_X = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_x.pkl")
+    test_y = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_y.pkl")
+    return train_X, train_y, test_X, test_y
 
 
 def calculate_auc(test, pred):
@@ -35,7 +35,6 @@ def calculate_auc(test, pred):
 
 
 def train(params):
-    years, data_X, data_y = read_in_data()
     pred_y = pd.DataFrame()
     ans_y = pd.DataFrame()
     model = SVR(
@@ -46,25 +45,15 @@ def train(params):
         tol=params["svm_tol"],
         C=params["svm_c"],
         epsilon=params["svm_epsilon"],
-        max_iter=100000,
+        max_iter=-1,
         verbose=False,
     )
 
     for year in range(1978, 2020):
-        train_X = data_X[years != year]
-        train_y = data_y[years != year]
-        test_X = data_X[years == year]
-        test_y = data_y[years == year]
-
-        scaler = StandardScaler()
-        scaler.fit(train_X)
-        train_X = scaler.transform(train_X)
-        test_X = scaler.transform(test_X)
-
+        train_X, train_y, test_X, test_y = read_in_data(year)
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
-
     return ans_y, pred_y
 
 
@@ -103,17 +92,17 @@ def main():
         NA
     """
     study = optuna.create_study()
-    study.optimize(objective, n_trials=100)
+    study.optimize(objective, n_trials=1000)
     # best param after 1000 trainings
-    # auc 0.7618343195266272
+    # auc 0.794590025359256
     param = {
-        'svm_kernel': 'linear',
-        'svm_degree': 3,
-        'svm_gamma': 0.07865407984483494,
-        'svm_coef0': -0.6694558922561817,
-        'svm_tol': 0.01,
-        'svm_c': 0.6141382407969127,
-        'svm_epsilon': 0.42486742369825653,
+        'svm_kernel': 'sigmoid', 
+        'svm_degree': 4, 
+        'svm_gamma': 0.043502212815589775, 
+        'svm_coef0': 0.20190829020616494, 
+        'svm_tol': 0.0001, 
+        'svm_c': 0.000245786293391316, 
+        'svm_epsilon': 0.3056167642389302
     }
     param = study.best_params
     test_y, pred_y = train(param)
