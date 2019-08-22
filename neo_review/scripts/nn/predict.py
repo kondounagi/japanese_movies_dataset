@@ -39,7 +39,7 @@ class Predict:
         y_true, y_score = [], []
 
         for year in range(1978, 2020):
-            _, test, title = load_data.map[year]
+            _, _, test, title = load_data.map[year]
             model_name = 'models/model_' + str(year)
             chainer.serializers.load_npz(model_name, model)
             ans, score = self.show_results(model, test, title)
