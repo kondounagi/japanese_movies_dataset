@@ -14,14 +14,10 @@ def main(list_file_path, review_root_path):
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
             i = row[0]
-
-            d = {
-                'id': i,
-                'reviews': {},
-            }
+            reviews = {}
 
             for site, path in site_dict.items():
-                d['reviews'][site] = []
+                reviews[site] = []
 
                 json_path = review_root_path.rstrip('/')
                 json_path += '/{}/{}.json'.format(path, str(i))
@@ -30,12 +26,15 @@ def main(list_file_path, review_root_path):
                     load_data = None
                     try:
                         load_data = json.load(f)
-                        d['reviews'][site] = load_data['reviews'][site]
+                        reviews[site] = load_data['reviews'][site]
                     except json.decoder.JSONDecodeError:
-                        d['reviews'][site] = []
+                        reviews[site] = []
 
             with open('./{}.json'.format(str(i)), 'w') as output:
-                json.dump(d, output, indent=4, ensure_ascii=False)
+                json.dump({'id': i, 'reviews': reviews},
+                          output,
+                          indent=4,
+                          ensure_ascii=False)
                 output.write('\n')
 
 
