@@ -7,36 +7,10 @@ class LoadData:
     def __init__(self):  # HACK: refactor init
         data_path = '../../data/dataframes/'
 
-        self._other_data = pd.read_pickle(data_path + 'data.pkl')
+        _other_data = pd.read_pickle(data_path + 'data.pkl')
+        df = pd.read_pickle('../../data/dataframes/pos_val_df.pkl')
 
-        nomination_onehot = (
-            pd.read_pickle(data_path + 'nomination_onehot.pkl'))
-        selected_performers_onehot = (
-            pd.read_pickle(data_path + 'selected_performers_onehot.pkl'))
-        selected_directors_onehot = (
-            pd.read_pickle(data_path + 'selected_directors_onehot.pkl'))
-        selected_studio_onehot = (
-            pd.read_pickle(data_path + 'selected_studio_onehot.pkl'))
-        selected_scriptwriter_onehot = (
-            pd.read_pickle(data_path + 'selected_scriptwriter_onehot.pkl'))
-        review_dataframe = (
-            pd.read_pickle(data_path + 'review_dataframe.pkl'))
-
-        bundle = [
-            nomination_onehot,
-            selected_performers_onehot,
-            selected_directors_onehot,
-            selected_studio_onehot,
-            selected_scriptwriter_onehot,
-            self._other_data['screen_time'],
-            self._other_data['year'],
-        ]
-
-        df = pd.concat(bundle, axis=1).astype(np.float32)
-        self._map = self._create_map(self._other_data, df)
-
-    def __call__(self, *args, **kwargs):
-        pass
+        self._map = self._create_map(_other_data, df)
 
     @property
     def map(self):
@@ -64,7 +38,7 @@ class LoadData:
         for year in range(1978, 2020):
             curr_df, other_df = pick_by_year(df, year)
             curr_data, other_data = pick_by_year(data, year)
-            curr_sod, _ = pick_by_year(self._other_data, year)
+            curr_sod, _ = pick_by_year(data, year)
 
             train_x, train_y = shuffle_samples(
                 other_df.drop(["year"], axis=1).values.astype(np.float32),
