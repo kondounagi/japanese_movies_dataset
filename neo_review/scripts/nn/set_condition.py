@@ -10,7 +10,7 @@ class SetCondition:
 
         parser.add_argument('--batchsize', '-b',
                             type=int,
-                            default=100,
+                            default=1145,
                             help='Number of data in each mini-batch')
 
         parser.add_argument('--epoch', '-e',

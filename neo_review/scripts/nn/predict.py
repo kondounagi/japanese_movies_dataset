@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import chainer
 from sklearn import metrics
+from sklearn.metrics import confusion_matrix
 
 from neural_network_model import NeuralNetworkModel
 from load_data import LoadData
@@ -47,8 +48,9 @@ class Predict:
 
         fpr, tpr, thresholds = metrics.roc_curve(y_true, y_score)
         auc = metrics.auc(fpr, tpr)
-        plt.plot(fpr, tpr, label='ROC curve (area = %.2f)' % auc)
+        plt.plot(fpr, tpr, label='ROC curve (area = {}.2f)'.format(auc))
 
+        print("confusion matrix:\n {}".format(confusion_matrix(y_true, [y > 0.5 for y in y_score])))
         print("auc: {}".format(auc))
 
         plt.legend()
