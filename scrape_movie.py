@@ -68,8 +68,8 @@ def main():
 
     film_index = "https://eiga.com"
     # regular experssion for finding time and studio
-    re_time = re.compile("／\\d*分／")
-    re_production_studio = re.compile("配給：[^<]*")
+    re_time = re.compile(r"／\d*分／")
+    re_production_studio = re.compile(r"配給：[^<]*")
     start_num = 0         # in case of connection refused
 
     # films_data = []     # ditionary list
