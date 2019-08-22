@@ -45,13 +45,13 @@ def train(params):
     for year in range(1978, 2020):
         train_X = data_X[years != year]
         train_y = data_y[years != year]
-        test_X = data_X[years == year] 
+        test_X = data_X[years == year]
         test_y = data_y[years == year]
 
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
-    
+
     return ans_y, pred_y
 
 
