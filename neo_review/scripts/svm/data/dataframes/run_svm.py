@@ -47,7 +47,7 @@ def train(params):
         C=params["svm_c"],
         epsilon=params["svm_epsilon"],
         max_iter=100000,
-        verbose=False
+        verbose=False,
     )
 
     for year in range(1978, 2020):
@@ -86,7 +86,7 @@ def objective(trail):
         "svm_coef0": svm_coef0,
         "svm_tol": svm_tol,
         "svm_c": svm_c,
-        "svm_epsilon": svm_epsilon
+        "svm_epsilon": svm_epsilon,
     }
 
     test_y, pred_y = train(params)
@@ -113,7 +113,7 @@ def main():
         'svm_coef0': -0.6694558922561817, 
         'svm_tol': 0.01, 
         'svm_c': 0.6141382407969127, 
-        'svm_epsilon': 0.42486742369825653
+        'svm_epsilon': 0.42486742369825653,
     }
     param = study.best_params
     test_y, pred_y = train(param)
