@@ -20,7 +20,7 @@ def read_in_data():
         data_X:
         data_y:
     """
-    data = pd.read_pickle("unificated_data_set.pkl")
+    data = pd.read_pickle("pos_val_df.pkl")
     years = data["year"]
     data_y = data["prize"]
     data_X = data.drop(["year", "prize"], axis=1)
@@ -78,9 +78,9 @@ def main():
     study = optuna.create_study()
     study.optimize(objective, n_trials=10)
     # best param after 10 trainings
-    # auc = 0.6699774584389969
+    # auc = 0.6653282614821076
     param = {
-        "linear_fit_intercept": True,
+        "linear_fit_intercept": False,
         "linear_normalize": False
     }
     param = study.best_params
