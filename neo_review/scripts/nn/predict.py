@@ -50,7 +50,9 @@ class Predict:
         auc = metrics.auc(fpr, tpr)
         plt.plot(fpr, tpr, label='ROC curve (area = {}.2f)'.format(auc))
 
-        print("confusion matrix:\n {}".format(confusion_matrix(y_true, [y > 0.5 for y in y_score])))
+        print("confusion matrix:\n {}".format(
+            confusion_matrix(y_true, [y > 0.5 for y in y_score]),
+        ))
         print("auc: {}".format(auc))
 
         plt.legend()
