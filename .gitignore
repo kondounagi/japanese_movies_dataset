@@ -5,4 +5,4 @@ mecab-ipadic-neologd/
 local/
 *.py[co]
 neo_review/scripts/nn/*.png
-neo_review/scripts/nn/models/*
+neo_review/scripts/nn/models
