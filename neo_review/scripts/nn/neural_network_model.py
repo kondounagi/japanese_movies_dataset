@@ -33,7 +33,7 @@ class NeuralNetworkModel(Chain):
 
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
-        loss = F.mean_squared_error(self.forward(x), y)
+        loss = F.sigmoid_cross_entropy(self.forward(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
 

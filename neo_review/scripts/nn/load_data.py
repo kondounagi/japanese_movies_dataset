@@ -43,7 +43,7 @@ class LoadData:
 
             train_x, train_y = shuffle_samples(
                 pkl_train_x.values.astype(np.float32),
-                pkl_train_y.values.astype(np.float32),
+                pkl_train_y.values.astype(np.int),
             )
 
             train = chainer.datasets.DictDataset(x=train_x, y=train_y)
@@ -55,7 +55,7 @@ class LoadData:
 
             test_x, test_y = (
                 pkl_test_x.values.astype(np.float32),
-                pkl_test_y.values.astype(np.float32),
+                pkl_test_y.values.astype(np.int),
             )
             test = chainer.datasets.DictDataset(x=test_x, y=test_y)
 

@@ -51,7 +51,7 @@ class Predict:
         plt.plot(fpr, tpr, label='ROC curve (area = {}.2f)'.format(auc))
 
         print("confusion matrix:\n {}".format(
-            confusion_matrix(y_true, [y > 0.7 for y in y_score]),
+            confusion_matrix(y_true, [y > 10 for y in y_score]),
         ))
         print("auc: {}".format(auc))
 
