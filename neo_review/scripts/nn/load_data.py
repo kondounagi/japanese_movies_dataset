@@ -4,19 +4,15 @@ import pandas as pd
 
 
 class LoadData:
-    def __init__(self):  # HACK: refactor init
-        data_path = '../../data/dataframes/'
-
-        _other_data = pd.read_pickle(data_path + 'data.pkl')
-        df = pd.read_pickle('../../data/dataframes/pos_val_df.pkl')
-
-        self._map = self._create_map(_other_data, df)
+    def __init__(self):
+        _other_data = pd.read_pickle('../../data/dataframes/data.pkl')
+        self._map = self._create_map(_other_data)
 
     @property
     def map(self):
         return self._map
 
-    def _create_map(self, data, df):
+    def _create_map(self, data):
         data_map = {}
 
         def pick(df, func):
@@ -36,18 +32,22 @@ class LoadData:
             return result
 
         for year in range(1978, 2020):
-            curr_df, other_df = pick_by_year(df, year)
-            curr_data, other_data = pick_by_year(data, year)
             curr_sod, _ = pick_by_year(data, year)
 
+            base = '../../data/std_data'
+            pkl_train_x = pd.read_pickle(base + '/train/{}_x.pkl'.format(year))
+            pkl_train_y = pd.read_pickle(base + '/train/{}_y.pkl'.format(year))
+            pkl_test_x = pd.read_pickle(base + '/test/{}_x.pkl'.format(year))
+            pkl_test_y = pd.read_pickle(base + '/test/{}_y.pkl'.format(year))
+
             train_x, train_y = shuffle_samples(
-                other_df.drop(["year"], axis=1).values.astype(np.float32),
-                other_data["prize"].values.astype(np.float32),
+                pkl_train_x.values.astype(np.float32),
+                pkl_train_y.values.astype(np.float32),
             )
 
             test_x, test_y = (
-                curr_df.drop(["year"], axis=1).values.astype(np.float32),
-                curr_data["prize"].values.astype(np.float32),
+                pkl_test_x.values.astype(np.float32),
+                pkl_test_y.values.astype(np.float32),
             )
 
             train = chainer.datasets.DictDataset(x=train_x, y=train_y)
