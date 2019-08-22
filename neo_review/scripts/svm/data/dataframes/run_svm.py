@@ -28,9 +28,11 @@ def read_in_data():
     data_X = data.drop(["year", "prize"], axis=1)
     return years, data_X, data_y
 
+
 def calculate_auc(test, pred):
     fpr, tpr, _ = metrics.roc_curve(test, pred)
     return metrics.auc(fpr, tpr)
+
 
 def train(params):
     years, data_X, data_y = read_in_data()
@@ -45,25 +47,26 @@ def train(params):
         C=params["svm_c"],
         epsilon=params["svm_epsilon"],
         max_iter=100000,
-        verbose=False
+        verbose=False,
     )
 
     for year in range(1978, 2020):
         train_X = data_X[years != year]
         train_y = data_y[years != year]
-        test_X = data_X[years == year] 
+        test_X = data_X[years == year]
         test_y = data_y[years == year]
-        
-        scaler = StandardScaler() 
+
+        scaler = StandardScaler()
         scaler.fit(train_X)
         train_X = scaler.transform(train_X)
         test_X = scaler.transform(test_X)
-        
+
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
-    
+
     return ans_y, pred_y
+
 
 def objective(trail):
     """ Optuna objective parameter tuning function
@@ -83,7 +86,7 @@ def objective(trail):
         "svm_coef0": svm_coef0,
         "svm_tol": svm_tol,
         "svm_c": svm_c,
-        "svm_epsilon": svm_epsilon
+        "svm_epsilon": svm_epsilon,
     }
 
     test_y, pred_y = train(params)
@@ -104,17 +107,18 @@ def main():
     # best param after 1000 trainings
     # auc 0.7618343195266272
     param = {
-        'svm_kernel': 'linear', 
-        'svm_degree': 3, 
-        'svm_gamma': 0.07865407984483494, 
-        'svm_coef0': -0.6694558922561817, 
-        'svm_tol': 0.01, 
-        'svm_c': 0.6141382407969127, 
-        'svm_epsilon': 0.42486742369825653
+        'svm_kernel': 'linear',
+        'svm_degree': 3,
+        'svm_gamma': 0.07865407984483494,
+        'svm_coef0': -0.6694558922561817,
+        'svm_tol': 0.01,
+        'svm_c': 0.6141382407969127,
+        'svm_epsilon': 0.42486742369825653,
     }
     param = study.best_params
     test_y, pred_y = train(param)
     print(calculate_auc(test_y, pred_y))
+
 
 if __name__ == "__main__":
     main()
