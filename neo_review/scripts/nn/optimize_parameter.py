@@ -78,12 +78,8 @@ def objective(_trial):
                                                       model.batchsize)
         valid_iter = chainer.iterators.SerialIterator(valid,
                                                       model.batchsize,
-                                                     repeat=False,
-                                                     shuffle=False)
-        test_iter = chainer.iterators.SerialIterator(test,
-                                                     model.batchsize,
-                                                     repeat=False,
-                                                     shuffle=False)
+                                                      repeat=False,
+                                                      shuffle=False)
 
         # Trainer
         updater = training.updaters.StandardUpdater(train_iter, optimizer)
