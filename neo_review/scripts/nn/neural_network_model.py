@@ -10,7 +10,7 @@ from utility import Utility
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=4, n_l1=121, n_l2=7, n_l3=68, n_out=1):
+    def __init__(self, n_l0=25, n_l1=122, n_l2=5, n_l3=71, n_l4=72, n_l5=123, n_l6=37, n_l7=85, n_l8=108, n_out=1):
         self._n_out = n_out
 
         super().__init__()
@@ -20,16 +20,20 @@ class NeuralNetworkModel(Chain):
             self._l1 = L.Linear(None, n_l1)
             self._l2 = L.Linear(None, n_l2)
             self._l3 = L.Linear(None, n_l3)
+            self._l4 = L.Linear(None, n_l4)
+            self._l5 = L.Linear(None, n_l5)
             self._ll = L.Linear(None, n_out)
 
             self._b0 = L.BatchNormalization(n_l0)
             self._b1 = L.BatchNormalization(n_l1)
             self._b2 = L.BatchNormalization(n_l2)
             self._b3 = L.BatchNormalization(n_l3)
+            self._b4 = L.BatchNormalization(n_l4)
+            self._b5 = L.BatchNormalization(n_l5)
 
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
-        loss = F.mean_squared_error(self.forward(x), y)
+        loss = F.sigmoid_cross_entropy(self.forward(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
 
@@ -46,7 +50,13 @@ class NeuralNetworkModel(Chain):
         h3 = F.relu(self._l3(h2))
         h3 = self._b3(h3)
 
-        hl = self._ll(h3)
+        h4 = F.relu(self._l4(h3))
+        h4 = self._b4(h4)
+
+        h5 = F.relu(self._l5(h4))
+        h5 = self._b5(h5)
+
+        hl = self._ll(h5)
         return hl
 
     def run_as_script(self):
@@ -65,20 +75,19 @@ class NeuralNetworkModel(Chain):
         load_data = LoadData()
 
         # noinspection PyShadowingNames
-        def setup_trainer(train, test):
+        def setup_trainer(train, valid):
             train_iter = chainer.iterators.SerialIterator(train,
                                                           args.batchsize)
-
-            test_iter = chainer.iterators.SerialIterator(test,
-                                                         args.batchsize,
-                                                         repeat=False,
-                                                         shuffle=False)
+            valid_iter = chainer.iterators.SerialIterator(valid,
+                                                          args.batchsize,
+                                                          repeat=False,
+                                                          shuffle=False)
 
             updater = training.updaters.StandardUpdater(train_iter, optimizer)
             trainer = training.Trainer(updater, (args.epoch, 'epoch'))
 
             # Evaluate the model with the test dataset for each epoch
-            trainer.extend(extensions.Evaluator(test_iter, self))
+            trainer.extend(extensions.Evaluator(valid_iter, self))
 
             # Write a log of evaluation statistics for each epoch
             trainer.extend(extensions.LogReport(trigger=(args.logtrigger,
@@ -95,9 +104,9 @@ class NeuralNetworkModel(Chain):
 
         for year in range(1978, 2020):
             print('year: ', year)
-            train, test, _ = load_data.map[year]
+            train, valid, _, _ = load_data.map[year]
 
-            trainer = setup_trainer(train, test)
+            trainer = setup_trainer(train, valid)
             trainer.run()
 
             # Save the model

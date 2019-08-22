@@ -39,7 +39,7 @@ class Predict:
         y_true, y_score = [], []
 
         for year in range(1978, 2020):
-            _, test, title = load_data.map[year]
+            _, _, test, title = load_data.map[year]
             model_name = 'models/model_' + str(year)
             chainer.serializers.load_npz(model_name, model)
             ans, score = self.show_results(model, test, title)
@@ -48,10 +48,10 @@ class Predict:
 
         fpr, tpr, thresholds = metrics.roc_curve(y_true, y_score)
         auc = metrics.auc(fpr, tpr)
-        plt.plot(fpr, tpr, label='ROC curve (area = {}.2f)'.format(auc))
+        plt.plot(fpr, tpr, label='ROC curve (area = {}.f)'.format(auc))
 
         print("confusion matrix:\n {}".format(
-            confusion_matrix(y_true, [y > 0.5 for y in y_score]),
+            confusion_matrix(y_true, [y > 10 for y in y_score]),
         ))
         print("auc: {}".format(auc))
 
