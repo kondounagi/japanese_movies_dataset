@@ -119,5 +119,6 @@ def main():
     test_y, pred_y = train(param)
     print(calculate_auc(test_y, pred_y))
 
+
 if __name__ == "__main__":
     main()
