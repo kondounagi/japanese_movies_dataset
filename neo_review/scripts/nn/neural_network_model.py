@@ -7,10 +7,11 @@ from chainer.training import extensions
 from set_condition import SetCondition
 from load_data import LoadData
 from utility import Utility
+import numpy as np
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=25, n_l1=122, n_l2=5, n_l3=71, n_l4=72, n_l5=123, n_l6=37, n_l7=85, n_l8=108, n_out=1):
+    def __init__(self, n_l0=10, n_l1=122, n_l2=5, n_l3=71, n_l4=72, n_l5=123, n_l6=37, n_l7=85, n_l8=108, n_out=1):
         self._n_out = n_out
 
         super().__init__()
@@ -33,7 +34,7 @@ class NeuralNetworkModel(Chain):
 
     def __call__(self, x, y):
         y = y.reshape(-1, self._n_out)
-        loss = F.mean_squared_error(self.forward(x), y)
+        loss = F.sigmoid_cross_entropy(self.forward(x), np.array(y,dtype='int32'))
         chainer.reporter.report({'loss': loss}, self)
         return loss
 
@@ -41,22 +42,7 @@ class NeuralNetworkModel(Chain):
         h0 = F.relu(self._l0(x))
         h0 = self._b0(h0)
 
-        h1 = F.relu(self._l1(h0))
-        h1 = self._b1(h1)
-
-        h2 = F.relu(self._l2(h1))
-        h2 = self._b2(h2)
-
-        h3 = F.relu(self._l3(h2))
-        h3 = self._b3(h3)
-
-        h4 = F.relu(self._l4(h3))
-        h4 = self._b4(h4)
-
-        h5 = F.relu(self._l5(h4))
-        h5 = self._b5(h5)
-
-        hl = self._ll(h5)
+        hl = self._ll(h0)
         return hl
 
     def run_as_script(self):

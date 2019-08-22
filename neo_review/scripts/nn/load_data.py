@@ -47,7 +47,7 @@ class LoadData:
             )
 
             train = chainer.datasets.DictDataset(x=train_x, y=train_y)
-            train, valid = split_dataset_random(train, 1, seed=0)
+            train, valid = split_dataset_random(train, int(len(train) * 0.8), seed=0)
 
             train = chainer.datasets.DictDataset(x=[t['x'] for t in train], y=[t['y'] for t in train])
             valid = chainer.datasets.DictDataset(x=[v['x'] for v in valid], y=[v['y'] for v in valid])
