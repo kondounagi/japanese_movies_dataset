@@ -67,10 +67,9 @@ def main():
     year = sys.argv[1]
 
     film_index = "https://eiga.com"
-    film_search = "https://eiga.com/search/"
     # regular experssion for finding time and studio
-    re_time = re.compile("／\\d*分／")
-    re_production_studio = re.compile("配給：[^<]*")
+    re_time = re.compile(r"／\d*分／")
+    re_production_studio = re.compile(r"配給：[^<]*")
     start_num = 0         # in case of connection refused
 
     # films_data = []     # ditionary list
@@ -170,7 +169,8 @@ def main():
 
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
-            id_file.write("\t".join([year, str(i + 1), str(id_list[i])]) + "\n")
+            id_file.write("\t".join([year, str(i + 1), str(id_list[i])]))
+            id_file.write("\n")
 
 
 if __name__ == "__main__":

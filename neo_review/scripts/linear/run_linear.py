@@ -26,9 +26,11 @@ def read_in_data():
     data_X = data.drop(["year", "prize"], axis=1)
     return years, data_X, data_y
 
+
 def calculate_auc(test, pred):
     fpr, tpr, _ = metrics.roc_curve(test, pred)
     return metrics.auc(fpr, tpr)
+
 
 def train(params):
     years, data_X, data_y = read_in_data()
@@ -37,20 +39,21 @@ def train(params):
 
     model = LinearRegression(
         fit_intercept=params["linear_fit_intercept"],
-        normalize=params["linear_normalize"]
+        normalize=params["linear_normalize"],
     )
 
     for year in range(1978, 2020):
         train_X = data_X[years != year]
         train_y = data_y[years != year]
-        test_X = data_X[years == year] 
+        test_X = data_X[years == year]
         test_y = data_y[years == year]
 
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
-    
+
     return ans_y, pred_y
+
 
 def objective(trail):
     """ Optuna objective parameter tuning function
@@ -59,7 +62,7 @@ def objective(trail):
     linear_normalize = trail.suggest_categorical("linear_normalize", [True, False])
     params = {
         "linear_fit_intercept": linear_fit_intercept,
-        "linear_normalize": linear_normalize
+        "linear_normalize": linear_normalize,
     }
 
     test_y, pred_y = train(params)
@@ -81,11 +84,12 @@ def main():
     # auc = 0.6699774584389969
     param = {
         "linear_fit_intercept": True,
-        "linear_normalize": False
+        "linear_normalize": False,
     }
     param = study.best_params
     test_y, pred_y = train(param)
     print(calculate_auc(test_y, pred_y))
+
 
 if __name__ == "__main__":
     main()
