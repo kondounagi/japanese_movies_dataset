@@ -170,7 +170,8 @@ def main():
 
     with open("myid_to_eigaid", "a") as id_file:
         for i in range(len(id_list)):
-            id_file.write("\t".join([year, str(i + 1), str(id_list[i])]) + "\n")
+            id_file.write("\t".join([year, str(i + 1), str(id_list[i])]))
+            id_file.write("\n")
 
 
 if __name__ == "__main__":
