@@ -28,9 +28,11 @@ def read_in_data():
     data_X = data.drop(["year", "prize"], axis=1)
     return years, data_X, data_y
 
+
 def calculate_auc(test, pred):
     fpr, tpr, _ = metrics.roc_curve(test, pred)
     return metrics.auc(fpr, tpr)
+
 
 def train(params):
     years, data_X, data_y = read_in_data()
@@ -64,6 +66,7 @@ def train(params):
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
     
     return ans_y, pred_y
+
 
 def objective(trail):
     """ Optuna objective parameter tuning function
