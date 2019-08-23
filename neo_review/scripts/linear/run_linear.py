@@ -57,7 +57,7 @@ def objective(trail):
     linear_normalize = trail.suggest_categorical("linear_normalize", [True, False])
     params = {
         "linear_fit_intercept": linear_fit_intercept,
-        "linear_normalize": linear_normalize
+        "linear_normalize": linear_normalize,
     }
 
     test_y, pred_y = train(params)
@@ -79,7 +79,7 @@ def main():
     # auc = 0.6541279233586925
     param = {
         "linear_fit_intercept": True,
-        "linear_normalize": False
+        "linear_normalize": False,
     }
     param = study.best_params
     test_y, pred_y = train(param)
