@@ -37,10 +37,8 @@ def train(params):
     pred_y = pd.DataFrame()
     ans_y = pd.DataFrame()
 
-    model = LinearRegression(
-        fit_intercept=params["linear_fit_intercept"],
-        normalize=params["linear_normalize"]
-    )
+    model = LinearRegression(fit_intercept=params["linear_fit_intercept"],
+                             normalize=params["linear_normalize"])
 
     for year in range(1978, 2020):
         train_X, train_y, test_X, test_y = read_in_data(year)
@@ -53,8 +51,11 @@ def train(params):
 def objective(trail):
     """ Optuna objective parameter tuning function
     """
-    linear_fit_intercept = trail.suggest_categorical("linear_fit_intercept", [True, False])
-    linear_normalize = trail.suggest_categorical("linear_normalize", [True, False])
+    linear_fit_intercept = (
+        trail.suggest_categorical("linear_fit_intercept", [True, False]))
+    linear_normalize = (
+        trail.suggest_categorical("linear_normalize", [True, False]))
+
     params = {
         "linear_fit_intercept": linear_fit_intercept,
         "linear_normalize": linear_normalize,
