@@ -102,7 +102,7 @@ def main():
         'svm_coef0': 0.20190829020616494,
         'svm_tol': 0.0001,
         'svm_c': 0.000245786293391316,
-        'svm_epsilon': 0.3056167642389302
+        'svm_epsilon': 0.3056167642389302,
     }
     param = study.best_params
     test_y, pred_y = train(param)
