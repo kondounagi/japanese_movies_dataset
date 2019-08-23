@@ -96,12 +96,12 @@ def main():
     # best param after 1000 trainings
     # auc 0.794590025359256
     param = {
-        'svm_kernel': 'sigmoid', 
-        'svm_degree': 4, 
-        'svm_gamma': 0.043502212815589775, 
-        'svm_coef0': 0.20190829020616494, 
-        'svm_tol': 0.0001, 
-        'svm_c': 0.000245786293391316, 
+        'svm_kernel': 'sigmoid',
+        'svm_degree': 4,
+        'svm_gamma': 0.043502212815589775,
+        'svm_coef0': 0.20190829020616494,
+        'svm_tol': 0.0001,
+        'svm_c': 0.000245786293391316,
         'svm_epsilon': 0.3056167642389302
     }
     param = study.best_params
