@@ -2,10 +2,10 @@
 """ Run SVM
 """
 import math
-import pandas as pd
-from sklearn.svm import SVR
-from sklearn import metrics
 import optuna
+import pandas as pd
+from sklearn import metrics
+from sklearn.svm import SVR
 
 
 def read_in_data(year):
