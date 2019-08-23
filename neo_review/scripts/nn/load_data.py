@@ -50,8 +50,10 @@ class LoadData:
             split_number = int(len(train) * 0.8)
             train, valid = split_dataset_random(train, split_number, seed=0)
 
-            train = chainer.datasets.DictDataset(x=[t['x'] for t in train], y=[t['y'] for t in train])
-            valid = chainer.datasets.DictDataset(x=[v['x'] for v in valid], y=[v['y'] for v in valid])
+            train = chainer.datasets.DictDataset(x=[t['x'] for t in train],
+                                                 y=[t['y'] for t in train])
+            valid = chainer.datasets.DictDataset(x=[v['x'] for v in valid],
+                                                 y=[v['y'] for v in valid])
 
             test_x, test_y = (
                 pkl_test_x.values.astype(np.float32),
