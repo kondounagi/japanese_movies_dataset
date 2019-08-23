@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """ Run Linear Regression
 """
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-from sklearn import metrics
 import optuna
+import pandas as pd
+from sklearn import metrics
+from sklearn.linear_model import LinearRegression
 
 
 def read_in_data(year):
