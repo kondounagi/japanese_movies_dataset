@@ -4,6 +4,7 @@
 import math
 import optuna
 import pandas as pd
+import pathlib
 from sklearn import metrics
 from sklearn.svm import SVR
 
@@ -20,10 +21,11 @@ def read_in_data(year):
         data_y:
     """
     # data = pd.read_pickle("pos_val_df.pkl")
-    train_X = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_x.pkl")
-    train_y = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_y.pkl")
-    test_X = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_x.pkl")
-    test_y = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_y.pkl")
+    base = pathlib.Path('../../../../data/std_data')
+    train_X = pd.read_pickle(base / "train" / f"{year}_x.pkl")
+    train_y = pd.read_pickle(base / "train" / f"{year}_y.pkl")
+    test_X = pd.read_pickle(base / "test" / f"{year}_x.pkl")
+    test_y = pd.read_pickle(base / "test" / f"{year}_y.pkl")
     return train_X, train_y, test_X, test_y
 
 
