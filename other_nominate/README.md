@@ -54,6 +54,6 @@ python predict.py
 ```
 
 ## Install
-git clone git@github.com:kondounagi/japanese_movies_dataset.git
+git clone https://github.com/kondounagi/japanese_movies_dataset/
 
 cd japanese_movies_dataset/neo_review/scripts/nn
