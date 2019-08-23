@@ -141,8 +141,3 @@ class BlueRibbon(Prize):
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
-
-
-from pprint import pprint as pp
-p = MainichiFilm()
-pp(list(p.data_set()))
