@@ -3,6 +3,7 @@
 """
 import optuna
 import pandas as pd
+import pathlib
 from sklearn import metrics
 from sklearn.linear_model import LinearRegression
 
@@ -18,11 +19,11 @@ def read_in_data(year):
         data_X:
         data_y:
     """
-    base = '../../data/std_data'
-    train_X = pd.read_pickle(base + "/train/" + str(year) + "_x.pkl")
-    train_y = pd.read_pickle(base + "/train/" + str(year) + "_y.pkl")
-    test_X = pd.read_pickle(base + "/test/" + str(year) + "_x.pkl")
-    test_y = pd.read_pickle(base + "/test/" + str(year) + "_y.pkl")
+    base = pathlib.Path('../../data/std_data')
+    train_X = pd.read_pickle(base / "train" / f"{year}_x.pkl")  # noqa: N806
+    train_y = pd.read_pickle(base / "train" / f"{year}_y.pkl")
+    test_X = pd.read_pickle(base / "test" / f"{year}_x.pkl")  # noqa: N806
+    test_y = pd.read_pickle(base / "test" / f"{year}_y.pkl")
 
     return train_X, train_y, test_X, test_y
 
@@ -40,7 +41,7 @@ def train(params):
                              normalize=params["linear_normalize"])
 
     for year in range(1978, 2020):
-        train_X, train_y, test_X, test_y = read_in_data(year)
+        train_X, train_y, test_X, test_y = read_in_data(year)  # noqa: N806
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
@@ -90,5 +91,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# flake8: noqa: N806
