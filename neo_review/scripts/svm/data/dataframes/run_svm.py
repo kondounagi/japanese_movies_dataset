@@ -60,11 +60,16 @@ def train(params):
 def objective(trail):
     """ Optuna objective parameter tuning function
     """
-    svm_kernel = trail.suggest_categorical("svm_kernel", ["linear", "rbf", "poly", "sigmoid"])
+    svm_kernel = trail.suggest_categorical(
+        "svm_kernel", ["linear", "rbf", "poly", "sigmoid"])
+
     svm_degree = trail.suggest_int("svm_degree", 3, 5)
     svm_gamma = trail.suggest_uniform("svm_gamma", 0.01, 1)
     svm_coef0 = trail.suggest_uniform("svm_coef0", -1, 1)
-    svm_tol = trail.suggest_categorical("svm_tol", [math.pow(10, i) for i in range(-5, 0)])
+
+    svm_tol = trail.suggest_categorical(
+        "svm_tol", [math.pow(10, i) for i in range(-5, 0)])
+
     svm_c = trail.suggest_uniform("svm_c", 0, 1)
     svm_epsilon = trail.suggest_uniform("svm_epsilon", 0.1, 1)
 
