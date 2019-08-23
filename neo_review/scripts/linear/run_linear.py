@@ -13,7 +13,7 @@ def read_in_data(year):
     """ Read in training data and return
 
     Args:
-        year: int type for 
+        year: int type for
 
     Returns:
         years: a list of year indicated
@@ -24,7 +24,7 @@ def read_in_data(year):
     train_y = pd.read_pickle("../../data/std_data/train/" + str(year) + "_y.pkl")
     test_X = pd.read_pickle("../../data/std_data/test/" + str(year) + "_x.pkl")
     test_y = pd.read_pickle("../../data/std_data/test/" + str(year) + "_y.pkl")
-    
+
     return train_X, train_y, test_X, test_y
 
 def calculate_auc(test, pred):
