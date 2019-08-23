@@ -1,8 +1,8 @@
 import argparse
 
 import chainer
-import chainer.functions as F
-import chainer.links as L
+import chainer.functions as F  # noqa: N812
+import chainer.links as L  # noqa: N812
 from chainer import training, Chain
 from chainer.training import extensions
 
