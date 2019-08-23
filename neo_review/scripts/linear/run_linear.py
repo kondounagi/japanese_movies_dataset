@@ -61,7 +61,9 @@ def objective(trail):
     }
 
     test_y, pred_y = train(params)
-    return -calculate_auc(test_y, pred_y)
+
+    negative_auc = calculate_auc(test_y, pred_y) * (-1)
+    return negative_auc
 
 
 def main():
