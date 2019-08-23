@@ -1,8 +1,8 @@
 import argparse
 
 import chainer
-import chainer.functions as F
-import chainer.links as L
+import chainer.functions as F  # noqa: N812
+import chainer.links as L  # noqa: N812
 from chainer import training, Chain
 from chainer.training import extensions
 
@@ -52,13 +52,13 @@ class NeuralNetworkModel(Chain):
             self.layers.append(L.BatchNormalization(n_units))
         self.layers.append(L.Linear(None, 1))
 
-    def create_model(self, x):
+    def create_model(self, x):  # noqa: VNE001
         model = chainer.Sequential(*self.layers)
         with chainer.using_config('train', False):
             return model.forward(x)
 
-    def __call__(self, x, y):
-        y = y.reshape(-1, 1)
+    def __call__(self, x, y):  # noqa: VNE001
+        y = y.reshape(-1, 1)  # noqa: VNE001
         loss = F.sigmoid_cross_entropy(self.create_model(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
