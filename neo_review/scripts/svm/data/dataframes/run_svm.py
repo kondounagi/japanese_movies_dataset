@@ -2,11 +2,9 @@
 """ Run SVM
 """
 import math
-import numpy as np
 import pandas as pd
 from sklearn.svm import SVR
 from sklearn import metrics
-from sklearn.preprocessing import StandardScaler
 import optuna
 
 
