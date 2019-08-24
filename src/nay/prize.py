@@ -10,7 +10,7 @@ class Prize:
         self._soup = None
 
     def data_set(self):
-        print(self.__subclasses__)
+        return [cls.__name__ for cls in type(self).__subclasses__()]
 
     @property
     def url(self):
