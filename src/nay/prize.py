@@ -151,3 +151,30 @@ class BlueRibbon(Prize):
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
+
+
+class KinejunBestTen(Prize):
+    @property
+    def url(self):
+        return "http://www.kinenote.com/main/award/kinejun/"
+
+    @sort_by(lambda ds: ds['year'])
+    def data_set(self):
+        for tr in self.soup.select('table.tbl_year > tr'):
+            year_elm = tr.select_one('td:nth-child(1) > a')
+            if not year_elm:
+                continue
+
+            title_elm = tr.select_one('td:nth-child(3) > a')
+            if not title_elm:
+                continue
+
+            year_text = self._uni_nfkc(year_elm.text)
+            title_text = self._uni_nfkc(title_elm.text)
+
+            match = re.match(r'(\d{4})年', year_text)
+            if match:
+                yield {
+                    'year': int(match.group(1)),
+                    'title': title_text,
+                }
