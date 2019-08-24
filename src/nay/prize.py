@@ -9,6 +9,7 @@ class Prize:
     def __init__(self):
         self._soup = None
 
+    @sort_by(lambda ds: (ds['year'], ds['name']))
     def data_set(self):
         # FIXME: Concurrent HTTP requests
         # FIXME: Dangerous iterating over dynamic subclasses
