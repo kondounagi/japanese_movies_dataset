@@ -18,9 +18,14 @@ class Prize:
         #       See other_nominate_data.json
         for cls in type(self).__subclasses__():
             obj = cls()
-            ds[obj.url] = list(obj.data_set())
+            ds[obj.name] = list(obj.data_set())
 
         return ds
+
+    @property
+    def name(self):
+        name = type(self).__name__
+        return re.sub(r'(?!^)([A-Z]+)', r'_\1', name).lower()
 
     @property
     def url(self):
@@ -86,7 +91,7 @@ class GoldenGross(Prize):
                 }
 
 
-class HochiEiga(Prize):
+class HochiEigashou(Prize):
     @property
     def url(self):
         return "https://www.hochi.co.jp/award/hochi_eigashou/history.html"
@@ -114,7 +119,7 @@ class HochiEiga(Prize):
         }
 
 
-class MainichiFilm(Prize):
+class MainichiFilmAward(Prize):
     @property
     def url(self):
         return "https://mainichi.jp/mfa/history/"
@@ -132,7 +137,7 @@ class MainichiFilm(Prize):
                 }
 
 
-class BlueRibbon(Prize):
+class BlueRibbonAward(Prize):
     @property
     def url(self):
         return "http://www.allcinema.net/prog/award_top.php?num_a=41"
