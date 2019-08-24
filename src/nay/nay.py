@@ -2,10 +2,17 @@ import argparse
 import json
 from .prize import Prize
 
+__version__ = '0.0.2'
+
 
 def main():
     """Entry point for the application script"""
-    parser = argparse.ArgumentParser(description="nay")
+    parser = argparse.ArgumentParser(prog='nay',
+                                     description="nay")
+
+    parser.add_argument('-V', '--version',
+                        action='version',
+                        version='%(prog)s v' + __version__)
 
     parser.add_argument('subcommand',
                         help='[fetch]',
