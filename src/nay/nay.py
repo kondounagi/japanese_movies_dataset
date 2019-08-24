@@ -23,4 +23,4 @@ def main():
     if args.subcommand == 'fetch':
         prize = Prize()
         ds = prize.data_set()
-        print(json.dumps(ds, indent=4, ensure_ascii=False))
+        print(json.dumps(list(ds), indent=4, ensure_ascii=False))

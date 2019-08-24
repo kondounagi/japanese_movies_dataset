@@ -10,17 +10,12 @@ class Prize:
         self._soup = None
 
     def data_set(self):
-        ds = {}
-
         # FIXME: Concurrent HTTP requests
         # FIXME: Dangerous iterating over dynamic subclasses
         # TODO: ds structure is different from the original
         #       See other_nominate_data.json
         for cls in type(self).__subclasses__():
-            obj = cls()
-            ds[obj.name] = list(obj.data_set())
-
-        return ds
+            yield from cls().data_set()
 
     @property
     def name(self):
@@ -59,6 +54,7 @@ class NikkanSports(Prize):
             match = re.match(r'第\d+回\((\d{4})年\)', year_text)
             if match:
                 yield {
+                    'name': self.name,
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
@@ -86,6 +82,7 @@ class GoldenGross(Prize):
             match = re.match(r'(\d{4})年', year_text)
             if match:
                 yield {
+                    'name': self.name,
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
@@ -108,12 +105,14 @@ class HochiEigashou(Prize):
                 continue
 
             yield {
+                'name': self.name,
                 'year': int(self._uni_nfkc(year_elm.text)),
                 'title': self._uni_nfkc(title_elm.text),
             }
 
         # XXX: has not yet been uploaded
         yield {
+            'name': self.name,
             'year': 2018,
             'title': '孤狼の血',
         }
@@ -132,6 +131,7 @@ class MainichiFilmAward(Prize):
             match = re.match(r'(\d{4})年\(第\d+回\)『(.*)』', line)
             if match:
                 yield {
+                    'name': self.name,
                     'year': int(match.group(1)),
                     'title': match.group(2),
                 }
@@ -153,6 +153,7 @@ class BlueRibbonAward(Prize):
             match = re.match(r'(\d{4})年', year_text)
             if match:
                 yield {
+                    'name': self.name,
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
@@ -180,6 +181,7 @@ class KinejunBestTen(Prize):
             match = re.match(r'(\d{4})年', year_text)
             if match:
                 yield {
+                    'name': self.name,
                     'year': int(match.group(1)),
                     'title': title_text,
                 }
