@@ -2,12 +2,11 @@
 """ Run SVM
 """
 import math
-import numpy as np
-import pandas as pd
-from sklearn.svm import SVR
-from sklearn import metrics
-from sklearn.preprocessing import StandardScaler
 import optuna
+import pandas as pd
+import pathlib
+from sklearn import metrics
+from sklearn.svm import SVR
 
 
 def read_in_data(year):
@@ -22,10 +21,11 @@ def read_in_data(year):
         data_y:
     """
     # data = pd.read_pickle("pos_val_df.pkl")
-    train_X = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_x.pkl")
-    train_y = pd.read_pickle("../../../../data/std_data/train/" + str(year) + "_y.pkl")
-    test_X = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_x.pkl")
-    test_y = pd.read_pickle("../../../../data/std_data/test/" + str(year) + "_y.pkl")
+    base = pathlib.Path('../../../../data/std_data')
+    train_X = pd.read_pickle(base / "train" / f"{year}_x.pkl")  # noqa: N806
+    train_y = pd.read_pickle(base / "train" / f"{year}_y.pkl")
+    test_X = pd.read_pickle(base / "test" / f"{year}_x.pkl")  # noqa: N806
+    test_y = pd.read_pickle(base / "test" / f"{year}_y.pkl")
     return train_X, train_y, test_X, test_y
 
 
@@ -50,7 +50,7 @@ def train(params):
     )
 
     for year in range(1978, 2020):
-        train_X, train_y, test_X, test_y = read_in_data(year)
+        train_X, train_y, test_X, test_y = read_in_data(year)  # noqa: N806
         model.fit(train_X, train_y)
         pred_y = pd.concat([pred_y, pd.DataFrame(model.predict(test_X))])
         ans_y = pd.concat([ans_y, pd.DataFrame(test_y)])
@@ -60,11 +60,16 @@ def train(params):
 def objective(trail):
     """ Optuna objective parameter tuning function
     """
-    svm_kernel = trail.suggest_categorical("svm_kernel", ["linear", "rbf", "poly", "sigmoid"])
+    svm_kernel = trail.suggest_categorical(
+        "svm_kernel", ["linear", "rbf", "poly", "sigmoid"])
+
     svm_degree = trail.suggest_int("svm_degree", 3, 5)
     svm_gamma = trail.suggest_uniform("svm_gamma", 0.01, 1)
     svm_coef0 = trail.suggest_uniform("svm_coef0", -1, 1)
-    svm_tol = trail.suggest_categorical("svm_tol", [math.pow(10, i) for i in range(-5, 0)])
+
+    svm_tol = trail.suggest_categorical(
+        "svm_tol", [math.pow(10, i) for i in range(-5, 0)])
+
     svm_c = trail.suggest_uniform("svm_c", 0, 1)
     svm_epsilon = trail.suggest_uniform("svm_epsilon", 0.1, 1)
 
@@ -96,13 +101,13 @@ def main():
     # best param after 1000 trainings
     # auc 0.794590025359256
     param = {
-        'svm_kernel': 'sigmoid', 
-        'svm_degree': 4, 
-        'svm_gamma': 0.043502212815589775, 
-        'svm_coef0': 0.20190829020616494, 
-        'svm_tol': 0.0001, 
-        'svm_c': 0.000245786293391316, 
-        'svm_epsilon': 0.3056167642389302
+        'svm_kernel': 'sigmoid',
+        'svm_degree': 4,
+        'svm_gamma': 0.043502212815589775,
+        'svm_coef0': 0.20190829020616494,
+        'svm_tol': 0.0001,
+        'svm_c': 0.000245786293391316,
+        'svm_epsilon': 0.3056167642389302,
     }
     param = study.best_params
     test_y, pred_y = train(param)

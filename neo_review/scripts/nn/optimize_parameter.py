@@ -1,8 +1,8 @@
 import argparse
 
 import chainer
-import chainer.functions as F
-import chainer.links as L
+import chainer.functions as F  # noqa: N812
+import chainer.links as L  # noqa: N812
 from chainer import training, Chain
 from chainer.training import extensions
 
@@ -52,14 +52,14 @@ class NeuralNetworkModel(Chain):
             self.layers.append(L.BatchNormalization(n_units))
         self.layers.append(L.Linear(None, 1))
 
-    def create_model(self, x):
+    def create_model(self, x):  # noqa: VNE001
         model = chainer.Sequential(*self.layers)
         with chainer.using_config('train', False):
             return model.forward(x)
 
-    def __call__(self, x, y):
-        y = y.reshape(-1, 1)
-        loss = F.mean_squared_error(self.create_model(x), y)
+    def __call__(self, x, y):  # noqa: VNE001
+        y = y.reshape(-1, 1)  # noqa: VNE001
+        loss = F.sigmoid_cross_entropy(self.create_model(x), y)
         chainer.reporter.report({'loss': loss}, self)
         return loss
 
@@ -73,17 +73,18 @@ def objective(_trial):
     # Dataset
     load_data = LoadData()
     for year in range(1978, 2020):
-        train, test, _ = load_data.map[year]
-        train_iter = chainer.iterators.SerialIterator(train, model.batchsize)
-        test_iter = chainer.iterators.SerialIterator(test,
-                                                     model.batchsize,
-                                                     repeat=False,
-                                                     shuffle=False)
+        train, valid, test, _ = load_data.map[year]
+        train_iter = chainer.iterators.SerialIterator(train,
+                                                      model.batchsize)
+        valid_iter = chainer.iterators.SerialIterator(valid,
+                                                      model.batchsize,
+                                                      repeat=False,
+                                                      shuffle=False)
 
         # Trainer
         updater = training.updaters.StandardUpdater(train_iter, optimizer)
         trainer = training.Trainer(updater, (args.epoch, 'epoch'))
-        trainer.extend(extensions.Evaluator(test_iter, model))
+        trainer.extend(extensions.Evaluator(valid_iter, model))
 
         log_report_extension = (
             chainer.training.extensions.LogReport(log_name=None))
