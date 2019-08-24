@@ -1,4 +1,5 @@
 import argparse
+from nay.prize import Prize
 
 
 def main():
@@ -13,3 +14,6 @@ def main():
 
     if args.subcommand == 'fetch':
         print("TODO: fetch'em all!")
+
+if __name__ == '__main__':
+    main()

@@ -2,15 +2,15 @@ import re
 import requests
 import unicodedata
 from bs4 import BeautifulSoup
-from decorators import sort_by
+from nay.decorators import sort_by
 
 
 class Prize:
     def __init__(self):
         self._soup = None
 
-    def dataset(self):
-        raise NotImplementedError
+    def data_set(self):
+        print(self.__subclasses__)
 
     @property
     def url(self):
