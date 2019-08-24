@@ -10,7 +10,17 @@ class Prize:
         self._soup = None
 
     def data_set(self):
-        return [cls.__name__ for cls in type(self).__subclasses__()]
+        ds = {}
+
+        # FIXME: Concurrent HTTP requests
+        # FIXME: Dangerous iterating over dynamic subclasses
+        # TODO: ds structure is different from the original
+        #       See other_nominate_data.json
+        for cls in type(self).__subclasses__():
+            obj = cls()
+            ds[obj.url] = list(obj.data_set())
+
+        return ds
 
     @property
     def url(self):
