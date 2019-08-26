@@ -1,9 +1,10 @@
 import re
 import requests
 import unicodedata
+from abc import abstractmethod
 from bs4 import BeautifulSoup
 from nay.decorators import sort_by
-from nay.scraper import Scraper
+from nay.scraper import Scraper, Scrapable
 
 
 class PrizeSet:
@@ -25,24 +26,18 @@ class PrizeSet:
         self._scraper.get(objects)
 
 
-class Prize:
+class Prize(Scrapable):
     def __init__(self):
         self._content = None
+
+    @abstractmethod
+    def data_set(self):
+        pass
 
     @property
     def name(self):
         name = type(self).__name__
         return re.sub(r'(?!^)([A-Z]+)', r'_\1', name).lower()
-
-    def data_set(self):
-        raise NotImplementedError
-
-    @property
-    def url(self):
-        raise NotImplementedError
-
-    def set_content(self, content):
-        self._content = content
 
     @property
     def content(self):
@@ -56,6 +51,9 @@ class Prize:
     @property
     def soup(self):
         return BeautifulSoup(self.content, 'lxml')
+
+    def set_content(self, content):
+        self._content = content
 
     @staticmethod
     def _uni_nfkc(text):

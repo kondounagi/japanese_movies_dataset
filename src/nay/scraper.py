@@ -1,7 +1,19 @@
 import aiohttp
 import asyncio
+from abc import ABC, abstractmethod
 
 MAX_CONNECTIONS = 20
+
+
+class Scrapable(ABC):
+    @property
+    @abstractmethod
+    def url():
+        pass
+
+    @abstractmethod
+    def set_content():
+        pass
 
 
 class Scraper:
