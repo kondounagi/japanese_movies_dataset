@@ -145,7 +145,7 @@ def json2dataframe(year):
     reviews = [
         pd.DataFrame(
             reviews_json[str(i)],
-            columns = ['date', 'review','rating','star'] if len(reviews_json[str(i)]) == 0 else None
+            columns=['date', 'review','rating','star'] if len(reviews_json[str(i)]) == 0 else None
         ) for i in data.index
     ]
 
