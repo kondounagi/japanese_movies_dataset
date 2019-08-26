@@ -100,7 +100,8 @@ def json2dataframe(year):
     columns = mlb.classes_
 
     # 4回以上出た監督のonehot
-    selected_studio_onehot = pd.DataFrame(onehot, columns = columns, index = data.index)
+    selected_studio_onehot = (
+        pd.DataFrame(onehot, columns=columns, index=data.index))
 
     scriptwriters = []
     data['scriptwriter'].map(lambda each: scriptwriters.extend(each))
