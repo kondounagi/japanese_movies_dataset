@@ -10,7 +10,8 @@ from utility import Utility
 
 
 class NeuralNetworkModel(Chain):
-    def __init__(self, n_l0=121, n_l1=37, n_l2=5, n_l3=71, n_l4=72, n_l5=123, n_l6=37, n_l7=85, n_l8=108, n_out=1):
+    def __init__(self, n_l0=121, n_l1=37, n_l2=5, n_l3=71, n_l4=72, n_l5=123,
+                 n_l6=37, n_l7=85, n_l8=108, n_out=1):
         self._n_out = n_out
 
         super().__init__()
