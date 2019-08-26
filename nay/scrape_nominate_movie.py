@@ -8,10 +8,10 @@ from bs4 import BeautifulSoup
 def scrape_nominate_movie(year):
     film_index = "https://eiga.com/movie/"
 
-    re_time = re.compile("／\\d*分／")
-    re_production_studio = re.compile("配給：[^<]*")
-    re_title = re.compile("映画「[^」]*」")
-    re_date = re.compile("\d*年\d*月\d*日")
+    re_time = re.compile(r"／\d*分／")
+    re_production_studio = re.compile(r"配給：[^<]*")
+    re_title = re.compile(r"映画「[^」]*」")
+    re_date = re.compile(r"\d*年\d*月\d*日")
     year_film_data = []
 
     # title aligns with eiga.com
