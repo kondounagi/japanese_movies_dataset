@@ -63,7 +63,6 @@ def json2dataframe(year):
     selected_performers_onehot = (
         pd.DataFrame(onehot, columns=columns, index=data.index))
 
-
     directors = []
     data['director'].map(lambda each: directors.extend(each))
 
