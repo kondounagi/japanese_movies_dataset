@@ -4,6 +4,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
+
 def scrape_nominate_movie(year):
     film_index = "https://eiga.com/movie/"
 
@@ -89,6 +90,7 @@ def scrape_nominate_movie(year):
             sys.stdout.flush()
     return year_film_data
 
+
 def main():
     start_year = 1978
     end_year = 2020
@@ -103,6 +105,7 @@ def main():
     with open("nominate_movie_meta_data.json", "w") as f:
         f.write(json.dumps(years_dict, ensure_ascii=False))
         f.write("\n")
+
 
 if __name__ == "__main__":
     main()
