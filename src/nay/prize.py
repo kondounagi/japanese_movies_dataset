@@ -3,38 +3,59 @@ import requests
 import unicodedata
 from bs4 import BeautifulSoup
 from nay.decorators import sort_by
+from nay.scraper import Scraper
+
+
+class PrizeSet:
+    def __init__(self):
+        self._scraper = Scraper()
+
+    @sort_by(lambda ds: (ds['year'], ds['name']))
+    def data_set(self):
+        # FIXME: Dangerous iterating over dynamic subclasses
+        # TODO: ds structure is different from the original
+        #       See other_nominate_data.json
+        self._prefetch()
+
+        for cls in Prize.__subclasses__():
+            yield from cls().data_set()
+
+    def _prefetch(self):
+        objects = [cls() for cls in Prize.__subclasses__()]
+        self._scraper.get(objects)
 
 
 class Prize:
     def __init__(self):
-        self._soup = None
-
-    @sort_by(lambda ds: (ds['year'], ds['name']))
-    def data_set(self):
-        # FIXME: Concurrent HTTP requests
-        # FIXME: Dangerous iterating over dynamic subclasses
-        # TODO: ds structure is different from the original
-        #       See other_nominate_data.json
-        for cls in type(self).__subclasses__():
-            yield from cls().data_set()
+        self._content = None
 
     @property
     def name(self):
         name = type(self).__name__
         return re.sub(r'(?!^)([A-Z]+)', r'_\1', name).lower()
 
+    def data_set(self):
+        raise NotImplementedError
+
     @property
     def url(self):
         raise NotImplementedError
 
+    def set_content(self, content):
+        self._content = content
+
     @property
-    def soup(self):
-        if self._soup is not None:
-            return self._soup
+    def content(self):
+        if self._content:
+            return self._content
 
         page = requests.get(self.url)
-        self._soup = BeautifulSoup(page.content, 'lxml')
-        return self._soup
+        self.set_content(page.content)
+        return self._content
+
+    @property
+    def soup(self):
+        return BeautifulSoup(self.content, 'lxml')
 
     @staticmethod
     def _uni_nfkc(text):
