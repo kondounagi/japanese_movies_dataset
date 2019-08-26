@@ -13,14 +13,14 @@ def load_data():
     selected_directors_onehot = pd.read_pickle('selected_directors_onehot.pkl')
     selected_studio_onehot = pd.read_pickle('selected_studio_onehot.pkl')
     selected_scriptwriter_onehot = pd.read_pickle('selected_scriptwriter_onehot.pkl')
-    
+
     # selected_directors_onehotとselected_scriptwriter_onehotの重複した人を除く
     duplicate_scriptwriter = set(selected_directors_onehot.columns) & set(selected_scriptwriter_onehot.columns)
     selected_scriptwriter_onehot = selected_scriptwriter_onehot.drop(duplicate_scriptwriter, axis=1)
-          
+
     df = pd.concat(
         [
-            nomination_onehot, 
+            nomination_onehot,
             selected_performers_onehot,
             selected_directors_onehot,
             selected_studio_onehot,
@@ -33,43 +33,43 @@ def load_data():
     # 共線性の高いカラムを除く
     drop_clm = ['吉田一夫']
     df = df.drop(drop_clm, axis=1)
-    
+
     # 取得できなかった上映時間(screen_time == -1)を平均で埋める
         # df[df["screen_time"] == -1] = df.mean().screen_time <- 良くない例
     df["screen_time"] = df["screen_time"].replace(-1, df["screen_time"].mean())
-    
+
     # データセットとして扱うのに必要なyear, prizeのフラグを付与する
     df = pd.concat(
         [df, data["year"], data["prize"]], axis=1
     )
-    
+
     df.fillna(0, inplace=True)
     return df
 
 
 def standard_scale(year):
     scaler = StandardScaler()
-    
+
     x_columns = df.drop(["year", "prize"], axis=1).columns
-    
+
     train_x = df[df["year"] != year].drop(["year", "prize"], axis=1).values
     test_x = df[df["year"] == year].drop(["year", "prize"], axis=1).values
     train_y_df = df[df["year"] != year]["prize"]
     test_y_df = df[df["year"] == year]["prize"]
-    
+
     scaler.fit(train_x)
     std_train_x = scaler.transform(train_x)
     std_test_x = scaler.transform(test_x)
-    
+
     std_train_x_df = pd.DataFrame(std_train_x, columns=x_columns)
     std_test_x_df = pd.DataFrame(std_test_x, columns=x_columns)
-    
+
     # インデックスの調整
     std_train_x_df.index.name = 'id'
     std_test_x_df.index.name = 'id'
     std_train_x_df.index += 1
     std_test_x_df.index += 1
-    
+
     # pickleで保存
     base_path = "../std_data/"
     std_train_x_df.to_pickle(base_path  + "train/{}_x.pkl".format(str(year)))
