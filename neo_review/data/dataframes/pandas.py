@@ -135,7 +135,9 @@ def json2dataframe(year):
 
     for each in data.index:
         for filepath in filepaths:
-            reviews_json[str(each)].extend(temp_json[filepath][str(each)]['reviews'])
+            reviews_json[str(each)].extend(
+                temp_json[filepath][str(each)]['reviews'],
+            )
 
     for each in data.index:
         [temp_json[file][str(each)] for file in filepaths]
