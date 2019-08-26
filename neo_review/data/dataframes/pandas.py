@@ -5,6 +5,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from collections import Counter
 import sys
 
+
 def json2dataframe(year):
     year_list = [str(year) for year in range(1978,int(year) + 1)]
 
@@ -130,6 +131,7 @@ def json2dataframe(year):
     selected_studio_onehot.to_pickle('selected_studio_onehot.pkl')
     selected_scriptwriter_onehot.to_pickle('selected_scriptwriter_onehot.pkl')
     review_dataframe.to_pickle('review_dataframe.pkl')
+
 
 if __name__ == '__main__':
     args = sys.argv
