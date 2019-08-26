@@ -142,7 +142,6 @@ def json2dataframe(year):
     for each in data.index:
         [temp_json[file][str(each)] for file in filepaths]
 
-
     reviews = [
         pd.DataFrame(
             reviews_json[str(i)],
