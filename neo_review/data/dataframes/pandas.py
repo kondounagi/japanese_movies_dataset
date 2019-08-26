@@ -142,12 +142,14 @@ def json2dataframe(year):
     for each in data.index:
         [temp_json[file][str(each)] for file in filepaths]
 
-    reviews = [
-        pd.DataFrame(
-            reviews_json[str(i)],
-            columns=['date', 'review', 'rating', 'star'] if len(reviews_json[str(i)]) == 0 else None
-        ) for i in data.index
-    ]
+    reviews = []
+    for idx in data.index:
+        if len(reviews_json[str(idx)]) == 0:
+            col = ['date', 'review', 'rating', 'star']
+        else:
+            col = None
+
+        reviews.append(pd.DataFrame(reviews_json[str(idx)], columns=col))
 
     for each in reviews:
         each['date'] = pd.to_datetime(each['date'])
