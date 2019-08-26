@@ -154,7 +154,8 @@ def json2dataframe(year):
     for each in reviews:
         each['date'] = pd.to_datetime(each['date'])
 
-    review_dataframe = pd.DataFrame(reviews, columns=['reviews'], index=data.index)
+    review_dataframe = (
+        pd.DataFrame(reviews, columns=['reviews'], index=data.index))
 
 
     data.to_pickle('data.pkl')
