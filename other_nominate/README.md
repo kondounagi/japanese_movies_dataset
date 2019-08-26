@@ -29,12 +29,12 @@ self.years = range(2003, 2019)
 ### 単年(特に最新年)のデータを取得する場合
 
 最新年度のデータは他のデータと形式が違うことが多く、自動化できないため
-_annual_other_nominate_data.json_ に `index` 以外のデータを手入力する
+_other_nominate/annual_other_nominate_data.json_ に `index` 以外のデータを手入力する
 
 もしくは、ここのコードを使わずに `neo_review/data/nominate_movie_meta_data.json` に直接手動で入力（推奨）
 
 ### メタデータ統合の前処理
-_annual_other_nominate_data.json_ に `index` データを与える
+_other_nominate/annual_other_nominate_data.json_ に `index` データを与える
 
 必要に応じて対象年度を書き換える
 
