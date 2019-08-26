@@ -1,21 +1,21 @@
+import aiohttp
 import asyncio
-import requests
+
+MAX_CONNECTIONS = 20
 
 
 class Scraper:
-    def get(self, *args, **kwargs):
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(self._get(*args, **kwargs))
-
-    async def _get(self, objects=[]):
+    def get(self, objects=[]):
         loop = asyncio.get_event_loop()
 
-        tasks = []
+        conn = aiohttp.TCPConnector(limit=MAX_CONNECTIONS)
+        session = aiohttp.ClientSession(connector=conn, loop=loop)
 
-        for obj in objects:
-            task = loop.run_in_executor(None, requests.get, obj.url)
-            tasks.append((obj, task))
+        tasks = [self._get(obj, session) for obj in objects]
 
-        for obj, task in tasks:
-            response = await task
-            obj.set_content(response.text)
+        loop.run_until_complete(asyncio.gather(*tasks))
+        loop.run_until_complete(session.close())
+
+    async def _get(self, obj, session):
+        async with session.get(obj.url) as response:
+            obj.set_content(await response.text())
