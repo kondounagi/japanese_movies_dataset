@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from os import listdir
 from os.path import isfile, join
 
@@ -23,7 +24,7 @@ class RegisterOtherNominate:
 
         self.key = 'other_nominate'
         self.output = []
-        self.years = range(2003, 2019)
+        self.years = range(1978, 2020)
 
     def __call__(self, *args, **kwargs):
         self.files = self.create_files_list()
@@ -58,18 +59,19 @@ class RegisterOtherNominate:
             year_data = []
 
             for prize in add_data['prize_winners']:
-                with open(movielist) as f:
-                    for movie in f:
-                        index, title = movie.split('\t')[0:2]
-                        index = int(index)
+                if os.path.exists(movielist):
+                    with open(movielist) as f:
+                        for movie in f:
+                            index, title = movie.split('\t')[0:2]
+                            index = int(index)
 
-                        if title == prize['work']['title']:
-                            add_prize = prize
-                            add_prize['work']['index'] = index
-                            year_data.append(add_prize)
-                            break
-                    else:
-                        year_data.append(prize)
+                            if title == prize['work']['title']:
+                                add_prize = prize
+                                add_prize['work']['index'] = index
+                                year_data.append(add_prize)
+                                break
+                        else:
+                            year_data.append(prize)
 
             add_data['prize_winners'] = year_data
             self.output.append(add_data)
@@ -84,32 +86,33 @@ class RegisterOtherNominate:
     def dump_data(self):
         for year in self.years:
             movielist = '../{}_movie_clean'.format(year)
-            with open(movielist) as f:
-                for movie in f:
-                    nominates = []
-                    index, title = movie.split('\t')[0:2]
-                    index = int(index)
+            if os.path.exists(movielist):
+                with open(movielist) as f:
+                    for movie in f:
+                        nominates = []
+                        index, title = movie.split('\t')[0:2]
+                        index = int(index)
 
-                    file_name = ('movies_other_nominate/{year}/{index}.json'
-                                 .format(year=year, index=index))
+                        file_name = ('movies_other_nominate/{year}/{index}.json'
+                                     .format(year=year, index=index))
 
-                    for award in self._filter_by_year(self.output, year):
-                        for winner in award['prize_winners']:
-                            result = {}
-                            i = winner['work']['index']
-                            if index == i:
-                                nominates.append({
-                                    'nominate_name': winner['award'],
-                                })
-                            result['title'] = title
-                            result['other_nominate'] = nominates
+                        for award in self._filter_by_year(self.output, year):
+                            for winner in award['prize_winners']:
+                                result = {}
+                                i = winner['work']['index']
+                                if index == i:
+                                    nominates.append({
+                                        'nominate_name': winner['award'],
+                                    })
+                                result['title'] = title
+                                result['other_nominate'] = nominates
 
-                    with open(file_name, 'w') as wf:
-                        json.dump(result, wf,
-                                  ensure_ascii=False,
-                                  indent=4,
-                                  separators=(',', ':'))
-                        wf.write('\n')
+                with open(file_name, 'w') as wf:
+                    json.dump(result, wf,
+                              ensure_ascii=False,
+                              indent=4,
+                              separators=(',', ':'))
+                    wf.write('\n')
 
 
 def main():

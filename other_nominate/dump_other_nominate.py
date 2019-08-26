@@ -24,7 +24,7 @@ class DumpOtherNominate:
                             type=str)
         self.args = parser.parse_args()
 
-        self.years = range(2003, 2019)
+        self.years = range(1978, 2020)
 
     def __call__(self, *args, **kwargs):
         award_data = [

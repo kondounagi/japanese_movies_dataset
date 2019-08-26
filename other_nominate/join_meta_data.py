@@ -68,7 +68,7 @@ class JoinMetaData:
         for year in self.years:
             result[str(year)] = []
             for movie_data in original[str(year)]:
-                print("#", movie_data)
+                # print("#", movie_data)
                 movie_data['other_nominates'] = other_nominates
                 if movie_data['title'] in nominate_map:
                     movie_data['other_nominates'] = []
