@@ -157,7 +157,6 @@ def json2dataframe(year):
     review_dataframe = (
         pd.DataFrame(reviews, columns=['reviews'], index=data.index))
 
-
     data.to_pickle('data.pkl')
     nomination_onehot.to_pickle('nomination_onehot.pkl')
     selected_performers_onehot.to_pickle('selected_performers_onehot.pkl')
