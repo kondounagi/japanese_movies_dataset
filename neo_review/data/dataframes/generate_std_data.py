@@ -48,9 +48,7 @@ def load_data():
     df["screen_time"] = df["screen_time"].replace(-1, df["screen_time"].mean())
 
     # データセットとして扱うのに必要なyear, prizeのフラグを付与する
-    df = pd.concat(
-        [df, data["year"], data["prize"]], axis=1
-    )
+    df = pd.concat([df, data["year"], data["prize"]], axis=1)
 
     df.fillna(0, inplace=True)
     return df
