@@ -72,3 +72,9 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 
 `python other_nominate/join_meta_data.py --original neo_review/data/nominate_movie_meta_data.json --data neo_review/data/nominate_movie_meta_data.json --summary other_nominate/annual_other_nominate_data.json`
 
+### スクレイピングしたデータをpandasのDataframe化する
+
+### データの正規化
+```
+python3 neoreview/data/dataframe/generate_std_data.py 2020
+```
