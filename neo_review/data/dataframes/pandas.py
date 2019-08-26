@@ -91,7 +91,10 @@ def json2dataframe(year):
     # 20回以上受賞
     selected_studios = count_series[count_series > 20].index
 
-    data['selected_studio'] = data['production_studio'].map(lambda each: list( set(each) & set(selected_studios) ))
+    data['selected_studio'] = (
+        data['production_studio'].map(lambda each: list(
+            set(each) & set(selected_studios),
+        )))
 
     onehot = mlb.fit_transform(data['selected_studio'])
     columns = mlb.classes_
