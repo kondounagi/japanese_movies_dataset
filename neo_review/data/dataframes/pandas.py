@@ -46,8 +46,8 @@ def json2dataframe(year):
     data['performers'].map(lambda each: performers.extend(each))
 
     count = Counter(performers)
-    countSeries = pd.Series(count)
-    selected_performers = countSeries[countSeries > 9].index ######10回以上受賞作品に出演
+    count_series = pd.Series(count)
+    selected_performers = count_series[count_series > 9].index ######10回以上受賞作品に出演
 
     data['selected_performers'] = data['performers'].map(lambda each: list( set(each) & set(selected_performers) ))
 
@@ -60,8 +60,8 @@ def json2dataframe(year):
     data['director'].map(lambda each: directors.extend(each))
 
     count = Counter(directors)
-    countSeries = pd.Series(count)
-    selected_directors = countSeries[countSeries > 3].index
+    count_series = pd.Series(count)
+    selected_directors = count_series[count_series > 3].index
 
     data['selected_directors'] = data['director'].map(lambda each: list( set(each) & set(selected_directors) ))
 
@@ -73,8 +73,8 @@ def json2dataframe(year):
     data['production_studio'].map(lambda each: studio.extend(each))
 
     count = Counter(studio)
-    countSeries = pd.Series(count)
-    selected_studios = countSeries[countSeries > 20].index ########################### 20回以上受賞
+    count_series = pd.Series(count)
+    selected_studios = count_series[count_series > 20].index ########################### 20回以上受賞
 
     data['selected_studio'] = data['production_studio'].map(lambda each: list( set(each) & set(selected_studios) ))
 
@@ -86,8 +86,8 @@ def json2dataframe(year):
     data['scriptwriter'].map(lambda each: scriptwriters.extend(each))
 
     count = Counter(scriptwriters)
-    countSeries = pd.Series(count)
-    selected_scriptwriters = countSeries[countSeries > 2].index
+    count_series = pd.Series(count)
+    selected_scriptwriters = count_series[count_series > 2].index
 
     data['selected_scriptwriter'] = data['scriptwriter'].map(lambda each: list( set(each) & set(selected_scriptwriters) ))
 
