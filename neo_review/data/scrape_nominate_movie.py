@@ -94,7 +94,7 @@ def main():
     end_year = 2020
     
     years_dict = {}
-    unique_id = 10
+    unique_id = 1
     for i in range(start_year, end_year + 1):
         years_dict[i] = scrape_nominate_movie(i)
         for j in range(len(years_dict[i])):
