@@ -117,7 +117,10 @@ def json2dataframe(year):
 
     onehot = mlb.fit_transform(data['selected_scriptwriter'])
     columns = mlb.classes_
-    selected_scriptwriter_onehot = pd.DataFrame(onehot, columns = columns, index = data.index) #############
+
+    #############
+    selected_scriptwriter_onehot = (
+        pd.DataFrame(onehot, columns=columns, index=data.index))
 
     reviews_json = {}
     filepaths = ['../coco_reviews.json', '../eigacom_review.json']
