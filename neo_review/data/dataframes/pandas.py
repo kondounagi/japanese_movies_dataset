@@ -60,7 +60,8 @@ def json2dataframe(year):
     columns = mlb.classes_
 
     # 10回以上出た出演者のonehot
-    selected_performers_onehot = pd.DataFrame(onehot, columns=columns, index=data.index)
+    selected_performers_onehot = (
+        pd.DataFrame(onehot, columns=columns, index=data.index))
 
 
     directors = []
