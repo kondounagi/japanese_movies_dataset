@@ -130,7 +130,7 @@ def json2dataframe(year):
 
     temp_json = {}
     for each in filepaths:
-        with open(each, 'r', encoding= 'utf-8') as f:
+        with open(each, 'r', encoding='utf-8') as f:
             temp_json[each] = json.load(f)
 
     for each in data.index:
