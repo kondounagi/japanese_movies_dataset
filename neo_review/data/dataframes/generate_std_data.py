@@ -7,11 +7,17 @@ from sklearn.preprocessing import StandardScaler
 def load_data():
     # load pandas.Dataframe's pickle files
     data = pd.read_pickle('data.pkl')
-    nomination_onehot = pd.read_pickle('nomination_onehot.pkl')
-    selected_performers_onehot = pd.read_pickle('selected_performers_onehot.pkl')
-    selected_directors_onehot = pd.read_pickle('selected_directors_onehot.pkl')
-    selected_studio_onehot = pd.read_pickle('selected_studio_onehot.pkl')
-    selected_scriptwriter_onehot = pd.read_pickle('selected_scriptwriter_onehot.pkl')
+
+    nomination_onehot = (
+        pd.read_pickle('nomination_onehot.pkl'))
+    selected_performers_onehot = (
+        pd.read_pickle('selected_performers_onehot.pkl'))
+    selected_directors_onehot = (
+        pd.read_pickle('selected_directors_onehot.pkl'))
+    selected_studio_onehot = (
+        pd.read_pickle('selected_studio_onehot.pkl'))
+    selected_scriptwriter_onehot = (
+        pd.read_pickle('selected_scriptwriter_onehot.pkl'))
 
     # selected_directors_onehotとselected_scriptwriter_onehotの重複した人を除く
     duplicate_scriptwriter = set(selected_directors_onehot.columns) & set(selected_scriptwriter_onehot.columns)
