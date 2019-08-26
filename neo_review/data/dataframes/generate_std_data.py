@@ -44,7 +44,7 @@ def load_data():
     df = df.drop(drop_clm, axis=1)
 
     # 取得できなかった上映時間(screen_time == -1)を平均で埋める
-        # df[df["screen_time"] == -1] = df.mean().screen_time <- 良くない例
+    # df[df["screen_time"] == -1] = df.mean().screen_time <- 良くない例
     df["screen_time"] = df["screen_time"].replace(-1, df["screen_time"].mean())
 
     # データセットとして扱うのに必要なyear, prizeのフラグを付与する
