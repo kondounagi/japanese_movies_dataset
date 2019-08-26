@@ -48,7 +48,7 @@ def json2dataframe(year):
     count = Counter(performers)
     count_series = pd.Series(count)
 
-    ######10回以上受賞作品に出演
+    # 10回以上受賞作品に出演
     selected_performers = count_series[count_series > 9].index
 
     data['selected_performers'] = data['performers'].map(lambda each: list( set(each) & set(selected_performers) ))
@@ -56,7 +56,7 @@ def json2dataframe(year):
     onehot = mlb.fit_transform(data['selected_performers'])
     columns = mlb.classes_
 
-    #####################10回以上出た出演者のonehot
+    # 10回以上出た出演者のonehot
     selected_performers_onehot = pd.DataFrame(onehot, columns = columns, index = data.index)
 
 
@@ -72,7 +72,7 @@ def json2dataframe(year):
     onehot = mlb.fit_transform(data['selected_directors'])
     columns = mlb.classes_
 
-    #####################4回以上出た監督のonehot
+    # 4回以上出た監督のonehot
     selected_directors_onehot = pd.DataFrame(onehot, columns = columns, index = data.index)
 
     studio = []
@@ -81,7 +81,7 @@ def json2dataframe(year):
     count = Counter(studio)
     count_series = pd.Series(count)
 
-    ########################### 20回以上受賞
+    # 20回以上受賞
     selected_studios = count_series[count_series > 20].index
 
     data['selected_studio'] = data['production_studio'].map(lambda each: list( set(each) & set(selected_studios) ))
@@ -89,7 +89,7 @@ def json2dataframe(year):
     onehot = mlb.fit_transform(data['selected_studio'])
     columns = mlb.classes_
 
-    #####################4回以上出た監督のonehot
+    # 4回以上出た監督のonehot
     selected_studio_onehot = pd.DataFrame(onehot, columns = columns, index = data.index)
 
     scriptwriters = []
