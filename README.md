@@ -78,3 +78,18 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 ```
 python3 neoreview/data/dataframe/generate_std_data.py 2020
 ```
+### 予測
+#### Usage
+```bash
+cd neo_review/scripts
+python3 final_model_2020.py
+```
+### Output
+```
+1 (title) (probability)
+2 (title) (probability)
+3 (title) (probability)
+4 (title) (probability)
+5 (title) (probability)
+```
+The first movie is predicted most likely to win the prize !
