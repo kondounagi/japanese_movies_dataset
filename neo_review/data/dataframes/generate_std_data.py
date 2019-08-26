@@ -79,7 +79,7 @@ def standard_scale(year):
 
     # pickleで保存
     base_path = "../std_data/"
-    std_train_x_df.to_pickle(base_path  + "train/{}_x.pkl".format(str(year)))
+    std_train_x_df.to_pickle(base_path + "train/{}_x.pkl".format(str(year)))
     std_test_x_df.to_pickle(base_path + "test/{}_x.pkl".format(str(year)))
     train_y_df.to_pickle(base_path + "train/{}_y.pkl".format(str(year)))
     test_y_df.to_pickle(base_path + "test/{}_y.pkl".format(str(year)))
