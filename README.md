@@ -11,5 +11,52 @@ japanese_movies_dataset/nay/scrape_nominate_movie.py の実行
 
 最新(2020)年度のデータのみの追加は `japanese_movies_dataset/neo_review/data/nominate_movie_meta_data.json` に直接手動で入力する
 
+#### `nominate_movie_meta_data.json` のデータ説明
+
+    {
+        "YYYY(年度)": [
+            {
+                "director(監督)": [<str>,...],
+                "scriptwriter(脚本)": [<str>,...],
+                "performers(出演者)": [<str>,...],
+                "screen_time(上映時間/分)": <int>,
+                "production_studio(配給元)": <str>,
+                "title(題名)": <str>,
+                "year(公開年)": <str>,
+                "month(公開月)": <str>,
+                "day(公開日)": <str>,
+                "id": <int>,                           # FIXME: どこから？
+                "other_nominates": [
+                    {
+                        "award": "nikkan_sports",
+                        "prized(受賞)": int(<bool>)
+                    },
+                    {
+                        "award": "golden_gross",
+                        "prized(受賞)": int(<bool>)
+                    },
+                    {
+                        "award": "hochi_eigashou",
+                        "prized(受賞)": int(<bool>)
+                    },
+                    {
+                        "award": "mainichi_film_award",
+                        "prized(受賞)": int(<bool>)
+                    },
+                    {
+                        "award": "blue_ribbon_award",
+                        "prized(受賞)": int(<bool>)
+                    },
+                    {
+                        "award": "kinejun_best_ten",
+                        "prized(受賞)": int(<bool>)
+                    }
+                ]
+            },
+            ...
+        ],
+        ...
+    }
+
 `python other_nominate/join_meta_data.py --original neo_review/data/nominate_movie_meta_data.json --data neo_review/data/nominate_movie_meta_data.json --summary other_nominate/annual_other_nominate_data.json`
 
