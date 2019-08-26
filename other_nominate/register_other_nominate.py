@@ -24,7 +24,7 @@ class RegisterOtherNominate:
 
         self.key = 'other_nominate'
         self.output = []
-        self.years = range(1978, 2020)
+        self.years = range(1977, 2020)
 
     def __call__(self, *args, **kwargs):
         self.files = self.create_files_list()

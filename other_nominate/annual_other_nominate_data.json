@@ -1,5 +1,38 @@
 [
     {
+        "year":1977,
+        "prize_winners":[
+            {
+                "award":"hochi_eigashou",
+                "work":{
+                    "index":-1,
+                    "title":"幸福の黄色いハンカチ"
+                }
+            },
+            {
+                "award":"mainichi_film_award",
+                "work":{
+                    "index":-1,
+                    "title":"幸福の黄色いハンカチ"
+                }
+            },
+            {
+                "award":"blue_ribbon_award",
+                "work":{
+                    "index":-1,
+                    "title":"幸福の黄色いハンカチ"
+                }
+            },
+            {
+                "award":"kinejun_best_ten",
+                "work":{
+                    "index":-1,
+                    "title":"幸福の黄色いハンカチ"
+                }
+            }
+        ]
+    },
+    {
         "year":1978,
         "prize_winners":[
             {
@@ -1075,14 +1108,14 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":422,
+                    "index":-1,
                     "title":"阿修羅のごとく"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":276,
+                    "index":-1,
                     "title":"踊る大捜査線 THE MOVIE 2 レインボーブリッジを封鎖せよ!"
                 }
             },
@@ -1096,14 +1129,14 @@
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":406,
+                    "index":-1,
                     "title":"赤目四十八瀧心中未遂"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":406,
+                    "index":-1,
                     "title":"赤目四十八瀧心中未遂"
                 }
             },
@@ -1122,42 +1155,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":418,
+                    "index":-1,
                     "title":"血と骨"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":178,
+                    "index":-1,
                     "title":"世界の中心で、愛をさけぶ"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":299,
+                    "index":-1,
                     "title":"誰も知らない"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":418,
+                    "index":-1,
                     "title":"血と骨"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":299,
+                    "index":-1,
                     "title":"誰も知らない"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":299,
+                    "index":-1,
                     "title":"誰も知らない"
                 }
             }
@@ -1169,7 +1202,7 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":12,
+                    "index":-1,
                     "title":"パッチギ!"
                 }
             },
@@ -1190,21 +1223,21 @@
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":12,
+                    "index":-1,
                     "title":"パッチギ!"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":12,
+                    "index":-1,
                     "title":"パッチギ!"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":12,
+                    "index":-1,
                     "title":"パッチギ!"
                 }
             }
@@ -1216,42 +1249,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":427,
+                    "index":-1,
                     "title":"フラガール"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":195,
+                    "index":-1,
                     "title":"LIMIT OF LOVE 海猿"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":427,
+                    "index":-1,
                     "title":"フラガール"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":288,
+                    "index":-1,
                     "title":"ゆれる"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":427,
+                    "index":-1,
                     "title":"フラガール"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":427,
+                    "index":-1,
                     "title":"フラガール"
                 }
             }
@@ -1263,42 +1296,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":28,
+                    "index":-1,
                     "title":"それでもボクはやってない"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":449,
+                    "index":-1,
                     "title":"HERO"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":28,
+                    "index":-1,
                     "title":"それでもボクはやってない"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":28,
+                    "index":-1,
                     "title":"それでもボクはやってない"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":303,
+                    "index":-1,
                     "title":"キサラギ"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":28,
+                    "index":-1,
                     "title":"それでもボクはやってない"
                 }
             }
@@ -1310,42 +1343,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":454,
+                    "index":-1,
                     "title":"おくりびと"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":356,
+                    "index":-1,
                     "title":"崖の上のポニョ"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":454,
+                    "index":-1,
                     "title":"おくりびと"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":454,
+                    "index":-1,
                     "title":"おくりびと"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":327,
+                    "index":-1,
                     "title":"クライマーズ・ハイ"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":454,
+                    "index":-1,
                     "title":"おくりびと"
                 }
             }
@@ -1357,42 +1390,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":288,
+                    "index":-1,
                     "title":"ディア・ドクター"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":245,
+                    "index":-1,
                     "title":"ROOKIES -卒業-"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":480,
+                    "index":-1,
                     "title":"沈まぬ太陽"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":480,
+                    "index":-1,
                     "title":"沈まぬ太陽"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":281,
+                    "index":-1,
                     "title":"劔岳 点の記"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":288,
+                    "index":-1,
                     "title":"ディア・ドクター"
                 }
             }
@@ -1404,42 +1437,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":373,
+                    "index":-1,
                     "title":"悪人"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":286,
+                    "index":-1,
                     "title":"借りぐらしのアリエッティ"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":373,
+                    "index":-1,
                     "title":"悪人"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":373,
+                    "index":-1,
                     "title":"悪人"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":222,
+                    "index":-1,
                     "title":"告白"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":373,
+                    "index":-1,
                     "title":"悪人"
                 }
             }
@@ -1451,7 +1484,7 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":335,
+                    "index":-1,
                     "title":"一枚のハガキ"
                 }
             },
@@ -1465,28 +1498,28 @@
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":184,
+                    "index":-1,
                     "title":"八日目の蝉"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":335,
+                    "index":-1,
                     "title":"一枚のハガキ"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":51,
+                    "index":-1,
                     "title":"冷たい熱帯魚"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":335,
+                    "index":-1,
                     "title":"一枚のハガキ"
                 }
             }
@@ -1498,42 +1531,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":523,
+                    "index":-1,
                     "title":"終の信託"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":326,
+                    "index":-1,
                     "title":"BRAVE HEARTS 海猿"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":442,
+                    "index":-1,
                     "title":"鍵泥棒のメソッド"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":523,
+                    "index":-1,
                     "title":"終の信託"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":367,
+                    "index":-1,
                     "title":"かぞくのくに"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":367,
+                    "index":-1,
                     "title":"かぞくのくに"
                 }
             }
@@ -1545,42 +1578,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":187,
+                    "index":-1,
                     "title":"舟を編む"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":352,
+                    "index":-1,
                     "title":"風立ちぬ"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":187,
+                    "index":-1,
                     "title":"舟を編む"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":187,
+                    "index":-1,
                     "title":"舟を編む"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":86,
+                    "index":-1,
                     "title":"横道世之介"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":586,
+                    "index":-1,
                     "title":"ペコロスの母に会いに行く"
                 }
             }
@@ -1606,28 +1639,28 @@
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":663,
+                    "index":-1,
                     "title":"0.5ミリ"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":332,
+                    "index":-1,
                     "title":"私の男"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":353,
+                    "index":-1,
                     "title":"超高速!参勤交代"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":201,
+                    "index":-1,
                     "title":"そこのみにて光輝く"
                 }
             }
@@ -1667,7 +1700,7 @@
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":158,
+                    "index":-1,
                     "title":"日本のいちばん長い日"
                 }
             },
@@ -1693,35 +1726,35 @@
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":174,
+                    "index":-1,
                     "title":"君の名は。"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":211,
+                    "index":-1,
                     "title":"湯を沸かすほどの熱い愛"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":154,
+                    "index":-1,
                     "title":"シン・ゴジラ"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":154,
+                    "index":-1,
                     "title":"シン・ゴジラ"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":225,
+                    "index":-1,
                     "title":"この世界の片隅に"
                 }
             }
@@ -1747,14 +1780,14 @@
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":311,
+                    "index":-1,
                     "title":"花筐/HANAGATAMI"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":242,
+                    "index":-1,
                     "title":"あゝ、荒野 前篇"
                 }
             },
@@ -1773,42 +1806,42 @@
             {
                 "award":"nikkan_sports",
                 "work":{
-                    "index":269,
+                    "index":-1,
                     "title":"万引き家族"
                 }
             },
             {
                 "award":"golden_gross",
                 "work":{
-                    "index":421,
+                    "index":-1,
                     "title":"劇場版 コード・ブルー -ドクターヘリ緊急救命-"
                 }
             },
             {
                 "award":"hochi_eigashou",
                 "work":{
-                    "index":206,
+                    "index":-1,
                     "title":"孤狼の血"
                 }
             },
             {
                 "award":"mainichi_film_award",
                 "work":{
-                    "index":269,
+                    "index":-1,
                     "title":"万引き家族"
                 }
             },
             {
                 "award":"blue_ribbon_award",
                 "work":{
-                    "index":314,
+                    "index":-1,
                     "title":"カメラを止めるな!"
                 }
             },
             {
                 "award":"kinejun_best_ten",
                 "work":{
-                    "index":269,
+                    "index":-1,
                     "title":"万引き家族"
                 }
             }
