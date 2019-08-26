@@ -87,7 +87,8 @@ def scrape_nominate_movie(year):
             title = re_title.search(html_text)
             date = re_date.search(html_text)
             if production_studio:
-                film_data["production_studio"] = production_studio.group(0)[3:].strip()
+                film_data["production_studio"] = (
+                    production_studio.group(0)[3:].strip())
             if screen_time:
                 film_data["screen_time"] = int(screen_time.group(0)[1:-2])
             if title:
@@ -99,8 +100,10 @@ def scrape_nominate_movie(year):
             if date:
                 date_str = date.group(0)
                 film_data["year"] = date_str[0:date_str.find("年")]
-                film_data["month"] = date_str[date_str.find("年") + 1:date_str.find("月")]
-                film_data["day"] = date_str[date_str.find("月") + 1:date_str.find("日")]
+                film_data["month"] = (
+                    date_str[date_str.find("年") + 1:date_str.find("月")])
+                film_data["day"] = (
+                    date_str[date_str.find("月") + 1:date_str.find("日")])
 
             # filter out informative data
             staff_cast = soup.find(id="staff-cast")
