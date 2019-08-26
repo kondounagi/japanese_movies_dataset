@@ -3,8 +3,20 @@
 
 ## Usage
 ### メタデータの取得
-[FIXME]
-japanese_movies_dataset/nay/scrape_nominate_movie.py の実行
+#### Usage
+```bash
+cd neo_review/data
+python scrape_nominate_movie.py
+```
+
+#### How to update new data
+Based on IDs in data/nominate_id/${year}.txt, movie metadata are scraped in data/nominate_movie_meta_data.json from eiga.com.
+
+IDs from 1978 to 2019 have been checked intact. When data for 2020 are announced, please replace IDs in 2020.txt.
+
+Example:
+Search 天気の子 on eiga.com and its link is https://eiga.com/movie/90444/.
+Then ID for this movie is 90444 and append it in 2020.txt.
 
 ### 他の映画賞受賞データの取得
 `cd japanese_movies_dataset`
