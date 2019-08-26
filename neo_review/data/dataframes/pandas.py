@@ -39,7 +39,8 @@ def json2dataframe(year):
     mlb = MultiLabelBinarizer()
     onehot = mlb.fit_transform(data['other_nominates'])
     columns = mlb.classes_
-    nomination_onehot = pd.DataFrame(onehot, columns=columns, index=data.index) #####################
+    nomination_onehot = pd.DataFrame(onehot, columns=columns, index=data.index)
+    #####################
 
     performers = []
     data['performers'].map(lambda each: performers.extend(each))
