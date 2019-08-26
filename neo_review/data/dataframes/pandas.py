@@ -18,17 +18,17 @@ def json2dataframe(year):
     data = pd.DataFrame(data).set_index('id')
 
     def dict2list_other_nominate(series):
-        l = []
+        lst = []
         nullfrag = series.isnull().get('other_nominates')
         if nullfrag is False:
             other_nominates = series.get('other_nominates')
             for each in other_nominates:
                 if type(each) is str:
-                    l.append(each)
+                    lst.append(each)
                 elif type(each) is dict:
                     if each['prized'] == 1:
-                        l.append(each['award'])
-        return pd.Series([l])
+                        lst.append(each['award'])
+        return pd.Series([lst])
 
     data['other_nominates'] = data.apply(dict2list_other_nominate, axis = 'columns')
 
