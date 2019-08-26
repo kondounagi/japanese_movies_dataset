@@ -14,7 +14,7 @@ def json2dataframe(year):
         json_dict = json.load(f)
         for year in year_list:
             data += json_dict[year]
-            
+
     data = pd.DataFrame(data).set_index('id')
 
     def dict2list_other_nominate(series):
@@ -55,7 +55,7 @@ def json2dataframe(year):
 
     directors = []
     data['director'].map(lambda each: directors.extend(each))
-        
+
     count = Counter(directors)
     countSeries = pd.Series(count)
     selected_directors = countSeries[countSeries > 3].index
@@ -109,7 +109,7 @@ def json2dataframe(year):
 
     for each in data.index:
         [temp_json[file][str(each)] for file in filepaths]
-        
+
 
     reviews = [
         pd.DataFrame(
@@ -120,7 +120,7 @@ def json2dataframe(year):
 
     for each in reviews:
         each['date'] = pd.to_datetime(each['date'])
-        
+
     review_dataframe = pd.DataFrame(reviews, columns = ['reviews'], index = data.index)
 
 
