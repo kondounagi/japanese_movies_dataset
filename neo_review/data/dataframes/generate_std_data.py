@@ -20,8 +20,12 @@ def load_data():
         pd.read_pickle('selected_scriptwriter_onehot.pkl'))
 
     # selected_directors_onehotとselected_scriptwriter_onehotの重複した人を除く
-    duplicate_scriptwriter = set(selected_directors_onehot.columns) & set(selected_scriptwriter_onehot.columns)
-    selected_scriptwriter_onehot = selected_scriptwriter_onehot.drop(duplicate_scriptwriter, axis=1)
+    duplicate_scriptwriter = (
+        set(selected_directors_onehot.columns)
+        & set(selected_scriptwriter_onehot.columns))
+
+    selected_scriptwriter_onehot = (
+        selected_scriptwriter_onehot.drop(duplicate_scriptwriter, axis=1))
 
     df = pd.concat(
         [
