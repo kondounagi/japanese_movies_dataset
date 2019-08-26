@@ -162,15 +162,21 @@ class MainichiFilmAward(Prize):
 class BlueRibbonAward(Prize):
     @property
     def url(self):
-        return "http://www.allcinema.net/prog/award_top.php?num_a=41"
+        return "https://mihocinema.com/blueribbon-list"
 
     @sort_by(lambda ds: ds['year'])
     def data_set(self):
-        for tr in self.soup.select('tr.c2'):
-            year_text = self._uni_nfkc(
-                tr.select_one('td:nth-child(1) > a').text)
-            title_text = self._uni_nfkc(
-                tr.select_one('td:nth-child(3) > a').text)
+        for tr in self.soup.select('table tr'):
+            year_elm = tr.select_one('td:nth-child(2)')
+            if not year_elm:
+                continue
+
+            title_elm = tr.select_one('td:nth-child(3)')
+            if not title_elm:
+                continue
+
+            year_text = self._uni_nfkc(year_elm.text)
+            title_text = self._uni_nfkc(title_elm.text)
 
             match = re.match(r'(\d{4})年', year_text)
             if match:
