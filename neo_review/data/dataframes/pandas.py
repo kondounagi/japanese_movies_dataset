@@ -34,7 +34,7 @@ def json2dataframe(year):
         data.apply(dict2list_other_nominate, axis='columns'))
 
     data['production_studio'] = (
-        data['production_studio'].map(lambda each: re.split(r'[、＝=]',each)))
+        data['production_studio'].map(lambda each: re.split(r'[、＝=]', each)))
 
     mlb = MultiLabelBinarizer()
     onehot = mlb.fit_transform(data['other_nominates'])
