@@ -7,7 +7,7 @@ import sys
 
 
 def json2dataframe(year):
-    year_list = [str(year) for year in range(1978,int(year) + 1)]
+    year_list = [str(year) for year in range(1978, int(year) + 1)]
 
     data = []
     with open('../nominate_movie_meta_data.json', 'r', encoding = 'utf-8') as f:
