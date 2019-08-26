@@ -70,7 +70,10 @@ def json2dataframe(year):
     count_series = pd.Series(count)
     selected_directors = count_series[count_series > 3].index
 
-    data['selected_directors'] = data['director'].map(lambda each: list( set(each) & set(selected_directors) ))
+    data['selected_directors'] = (
+        data['director'].map(lambda each: list(
+            set(each) & set(selected_directors),
+        )))
 
     onehot = mlb.fit_transform(data['selected_directors'])
     columns = mlb.classes_
