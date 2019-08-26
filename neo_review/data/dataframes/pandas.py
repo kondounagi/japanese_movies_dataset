@@ -51,7 +51,10 @@ def json2dataframe(year):
     # 10回以上受賞作品に出演
     selected_performers = count_series[count_series > 9].index
 
-    data['selected_performers'] = data['performers'].map(lambda each: list(set(each) & set(selected_performers)))
+    data['selected_performers'] = (
+        data['performers'].map(lambda each: list(
+            set(each) & set(selected_performers),
+        )))
 
     onehot = mlb.fit_transform(data['selected_performers'])
     columns = mlb.classes_
