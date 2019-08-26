@@ -6,7 +6,6 @@
 
 import numpy as np
 import json
-import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.special import softmax
