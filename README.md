@@ -76,7 +76,7 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 
 ### データの正規化
 ```
-python3 neo_review/data/dataframe/generate_std_data.py 2020
+python3 neo_review/data/dataframes/generate_std_data.py 2020
 ```
 ### 予測
 #### Usage
