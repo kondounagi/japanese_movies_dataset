@@ -140,7 +140,7 @@ def json2dataframe(year):
             )
 
     for each in data.index:
-        [temp_json[file][str(each)] for file in filepaths]
+        [temp_json[path][str(each)] for path in filepaths]
 
     reviews = []
     for idx in data.index:
