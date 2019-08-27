@@ -21,7 +21,7 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 ### 他の映画賞受賞データの取得
 `cd japanese_movies_dataset`
 
-最新(2020)年度のデータのみの追加は `japanese_movies_dataset/neo_review/data/nominate_movie_meta_data.json` に直接手動で入力する
+最新(2020)年度のデータのみの追加は `neo_review/data/nominate_movie_meta_data.json` に直接手動で入力する
 
 #### `nominate_movie_meta_data.json` のデータ説明
 
