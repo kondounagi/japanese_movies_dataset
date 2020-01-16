@@ -40,6 +40,7 @@
 (python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2016)&
 (python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2017)&
 (python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2018)&
+(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2019)&
 wait
 python ./mearge.py ../data/nominate_movie_meta_data.json ../data/coco ../data/coco_reviews.json
 rm -rf ../data/coco
