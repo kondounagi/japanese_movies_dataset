@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import certifi
-import urllib3
+import asyncio
+import aiohttp
 import urllib
 from bs4 import BeautifulSoup
 import re
@@ -20,32 +20,41 @@ def store_json(filepath, obj):
         f.write('\n')
 
 
-def main(filepath: str, output_dir: str, year):
+async def main(filepath: str, output_dir: str, year):
     meta_data = load_json(filepath)
 
-    for element in meta_data[year]:
-        nomination_id = element['id']
-        title = element['title']
-        select = get_coco_id(title)
-        reviews = get_coco_review(select)
+    # Just like Chrome does
+    connector = aiohttp.TCPConnector(limit_per_host=6)
 
-        os.makedirs(output_dir, exist_ok=True)
-
-        output_path = os.path.join(output_dir, '{}.json'.format(nomination_id))
-
-        output_dict = {
-            str(nomination_id): {
-                'title': title,
-                'reviews': reviews,
-            },
-        }
-
-        store_json(output_path, output_dict)
-
-    return
+    async with aiohttp.ClientSession(connector=connector) as session:
+        stmts = [store_review_for(data, session, output_dir)
+                 for data in meta_data[year]]
+        await asyncio.gather(*stmts)
 
 
-def get_coco_id(title):
+async def store_review_for(element, session, output_dir):
+    nomination_id = element['id']
+    title = element['title']
+
+    select = await get_coco_id(session, title)
+    reviews = await get_coco_review(session, select)
+
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, '{}.json'.format(nomination_id))
+
+    output_dict = {
+        str(nomination_id): {
+            'title': title,
+            'reviews': reviews,
+        },
+    }
+
+    store_json(output_path, output_dict)
+
+    return True
+
+
+async def get_coco_id(session, title):
     def trans(title_string):
         table = str.maketrans({
             '１': '1',
@@ -78,64 +87,58 @@ def get_coco_id(title):
         regulated_title = regulated_title.rstrip(' ')
         return regulated_title
 
-    http = urllib3.PoolManager(
-        cert_reqs='CERT_REQUIRED',
-        ca_certs=certifi.where())
-
     url = 'https://coco.to/movies'
-
     regulated_title = trans(title)
 
-    req = http.request('GET', url, fields={'q': regulated_title})
-    data = req.data.decode('utf-8')
+    async with session.get(url, params={'q': regulated_title}) as response:
+        data = await response.text()
+        soup = BeautifulSoup(data, 'html.parser')
 
-    soup = BeautifulSoup(data, 'html.parser')
+        id_title = []
+        for element in soup.select("div.li_pp"):
+            temp_id = re.sub(r'\D', '', element.a['href'])
+            temp_title = element.select_one('div.li_ttl').string
+            id_title.append({'cocoId': temp_id, 'title': temp_title})
 
-    id_title = []
-    for element in soup.select("div.li_pp"):
-        temp_id = re.sub(r'\D', '', element.a['href'])
-        temp_title = element.select_one('div.li_ttl').string
-        id_title.append({'cocoId': temp_id, 'title': temp_title})
+        for element in id_title:
+            temp_title = element['title']
+            temp_title = trans(temp_title)
+            temp_title = temp_title.replace('...', '')
+            element['title'] = temp_title
 
-    for element in id_title:
-        temp_title = element['title']
-        temp_title = trans(temp_title)
-        temp_title = temp_title.replace('...', '')
-        element['title'] = temp_title
+        regulated_title = trans(title)
+        regulated_title = regulated_title.replace('...', '')
 
-    regulated_title = trans(title)
-    regulated_title = regulated_title.replace('...', '')
+        select = None
 
-    select = None
+        for element in id_title:
+            min_length = min(len(element['title']), len(regulated_title))
+            if regulated_title[:min_length] == element['title'][:min_length]:
+                select = element
+                break
 
-    for element in id_title:
-        min_length = min(len(element['title']), len(regulated_title))
-        if regulated_title[:min_length] == element['title'][:min_length]:
-            select = element
-            break
+        if select is None and len(id_title) != 0:
+            select = id_title[0]
 
-    if select is None and len(id_title) != 0:
-        select = id_title[0]
-
-    return select
+        return select
 
 
-def get_coco_review(select):
-    http = urllib3.PoolManager(
-        cert_reqs='CERT_REQUIRED',
-        ca_certs=certifi.where())
+async def get_coco_review_page(session, select, i):
+    url = ('https://coco.to/movie/{}/review/{}'
+           .format(select['cocoId'], str(i + 1)))
 
+    encoded_url = urllib.parse.quote(url, '/:?=&')
+    async with session.get(encoded_url) as response:
+        return await response.text()
+
+
+async def get_coco_review(session, select):
     comments = []
     if select is None:
         return comments
 
     for i in range(200):
-        url = ('https://coco.to/movie/{}/review/{}'
-               .format(select['cocoId'], str(i + 1)))
-
-        encoded_url = urllib.parse.quote(url, '/:?=&')
-        req = http.request('GET', encoded_url)
-        data = req.data.decode('utf-8')
+        data = await get_coco_review_page(session, select, i)
         soup = BeautifulSoup(data, 'html.parser')
 
         flag = False
@@ -176,4 +179,4 @@ if __name__ == '__main__':
         print('disignate filepath')
         sys.exit(0)
     if len(args) == 4:
-        main(args[1], args[2], args[3])
+        asyncio.run(main(args[1], args[2], args[3]))
