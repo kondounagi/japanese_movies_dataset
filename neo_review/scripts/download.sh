@@ -1,46 +1,8 @@
 #!/bin/sh
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1978)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1979)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1980)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1981)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1982)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1983)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1984)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1985)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1986)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1987)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1988)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1989)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1990)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1991)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1992)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1993)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1994)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1995)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1996)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1997)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1998)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 1999)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2000)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2001)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2002)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2003)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2004)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2005)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2006)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2007)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2008)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2009)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2010)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2011)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2012)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2013)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2014)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2015)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2016)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2017)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2018)&
-(python ./coco.py ../data/nominate_movie_meta_data.json ../data/coco 2019)&
-wait
+python ./coco.py \
+    ../data/nominate_movie_meta_data.json \
+    ../data/coco \
+    $(seq 1978 2020)
+
 python ./mearge.py ../data/nominate_movie_meta_data.json ../data/coco ../data/coco_reviews.json
 rm -rf ../data/coco
