@@ -91,6 +91,7 @@ async def get_coco_id(session, title):
     regulated_title = trans(title)
 
     async with session.get(url, params={'q': regulated_title}) as response:
+        print(f"{response.status}: {response.url}")
         data = await response.text()
         soup = BeautifulSoup(data, 'html.parser')
 
@@ -129,6 +130,7 @@ async def get_coco_review_page(session, select, i):
 
     encoded_url = urllib.parse.quote(url, '/:?=&')
     async with session.get(encoded_url) as response:
+        print(f"{response.status}: {response.url}")
         return await response.text()
 
 
