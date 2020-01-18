@@ -20,15 +20,17 @@ def store_json(filepath, obj):
         f.write('\n')
 
 
-async def main(filepath: str, output_dir: str, year):
+async def main(filepath: str, output_dir: str, *years):
     meta_data = load_json(filepath)
 
     # Just like Chrome does
     connector = aiohttp.TCPConnector(limit_per_host=6)
 
     async with aiohttp.ClientSession(connector=connector) as session:
-        stmts = [store_review_for(data, session, output_dir)
-                 for data in meta_data[year]]
+        stmts = []
+        for year in years:
+            for data in meta_data[year]:
+                stmts.append(store_review_for(data, session, output_dir))
         await asyncio.gather(*stmts)
 
 
@@ -180,5 +182,5 @@ if __name__ == '__main__':
     if len(args) < 4:
         print('disignate filepath')
         sys.exit(0)
-    if len(args) == 4:
-        asyncio.run(main(args[1], args[2], args[3]))
+
+    asyncio.run(main(*args[1:]))
