@@ -10,17 +10,27 @@ class DumpOtherNominate:
 
     # Dump the prize winners of each award.
 
-    def __init__(self):
-        parser = argparse.ArgumentParser()
-        parser.add_argument("-o", "--output",
-                            default="annual_other_nominate_data.json",
-                            help="path of the output json file",
-                            type=str)
-        self.args = parser.parse_args()
+    def __init__(self, output, since, until):
+        self._output = output
+        self._since = since
+        self._until = until
 
-        self.years = range(1977, 2020)
+    @property
+    def output(self):
+        return self._output
 
-    def __call__(self, *args, **kwargs):
+    @property
+    def since(self):
+        return self._since
+
+    @property
+    def until(self):
+        return self._until
+
+    def years(self):
+        yield from range(self.since, self.until)
+
+    def run(self):
         award_data = [
             self.register_nikkan_sports(),
             self.register_golden_gross(),
@@ -31,7 +41,7 @@ class DumpOtherNominate:
         ]
 
         results = []
-        for year in self.years:
+        for year in self.years():
             result = {'year': year, 'prize_winners': []}
             for data in award_data:
                 info = {'award': data[0]}
@@ -45,7 +55,7 @@ class DumpOtherNominate:
                 result['prize_winners'].append(info)
             results.append(result)
 
-        with open(self.args.output, 'w') as output:
+        with open(self.output, 'w') as output:
             json.dump(results, output,
                       ensure_ascii=False,
                       indent=4,
@@ -59,7 +69,7 @@ class DumpOtherNominate:
 
     def create_map(self, whole_data):
         data = []
-        for year in self.years:
+        for year in self.years():
             for caption, title in whole_data.items():
                 data_map = {}
                 if str(year) in caption:
@@ -174,5 +184,17 @@ class DumpOtherNominate:
 
 
 if __name__ == '__main__':
-    dump_other_nominate = DumpOtherNominate()
-    dump_other_nominate()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-o", "--output",
+                        default="annual_other_nominate_data.json",
+                        help="path of the output json file",
+                        type=str)
+    parser.add_argument("--since", default=1978, help="since", type=int)
+    parser.add_argument("--until", default=2020, help="until", type=int)
+    args = parser.parse_args()
+
+    dump_other_nominate = DumpOtherNominate(args.output,
+                                            args.since,
+                                            args.until)
+
+    dump_other_nominate.run()
