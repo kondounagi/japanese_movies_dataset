@@ -140,14 +140,22 @@ class DumpOtherNominate:
         return 'mainichi_film_award', self.create_map(whole_data)
 
     def register_blue_ribbon_award(self):
-        url = 'http://www.allcinema.net/prog/award_top.php?num_a=41'
+        url = 'https://pixiin.com/award-blue-ribbon-all/'
         root = self._get_root(url)
         whole_data = {}
-        for row in root.xpath('//tr[contains(@class, "c2")]'):
-            fullwidth = row.xpath('td[1]/a')[0].text
-            caption = self._convert_to_half_width(fullwidth)
-            data = row.xpath('td[3]/a')[0].text.replace('\u3000', ' ')
-            whole_data[caption] = data
+
+        query = '//h3[starts-with(@id, "h3_")][contains(text(), "第")]'
+        for h3 in root.xpath(query):
+            _, year = h3.get('id').split('_')
+
+            span = h3.xpath('following-sibling::ul//span[text()="作品賞"]')[0]
+            if span.xpath('following-sibling::a[1]'):
+                title = span.xpath('following-sibling::a[1]/text()')[0]
+            else:
+                title = span.xpath('parent::*/text()')[0]
+
+            whole_data[year] = self._convert_to_half_width(title)
+
         return 'blue_ribbon_award', self.create_map(whole_data)
 
     def kinejun_best_ten(self):
