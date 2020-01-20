@@ -4,8 +4,6 @@ import re
 
 import requests
 from lxml import html
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 
 class DumpOtherNominate:
@@ -13,10 +11,6 @@ class DumpOtherNominate:
     # Dump the prize winners of each award.
 
     def __init__(self):
-        options = Options()
-        options.add_argument('--headless')
-        self.driver = webdriver.Chrome(options=options)
-
         parser = argparse.ArgumentParser()
         parser.add_argument("-o", "--output",
                             default="annual_other_nominate_data.json",
