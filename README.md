@@ -73,6 +73,13 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 `python other_nominate/join_meta_data.py --original neo_review/data/nominate_movie_meta_data.json --data neo_review/data/nominate_movie_meta_data.json --summary other_nominate/annual_other_nominate_data.json`
 
 ### スクレイピングしたデータをpandasのDataframe化する
+```
+( cd neo_review/scripts; sh download.sh )
+( cd neo_review/data; python scrape_nominate_movie.py )
+( cd neo_review/scripts/eigacom_review/eigacom_nomination_id_table; python scrape.py )
+( cd neo_review/scripts/eigacom_review; python neo_review_scraping.py )
+( cd neo_review/data/dataframes; python _pandas.py 2020 )
+```
 
 ### データの正規化
 ```
