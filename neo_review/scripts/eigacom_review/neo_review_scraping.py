@@ -38,7 +38,7 @@ def scrape_review(eigacom_id):
         return None
     
     while(1):
-        res = requests.get(url_review + str(page_num))
+        res = requests.get(url_review + str(page_num) + '/')
         res.encoding = res.apparent_encoding
         soup = BeautifulSoup(res.content, "lxml")
         
