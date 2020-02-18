@@ -32,10 +32,11 @@ def scrape(year):
     ids = []
     
     winner = table.find('tr', attrs={"class": "prize"})
-    winner_path = winner.find('a')["href"]
-    winner_id = re.sub("\\D", "", winner_path)
-    ids.append(winner_id)
-    winner.decompose()
+    if winner:
+        winner_path = winner.find('a')["href"]
+        winner_id = re.sub("\\D", "", winner_path)
+        ids.append(winner_id)
+        winner.decompose()
     
     for a in table.find_all('a'):
         path = a["href"]
@@ -50,7 +51,7 @@ def scrape(year):
 
 
 def main():
-    for year in range(1978, 2000):
+    for year in range(1978, 2021):
         ids = scrape(year)
         with open('{}.txt'.format(str(year)), 'w') as f:
             for id in ids:
