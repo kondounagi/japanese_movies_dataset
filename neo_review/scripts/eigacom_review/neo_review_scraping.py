@@ -95,7 +95,7 @@ def main():
     
     movie_id = 1
     
-    for year in range(1978, 2020):
+    for year in range(1978, 2021):
         print(year)
         with open('./eigacom_nomination_id_table/{}.txt'.format(str(year)), 'r') as id_table:
             for line in csv.reader(id_table):
