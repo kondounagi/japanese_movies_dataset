@@ -19,8 +19,7 @@ def json2dataframe(year):
 
     def dict2list_other_nominate(series):
         lst = []
-        nullfrag = series.isnull().get('other_nominates')
-        if nullfrag is False:
+        if not series.isnull().get('other_nominates'):
             other_nominates = series.get('other_nominates')
             for each in other_nominates:
                 if type(each) is str:
