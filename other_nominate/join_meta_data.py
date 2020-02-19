@@ -33,7 +33,7 @@ class JoinMetaData:
 
         self.args = parser.parse_args()
 
-        self.years = range(1978, 2020)
+        self.years = range(1978, 2021)
 
     def __call__(self, *args, **kwargs):
         nominate_map = self.create_map()
