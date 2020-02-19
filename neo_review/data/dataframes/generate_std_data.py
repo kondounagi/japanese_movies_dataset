@@ -59,10 +59,10 @@ def standard_scale(year, df):
 
     x_columns = df.drop(["year", "prize"], axis=1).columns
 
-    train_x = df[df["year"] != year].drop(["year", "prize"], axis=1).values
-    test_x = df[df["year"] == year].drop(["year", "prize"], axis=1).values
-    train_y_df = df[df["year"] != year]["prize"]
-    test_y_df = df[df["year"] == year]["prize"]
+    train_x = df[df["year"] != str(year)].drop(["year", "prize"], axis=1).values
+    test_x = df[df["year"] == str(year)].drop(["year", "prize"], axis=1).values
+    train_y_df = df[df["year"] != str(year)]["prize"]
+    test_y_df = df[df["year"] == str(year)]["prize"]
 
     scaler.fit(train_x)
     std_train_x = scaler.transform(train_x)
