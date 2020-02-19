@@ -54,7 +54,7 @@ def load_data():
     return df
 
 
-def standard_scale(year):
+def standard_scale(year, df):
     scaler = StandardScaler()
 
     x_columns = df.drop(["year", "prize"], axis=1).columns
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         sys.exit(0)
     elif len(args) == 2:
         df = load_data()
-        standard_scale(int(args[1]))
+        standard_scale(int(args[1]), df)
     else:
         print("too many args")
         sys.exit(0)
