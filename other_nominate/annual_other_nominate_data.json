@@ -1,38 +1,5 @@
 [
     {
-        "year":1977,
-        "prize_winners":[
-            {
-                "award":"hochi_eigashou",
-                "work":{
-                    "index":-1,
-                    "title":"幸福の黄色いハンカチ"
-                }
-            },
-            {
-                "award":"mainichi_film_award",
-                "work":{
-                    "index":-1,
-                    "title":"幸福の黄色いハンカチ"
-                }
-            },
-            {
-                "award":"blue_ribbon_award",
-                "work":{
-                    "index":-1,
-                    "title":"幸福の黄色いハンカチ"
-                }
-            },
-            {
-                "award":"kinejun_best_ten",
-                "work":{
-                    "index":-1,
-                    "title":"幸福の黄色いハンカチ"
-                }
-            }
-        ]
-    },
-    {
         "year":1978,
         "prize_winners":[
             {
@@ -526,7 +493,7 @@
                 "award":"blue_ribbon_award",
                 "work":{
                     "index":-1,
-                    "title":"少年時代"
+                    "title":"少年時代(1990)"
                 }
             },
             {
@@ -1821,7 +1788,7 @@
                 "award":"hochi_eigashou",
                 "work":{
                     "index":-1,
-                    "title":"孤狼の血"
+                    "title":"\r\n孤狼の血"
                 }
             },
             {
@@ -1849,6 +1816,46 @@
     },
     {
         "year":2019,
+        "prize_winners":[
+            {
+                "award":"nikkan_sports",
+                "work":{
+                    "index":-1,
+                    "title":"新聞記者"
+                }
+            },
+            {
+                "award":"golden_gross",
+                "work":{
+                    "index":-1,
+                    "title":"天気の子"
+                }
+            },
+            {
+                "award":"mainichi_film_award",
+                "work":{
+                    "index":-1,
+                    "title":"蜜蜂と遠雷"
+                }
+            },
+            {
+                "award":"blue_ribbon_award",
+                "work":{
+                    "index":-1,
+                    "title":"翔んで埼玉"
+                }
+            },
+            {
+                "award":"kinejun_best_ten",
+                "work":{
+                    "index":-1,
+                    "title":"火口のふたり"
+                }
+            }
+        ]
+    },
+    {
+        "year":2020,
         "prize_winners":[]
     }
 ]

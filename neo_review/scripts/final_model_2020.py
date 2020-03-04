@@ -64,15 +64,18 @@ def train(y):
         
     # データの生成
     x_train_std, x_test_std, y_train, _ , features, title = load_data(y)
+    print('title: ' + str(title))
 
     # logistic regression
     lr = LogisticRegression(class_weight="balanced", solver="liblinear",  penalty="l2", C=0.0001,  random_state=0,) # ロジスティック回帰モデルのインスタンスを作成
     lr.fit(x_train_std, y_train) # ロジスティック回帰モデルの重みを学習
     probs_lr = lr.predict_proba(x_test_std)[:,1]
+    print('probs_lr: ' + str(probs_lr))
 
     # LDA
     lda = LDA(solver="eigen", shrinkage=1).fit(x_train_std,  y_train)
     probs_lda = lda.predict_proba(x_test_std)[:,1]
+    print('probs_lda: ' + str(probs_lda))
 
     # svm
     sv = svm.SVR(kernel="sigmoid",
@@ -85,6 +88,7 @@ def train(y):
                                 verbose=False,)
     sv.fit(x_train_std, y_train)
     probs_sv = sv.predict(x_test_std)
+    print('probs_sv: ' + str(probs_sv))
 
     # xgb
     xgboost = xgb.XGBRegressor(silent= True, 
@@ -99,6 +103,7 @@ def train(y):
                            scale_pos_weight=1.1672978934986058)
     xgboost.fit(x_train_std, y_train)
     probs_xgb = xgboost.predict(x_test_std)
+    print('probs_xgb: ' + str(probs_xgb))
 
     # lgbm
     lgbm = lgb.LGBMRegressor(
@@ -119,6 +124,7 @@ def train(y):
 
     lgbm.fit(x_train_std, y_train)
     probs_lgbm = lgbm.predict(x_test_std)
+    print('probs_lgbm: ' + str(probs_lgbm))
 
     # catboost
     cb = catboost.CatBoostRegressor(
@@ -133,6 +139,7 @@ def train(y):
         logging_level='Silent')
     cb.fit(x_train_std, y_train)
     probs_cb = cb.predict(x_test_std)
+    print('probs_cb: ' + str(probs_cb))
 
     # mlp
     mlp = MLPRegressor(hidden_layer_sizes=(32,),
@@ -159,6 +166,7 @@ def train(y):
                        )
     mlp.fit(x_train_std, y_train)
     probs_mlp = mlp.predict(x_test_std)
+    print('probs_mlp: ' + str(probs_mlp))
 
     #アンサンブル
     all_models_probs = [probs_lr, probs_lda, probs_sv, probs_xgb, probs_lgbm, probs_cb, probs_mlp]
@@ -182,7 +190,7 @@ def train(y):
 
 
 if __name__ == "__main__":
-    train(2019)
+    train(2020)
 
 
 
