@@ -182,7 +182,7 @@ def train(y):
 
 
 if __name__ == "__main__":
-    train(2020)
+    train(2019)
 
 
 
