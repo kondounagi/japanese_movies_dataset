@@ -3,7 +3,7 @@ alembic==1.0.11
 attrs==19.1.0
 backcall==0.1.0
 beautifulsoup4==4.8.0
-bleach==3.1.1
+bleach==3.1.2
 bs4==0.0.1
 catboost==0.16.5
 certifi==2019.6.16
