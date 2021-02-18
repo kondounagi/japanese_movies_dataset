@@ -79,7 +79,6 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 ### スクレイピングしたデータをpandasのDataframe化する
 ```
 ( cd neo_review/scripts; sh download.sh )
-( cd neo_review/data; python scrape_nominate_movie.py )
 ( cd neo_review/scripts/eigacom_review/eigacom_nomination_id_table; python scrape.py )
 ( cd neo_review/scripts/eigacom_review; python neo_review_scraping.py )
 ( cd neo_review/data/dataframes; python _pandas.py 2020 )

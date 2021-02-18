@@ -149,7 +149,11 @@ def main():
             years_dict[i][j]["id"] = unique_id
             unique_id += 1
     with open("nominate_movie_meta_data.json", "w") as f:
-        f.write(json.dumps(years_dict, ensure_ascii=False))
+        f.write(json.dumps(years_dict,
+                           ensure_ascii=False,
+                           sort_keys=True,
+                           indent=4,
+                           separators=(',', ': ')))
         f.write("\n")
 
 
