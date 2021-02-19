@@ -26,8 +26,8 @@ Jinja2==2.10.1
 joblib==0.13.2
 json5==0.8.5
 jsonschema==3.0.2
-jupyter-client==5.3.1
-jupyter-core==4.5.0
+jupyter-client==6.1.11
+jupyter-core==4.7.1
 jupyterlab==1.0.5
 jupyterlab-server==1.0.0
 kiwisolver==1.1.0
