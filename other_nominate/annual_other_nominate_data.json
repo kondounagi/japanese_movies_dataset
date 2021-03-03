@@ -935,7 +935,7 @@
                 "award":"nikkan_sports",
                 "work":{
                     "index":-1,
-                    "title":"十五才学校6"
+                    "title":"十五才　学校4"
                 }
             },
             {
@@ -1832,6 +1832,13 @@
                 }
             },
             {
+                "award":"hochi_eigashou",
+                "work":{
+                    "index":-1,
+                    "title":"蜜蜂と遠雷"
+                }
+            },
+            {
                 "award":"mainichi_film_award",
                 "work":{
                     "index":-1,
@@ -1856,6 +1863,39 @@
     },
     {
         "year":2020,
+        "prize_winners":[
+            {
+                "award":"golden_gross",
+                "work":{
+                    "index":-1,
+                    "title":"劇場版 鬼滅の刃 無限列車編"
+                }
+            },
+            {
+                "award":"hochi_eigashou",
+                "work":{
+                    "index":-1,
+                    "title":"罪の声"
+                }
+            },
+            {
+                "award":"mainichi_film_award",
+                "work":{
+                    "index":-1,
+                    "title":"MOTHER マザー"
+                }
+            },
+            {
+                "award":"kinejun_best_ten",
+                "work":{
+                    "index":-1,
+                    "title":"スパイの妻<劇場版>"
+                }
+            }
+        ]
+    },
+    {
+        "year":2021,
         "prize_winners":[]
     }
 ]
