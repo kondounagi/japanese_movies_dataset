@@ -137,9 +137,8 @@ def scrape_nominate_movie(year):
     return year_film_data
 
 
-def main():
+def main(end_year=2020):
     start_year = 1978
-    end_year = 2020
 
     years_dict = {}
     unique_id = 1
@@ -158,4 +157,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(int(sys.argv[1]))

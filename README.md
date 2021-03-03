@@ -6,7 +6,7 @@
 #### Usage
 ```bash
 cd neo_review/data
-python scrape_nominate_movie.py
+python scrape_nominate_movie.py 2020
 ```
 
 #### How to update new data
