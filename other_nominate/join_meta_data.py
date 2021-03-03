@@ -1,5 +1,6 @@
 import argparse
 import json
+from datetime import datetime
 
 
 class JoinMetaData:
@@ -33,7 +34,8 @@ class JoinMetaData:
 
         self.args = parser.parse_args()
 
-        self.years = range(1978, 2021)
+        today = datetime.today()
+        self.years = range(1978, today.year + 1)
 
     def __call__(self, *args, **kwargs):
         nominate_map = self.create_map()
