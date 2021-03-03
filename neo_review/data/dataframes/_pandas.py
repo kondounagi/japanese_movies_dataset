@@ -16,7 +16,6 @@ def json2dataframe(year):
             data += json_dict[year]
 
     data = pd.DataFrame(data).set_index('id')
-    print(data[data["year"] == "2019"]["title"])
 
     def dict2list_other_nominate(series):
         lst = []
