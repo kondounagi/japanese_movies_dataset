@@ -11,6 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import re
+from datetime import datetime
 
 
 # In[13]:
@@ -51,7 +52,8 @@ def scrape(year):
 
 
 def main():
-    for year in range(1978, 2021):
+    today = datetime.today()
+    for year in range(1978, today.year + 1):
         ids = scrape(year)
         with open('{}.txt'.format(str(year)), 'w') as f:
             for id in ids:
