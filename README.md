@@ -92,7 +92,7 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 #### Usage
 ```bash
 cd neo_review/scripts
-python final_model_2020.py
+python final_model.py 2020
 ```
 #### Output
 ```
