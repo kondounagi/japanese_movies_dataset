@@ -1865,6 +1865,13 @@
         "year":2020,
         "prize_winners":[
             {
+                "award":"nikkan_sports",
+                "work":{
+                    "index":-1,
+                    "title":"罪の声"
+                }
+            },
+            {
                 "award":"golden_gross",
                 "work":{
                     "index":-1,
@@ -1883,6 +1890,13 @@
                 "work":{
                     "index":-1,
                     "title":"MOTHER マザー"
+                }
+            },
+            {
+                "award":"blue_ribbon_award",
+                "work":{
+                    "index":-1,
+                    "title":"Fukushima 50"
                 }
             },
             {

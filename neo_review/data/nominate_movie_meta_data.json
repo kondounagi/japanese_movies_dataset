@@ -15258,7 +15258,7 @@
             "other_nominates":[
                 {
                     "award":"nikkan_sports",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"golden_gross",
@@ -15417,7 +15417,7 @@
                 },
                 {
                     "award":"blue_ribbon_award",
-                    "prized":0
+                    "prized":1
                 },
                 {
                     "award":"kinejun_best_ten",
