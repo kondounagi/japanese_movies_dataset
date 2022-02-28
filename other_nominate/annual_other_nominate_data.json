@@ -1910,6 +1910,49 @@
     },
     {
         "year":2021,
-        "prize_winners":[]
+        "prize_winners":[
+            {
+                "award":"nikkan_sports",
+                "work":{
+                    "index":-1,
+                    "title":"燃えよ剣"
+                }
+            },
+            {
+                "award":"golden_gross",
+                "work":{
+                    "index":-1,
+                    "title":"シン・エヴァンゲリオン劇場版"
+                }
+            },
+            {
+                "award":"hochi_eigashou",
+                "work":{
+                    "index":-1,
+                    "title":"護られなかった者たちへ"
+                }
+            },
+            {
+                "award":"mainichi_film_award",
+                "work":{
+                    "index":-1,
+                    "title":"ドライブ・マイ・カー"
+                }
+            },
+            {
+                "award":"blue_ribbon_award",
+                "work":{
+                    "index":-1,
+                    "title":"孤狼の血 LEVEL2"
+                }
+            },
+            {
+                "award":"kinejun_best_ten",
+                "work":{
+                    "index":-1,
+                    "title":"ドライブ・マイ・カー"
+                }
+            }
+        ]
     }
 ]
