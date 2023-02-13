@@ -144,7 +144,7 @@ class DumpOtherNominate:
         root = self._get_root(url)
         whole_data = {}
 
-        for row in root.xpath('//table[contains(@class, "table")]//tr'):
+        for row in root.xpath('//table//tr'):
             if not row.xpath('td'):
                 continue
 
