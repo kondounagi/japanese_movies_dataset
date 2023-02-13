@@ -81,18 +81,17 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 ( cd neo_review/scripts; sh download.sh )
 ( cd neo_review/scripts/eigacom_review/eigacom_nomination_id_table; python scrape.py )
 ( cd neo_review/scripts/eigacom_review; python neo_review_scraping.py )
-( cd neo_review/data/dataframes; python _pandas.py 2020 )
+( cd neo_review/data/dataframes; python _pandas.py "$(date +"%Y")" )
 ```
 
 ### データの正規化
 ```
-( cd neo_review/data/dataframes; python generate_std_data.py 2020 )
+( cd neo_review/data/dataframes; python generate_std_data.py "$(date +"%Y")" )
 ```
 ### 予測
 #### Usage
-```bash
-cd neo_review/scripts
-python final_model.py 2020
+```
+( neo_review/scripts; python final_model.py "$(date +"%Y")" )
 ```
 #### Output
 ```

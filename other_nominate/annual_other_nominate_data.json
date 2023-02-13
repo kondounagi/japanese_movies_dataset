@@ -1915,7 +1915,7 @@
                 "award":"nikkan_sports",
                 "work":{
                     "index":-1,
-                    "title":"燃えよ剣"
+                    "title":"ドライブ・マイ・カー"
                 }
             },
             {
@@ -1951,6 +1951,46 @@
                 "work":{
                     "index":-1,
                     "title":"ドライブ・マイ・カー"
+                }
+            }
+        ]
+    },
+    {
+        "year":2022,
+        "prize_winners":[
+            {
+                "award":"nikkan_sports",
+                "work":{
+                    "index":-1,
+                    "title":"ハケンアニメ!"
+                }
+            },
+            {
+                "award":"golden_gross",
+                "work":{
+                    "index":-1,
+                    "title":"ONE PIECE FILM RED"
+                }
+            },
+            {
+                "award":"hochi_eigashou",
+                "work":{
+                    "index":-1,
+                    "title":"ある男"
+                }
+            },
+            {
+                "award":"blue_ribbon_award",
+                "work":{
+                    "index":-1,
+                    "title":"ある男"
+                }
+            },
+            {
+                "award":"kinejun_best_ten",
+                "work":{
+                    "index":-1,
+                    "title":"ケイコ 目を澄ませて"
                 }
             }
         ]
