@@ -6,7 +6,7 @@
 #### Usage
 ```bash
 cd neo_review/data
-python scrape_nominate_movie.py 2020
+python scrape_nominate_movie.py "$(date +"%Y")"
 ```
 
 #### How to update new data
@@ -22,7 +22,7 @@ Then ID for this movie is 90444 and append it in 2020.txt.
 `cd japanese_movies_dataset`
 
 ```
-( cd other_nominate; python dump_other_nominate.py --until=2021 )
+( cd other_nominate; python dump_other_nominate.py --until="$(date +"%Y")" )
 ```
 
 必要な場合は最新(2020)年度のデータのみの追加は `neo_review/data/nominate_movie_meta_data.json` に直接手動で入力する
