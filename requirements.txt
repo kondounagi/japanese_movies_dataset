@@ -1,4 +1,4 @@
-aiohttp==3.7.4
+aiohttp==3.9.2
 alembic==1.0.11
 attrs==19.1.0
 backcall==0.1.0
